@@ -3,7 +3,11 @@ The Theia Web Package contains npm install theia-web and that contains theia-web
 
 this also superseeds theia extensions
 
-## Use case
+## Use case 2
+- Start a NodeJS Server as Backend. 
+- Use serviceWorkers as Backend
+
+## Use case 1
 This project can be used to build a strong web file editor/reader. You need to implement your own [`FileSystemProvider`](https://code.visualstudio.com/api/references/vscode-api#FileSystemProvider) through extension. 
 Additional you can also use [proposed API](https://code.visualstudio.com/api/advanced-topics/using-proposed-api) to implement a `TextSearchProvider` and `FileSearchProvider`.
 
