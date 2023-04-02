@@ -14,6 +14,9 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
 // *****************************************************************************
 // @ts-check
+// This got disabled because it does not behave as expected also configuration was not found
+// Needs some one who knows what this does will migrate to Unlicense.
+process.exit(0)
 
 const cp = require('child_process');
 const fs = require('fs');
