@@ -54,7 +54,7 @@ async function run() {
     const repoPath = path.resolve(__dirname, '..');
     const zipFile = path.join(__dirname, `native-dependencies-${process.platform}-${process.arch}.zip`);
     //const browserAppPath = path.join(repoPath, 'examples', 'browser');
-    fs.rmdir(path.join(repoPath,'node_modules/electron'),{ recursive: true });
+    fs.rmdirSync(path.join(repoPath,'node_modules/electron'),{ recursive: true });
     const nativeDependencies = await glob('**/*', {
         cwd: repoPath,
         dot: true
