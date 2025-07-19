@@ -55,7 +55,8 @@ async function run() {
     const zipFile = path.join(__dirname, `native-dependencies-${process.platform}-${process.arch}.zip`);
     //const browserAppPath = path.join(repoPath, 'examples', 'browser');
     const nativeDependencies = await glob('**/*', {
-        cwd: repoPath
+        cwd: repoPath,
+        dot: true
     });
     // const buildDependencies = await glob('lib/build/Release/**', {
     //     cwd: browserAppPath
