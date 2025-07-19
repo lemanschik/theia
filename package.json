@@ -5,8 +5,10 @@
   "engines": {
     "node": ">=20"
   },
+  "overridesNext": {
+    "glob": "$glob"
+  },
   "overrides": {
-    "glob": "$glob",
     "typescript": "^5.8.3",
     "@types/node": "$@types/node",
     "puppeteer": "npm:puppeteer-core",
@@ -42,7 +44,7 @@
     "eslint-plugin-no-null": "^1.0.2",
     "eslint-plugin-no-unsanitized": "^4.1.2",
     "eslint-plugin-react": "^7.37.5",
-    "glob": "^11.0.3",
+    "glob": "^7.1.7",
     "glob11": "npm:glob@^11.0.3",
     "if-env": "^1.0.4",
     "ignore-styles": "^5.0.1",
