@@ -56,16 +56,19 @@ async function runOnNodeModules() {
     const zipFile = path.join(__dirname, `native-dependencies-${process.platform}-${process.arch}.zip`);
     const browserAppPath = path.join(repoPath, 'examples', 'browser');
     const nativeDependencies = await glob('node_modules/**', {
-        //   cwd: browserAppPath
+        cwd: browserAppPath
     });
-    console.log(browserAppPath, buildDependencies, trashDependencies)
+    const buildDependencies = await glob('node_modules/**', {
+        cwd: repoPath
+    });
+    //console.log(browserAppPath, buildDependencies, trashDependencies)
     const archive = archiver('zip');
     const output = fs.createWriteStream(zipFile, { flags: "w" });
     archive.pipe(output);
     for (const file of [
         ...nativeDependencies,
         ...buildDependencies,
-        ...trashDependencies
+        // ...trashDependencies
     ]) {
         const filePath = path.join(browserAppPath, file);
         archive.file(filePath, {
