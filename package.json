@@ -38,7 +38,7 @@
     "eslint-plugin-no-unsanitized": "latest",
     "eslint-plugin-react": "^7.31.10",
     "glob": "^7.1.7",
-    "glob11": "^11.0.3",
+    "glob11": "npm:glob@^11.0.3",
     "if-env": "^1.0.4",
     "ignore-styles": "^5.0.1",
     "jsdom": "^22.1.0",
