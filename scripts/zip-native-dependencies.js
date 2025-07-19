@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 const { promisify } = require('util');
-const { glob } = require('glob11');
+const glob = require('glob');
 const fs = require('fs');
 const path = require('path');
 const archiver = require('archiver');
