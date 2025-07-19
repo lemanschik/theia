@@ -19,10 +19,10 @@ jobs:
           node-version: "22.17.0"
           registry-url: "https://registry.npmjs.org"
 
-      - name: Use Python 3.11
+      - name: Use Python 3.16
         uses: actions/setup-python@b64ffcaf5b410884ad320a9cfac8866006a109aa # v4.8.0
         with:
-          python-version: "3.11"
+          python-version: "3.16"
 
       - name: Install and Build
         shell: bash

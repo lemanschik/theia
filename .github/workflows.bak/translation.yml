@@ -1,25 +1,13 @@
-name: Publish Release
+name: Automatic Translation
 
-permissions:
-  id-token: write
-
-on:
-  workflow_dispatch:
-    inputs:
-      release_type:
-        description: 'Release Type'
-        required: true
-        default: 'minor'
-        type: choice
-        options:
-          - 'minor'
-          - 'patch'
+on: workflow_dispatch
 
 jobs:
-  publish:
-    name: Perform Publishing
+  translation:
+    name: Translation Update
     runs-on: ubuntu-22.04
     timeout-minutes: 60
+
     steps:
       - name: Checkout
         uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
@@ -30,12 +18,12 @@ jobs:
           node-version: 20.x
           registry-url: "https://registry.npmjs.org"
 
-      - name: Use Python 3.11
+      - name: Use Python 3.x
         uses: actions/setup-python@b64ffcaf5b410884ad320a9cfac8866006a109aa # v4.8.0
         with:
-          python-version: "3.11"
+          python-version: "3.16"
 
-      - name: Install
+      - name: Install and Build
         shell: bash
         run: |
           npm ci
@@ -44,14 +32,16 @@ jobs:
           NODE_OPTIONS: --max_old_space_size=4096
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # https://github.com/microsoft/vscode-ripgrep/issues/9
 
-      - name: Publish NPM
-        shell: bash
+      - id: compute-next-version
         run: |
-          npm run publish:latest -- ${{ inputs.release_type }}
-          npm run publish:check
+          export THEIA_CORE_VERSION=$(node -p "require(\"./packages/core/package.json\").version")
+          echo "NEXT_VERSION_NUMBER=$(npx -q semver@7 --increment minor $THEIA_CORE_VERSION)" >> $GITHUB_ENV
+
+      - name: Perform Automatic Translation
+        run: |
+          node ./scripts/translation-update.js
         env:
-          NPM_CONFIG_PROVENANCE: "true" # enable provenance check
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          DEEPL_API_TOKEN: ${{ secrets.DEEPL_API_TOKEN }}
 
       - name: Get Actor User Data
         uses: octokit/request-action@21d174fc38ff59af9cf4d7e07347d29df6dbaa99 # v2.3.0
@@ -67,7 +57,8 @@ jobs:
         with:
           commiter: ${{ github.actor }} <${{ fromJson(steps.actor_user_data.outputs.data).email }}>
           author: ${{ github.actor }} <${{ fromJson(steps.actor_user_data.outputs.data).email }}>
-          branch: bot/package-update
-          title: Package update for version ${{ env.NEXT_VERSION_NUMBER }}
-          commit-message: Package update for version ${{ env.NEXT_VERSION_NUMBER }}
-          body: Automated package update for Theia version ${{ env.NEXT_VERSION_NUMBER }}. Triggered by @${{ github.actor }}.
+          branch: bot/translation-update
+          title: Translation update for version ${{ env.NEXT_VERSION_NUMBER }}
+          commit-message: Translation update for version ${{ env.NEXT_VERSION_NUMBER }}
+          body: Automated translation update for Theia version ${{ env.NEXT_VERSION_NUMBER }}. Triggered by @${{ github.actor }}.
+          labels: localization

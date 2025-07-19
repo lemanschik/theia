@@ -190,12 +190,6 @@ GH-3397: Implemented the HTTP-based authentication for Git in Electron. (n/a)
 
 * License: MIT
 
-glob promise (3.4.0)
-
-* License: ISC
-* Project: <https://github.com/ahmadnassri/glob-promise>
-* Source: <https://github.com/ahmadnassri/glob-promise>
-
 Icon configure-inverse.svg (n/a)
 
 * License: MIT

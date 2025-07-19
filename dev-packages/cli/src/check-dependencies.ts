@@ -16,7 +16,7 @@
 
 import * as fs from 'fs';
 import * as path from 'path';
-import { glob } from 'glob';
+import { sync } from 'glob11';
 import { create as logUpdater } from 'log-update';
 import * as chalk from 'chalk';
 
@@ -89,7 +89,7 @@ function deriveWorkspaces(options: CheckDependenciesOptions): string[] {
     const wsGlobs = options.workspaces ?? readWorkspaceGlobsFromPackageJson();
     const workspaces: string[] = [];
     for (const wsGlob of wsGlobs) {
-        workspaces.push(...glob.sync(wsGlob + '/'));
+        workspaces.push(...sync(wsGlob + '/'));
     }
     return workspaces;
 }
@@ -118,7 +118,7 @@ function findDependencies(workspace: string, options: CheckDependenciesOptions):
     const nodeModulesDir = path.join(workspace, NODE_MODULES);
     const matchingPackageJsons: Package[] = [];
     options.include.forEach(include =>
-        glob.sync(`${include}/${PACKAGE_JSON}`, {
+        sync(`${include}/${PACKAGE_JSON}`, {
             cwd: nodeModulesDir,
             ignore: [
                 `**/${NODE_MODULES}/**`, // node_modules folders within dependencies

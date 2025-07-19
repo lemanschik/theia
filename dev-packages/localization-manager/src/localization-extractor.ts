@@ -18,12 +18,10 @@ import * as fs from 'fs-extra';
 import * as ts from 'typescript';
 import * as os from 'os';
 import * as path from 'path';
-import { glob } from 'glob';
-import { promisify } from 'util';
+import { glob as globPromise } from 'glob11';
+
 import deepmerge = require('deepmerge');
 import { Localization, sortLocalization } from './common';
-
-const globPromise = promisify(glob);
 
 export interface ExtractionOptions {
     root?: string

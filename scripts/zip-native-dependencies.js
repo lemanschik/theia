@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 const { promisify } = require('util');
-const glob = promisify(require('glob'));
+const { glob } = require('glob11');
 const fs = require('fs');
 const path = require('path');
 const archiver = require('archiver');
@@ -33,6 +33,7 @@ async function run() {
     const trashDependencies = await glob('lib/backend/{windows-trash.exe,macos-trash}', {
         cwd: browserAppPath
     });
+    console.log(browserAppPath, buildDependencies, trashDependencies)
     const archive = archiver('zip');
     const output = fs.createWriteStream(zipFile, { flags: "w" });
     archive.pipe(output);
@@ -50,4 +51,29 @@ async function run() {
     await archive.finalize();
 }
 
-run();
+async function runOnNodeModules() {
+    const repoPath = path.resolve(__dirname, '..');
+    const zipFile = path.join(__dirname, `native-dependencies-${process.platform}-${process.arch}.zip`);
+    const browserAppPath = path.join(repoPath, 'examples', 'browser');
+    const nativeDependencies = await glob('node_modules/**', {
+        //   cwd: browserAppPath
+    });
+    console.log(browserAppPath, buildDependencies, trashDependencies)
+    const archive = archiver('zip');
+    const output = fs.createWriteStream(zipFile, { flags: "w" });
+    archive.pipe(output);
+    for (const file of [
+        ...nativeDependencies,
+        ...buildDependencies,
+        ...trashDependencies
+    ]) {
+        const filePath = path.join(browserAppPath, file);
+        archive.file(filePath, {
+            name: file,
+            mode: (await fs.promises.stat(filePath)).mode
+        });
+    }
+    await archive.finalize();
+}
+
+run().then(runOnNodeModules);

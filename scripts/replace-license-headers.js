@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 const fs = require('fs-extra');
-const glob = require('glob');
+const { Glob } = require('glob11');
 const util = require('util');
 
 const realpath = util.promisify(require('fs').realpath.native);
@@ -56,7 +56,7 @@ const newHeaderTemplate = `\
 // SPDX-License-Identifier: $2
 // *****************************************************************************`;
 
-const search = new glob.Glob('**/*.{ts,tsx,js,jsx,c,cc,cpp,cxx}', {
+const search = new Glob('**/*.{ts,tsx,js,jsx,c,cc,cpp,cxx}', {
     ignore: [
         '**/node_modules/**/*',
         '**/lib/**/*'

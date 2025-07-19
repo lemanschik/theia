@@ -17,11 +17,8 @@
 import { ApplicationPackage } from '@theia/core/shared/@theia/application-package';
 import { inject, injectable } from '@theia/core/shared/inversify';
 import { RemoteCopyRegistry, RemoteFile, RemoteCopyOptions } from '@theia/core/lib/node/remote/remote-copy-contribution';
-import { glob as globCallback } from 'glob';
-import { promisify } from 'util';
+import { glob as promiseGlob } from 'glob11';
 import * as path from 'path';
-
-const promiseGlob = promisify(globCallback);
 
 @injectable()
 export class RemoteCopyRegistryImpl implements RemoteCopyRegistry {
