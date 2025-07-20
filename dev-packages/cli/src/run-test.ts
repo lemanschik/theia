@@ -17,7 +17,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import net from 'net';
-import puppeteer from 'puppeteer-core';
+import * as puppeteer from 'puppeteer-core';
 import newTestPage, { TestFileOptions } from './test-page.js';
 
 export interface TestOptions {
