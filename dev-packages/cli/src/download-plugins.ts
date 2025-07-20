@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
- 
+
 
 import { OVSXApiFilterImpl, OVSXClient, VSXTargetPlatform } from '@theia/ovsx-client';
 import chalk from 'chalk';
@@ -22,7 +22,7 @@ import { default as decompress } from 'decompress';
 import { promises as fs } from 'fs';
 import path from 'path';
 import temp from 'temp';
-import { DEFAULT_SUPPORTED_API_VERSION } from '@theia/application-package/lib/api';
+import { DEFAULT_SUPPORTED_API_VERSION } from '@theia/application-package/lib/api.js';
 import { RequestContext, RequestService } from '@theia/request';
 import { RateLimiter } from 'limiter';
 import escapeStringRegexp from 'escape-string-regexp';
