@@ -19,7 +19,7 @@ import * as mustache from 'mustache';
 import * as os from 'os';
 import * as path from 'path';
 import * as semver from 'semver';
-import * as yargs from 'yargs';
+import { default as yargs } from 'yargs';
 import { parseModule } from './utility.js';
 import { ReExport, PackageReExports } from './package-re-exports.js';
 type EOL = '\r\n' | '\n' | '\r';
