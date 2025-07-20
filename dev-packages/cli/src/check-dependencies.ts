@@ -16,7 +16,7 @@
 
 import fs from 'fs';
 import path from 'path';
-import { glob } from 'glob';
+import { glob } from 'glob11';
 import { create as logUpdater } from 'log-update';
 import chalk from 'chalk';
 
