@@ -1,1 +1,1 @@
-module.exports = require('react-virtuoso');
+export * from 'react-virtuoso';

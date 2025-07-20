@@ -17,7 +17,7 @@
 import { injectable } from '@theia/core/shared/inversify';
 import { ReactWidget } from '@theia/core/lib/browser';
 import { AlertMessage } from '@theia/core/lib/browser/widgets/alert-message';
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 
 @injectable()
 export class TimelineEmptyWidget extends ReactWidget {

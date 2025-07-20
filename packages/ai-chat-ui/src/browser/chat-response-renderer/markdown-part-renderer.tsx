@@ -21,8 +21,8 @@ import {
     InformationalChatResponseContent,
     MarkdownChatResponseContent,
 } from '@theia/ai-chat/lib/common';
-import { ReactNode, useEffect, useRef } from '@theia/core/shared/react';
-import * as React from '@theia/core/shared/react';
+import { ReactNode, useEffect, useRef } from 'react';
+import * as React from 'react';
 import * as markdownit from '@theia/core/shared/markdown-it';
 import * as DOMPurify from '@theia/core/shared/dompurify';
 import { MarkdownString } from '@theia/core/lib/common/markdown-rendering';
@@ -110,7 +110,7 @@ export const useMarkdownRendering = (
 
         // intercept link clicks to use the Theia OpenerService instead of the default browser behavior
         const handleClick = (event: MouseEvent) => {
-            if ((eventHandler?.handleEvent(event) as unknown) === true) {return; }
+            if ((eventHandler?.handleEvent(event) as unknown) === true) { return; }
             let target = event.target as HTMLElement;
             while (target && target.tagName !== 'A') {
                 target = target.parentElement as HTMLElement;

@@ -17,7 +17,7 @@ import { Agent, AgentService, LanguageModelService, SessionEvent } from '@theia/
 import { LanguageModelExchange } from '@theia/ai-core/lib/common/language-model-interaction-model';
 import { codicon, ReactWidget, StatefulWidget } from '@theia/core/lib/browser';
 import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 import { ExchangeCard } from './ai-history-exchange-card';
 import { SelectComponent, SelectOption } from '@theia/core/lib/browser/widgets/select-component';
 import { deepClone, nls } from '@theia/core';

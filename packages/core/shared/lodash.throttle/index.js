@@ -1,1 +1,1 @@
-module.exports = require('lodash.throttle');
+export * from 'lodash.throttle';

@@ -1,1 +1,1 @@
-module.exports = require('@lumino/coreutils');
+export * from '@lumino/coreutils';

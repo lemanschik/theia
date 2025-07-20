@@ -18,8 +18,8 @@ import { Widget, Message, BaseWidget, Key, StatefulWidget, MessageLoop, KeyCode,
 import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
 import { SearchInWorkspaceResultTreeWidget } from './search-in-workspace-result-tree-widget';
 import { SearchInWorkspaceOptions } from '../common/search-in-workspace-interface';
-import * as React from '@theia/core/shared/react';
-import { createRoot, Root } from '@theia/core/shared/react-dom/client';
+import * as React from 'react';
+import { createRoot, Root } from 'react-dom/client';
 import { Event, Emitter, Disposable } from '@theia/core/lib/common';
 import { WorkspaceService } from '@theia/workspace/lib/browser';
 import { SearchInWorkspaceContextKeyService } from './search-in-workspace-context-key-service';

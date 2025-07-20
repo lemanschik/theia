@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { ChatProgressMessage } from '@theia/ai-chat';
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 
 export type ProgressMessageProps = Omit<ChatProgressMessage, 'kind' | 'id' | 'show'>;
 

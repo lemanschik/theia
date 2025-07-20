@@ -1,1 +1,1 @@
-module.exports = require('@lumino/commands');
+export * from '@lumino/commands';

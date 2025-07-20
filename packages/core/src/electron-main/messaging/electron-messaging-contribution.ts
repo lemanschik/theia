@@ -20,8 +20,8 @@ import { ConnectionHandlers } from '../../node/messaging/default-messaging-servi
 import { AbstractChannel, Channel, ChannelMultiplexer, MessageProvider } from '../../common/message-rpc/channel';
 import { ConnectionHandler, ContributionProvider, Emitter, WriteBuffer } from '../../common';
 import { Uint8ArrayReadBuffer, Uint8ArrayWriteBuffer } from '../../common/message-rpc/uint8-array-message-buffer';
-import { TheiaRendererAPI } from '../electron-api-main';
-import { MessagingService } from '../../node';
+import { TheiaRendererAPI } from '../electron-api-main.js';
+import { MessagingService } from '../../node/index.js';
 import { ElectronMessagingService } from './electron-messaging-service';
 import { ElectronConnectionHandler } from './electron-connection-handler';
 import { ElectronMainApplicationContribution } from '../electron-main-application';

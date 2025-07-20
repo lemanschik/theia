@@ -18,7 +18,7 @@ import * as http from 'http';
 import * as path from 'path';
 import * as url from 'url';
 const vhost = require('vhost');
-import * as express from '@theia/core/shared/express';
+import { default as express } from 'express';
 import { BackendApplicationContribution } from '@theia/core/lib/node/backend-application';
 import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
 import { WebviewExternalEndpoint } from '../common/webview-protocol';

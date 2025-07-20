@@ -16,7 +16,7 @@
 
 import URI from '@theia/core/lib/common/uri';
 import { LocationService } from './location-service';
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 import { FileService } from '../file-service';
 import { DisposableCollection, Emitter, Path } from '@theia/core/lib/common';
 import { injectable, inject, postConstruct } from '@theia/core/shared/inversify';

@@ -1,1 +1,1 @@
-module.exports = require('@lumino/algorithm');
+export * from '@lumino/algorithm';

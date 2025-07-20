@@ -17,7 +17,7 @@
 import { nls } from '@theia/core/lib/common/nls';
 import { ReactWidget } from '@theia/core/lib/browser';
 import { injectable } from '@theia/core/shared/inversify';
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 import { PropertyViewContentWidget } from './property-view-content-widget';
 import { DefaultPropertyViewWidgetProvider } from './property-view-widget-provider';
 

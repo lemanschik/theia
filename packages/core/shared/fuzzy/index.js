@@ -1,1 +1,1 @@
-module.exports = require('fuzzy');
+export * from 'fuzzy';

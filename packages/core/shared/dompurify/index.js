@@ -1,1 +1,1 @@
-module.exports = require('dompurify');
+export * from 'dompurify';

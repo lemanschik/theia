@@ -1,1 +1,1 @@
-module.exports = require('ws');
+export * from 'ws';

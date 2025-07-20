@@ -1,2 +1,1 @@
-import markdownit = require('markdown-it');
-export = markdownit;
+export * as markdownit from 'markdown-it';

@@ -1,1 +1,1 @@
-module.exports = require('express');
+export * from 'express';

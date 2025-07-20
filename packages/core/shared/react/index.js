@@ -1,1 +1,1 @@
-module.exports = require('react');
+export * from 'react';

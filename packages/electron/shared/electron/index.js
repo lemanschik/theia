@@ -1,1 +1,1 @@
-module.exports = require('electron');
+export * from 'electron';

@@ -36,7 +36,7 @@ import {
     KeybindingRegistry
 } from '@theia/core/lib/browser';
 import { MenuPath, MenuModelRegistry, CommandMenu, AcceleratorSource } from '@theia/core/lib/common/menu';
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 import { PluginSharedStyle } from '../plugin-shared-style';
 import { ACTION_ITEM, Widget } from '@theia/core/lib/browser/widgets/widget';
 import { Emitter, Event } from '@theia/core/lib/common/event';

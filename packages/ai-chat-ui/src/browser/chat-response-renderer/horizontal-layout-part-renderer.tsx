@@ -20,8 +20,8 @@ import {
     ChatResponseContent,
     HorizontalLayoutChatResponseContent,
 } from '@theia/ai-chat/lib/common';
-import { ReactNode } from '@theia/core/shared/react';
-import * as React from '@theia/core/shared/react';
+import { ReactNode } from 'react';
+import * as React from 'react';
 import { ContributionProvider } from '@theia/core';
 import { ResponseNode } from '../chat-tree-view/chat-view-tree-widget';
 

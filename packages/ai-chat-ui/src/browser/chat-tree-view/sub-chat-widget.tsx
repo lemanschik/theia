@@ -17,7 +17,7 @@
 import { inject, injectable, named } from '@theia/core/shared/inversify';
 import { ProgressMessage } from '../chat-progress-message';
 import { ChatViewTreeWidget, ResponseNode } from './chat-view-tree-widget';
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 import { ContributionProvider } from '@theia/core';
 import { ChatResponsePartRenderer } from '../chat-response-part-renderer';
 import { ChatNodeToolbarActionContribution } from '../chat-node-toolbar-action-contribution';

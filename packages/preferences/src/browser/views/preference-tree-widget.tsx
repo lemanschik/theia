@@ -22,7 +22,7 @@ import {
     TreeWidget,
     TREE_NODE_CONTENT_CLASS,
 } from '@theia/core/lib/browser';
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 import { PreferenceTreeModel, PreferenceTreeNodeRow, PreferenceTreeNodeProps } from '../preference-tree-model';
 import { Preference } from '../util/preference-types';
 

@@ -1,1 +1,1 @@
-module.exports = require('vscode-uri');
+export * from 'vscode-uri';

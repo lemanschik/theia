@@ -45,7 +45,7 @@ import { SearchInWorkspaceResult, SearchInWorkspaceOptions, SearchMatch } from '
 import { SearchInWorkspaceService } from './search-in-workspace-service';
 import { MEMORY_TEXT } from '@theia/core/lib/common';
 import URI from '@theia/core/lib/common/uri';
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 import { SearchInWorkspacePreferences } from './search-in-workspace-preferences';
 import { ColorRegistry } from '@theia/core/lib/browser/color-registry';
 import * as minimatch from 'minimatch';

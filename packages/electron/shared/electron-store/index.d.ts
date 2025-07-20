@@ -1,2 +1,1 @@
-import ElectronStore = require('electron-store');
-export = ElectronStore;
+export * as ElectronStore from 'electron-store';

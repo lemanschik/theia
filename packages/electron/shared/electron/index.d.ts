@@ -1,2 +1,1 @@
-import Electron = require('electron');
-export = Electron;
+export * as Electron from 'electron';

@@ -16,7 +16,7 @@
 
 import { Disposable, DisposableCollection, Emitter, nls } from '@theia/core';
 import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 import { DebugSession, DebugState } from '@theia/debug/lib/browser/debug-session';
 import { ASCII_TOGGLE_ID, AUTO_UPDATE_TOGGLE_ID, MemoryOptionsWidget } from '../memory-widget/memory-options-widget';
 import { MWInputWithSelect } from '../utils/memory-widget-components';

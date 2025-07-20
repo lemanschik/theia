@@ -21,7 +21,7 @@ import { LabelProvider } from '@theia/core/lib/browser/label-provider';
 import { ScmFileChangeLabelProvider } from '@theia/scm-extra/lib/browser/scm-file-change-label-provider';
 import { ReactWidget, StatefulWidget, KeybindingRegistry, codicon } from '@theia/core/lib/browser';
 import { Git } from '../../common';
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 
 /* eslint-disable no-null/no-null */
 

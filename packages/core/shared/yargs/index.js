@@ -1,1 +1,1 @@
-module.exports = require('yargs');
+export * from 'yargs';

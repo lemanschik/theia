@@ -18,7 +18,7 @@ import { deepFreeze, Disposable, DisposableCollection, Emitter, nls } from '@the
 import { Key, KeyCode, Message, ReactWidget, StatefulWidget } from '@theia/core/lib/browser';
 import { Deferred } from '@theia/core/lib/common/promise-util';
 import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 import { DebugSession, DebugState } from '@theia/debug/lib/browser/debug-session';
 import { DebugSessionManager } from '@theia/debug/lib/browser/debug-session-manager';
 import Long from 'long';

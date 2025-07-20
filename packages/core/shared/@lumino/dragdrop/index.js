@@ -1,1 +1,1 @@
-module.exports = require('@lumino/dragdrop');
+export * from '@lumino/dragdrop';

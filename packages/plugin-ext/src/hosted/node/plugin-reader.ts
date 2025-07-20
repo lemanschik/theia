@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import * as path from 'path';
-import * as express from '@theia/core/shared/express';
+import { default as express } from 'express';
 import * as escape_html from 'escape-html';
 import { realpath } from 'fs/promises';
 import { ILogger } from '@theia/core';

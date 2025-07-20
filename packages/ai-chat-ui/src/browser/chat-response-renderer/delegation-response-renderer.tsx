@@ -16,7 +16,7 @@
 import { inject, injectable } from '@theia/core/shared/inversify';
 import { ChatRequestInvocation, ChatResponseContent, ChatResponseModel } from '@theia/ai-chat';
 import { ChatResponsePartRenderer } from '../chat-response-part-renderer';
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 import { DelegationResponseContent, isDelegationResponseContent } from '@theia/ai-chat/lib/browser/delegation-response-content';
 import { ResponseNode } from '../chat-tree-view';
 import { CompositeTreeNode } from '@theia/core/lib/browser';

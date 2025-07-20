@@ -24,7 +24,7 @@ import { TabBarToolbarContribution, TabBarToolbarRegistry } from '@theia/core/li
 import { Command, CommandRegistry } from '@theia/core/lib/common/command';
 import { Severity } from '@theia/core/lib/common/severity';
 import { inject, injectable, interfaces, postConstruct } from '@theia/core/shared/inversify';
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 import { SelectComponent, SelectOption } from '@theia/core/lib/browser/widgets/select-component';
 import { DebugSession } from '../debug-session';
 import { DebugSessionManager, DidChangeActiveDebugSession } from '../debug-session-manager';

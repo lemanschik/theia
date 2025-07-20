@@ -1,1 +1,1 @@
-module.exports = require('@lumino/virtualdom');
+export * from '@lumino/virtualdom';

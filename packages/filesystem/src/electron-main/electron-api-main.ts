@@ -20,7 +20,7 @@ import { ElectronMainApplication, ElectronMainApplicationContribution } from '@t
 import { MaybePromise } from '@theia/core';
 import { CHANNEL_SHOW_OPEN, CHANNEL_SHOW_SAVE, OpenDialogOptions, SaveDialogOptions } from '../electron-common/electron-api';
 import { ipcMain, OpenDialogOptions as ElectronOpenDialogOptions, SaveDialogOptions as ElectronSaveDialogOptions, BrowserWindow, dialog }
-    from '@theia/core/electron-shared/electron';
+    from 'electron';
 
 @injectable()
 export class ElectronApi implements ElectronMainApplicationContribution {

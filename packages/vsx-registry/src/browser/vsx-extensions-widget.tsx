@@ -22,7 +22,7 @@ import { nls } from '@theia/core/lib/common/nls';
 import { BadgeWidget } from '@theia/core/lib/browser/view-container';
 import { Emitter, Event } from '@theia/core/lib/common';
 import { AlertMessage } from '@theia/core/lib/browser/widgets/alert-message';
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 
 @injectable()
 export class VSXExtensionsWidgetOptions extends VSXExtensionsSourceOptions {

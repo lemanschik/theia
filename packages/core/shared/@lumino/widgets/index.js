@@ -1,1 +1,1 @@
-module.exports = require('@lumino/widgets');
+export * from '@lumino/widgets';

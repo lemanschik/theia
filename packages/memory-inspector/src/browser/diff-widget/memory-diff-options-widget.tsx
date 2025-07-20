@@ -16,7 +16,7 @@
 
 import { Key, KeyCode } from '@theia/core/lib/browser';
 import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 import { ThemeType } from '@theia/core/lib/common/theme';
 import { LENGTH_FIELD_ID, LOCATION_OFFSET_FIELD_ID, MemoryOptionsWidget } from '../memory-widget/memory-options-widget';
 import { MWInput } from '../utils/memory-widget-components';

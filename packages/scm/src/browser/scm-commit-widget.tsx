@@ -17,7 +17,7 @@
 import { injectable, inject } from '@theia/core/shared/inversify';
 import { DisposableCollection } from '@theia/core';
 import { Message } from '@theia/core/shared/@lumino/messaging';
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
 import { ScmInput, ScmInputIssueType } from './scm-input';
 import {

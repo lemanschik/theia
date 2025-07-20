@@ -1,1 +1,1 @@
-module.exports = require('vscode-languageserver-protocol');
+export * from 'vscode-languageserver-protocol';

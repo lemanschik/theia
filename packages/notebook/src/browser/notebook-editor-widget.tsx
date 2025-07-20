@@ -14,10 +14,10 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 import { CommandRegistry, MenuModelRegistry, URI, nls } from '@theia/core';
 import { ReactWidget, Navigatable, SaveableSource, Message, DelegatingSaveable, lock, unlock, animationFrame, codicon } from '@theia/core/lib/browser';
-import { ReactNode } from '@theia/core/shared/react';
+import { ReactNode } from 'react';
 import { CellKind, NotebookCellsChangeType } from '../common';
 import { CellRenderer as CellRenderer, NotebookCellListView } from './view/notebook-cell-list-view';
 import { NotebookCodeCellRenderer } from './view/notebook-code-cell-view';

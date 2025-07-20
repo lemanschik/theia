@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { ChatWelcomeMessageProvider, isEnterKey } from '@theia/ai-chat-ui/lib/browser/chat-tree-view';
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 import { nls } from '@theia/core/lib/common/nls';
 import { inject, injectable } from '@theia/core/shared/inversify';
 import { CommandRegistry } from '@theia/core';
@@ -96,8 +96,8 @@ export class IdeChatWelcomeMessageProvider implements ChatWelcomeMessageProvider
                     <div className="section-content">
                         <p>To enable the AI features, please go to the AI features section of the&nbsp;
                             {this.renderLinkButton(nls.localize('theia/ai/chat-ui/chat-view-tree-widget/settingsMenu', 'the settings menu'),
-                               CommonCommands.OPEN_PREFERENCES.id, 'ai-features')}&nbsp;and
-                            </p>
+                                CommonCommands.OPEN_PREFERENCES.id, 'ai-features')}&nbsp;and
+                        </p>
                         <ol>
                             <li>Toggle the switch for <strong>{nls.localize('theia/ai/chat-ui/chat-view-tree-widget/aiFeaturesEnable', 'Ai-features: Enable')}</strong>.</li>
                             <li>Provide at least one LLM provider (e.g. OpenAI). See <a href="https://theia-ide.org/docs/user_ai/" target="_blank">the documentation</a>

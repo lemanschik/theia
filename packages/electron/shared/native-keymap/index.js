@@ -1,1 +1,1 @@
-module.exports = require('native-keymap');
+export * from 'native-keymap';

@@ -1,1 +1,1 @@
-module.exports = require('react-dom');
+export * from 'react-dom';

@@ -1,1 +1,1 @@
-module.exports = require('@lumino/messaging');
+export * from '@lumino/messaging';

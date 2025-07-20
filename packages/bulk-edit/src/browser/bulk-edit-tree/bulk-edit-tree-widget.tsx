@@ -19,7 +19,7 @@ import {
     DiffUris, TreeWidget, TreeProps, ContextMenuRenderer, TreeNode, TreeModel,
     CompositeTreeNode, NodeProps, QuickViewService
 } from '@theia/core/lib/browser';
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 import { BulkEditInfoNode, BulkEditNode } from './bulk-edit-tree';
 import { BulkEditTreeModel } from './bulk-edit-tree-model';
 import { FileResourceResolver } from '@theia/filesystem/lib/browser';

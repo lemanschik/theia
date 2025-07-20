@@ -20,7 +20,7 @@ import vhost from 'vhost';
 import * as fs from '@theia/core/shared/fs-extra';
 import { lookup } from 'mime-types';
 import { injectable, inject, named } from '@theia/core/shared/inversify';
-import express, { Application, Request, Response } from '@theia/core/shared/express';
+import express, { Application, Request, Response } from 'express';
 import { FileUri } from '@theia/core/lib/common/file-uri';
 import { ILogger } from '@theia/core/lib/common/logger';
 import { MaybePromise } from '@theia/core/lib/common/types';

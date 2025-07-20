@@ -16,7 +16,7 @@
 
 import { injectable, inject } from '@theia/core/shared/inversify';
 import { SelectionService } from '@theia/core/lib/common';
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 import {
     ContextMenuRenderer, ReactWidget, LabelProvider, KeybindingRegistry, StorageService
 } from '@theia/core/lib/browser';

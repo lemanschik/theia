@@ -16,7 +16,7 @@
 
 import { PreferenceService, ReactWidget, ConfirmDialog } from '@theia/core/lib/browser';
 import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 import { ToolConfirmationManager, ToolConfirmationMode } from '@theia/ai-chat/lib/browser/chat-tool-preferences';
 import { ToolInvocationRegistry } from '@theia/ai-core';
 

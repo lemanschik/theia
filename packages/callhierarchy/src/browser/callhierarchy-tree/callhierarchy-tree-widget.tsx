@@ -27,7 +27,7 @@ import URI from '@theia/core/lib/common/uri';
 import { Location, Range, SymbolKind, DocumentUri, SymbolTag } from '@theia/core/shared/vscode-languageserver-protocol';
 import { EditorManager } from '@theia/editor/lib/browser';
 import { nls } from '@theia/core/lib/common/nls';
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 
 export const HIERARCHY_TREE_CLASS = 'theia-CallHierarchyTree';
 export const DEFINITION_NODE_CLASS = 'theia-CallHierarchyTreeNode';

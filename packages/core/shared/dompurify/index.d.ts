@@ -1,2 +1,1 @@
-import DOMPurify = require('dompurify');
-export = DOMPurify;
+export * as DOMPurify from 'dompurify';

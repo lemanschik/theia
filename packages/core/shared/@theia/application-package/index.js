@@ -1,1 +1,1 @@
-module.exports = require('@theia/application-package');
+export * from '@theia/application-package';

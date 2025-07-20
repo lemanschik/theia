@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import * as path from 'path';
-import * as yargs from '@theia/core/shared/yargs';
+import { default as yargs } from '@theia/core/shared/yargs';
 import * as fs from '@theia/core/shared/fs-extra';
 import * as jsoncparser from 'jsonc-parser';
 import { injectable, inject, postConstruct, named } from '@theia/core/shared/inversify';

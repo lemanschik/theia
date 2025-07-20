@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { nls } from '@theia/core';
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 import { codicon } from '@theia/core/lib/browser';
 import debounce from 'lodash/debounce';
 

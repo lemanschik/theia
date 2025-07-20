@@ -19,7 +19,7 @@ import { ScmAvatarService } from '@theia/scm/lib/browser/scm-avatar-service';
 import { GitCommitDetailWidgetOptions } from './git-commit-detail-widget-options';
 import { ReactWidget, KeybindingRegistry, codicon } from '@theia/core/lib/browser';
 import { Git } from '../../common';
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 
 @injectable()
 export class GitCommitDetailHeaderWidget extends ReactWidget {

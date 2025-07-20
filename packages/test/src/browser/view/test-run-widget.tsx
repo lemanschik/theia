@@ -21,7 +21,7 @@ import { IconThemeService } from '@theia/core/lib/browser/icon-theme-service';
 import { ThemeService } from '@theia/core/lib/browser/theming';
 import { ContextKeyService } from '@theia/core/lib/browser/context-key-service';
 import { TestController, TestExecutionState, TestFailure, TestItem, TestMessage, TestOutputItem, TestRun, TestService } from '../test-service';
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 import { Disposable, DisposableCollection, Event, nls } from '@theia/core';
 import { TestExecutionStateManager } from './test-execution-state-manager';
 import { TestOutputUIModel } from './test-output-ui-model';

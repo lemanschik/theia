@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { inject, injectable } from '@theia/core/shared/inversify';
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 import { MonacoEditorServices } from '@theia/monaco/lib/browser/monaco-editor';
 import { NotebookRendererRegistry } from '../notebook-renderer-registry';
 import { NotebookCellModel } from '../view-model/notebook-cell-model';

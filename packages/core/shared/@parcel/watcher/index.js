@@ -1,1 +1,1 @@
-module.exports = require('@parcel/watcher');
+export * from '@parcel/watcher';

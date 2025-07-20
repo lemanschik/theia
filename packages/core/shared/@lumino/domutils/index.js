@@ -1,1 +1,1 @@
-module.exports = require('@lumino/domutils');
+export * from '@lumino/domutils';

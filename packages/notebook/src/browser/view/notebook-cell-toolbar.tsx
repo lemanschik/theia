@@ -13,7 +13,7 @@
 //
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 import { ACTION_ITEM } from '@theia/core/lib/browser';
 import { NotebookCellToolbarItem } from './notebook-cell-toolbar-factory';
 import { DisposableCollection, Event } from '@theia/core';

@@ -17,7 +17,7 @@
 import { injectable, inject, named } from '@theia/core/shared/inversify';
 import * as http from 'http';
 import * as https from 'https';
-import * as express from '@theia/core/shared/express';
+import { default as express } from 'express';
 import { ContributionProvider } from '@theia/core/lib/common';
 import { BackendApplicationContribution } from '@theia/core/lib/node';
 import { MetricsContribution } from './metrics-contribution';

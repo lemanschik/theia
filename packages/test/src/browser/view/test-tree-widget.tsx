@@ -24,7 +24,7 @@ import { IconThemeService } from '@theia/core/lib/browser/icon-theme-service';
 import { ThemeService } from '@theia/core/lib/browser/theming';
 import { ContextKeyService } from '@theia/core/lib/browser/context-key-service';
 import { TestController, TestExecutionState, TestItem, TestService } from '../test-service';
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 import { DeltaKind, TreeDelta } from '../../common/tree-delta';
 import { AcceleratorSource, CommandMenu, CommandRegistry, Disposable, DisposableCollection, Event, MenuModelRegistry, nls } from '@theia/core';
 import { TestExecutionStateManager } from './test-execution-state-manager';

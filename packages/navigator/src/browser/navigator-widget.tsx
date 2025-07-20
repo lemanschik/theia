@@ -24,7 +24,7 @@ import { WorkspaceService, WorkspaceCommands } from '@theia/workspace/lib/browse
 import { WorkspaceNode, WorkspaceRootNode } from './navigator-tree';
 import { FileNavigatorModel } from './navigator-model';
 import { isOSX, environment } from '@theia/core';
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 import { NavigatorContextKeyService } from './navigator-context-key-service';
 import { nls } from '@theia/core/lib/common/nls';
 import { AbstractNavigatorTreeWidget } from './abstract-navigator-tree-widget';

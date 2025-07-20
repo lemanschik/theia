@@ -23,7 +23,7 @@ import {
 } from '../../common/filesystem-watcher-protocol';
 import { FileChangeCollection } from '../file-change-collection';
 import { Deferred, timeout } from '@theia/core/lib/common/promise-util';
-import { subscribe, Options, AsyncSubscription, Event } from '@theia/core/shared/@parcel/watcher';
+import { subscribe, Options, AsyncSubscription, Event } from '@parcel/watcher';
 
 export interface ParcelWatcherOptions {
     ignored: IMinimatch[]

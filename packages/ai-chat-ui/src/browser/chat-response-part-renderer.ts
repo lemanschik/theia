@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { ChatResponseContent } from '@theia/ai-chat/lib/common';
-import { ReactNode } from '@theia/core/shared/react';
+import { ReactNode } from 'react';
 import { ResponseNode } from './chat-tree-view/chat-view-tree-widget';
 
 export const ChatResponsePartRenderer = Symbol('ChatResponsePartRenderer');

@@ -22,7 +22,7 @@ import { Message } from '@theia/core/shared/@lumino/messaging';
 import { ElementExt } from '@theia/core/shared/@lumino/domutils';
 import { inject, injectable } from '@theia/core/shared/inversify';
 import { ReactWidget } from '@theia/core/lib/browser/widgets/react-widget';
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 import { ScmFileChangeLabelProvider } from './scm-file-change-label-provider';
 import { ScmFileChangeNode } from './scm-file-change-node';
 

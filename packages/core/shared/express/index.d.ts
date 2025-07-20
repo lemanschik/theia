@@ -1,2 +1,1 @@
-import express = require('express');
-export = express;
+export * as express from 'express';

@@ -1,1 +1,1 @@
-module.exports = require('electron-store');
+export * from '@theia/electron/shared/electron-store';

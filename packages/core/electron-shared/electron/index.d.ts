@@ -1,1 +1,1 @@
-export { default as electronDefaultExport } from 'electron';
+export * as Electron from '@theia/electron/shared/electron';

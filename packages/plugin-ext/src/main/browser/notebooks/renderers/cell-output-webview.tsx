@@ -18,7 +18,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 import { inject, injectable, interfaces } from '@theia/core/shared/inversify';
 import { generateUuid } from '@theia/core/lib/common/uuid';
 import {

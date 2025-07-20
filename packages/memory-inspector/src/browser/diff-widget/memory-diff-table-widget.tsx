@@ -15,7 +15,7 @@
  ********************************************************************************/
 
 import { inject, injectable } from '@theia/core/shared/inversify';
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 import Long from 'long';
 import { MemoryTable, MemoryTableWidget } from '../memory-widget/memory-table-widget';
 import { MemoryWidget } from '../memory-widget/memory-widget';

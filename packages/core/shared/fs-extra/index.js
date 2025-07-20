@@ -1,1 +1,1 @@
-module.exports = require('fs-extra');
+export * from 'fs-extra';

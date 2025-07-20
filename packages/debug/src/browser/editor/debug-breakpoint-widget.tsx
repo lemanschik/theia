@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as React from '@theia/core/shared/react';
-import { createRoot, Root } from '@theia/core/shared/react-dom/client';
+import * as React from 'react';
+import { createRoot, Root } from 'react-dom/client';
 import { DebugProtocol } from '@vscode/debugprotocol';
 import { injectable, postConstruct, inject } from '@theia/core/shared/inversify';
 import { Disposable, DisposableCollection, InMemoryResources, nls } from '@theia/core';

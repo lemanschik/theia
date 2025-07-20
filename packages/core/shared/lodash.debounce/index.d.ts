@@ -1,2 +1,1 @@
-import debounce from 'lodash.debounce';
-export = debounce;
+export * as debounce from 'lodash.debounce';

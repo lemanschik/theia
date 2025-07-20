@@ -16,7 +16,7 @@
 
 import { FrontendApplicationConfig } from '@theia/application-package';
 import { FrontendApplicationState, StopReason } from '../common/frontend-application-state';
-import { BrowserWindow, BrowserWindowConstructorOptions } from '../../electron-shared/electron';
+import { BrowserWindow, BrowserWindowConstructorOptions } from 'electron';
 import { inject, injectable, postConstruct } from '../../shared/inversify';
 import { ElectronMainApplicationGlobals } from './electron-main-constants';
 import { DisposableCollection, Emitter, Event } from '../common';

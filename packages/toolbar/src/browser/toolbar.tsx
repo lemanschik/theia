@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 import { Anchor, ContextMenuAccess, KeybindingRegistry, PreferenceService, Widget, WidgetManager } from '@theia/core/lib/browser';
 import { TabBarToolbar, TabBarToolbarFactory } from '@theia/core/lib/browser/shell/tab-bar-toolbar';
 import { injectable, inject, postConstruct } from '@theia/core/shared/inversify';

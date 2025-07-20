@@ -23,7 +23,7 @@ import { EnvVariablesServer } from '@theia/core/lib/common/env-variables';
 import { nls } from '@theia/core/lib/common/nls';
 import URI from '@theia/core/lib/common/uri';
 import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 import { KeymapsCommands } from '@theia/keymaps/lib/browser';
 import { WorkspaceCommands, WorkspaceService } from '@theia/workspace/lib/browser';
 

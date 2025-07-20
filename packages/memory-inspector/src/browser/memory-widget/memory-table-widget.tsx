@@ -19,7 +19,7 @@ import { ThemeService } from '@theia/core/lib/browser/theming';
 import { Deferred } from '@theia/core/lib/common/promise-util';
 import { ThemeChangeEvent } from '@theia/core/lib/common/theme';
 import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 import { hexStrToUnsignedLong } from '../../common/util';
 import { MemoryProviderService } from '../memory-provider/memory-provider-service';
 import { EasilyMappedObject, MemoryHoverRendererService } from '../utils/memory-hover-renderer';

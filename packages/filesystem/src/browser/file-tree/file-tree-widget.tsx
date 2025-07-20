@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 import { injectable, inject } from '@theia/core/shared/inversify';
 import { DisposableCollection, Disposable } from '@theia/core/lib/common/disposable';
 import URI from '@theia/core/lib/common/uri';

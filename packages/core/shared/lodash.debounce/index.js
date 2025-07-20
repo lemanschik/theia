@@ -1,1 +1,1 @@
-module.exports = require('lodash.debounce');
+export * from 'lodash.debounce';

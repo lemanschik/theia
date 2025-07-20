@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { nls } from '@theia/core';
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 import { BreakpointManager } from '../breakpoint/breakpoint-manager';
 import { InstructionBreakpoint } from '../breakpoint/breakpoint-marker';
 import { DebugBreakpoint, DebugBreakpointDecoration, DebugBreakpointOptions } from './debug-breakpoint';

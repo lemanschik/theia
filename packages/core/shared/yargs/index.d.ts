@@ -1,2 +1,1 @@
-import yargs = require('yargs');
-export = yargs;
+export * as yargs from 'yargs';

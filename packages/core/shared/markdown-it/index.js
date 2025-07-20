@@ -1,1 +1,1 @@
-module.exports = require('markdown-it');
+export * from 'markdown-it';

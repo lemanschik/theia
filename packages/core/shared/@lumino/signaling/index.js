@@ -1,1 +1,1 @@
-module.exports = require('@lumino/signaling');
+export * from '@lumino/signaling';

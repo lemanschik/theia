@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 import { ArrayUtils, CommandMenu, CommandRegistry, DisposableCollection, Group, GroupImpl, MenuModelRegistry, MenuNode, MenuPath, nls } from '@theia/core';
-import * as React from '@theia/core/shared/react';
+import * as React from 'react';
 import { codicon, ContextMenuRenderer } from '@theia/core/lib/browser';
 import { NotebookCommands, NotebookMenus } from '../contributions/notebook-actions-contribution';
 import { NotebookModel } from '../view-model/notebook-model';

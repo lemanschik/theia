@@ -21,8 +21,8 @@ import { PreferenceProvider } from '@theia/core/lib/browser/preferences/preferen
 import { SelectComponent, SelectOption } from '@theia/core/lib/browser/widgets/select-component';
 import { Preference } from '../../util/preference-types';
 import { PreferenceLeafNodeRendererContribution } from './preference-node-renderer-creator';
-import * as React from '@theia/core/shared/react';
-import { createRoot } from '@theia/core/shared/react-dom/client';
+import * as React from 'react';
+import { createRoot } from 'react-dom/client';
 import { escapeInvisibleChars } from '@theia/core/lib/common/strings';
 
 @injectable()

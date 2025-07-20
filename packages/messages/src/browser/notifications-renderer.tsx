@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as React from '@theia/core/shared/react';
-import { createRoot, Root } from '@theia/core/shared/react-dom/client';
+import * as React from 'react';
+import { createRoot, Root } from 'react-dom/client';
 import { injectable, inject, postConstruct } from '@theia/core/shared/inversify';
 import { ApplicationShell, CorePreferences } from '@theia/core/lib/browser';
 import { NotificationManager } from './notifications-manager';
