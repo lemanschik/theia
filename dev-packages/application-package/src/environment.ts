@@ -13,8 +13,7 @@
 //
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
-
-const isElectron: () => boolean = require('is-electron');
+import isElectron from 'is-electron';
 
 /**
  * The electron specific environment.
@@ -44,7 +43,7 @@ class ElectronEnv {
         return this.is()
             && typeof process !== 'undefined'
             // `defaultApp` does not exist on the Node.js API, but on electron (`electron.d.ts`).
-            && ((process as any).defaultApp || /node_modules[/\\]electron[/\\]/.test(process.execPath));  
+            && ((process as any).defaultApp || /node_modules[/\\]electron[/\\]/.test(process.execPath));
     }
 
     /**
@@ -58,7 +57,7 @@ class ElectronEnv {
      *
      * Calling this function from the frontend does not make any sense, hence throw an error.
      */
-     
+
     runAsNodeEnv(env?: any): any & { ELECTRON_RUN_AS_NODE: 1 } {
         if (typeof process === 'undefined') {
             throw new Error("'process' cannot be undefined.");
