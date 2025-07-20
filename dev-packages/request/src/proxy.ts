@@ -15,8 +15,8 @@
  ********************************************************************************/
 
 import { parse as parseUrl, Url } from 'url';
-import * as httpAgent from 'http-proxy-agent';
-import * as httpsAgent from 'https-proxy-agent';
+import { default as httpAgent } from 'http-proxy-agent';
+import { default as httpsAgent } from 'https-proxy-agent';
 
 export type ProxyAgent = httpAgent.HttpProxyAgent | httpsAgent.HttpsProxyAgent;
 
