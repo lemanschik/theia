@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { parseModule } from './utility';
+import { parseModule } from './utility.js';
 import { expect } from 'chai';
 
 describe('@theia/re-exports/lib/utility.js', () => {

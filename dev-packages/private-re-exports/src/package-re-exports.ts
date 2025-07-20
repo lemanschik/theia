@@ -17,7 +17,7 @@
 import * as cp from 'child_process';
 import * as fs from 'fs';
 import * as path from 'path';
-import { PackageJson, parseModule, ReExportJson } from './utility';
+import { PackageJson, parseModule, ReExportJson } from './utility.js';
 
 export async function readJson<T = unknown>(jsonPath: string): Promise<T> {
     return JSON.parse(await fs.promises.readFile(jsonPath, 'utf8')) as T;
