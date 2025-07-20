@@ -98,6 +98,7 @@ export class NodeRequestService implements RequestService {
                 path: endpoint.pathname + endpoint.search,
                 method: options.type || 'GET',
                 headers: options.headers,
+                // @ts-expect-error bad type
                 agent: options.agent,
                 rejectUnauthorized: !!options.strictSSL
             };
