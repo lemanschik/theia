@@ -15,9 +15,9 @@
 // *****************************************************************************
 
 import { OS } from '@theia/core';
-import * as notebookCommon from '@theia/notebook/lib/common';
+import notebookCommon from '@theia/notebook/lib/common';
 import { NotebookCellModel } from '@theia/notebook/lib/browser/view-model/notebook-cell-model';
-import * as rpc from '../../../common';
+import rpc from '../../../common';
 import { CellExecutionUpdateType } from '@theia/notebook/lib/common';
 import { CellExecuteUpdate, CellExecutionComplete } from '@theia/notebook/lib/browser';
 

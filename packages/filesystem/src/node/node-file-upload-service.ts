@@ -18,9 +18,9 @@ import multer from 'multer';
 import path from 'path';
 import os from 'os';
 import express from 'express';
-import fs from '@theia/core/shared/fs-extra';
+import fs from 'fs-extra';
 import { BackendApplicationContribution, FileUri } from '@theia/core/lib/node';
-import { injectable } from '@theia/core/shared/inversify';
+import { injectable } from 'inversify';
 import { HTTP_FILE_UPLOAD_PATH } from '../common/file-upload';
 
 @injectable()

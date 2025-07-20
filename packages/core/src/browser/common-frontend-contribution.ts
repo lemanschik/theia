@@ -30,7 +30,7 @@ import { OpenerService, open } from '../browser/opener-service';
 import { ApplicationShell } from './shell/application-shell';
 import { SHELL_TABBAR_CONTEXT_CLOSE, SHELL_TABBAR_CONTEXT_COPY, SHELL_TABBAR_CONTEXT_PIN, SHELL_TABBAR_CONTEXT_SPLIT } from './shell/tab-bars';
 import { AboutDialog } from './about-dialog';
-import * as browser from './browser';
+import browser from './browser';
 import URI from '../common/uri';
 import { ContextKey, ContextKeyService } from './context-key-service';
 import { OS, isOSX, isWindows, EOL } from '../common/os';

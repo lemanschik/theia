@@ -14,9 +14,9 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as React from 'react';
-import * as DOMPurify from '@theia/core/shared/dompurify';
-import { injectable, inject, postConstruct } from '@theia/core/shared/inversify';
+import React from 'react';
+import DOMPurify from 'dompurify';
+import { injectable, inject, postConstruct } from 'inversify';
 import URI from '@theia/core/lib/common/uri';
 import { TreeElement, TreeElementNode } from '@theia/core/lib/browser/source-tree';
 import { OpenerService, open, OpenerOptions } from '@theia/core/lib/browser/opener-service';

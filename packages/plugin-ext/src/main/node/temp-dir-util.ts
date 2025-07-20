@@ -13,8 +13,8 @@
 //
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
-import * as os from 'os';
-import * as path from 'path';
+import os from 'os';
+import path from 'path';
 import { realpathSync, promises as fs } from 'fs';
 
 export function getTempDir(name: string): string {

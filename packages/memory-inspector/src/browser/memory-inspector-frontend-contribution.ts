@@ -21,7 +21,7 @@ import { FrontendApplicationStateService } from '@theia/core/lib/browser/fronten
 import { TabBarToolbarContribution, TabBarToolbarRegistry } from '@theia/core/lib/browser/shell/tab-bar-toolbar';
 import { Command, CommandRegistry, MenuModelRegistry } from '@theia/core/lib/common';
 import { Color } from '@theia/core/lib/common/color';
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, postConstruct } from 'inversify';
 import { DebugScope, DebugVariable } from '@theia/debug/lib/browser/console/debug-console-items';
 import { DebugFrontendApplicationContribution } from '@theia/debug/lib/browser/debug-frontend-application-contribution';
 import { DebugVariablesWidget } from '@theia/debug/lib/browser/view/debug-variables-widget';

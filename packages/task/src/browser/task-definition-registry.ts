@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable } from '@theia/core/shared/inversify';
-import { JSONExt } from '@theia/core/shared/@lumino/coreutils';
+import { injectable } from 'inversify';
+import { JSONExt } from '@lumino/coreutils';
 import { Event, Emitter } from '@theia/core/lib/common';
 import { TaskConfiguration, TaskDefinition, TaskCustomization } from '../common';
 import { Disposable } from '@theia/core/lib/common/disposable';

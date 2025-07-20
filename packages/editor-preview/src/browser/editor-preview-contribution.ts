@@ -17,7 +17,7 @@
 import { ApplicationShell, CommonCommands, KeybindingContribution, KeybindingRegistry, SHELL_TABBAR_CONTEXT_PIN, Widget } from '@theia/core/lib/browser';
 import { nls } from '@theia/core/lib/common/nls';
 import { Command, CommandContribution, CommandRegistry, MenuContribution, MenuModelRegistry } from '@theia/core/lib/common';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { EditorPreviewWidget } from './editor-preview-widget';
 import { CurrentWidgetCommandAdapter } from '@theia/core/lib/browser/shell/current-widget-command-adapter';
 

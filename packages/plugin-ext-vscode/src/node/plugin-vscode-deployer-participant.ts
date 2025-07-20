@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable, inject } from '@theia/core/shared/inversify';
-import * as fs from '@theia/core/shared/fs-extra';
+import { injectable, inject } from 'inversify';
+import fs from 'fs-extra';
 import { FileUri } from '@theia/core/lib/node';
 import { PluginVSCodeEnvironment } from '../common/plugin-vscode-environment';
 import { PluginDeployerParticipant, PluginDeployerStartContext } from '@theia/plugin-ext/lib/common/plugin-protocol';

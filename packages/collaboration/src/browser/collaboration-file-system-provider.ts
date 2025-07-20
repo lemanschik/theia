@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as Y from 'yjs';
+import Y from 'yjs';
 import { Disposable, Emitter, Event, URI } from '@theia/core';
 import {
     FileChange, FileDeleteOptions,

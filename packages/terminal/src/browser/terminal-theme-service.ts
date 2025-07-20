@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { ITheme } from 'xterm';
-import { injectable, inject } from '@theia/core/shared/inversify';
+import { injectable, inject } from 'inversify';
 import { ColorRegistry } from '@theia/core/lib/browser/color-registry';
 import { ColorDefaults } from '@theia/core/lib/common/color';
 import { ThemeService } from '@theia/core/lib/browser/theming';

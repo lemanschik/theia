@@ -19,7 +19,7 @@
  *--------------------------------------------------------------------------------------------*/
 
 import { Command, CommandService, Disposable, Emitter, Event, URI } from '@theia/core';
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, postConstruct } from 'inversify';
 import { StorageService } from '@theia/core/lib/browser';
 import { NotebookKernelSourceAction } from '../../common';
 import { NotebookModel } from '../view-model/notebook-model';

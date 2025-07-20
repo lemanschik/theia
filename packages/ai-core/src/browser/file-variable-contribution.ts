@@ -16,7 +16,7 @@
 
 import { Path, URI } from '@theia/core';
 import { OpenerService, codiconArray, open } from '@theia/core/lib/browser';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
 import { WorkspaceService } from '@theia/workspace/lib/browser/workspace-service';
 import {

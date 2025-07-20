@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable, inject, postConstruct } from '@theia/core/shared/inversify';
-import { Message } from '@theia/core/shared/@lumino/messaging';
+import { injectable, inject, postConstruct } from 'inversify';
+import { Message } from '@lumino/messaging';
 import { Disposable, MaybeArray, nls } from '@theia/core/lib/common';
 import { AbstractDialog, DialogProps, setEnabled, createIconButton, Widget, codiconArray, Key, LabelProvider } from '@theia/core/lib/browser';
 import { FileStatNode } from '../file-tree';
@@ -24,8 +24,8 @@ import { FileDialogModel } from './file-dialog-model';
 import { FileDialogWidget } from './file-dialog-widget';
 import { FileDialogTreeFiltersRenderer, FileDialogTreeFilters, FileDialogTreeFiltersRendererFactory } from './file-dialog-tree-filters-renderer';
 import URI from '@theia/core/lib/common/uri';
-import { Panel } from '@theia/core/shared/@lumino/widgets';
-import * as DOMPurify from '@theia/core/shared/dompurify';
+import { Panel } from '@lumino/widgets';
+import { default as DOMPurify } from 'dompurify';
 import { FileDialogHiddenFilesToggleRenderer, HiddenFilesToggleRendererFactory } from './file-dialog-hidden-files-renderer';
 
 export const OpenFileDialogFactory = Symbol('OpenFileDialogFactory');

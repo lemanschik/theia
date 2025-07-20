@@ -16,7 +16,7 @@
 
 import { DisposableCollection, URI, Event, Emitter } from '@theia/core';
 import { OpenerService } from '@theia/core/lib/browser';
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, postConstruct } from 'inversify';
 import { PromptFragmentCustomizationService, CustomAgentDescription, CustomizedPromptFragment } from '../common';
 import { BinaryBuffer } from '@theia/core/lib/common/buffer';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';

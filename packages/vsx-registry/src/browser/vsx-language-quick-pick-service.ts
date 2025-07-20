@@ -15,8 +15,8 @@
 // *****************************************************************************
 
 import { LanguageQuickPickItem, LanguageQuickPickService } from '@theia/core/lib/browser/i18n/language-quick-pick-service';
-import { RequestContext, RequestService } from '@theia/core/shared/@theia/request';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { RequestContext, RequestService } from '@theia/request';
+import { inject, injectable } from 'inversify';
 import { LanguageInfo } from '@theia/core/lib/common/i18n/localization';
 import { PluginPackage, PluginServer } from '@theia/plugin-ext';
 import { OVSXClientProvider } from '../common/ovsx-client-provider';

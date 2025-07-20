@@ -17,7 +17,7 @@
 import '../../src/browser/style/terminal.css';
 import 'xterm/css/xterm.css';
 
-import { ContainerModule, Container } from '@theia/core/shared/inversify';
+import { ContainerModule, Container } from 'inversify';
 import { CommandContribution, MenuContribution, nls } from '@theia/core/lib/common';
 import { bindContributionProvider } from '@theia/core';
 import { KeybindingContribution, WebSocketConnectionProvider, WidgetFactory, FrontendApplicationContribution } from '@theia/core/lib/browser';

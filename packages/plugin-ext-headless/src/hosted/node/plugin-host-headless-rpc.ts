@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { dynamicRequire } from '@theia/core/lib/node/dynamic-require';
-import { ContainerModule, injectable, inject } from '@theia/core/shared/inversify';
+import { ContainerModule, injectable, inject } from 'inversify';
 import { EnvExtImpl } from '@theia/plugin-ext/lib/plugin/env';
 import { LocalizationExt } from '@theia/plugin-ext';
 import { LocalizationExtImpl } from '@theia/plugin-ext/lib/plugin/localization-ext';
@@ -25,7 +25,7 @@ import { AbstractPluginHostRPC, ExtInterfaces } from '@theia/plugin-ext/lib/host
 import { PluginModel } from '@theia/plugin-ext/lib/common/plugin-protocol';
 import { ExtPluginApi, ExtPluginApiHeadlessInitializationFn } from '../../common/plugin-ext-headless-api-contribution';
 
-type HeadlessExtInterfaces = Pick<ExtInterfaces, 'envExt'|'localizationExt'>;
+type HeadlessExtInterfaces = Pick<ExtInterfaces, 'envExt' | 'localizationExt'>;
 
 /**
  * The RPC handler for headless plugins.

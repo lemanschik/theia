@@ -22,15 +22,15 @@ import { RPCProtocol } from '../../common/rpc-protocol';
 import { EditorModelService } from './text-editor-model-service';
 import { EditorOpenerOptions, EncodingMode } from '@theia/editor/lib/browser';
 import URI from '@theia/core/lib/common/uri';
-import { URI as CodeURI } from '@theia/core/shared/vscode-uri';
+import { URI as CodeURI } from 'vscode-uri';
 import { ApplicationShell, SaveReason } from '@theia/core/lib/browser';
 import { TextDocumentShowOptions } from '../../common/plugin-api-rpc-model';
-import { Range } from '@theia/core/shared/vscode-languageserver-protocol';
+import { Range } from 'vscode-languageserver-protocol';
 import { OpenerService } from '@theia/core/lib/browser/opener-service';
 import { Reference } from '@theia/core/lib/common/reference';
 import { dispose } from '../../common/disposable-util';
 import { MonacoLanguages } from '@theia/monaco/lib/browser/monaco-languages';
-import * as monaco from '@theia/monaco-editor-core';
+import monaco from '@theia/monaco-editor-core';
 import { TextDocumentChangeReason } from '../../plugin/types-impl';
 import { NotebookDocumentsMainImpl } from './notebooks/notebook-documents-main';
 

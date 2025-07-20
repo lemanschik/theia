@@ -14,22 +14,22 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable, inject, postConstruct } from '@theia/core/shared/inversify';
+import { injectable, inject, postConstruct } from 'inversify';
 import { DisposableCollection } from '@theia/core';
 import { OpenerService, open, StatefulWidget, SELECTED_CLASS, WidgetManager, ApplicationShell, codicon } from '@theia/core/lib/browser';
 import { CancellationTokenSource } from '@theia/core/lib/common/cancellation';
-import { Message } from '@theia/core/shared/@lumino/messaging';
+import { Message } from '@lumino/messaging';
 import { Virtuoso, VirtuosoHandle } from 'react-virtuoso';
 import URI from '@theia/core/lib/common/uri';
 import { ScmFileChange, ScmFileChangeNode } from '../scm-file-change-node';
 import { ScmAvatarService } from '@theia/scm/lib/browser/scm-avatar-service';
 import { ScmItemComponent, ScmNavigableListWidget } from '../scm-navigable-list-widget';
-import * as React from 'react';
+import React from 'react';
 import { AlertMessage } from '@theia/core/lib/browser/widgets/alert-message';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
 import { nls } from '@theia/core/lib/common/nls';
 import { ScmHistoryProvider } from './scm-history-provider';
-import throttle from '@theia/core/shared/lodash.throttle';
+import throttle from 'lodash.throttle';
 import { HistoryWidgetOptions, ScmCommitNode, ScmHistoryListNode, ScmHistorySupport, SCM_HISTORY_ID, SCM_HISTORY_LABEL, SCM_HISTORY_MAX_COUNT } from './scm-history-constants';
 export { HistoryWidgetOptions, ScmCommitNode, ScmHistoryListNode, ScmHistorySupport };
 

@@ -14,11 +14,11 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable, inject } from '@theia/core/shared/inversify';
+import { injectable, inject } from 'inversify';
 import { PreferenceService, FrontendApplicationContribution, PreferenceLanguageOverrideService } from '@theia/core/lib/browser';
 import { EditorManager } from '@theia/editor/lib/browser';
 import { MonacoQuickInputService } from './monaco-quick-input-service';
-import * as monaco from '@theia/monaco-editor-core';
+import monaco from '@theia/monaco-editor-core';
 import { FormattingConflicts, FormattingMode } from '@theia/monaco-editor-core/esm/vs/editor/contrib/format/browser/format';
 import { DocumentFormattingEditProvider, DocumentRangeFormattingEditProvider } from '@theia/monaco-editor-core/esm/vs/editor/common/languages';
 import { ITextModel } from '@theia/monaco-editor-core/esm/vs/editor/common/model';

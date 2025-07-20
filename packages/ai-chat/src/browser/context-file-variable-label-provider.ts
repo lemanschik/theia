@@ -16,7 +16,7 @@
 
 import { AIVariableResolutionRequest } from '@theia/ai-core';
 import { URI } from '@theia/core';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { LabelProvider, LabelProviderContribution } from '@theia/core/lib/browser';
 import { ChangeSetFileService } from './change-set-file-service';
 

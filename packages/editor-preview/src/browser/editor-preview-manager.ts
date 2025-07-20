@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { EditorManager, EditorOpenerOptions, EditorWidget } from '@theia/editor/lib/browser';
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, postConstruct } from 'inversify';
 import { EditorPreviewPreferences } from './editor-preview-preferences';
 import { MaybePromise } from '@theia/core/lib/common';
 import URI from '@theia/core/lib/common/uri';

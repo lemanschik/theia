@@ -14,9 +14,9 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as path from 'path';
-import * as fs from '@theia/core/shared/fs-extra';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import path from 'path';
+import fs from 'fs-extra';
+import { inject, injectable } from 'inversify';
 import type { RecursivePartial, URI } from '@theia/core';
 import { Deferred, firstTrue } from '@theia/core/lib/common/promise-util';
 import {

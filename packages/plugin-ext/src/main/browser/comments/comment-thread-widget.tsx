@@ -23,7 +23,7 @@ import {
 } from '../../../common/plugin-api-rpc-model';
 import { CommentGlyphWidget } from './comment-glyph-widget';
 import { BaseWidget, DISABLED_CLASS } from '@theia/core/lib/browser';
-import * as React from 'react';
+import React from 'react';
 import { MouseTargetType } from '@theia/editor/lib/browser';
 import { CommentsService } from './comments-service';
 import {
@@ -37,7 +37,7 @@ import {
 } from '@theia/core/lib/common';
 import { CommentsContext } from './comments-context';
 import { RefObject } from 'react';
-import * as monaco from '@theia/monaco-editor-core';
+import monaco from '@theia/monaco-editor-core';
 import { createRoot, Root } from 'react-dom/client';
 import { CommentAuthorInformation } from '@theia/plugin';
 import { ContextKeyService } from '@theia/core/lib/browser/context-key-service';

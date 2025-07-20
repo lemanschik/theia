@@ -23,7 +23,7 @@ import { CellRange } from '@theia/notebook/lib/common';
 import { NotebookEditorWidget, NotebookService } from '@theia/notebook/lib/browser';
 import { MAIN_RPC_CONTEXT, NotebookDocumentShowOptions, NotebookEditorRevealType, NotebookEditorsExt, NotebookEditorsMain } from '../../../common';
 import { RPCProtocol } from '../../../common/rpc-protocol';
-import { interfaces } from '@theia/core/shared/inversify';
+import { interfaces } from 'inversify';
 import { NotebookOpenHandler } from '@theia/notebook/lib/browser/notebook-open-handler';
 
 export class NotebookEditorsMainImpl implements NotebookEditorsMain {

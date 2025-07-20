@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { inject, injectable, postConstruct } from 'inversify';
-import * as React from 'react';
+import React from 'react';
 import { ContextKeyService } from '../../context-key-service';
 import { CommandRegistry, Disposable, DisposableCollection, nls } from '../../../common';
 import { Anchor, ContextMenuAccess, ContextMenuRenderer } from '../../context-menu-renderer';

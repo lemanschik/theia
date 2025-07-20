@@ -14,13 +14,13 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as ssh2 from 'ssh2';
-import * as net from 'net';
-import * as fs from '@theia/core/shared/fs-extra';
+import ssh2 from 'ssh2';
+import net from 'net';
+import fs from 'fs-extra';
 import SftpClient from 'ssh2-sftp-client';
-import * as SshConfig from 'ssh-config';
+import SshConfig from 'ssh-config';
 import { Emitter, Event, MessageService, QuickInputService } from '@theia/core';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { RemoteSSHConnectionProvider, RemoteSSHConnectionProviderOptions, SSHConfig } from '../../electron-common/remote-ssh-connection-provider';
 import { RemoteConnectionService } from '../remote-connection-service';
 import { RemoteProxyServerProvider } from '../remote-proxy-server-provider';

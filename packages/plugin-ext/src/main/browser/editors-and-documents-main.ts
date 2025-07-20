@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { interfaces } from '@theia/core/shared/inversify';
-import * as monaco from '@theia/monaco-editor-core';
+import { interfaces } from 'inversify';
+import monaco from '@theia/monaco-editor-core';
 import { type ILineChange } from '@theia/monaco-editor-core/esm/vs/editor/common/diff/legacyLinesDiffComputer';
 import { RPCProtocol } from '../../common/rpc-protocol';
 import {

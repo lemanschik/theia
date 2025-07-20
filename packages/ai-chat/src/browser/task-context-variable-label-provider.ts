@@ -16,7 +16,7 @@
 
 import { AIVariableResolutionRequest } from '@theia/ai-core';
 import { URI } from '@theia/core';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { codicon, LabelProviderContribution } from '@theia/core/lib/browser';
 import { TaskContextVariableContribution } from './task-context-variable-contribution';
 import { ChatService } from '../common';

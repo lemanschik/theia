@@ -15,9 +15,9 @@
 // *****************************************************************************
 
 import { ChatWelcomeMessageProvider, isEnterKey } from '@theia/ai-chat-ui/lib/browser/chat-tree-view';
-import * as React from 'react';
+import React from 'react';
 import { nls } from '@theia/core/lib/common/nls';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { CommandRegistry } from '@theia/core';
 import { CommonCommands } from '@theia/core/lib/browser';
 

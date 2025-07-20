@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { createTreeContainer, TreeProps } from '@theia/core/lib/browser';
-import { interfaces } from '@theia/core/shared/inversify';
+import { interfaces } from 'inversify';
 import { ChatViewTreeWidget } from './chat-view-tree-widget';
 
 const CHAT_VIEW_TREE_PROPS = {

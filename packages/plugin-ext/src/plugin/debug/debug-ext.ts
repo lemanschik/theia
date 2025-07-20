@@ -13,11 +13,11 @@
 //
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, postConstruct } from 'inversify';
 import { Emitter } from '@theia/core/lib/common/event';
 import { Path } from '@theia/core/lib/common/path';
-import * as theia from '@theia/plugin';
-import { URI } from '@theia/core/shared/vscode-uri';
+import theia from '@theia/plugin';
+import { URI } from 'vscode-uri';
 import { Breakpoint, DebugStackFrameDTO, DebugThreadDTO } from '../../common/plugin-api-rpc-model';
 import { DebugConfigurationProviderTriggerKind, DebugExt, DebugMain, PLUGIN_RPC_CONTEXT as Ext, TerminalOptionsExt } from '../../common/plugin-api-rpc';
 import { PluginPackageDebuggersContribution } from '../../common/plugin-protocol';

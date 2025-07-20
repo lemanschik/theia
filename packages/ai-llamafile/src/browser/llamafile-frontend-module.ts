@@ -15,7 +15,7 @@
 // *****************************************************************************
 import { CommandContribution } from '@theia/core';
 import { FrontendApplicationContribution, RemoteConnectionProvider, ServiceConnectionProvider } from '@theia/core/lib/browser';
-import { ContainerModule } from '@theia/core/shared/inversify';
+import { ContainerModule } from 'inversify';
 import { OutputChannelManager, OutputChannelSeverity } from '@theia/output/lib/browser/output-channel';
 import { LlamafileManager, LlamafileManagerPath, LlamafileServerManagerClient } from '../common/llamafile-manager';
 import { LlamafileCommandContribution } from './llamafile-command-contribution';

@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { default as yargs } from 'yargs';
-import * as chai from 'chai';
+import chai from 'chai';
 import { CliManager, CliContribution } from './cli';
 import { Deferred } from '../common/promise-util';
 import { MaybePromise } from '../common/types';

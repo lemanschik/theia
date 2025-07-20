@@ -14,12 +14,12 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { AIVariableContext, AIVariableOpener, AIVariableResolutionRequest, AIVariableResolver, ResolvedAIContextVariable } from '@theia/ai-core';
 import { AIVariableCompletionContext, FrontendVariableContribution, FrontendVariableService } from '@theia/ai-core/lib/browser';
 import { MaybePromise, QuickInputService, QuickPickItem } from '@theia/core';
 import { ChatService } from '../common';
-import * as monaco from '@theia/monaco-editor-core';
+import monaco from '@theia/monaco-editor-core';
 import { TaskContextService } from './task-context-service';
 import { TASK_CONTEXT_VARIABLE } from './task-context-variable';
 import { VARIABLE_ADD_CONTEXT_COMMAND } from './ai-chat-frontend-contribution';

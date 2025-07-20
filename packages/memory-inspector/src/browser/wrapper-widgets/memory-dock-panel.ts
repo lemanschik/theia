@@ -16,7 +16,7 @@
 
 import { DockPanelRendererFactory } from '@theia/core/lib/browser';
 import { TheiaDockPanel } from '@theia/core/lib/browser/shell/theia-dock-panel';
-import { interfaces } from '@theia/core/shared/inversify';
+import { interfaces } from 'inversify';
 
 export class MemoryDockPanel extends TheiaDockPanel {
     override toggleMaximized(): void { /* don't */ }

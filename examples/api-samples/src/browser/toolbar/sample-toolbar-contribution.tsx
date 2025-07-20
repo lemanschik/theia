@@ -17,7 +17,7 @@
 import { CommandContribution, CommandRegistry, CommandService, MenuContribution, MenuModelRegistry } from '@theia/core';
 import { LabelProvider, quickCommand, QuickInputService, QuickPickItem } from '@theia/core/lib/browser';
 import { inject, injectable, interfaces } from '@theia/core/shared/inversify';
-import * as React from '@theia/core/shared/react';
+import React from '@theia/core/shared/react';
 import { quickFileOpen } from '@theia/file-search/lib/browser/quick-file-open';
 import { SearchInWorkspaceCommands } from '@theia/search-in-workspace/lib/browser/search-in-workspace-frontend-contribution';
 import { WorkspaceService } from '@theia/workspace/lib/browser';

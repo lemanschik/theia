@@ -15,11 +15,11 @@
 // *****************************************************************************
 
 import { CancellationToken, ContributionProvider, Disposable, Emitter, Event, QuickPickService, isObject, nls } from '@theia/core/lib/common';
-import { CancellationTokenSource, Location, Range, Position, DocumentUri } from '@theia/core/shared/vscode-languageserver-protocol';
+import { CancellationTokenSource, Location, Range, Position, DocumentUri } from 'vscode-languageserver-protocol';
 import { CollectionDelta, TreeDelta } from '../common/tree-delta';
 import { MarkdownString } from '@theia/core/lib/common/markdown-rendering';
 import URI from '@theia/core/lib/common/uri';
-import { inject, injectable, named, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, named, postConstruct } from 'inversify';
 import { groupBy } from '../common/collections';
 import { codiconArray } from '@theia/core/lib/browser';
 

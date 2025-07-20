@@ -15,10 +15,10 @@
 // *****************************************************************************
 
 import { ContributionProvider, MaybePromise, URI } from '@theia/core';
-import { inject, injectable, named } from '@theia/core/shared/inversify';
+import { inject, injectable, named } from 'inversify';
 import { WorkspaceServer } from '@theia/workspace/lib/common';
-import * as fs from '@theia/core/shared/fs-extra';
-import * as Docker from 'dockerode';
+import fs from 'fs-extra';
+import Docker from 'dockerode';
 import { ContainerConnectionOptions } from '../electron-common/remote-container-connection-provider';
 import { DevContainerConfiguration } from './devcontainer-file';
 import { DevContainerFileService } from './dev-container-file-service';

@@ -14,12 +14,12 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as types from 'open-collaboration-protocol';
-import * as Y from 'yjs';
-import * as awarenessProtocol from 'y-protocols/awareness';
+import types from 'open-collaboration-protocol';
+import Y from 'yjs';
+import awarenessProtocol from 'y-protocols/awareness';
 
 import { Disposable, DisposableCollection, Emitter, Event, MessageService, URI, nls } from '@theia/core';
-import { Container, inject, injectable, interfaces, postConstruct } from '@theia/core/shared/inversify';
+import { Container, inject, injectable, interfaces, postConstruct } from 'inversify';
 import { ApplicationShell } from '@theia/core/lib/browser/shell/application-shell';
 import { EditorManager } from '@theia/editor/lib/browser/editor-manager';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
@@ -32,14 +32,14 @@ import { Deferred } from '@theia/core/lib/common/promise-util';
 import { EditorDecoration, EditorWidget, Selection, TextEditorDocument, TrackedRangeStickiness } from '@theia/editor/lib/browser';
 import { DecorationStyle, OpenerService, SaveReason } from '@theia/core/lib/browser';
 import { CollaborationFileSystemProvider, CollaborationURI } from './collaboration-file-system-provider';
-import { Range } from '@theia/core/shared/vscode-languageserver-protocol';
+import { Range } from 'vscode-languageserver-protocol';
 import { CollaborationColorService } from './collaboration-color-service';
 import { BinaryBuffer } from '@theia/core/lib/common/buffer';
 import { FileChange, FileChangeType, FileOperation } from '@theia/filesystem/lib/common/files';
 import { OpenCollaborationYjsProvider } from 'open-collaboration-yjs';
 import { createMutex } from 'lib0/mutex';
 import { CollaborationUtils } from './collaboration-utils';
-import debounce from '@theia/core/shared/lodash.debounce';
+import debounce from 'lodash.debounce';
 
 export const CollaborationInstanceFactory = Symbol('CollaborationInstanceFactory');
 export type CollaborationInstanceFactory = (connection: CollaborationInstanceOptions) => CollaborationInstance;

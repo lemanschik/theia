@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as React from 'react';
+import React from 'react';
 import { ArrayUtils, Event, isFunction, isObject } from '../../../common';
 import { Widget } from '../../widgets';
 import { MenuPath } from '../../../common/menu';

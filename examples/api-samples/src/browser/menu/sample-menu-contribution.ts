@@ -22,7 +22,7 @@ import {
     MenuContribution, MenuModelRegistry, MenuPath, MessageService
 } from '@theia/core/lib/common';
 import { inject, injectable, interfaces } from '@theia/core/shared/inversify';
-import * as React from '@theia/core/shared/react';
+import React from '@theia/core/shared/react';
 import { ReactNode } from '@theia/core/shared/react';
 
 const SampleCommand: Command = {

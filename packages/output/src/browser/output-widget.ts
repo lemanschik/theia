@@ -15,8 +15,8 @@
 // *****************************************************************************
 
 import '../../src/browser/style/output.css';
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
-import { toArray } from '@theia/core/shared/@lumino/algorithm';
+import { inject, injectable, postConstruct } from 'inversify';
+import { toArray } from '@lumino/algorithm';
 import { EditorWidget } from '@theia/editor/lib/browser';
 import { MonacoEditor } from '@theia/monaco/lib/browser/monaco-editor';
 import { SelectionService } from '@theia/core/lib/common/selection-service';
@@ -27,7 +27,7 @@ import { OutputUri } from '../common/output-uri';
 import { OutputChannelManager, OutputChannel } from './output-channel';
 import { Emitter, Event, deepClone } from '@theia/core';
 import { nls } from '@theia/core/lib/common/nls';
-import * as monaco from '@theia/monaco-editor-core';
+import monaco from '@theia/monaco-editor-core';
 
 @injectable()
 export class OutputWidget extends BaseWidget implements StatefulWidget {

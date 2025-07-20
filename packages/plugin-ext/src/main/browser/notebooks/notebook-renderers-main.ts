@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { DisposableCollection } from '@theia/core';
-import { interfaces } from '@theia/core/shared/inversify';
+import { interfaces } from 'inversify';
 import { NotebookRendererMessagingService } from '@theia/notebook/lib/browser';
 import { MAIN_RPC_CONTEXT, NotebookRenderersExt, NotebookRenderersMain } from '../../../common';
 import { RPCProtocol } from '../../../common/rpc-protocol';

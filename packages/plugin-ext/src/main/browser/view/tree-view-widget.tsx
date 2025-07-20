@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable, inject, postConstruct } from '@theia/core/shared/inversify';
+import { injectable, inject, postConstruct } from 'inversify';
 import { TreeViewsExt, TreeViewItemCollapsibleState, TreeViewItem, TreeViewItemReference, ThemeIcon, DataTransferFileDTO } from '../../../common/plugin-api-rpc';
 import { Command } from '../../../common/plugin-api-rpc-model';
 import {
@@ -36,7 +36,7 @@ import {
     KeybindingRegistry
 } from '@theia/core/lib/browser';
 import { MenuPath, MenuModelRegistry, CommandMenu, AcceleratorSource } from '@theia/core/lib/common/menu';
-import * as React from 'react';
+import React from 'react';
 import { PluginSharedStyle } from '../plugin-shared-style';
 import { ACTION_ITEM, Widget } from '@theia/core/lib/browser/widgets/widget';
 import { Emitter, Event } from '@theia/core/lib/common/event';

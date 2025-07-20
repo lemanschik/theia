@@ -18,8 +18,8 @@ import { enableJSDOM } from '@theia/core/lib/browser/test/jsdom';
 const disableJSDOM = enableJSDOM();
 
 import { expect } from 'chai';
-import * as sinon from 'sinon';
-import { Container } from '@theia/core/shared/inversify';
+import sinon from 'sinon';
+import { Container } from 'inversify';
 import { Event } from '@theia/core/lib/common/event';
 import { ApplicationShell, WidgetManager } from '@theia/core/lib/browser';
 import { DefaultUriLabelProviderContribution } from '@theia/core/lib/browser/label-provider';
@@ -33,7 +33,7 @@ import { EnvVariablesServer } from '@theia/core/lib/common/env-variables';
 import { MockEnvVariablesServerImpl } from '@theia/core/lib/browser/test/mock-env-variables-server';
 import { FileUri } from '@theia/core/lib/node';
 import { OS } from '@theia/core/lib/common/os';
-import * as temp from 'temp';
+import temp from 'temp';
 
 after(() => disableJSDOM());
 

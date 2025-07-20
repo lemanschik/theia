@@ -30,7 +30,7 @@ import {
 } from './connection-status-service';
 import { MockConnectionStatusService } from './test/mock-connection-status-service';
 
-import * as sinon from 'sinon';
+import sinon from 'sinon';
 
 import { Container } from 'inversify';
 import { ILogger, Emitter, Loggable } from '../common';

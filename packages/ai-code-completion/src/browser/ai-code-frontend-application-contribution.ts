@@ -14,12 +14,12 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as monaco from '@theia/monaco-editor-core';
+import monaco from '@theia/monaco-editor-core';
 
 import { AIActivationService } from '@theia/ai-core/lib/browser';
 import { Disposable } from '@theia/core';
 import { FrontendApplicationContribution, KeybindingContribution, KeybindingRegistry, PreferenceService } from '@theia/core/lib/browser';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { InlineCompletionTriggerKind } from '@theia/monaco-editor-core/esm/vs/editor/common/languages';
 import {
     PREF_AI_INLINE_COMPLETION_AUTOMATIC_ENABLE,

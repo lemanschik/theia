@@ -17,7 +17,7 @@
 import { nls } from '@theia/core';
 import { PreferenceContribution, PreferenceProxy, PreferenceSchema } from '@theia/core/lib/browser';
 import { PreferenceProxyFactory } from '@theia/core/lib/browser/preferences/injectable-preference-proxy';
-import { interfaces } from '@theia/core/shared/inversify';
+import { interfaces } from 'inversify';
 import {
     NOTIFICATION_TYPES,
     NOTIFICATION_TYPE_OFF,

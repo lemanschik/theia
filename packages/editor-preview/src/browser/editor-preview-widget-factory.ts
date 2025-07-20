@@ -16,7 +16,7 @@
 
 import URI from '@theia/core/lib/common/uri';
 import { EditorWidgetFactory } from '@theia/editor/lib/browser/editor-widget-factory';
-import { injectable } from '@theia/core/shared/inversify';
+import { injectable } from 'inversify';
 import { EditorPreviewWidget } from './editor-preview-widget';
 import { NavigatableWidgetOptions } from '@theia/core/lib/browser';
 

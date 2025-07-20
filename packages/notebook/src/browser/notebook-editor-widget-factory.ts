@@ -16,7 +16,7 @@
 
 import { nls, URI } from '@theia/core';
 import { WidgetFactory, NavigatableWidgetOptions, LabelProvider } from '@theia/core/lib/browser';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { NotebookEditorWidget, NotebookEditorWidgetContainerFactory, NotebookEditorProps } from './notebook-editor-widget';
 import { NotebookService } from './service/notebook-service';
 import { NotebookModelResolverService } from './service/notebook-model-resolver-service';

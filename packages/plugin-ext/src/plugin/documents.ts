@@ -25,10 +25,10 @@ import { TextEdit, URI } from './types-impl';
 import { UriComponents } from '../common/uri-components';
 import { RPCProtocol } from '../common/rpc-protocol';
 import { Emitter, Event } from '@theia/core/lib/common/event';
-import * as theia from '@theia/plugin';
+import theia from '@theia/plugin';
 import { DocumentDataExt, setWordDefinitionFor } from './document-data';
 import { EditorsAndDocumentsExtImpl } from './editors-and-documents';
-import * as Converter from './type-converters';
+import Converter from './type-converters';
 import { DisposableCollection } from '@theia/core/lib/common/disposable';
 import { Range, TextDocumentShowOptions } from '../common/plugin-api-rpc-model';
 

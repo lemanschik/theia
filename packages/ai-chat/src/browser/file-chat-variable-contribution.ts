@@ -18,8 +18,8 @@ import { AIVariableContext, AIVariableResolutionRequest, PromptText } from '@the
 import { AIVariableCompletionContext, AIVariableDropResult, FrontendVariableContribution, FrontendVariableService } from '@theia/ai-core/lib/browser';
 import { FILE_VARIABLE } from '@theia/ai-core/lib/browser/file-variable-contribution';
 import { CancellationToken, ILogger, QuickInputService, URI } from '@theia/core';
-import { inject, injectable } from '@theia/core/shared/inversify';
-import * as monaco from '@theia/monaco-editor-core';
+import { inject, injectable } from 'inversify';
+import monaco from '@theia/monaco-editor-core';
 import { FileQuickPickItem, QuickFileSelectService } from '@theia/file-search/lib/browser/quick-file-select-service';
 import { WorkspaceService } from '@theia/workspace/lib/browser';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';

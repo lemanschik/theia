@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as paths from 'path';
-import * as fs from 'fs-extra';
+import paths from 'path';
+import fs from 'fs-extra';
 import { AbstractGenerator } from './abstract-generator';
 
 export class WebpackGenerator extends AbstractGenerator {

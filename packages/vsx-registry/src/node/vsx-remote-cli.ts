@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { RemoteCliContext, RemoteCliContribution } from '@theia/core/lib/node/remote/remote-cli-contribution';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { PluginDeployerHandler, PluginType } from '@theia/plugin-ext';
 
 @injectable()

@@ -20,8 +20,8 @@ import { KeyCode } from './keys';
 import { KeyboardLayoutService } from './keyboard-layout-service';
 import { KeyboardLayoutProvider, NativeKeyboardLayout, KeyboardLayoutChangeNotifier } from '../../common/keyboard/keyboard-layout-provider';
 import * as os from '../../common/os';
-import * as chai from 'chai';
-import * as sinon from 'sinon';
+import chai from 'chai';
+import sinon from 'sinon';
 
 describe('keyboard layout service', function (): void {
 

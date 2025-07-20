@@ -14,11 +14,11 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as path from 'path';
-import { default as yargs } from '@theia/core/shared/yargs';
-import * as fs from '@theia/core/shared/fs-extra';
-import * as jsoncparser from 'jsonc-parser';
-import { injectable, inject, postConstruct, named } from '@theia/core/shared/inversify';
+import path from 'path';
+import { default as yargs } from 'yargs';
+import fs from 'fs-extra';
+import jsoncparser from 'jsonc-parser';
+import { injectable, inject, postConstruct, named } from 'inversify';
 import { FileUri, BackendApplicationContribution } from '@theia/core/lib/node';
 import { CliContribution } from '@theia/core/lib/node/cli';
 import { Deferred } from '@theia/core/lib/common/promise-util';

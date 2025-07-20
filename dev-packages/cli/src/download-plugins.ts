@@ -17,11 +17,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { OVSXApiFilterImpl, OVSXClient, VSXTargetPlatform } from '@theia/ovsx-client';
-import * as chalk from 'chalk';
+import chalk from 'chalk';
 import { default as decompress } from 'decompress';
 import { promises as fs } from 'fs';
-import * as path from 'path';
-import * as temp from 'temp';
+import path from 'path';
+import temp from 'temp';
 import { DEFAULT_SUPPORTED_API_VERSION } from '@theia/application-package/lib/api';
 import { RequestContext, RequestService } from '@theia/request';
 import { RateLimiter } from 'limiter';

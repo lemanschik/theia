@@ -19,7 +19,7 @@
  *--------------------------------------------------------------------------------------------*/
 
 import { Disposable, DisposableCollection } from '@theia/core';
-import { interfaces } from '@theia/core/shared/inversify';
+import { interfaces } from 'inversify';
 import { UriComponents } from '@theia/core/lib/common/uri';
 import { NotebookEditorWidget, NotebookService, NotebookEditorWidgetService, NotebookCellEditorService } from '@theia/notebook/lib/browser';
 import { NotebookModel } from '@theia/notebook/lib/browser/view-model/notebook-model';

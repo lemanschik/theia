@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as monaco from '@theia/monaco-editor-core';
+import monaco from '@theia/monaco-editor-core';
 import { IStandaloneTheme } from '@theia/monaco-editor-core/esm/vs/editor/standalone/common/standaloneTheme';
 import { IOnigLib, IRawTheme, Registry } from 'vscode-textmate';
 

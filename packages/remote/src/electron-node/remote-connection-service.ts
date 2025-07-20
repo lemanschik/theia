@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { RemoteConnection } from './remote-types';
 import { Disposable } from '@theia/core';
 import { RemoteCopyService } from './setup/remote-copy-service';

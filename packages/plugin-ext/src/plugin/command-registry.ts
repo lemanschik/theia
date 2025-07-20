@@ -18,8 +18,8 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import * as theia from '@theia/plugin';
-import * as model from '../common/plugin-api-rpc-model';
+import theia from '@theia/plugin';
+import model from '../common/plugin-api-rpc-model';
 import { CommandRegistryExt, PLUGIN_RPC_CONTEXT as Ext, CommandRegistryMain } from '../common/plugin-api-rpc';
 import { RPCProtocol } from '../common/rpc-protocol';
 import { Disposable } from './types-impl';

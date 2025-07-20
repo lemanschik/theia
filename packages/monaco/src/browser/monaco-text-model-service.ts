@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { inject, injectable, named, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, named, postConstruct } from 'inversify';
 import URI from '@theia/core/lib/common/uri';
 import { ResourceProvider, ReferenceCollection, Event, MaybePromise, Resource, ContributionProvider, OS, Emitter } from '@theia/core';
 import { EditorPreferences, EditorPreferenceChange } from '@theia/editor/lib/browser';
@@ -23,7 +23,7 @@ import { IDisposable, IReference } from '@theia/monaco-editor-core/esm/vs/base/c
 import { MonacoToProtocolConverter } from './monaco-to-protocol-converter';
 import { ProtocolToMonacoConverter } from './protocol-to-monaco-converter';
 import { ILogger } from '@theia/core/lib/common/logger';
-import * as monaco from '@theia/monaco-editor-core';
+import monaco from '@theia/monaco-editor-core';
 import { ITextModelService, ITextModelContentProvider } from '@theia/monaco-editor-core/esm/vs/editor/common/services/resolverService';
 import { ITextModelUpdateOptions } from '@theia/monaco-editor-core/esm/vs/editor/common/model';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';

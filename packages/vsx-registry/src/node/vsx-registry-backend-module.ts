@@ -16,7 +16,7 @@
 
 import { ConnectionHandler, JsonRpcConnectionHandler } from '@theia/core';
 import { CliContribution } from '@theia/core/lib/node';
-import { ContainerModule } from '@theia/core/shared/inversify';
+import { ContainerModule } from 'inversify';
 import { PluginDeployerParticipant, PluginDeployerResolver } from '@theia/plugin-ext/lib/common/plugin-protocol';
 import { VSXEnvironment, VSX_ENVIRONMENT_PATH } from '../common/vsx-environment';
 import { VsxCli } from './vsx-cli';

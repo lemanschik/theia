@@ -15,7 +15,7 @@
 // *****************************************************************************
 // eslint-disable-next-line import/no-extraneous-dependencies
 import 'reflect-metadata';
-import { ContainerModule } from '@theia/core/shared/inversify';
+import { ContainerModule } from 'inversify';
 import { BasicChannel } from '@theia/core/lib/common/message-rpc/channel';
 import { Uint8ArrayReadBuffer, Uint8ArrayWriteBuffer } from '@theia/core/lib/common/message-rpc/uint8-array-message-buffer';
 import { LocalizationExt } from '../../../common/plugin-api-rpc';

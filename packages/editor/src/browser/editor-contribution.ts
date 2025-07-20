@@ -16,7 +16,7 @@
 
 import { EditorManager } from './editor-manager';
 import { TextEditor } from './editor';
-import { injectable, inject, optional } from '@theia/core/shared/inversify';
+import { injectable, inject, optional } from 'inversify';
 import { StatusBarAlignment, StatusBar } from '@theia/core/lib/browser/status-bar/status-bar';
 import {
     FrontendApplicationContribution, DiffUris, DockLayout,

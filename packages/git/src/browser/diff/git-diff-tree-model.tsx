@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { DisposableCollection } from '@theia/core/lib/common';
 import URI from '@theia/core/lib/common/uri';
 import { ScmTreeModel } from '@theia/scm/lib/browser/scm-tree-model';
@@ -65,7 +65,7 @@ export class GitDiffTreeModel extends ScmTreeModel {
 
         const gitFileChanges = await this.git.diff(repository, this.diffOptions);
 
-        const group: ScmResourceGroup = { id: 'changes', label: 'Files Changed', resources: [], provider, dispose: () => {} };
+        const group: ScmResourceGroup = { id: 'changes', label: 'Files Changed', resources: [], provider, dispose: () => { } };
         const resources: ScmResource[] = gitFileChanges
             .map(change => new GitScmFileChange(change, provider, this.diffOptions.range))
             .map(change => ({
@@ -79,7 +79,7 @@ export class GitDiffTreeModel extends ScmTreeModel {
                 group,
             }));
         const changesGroup = { ...group, resources };
-        this._groups = [ changesGroup ];
+        this._groups = [changesGroup];
 
         this.root = this.createTree();
     }

@@ -16,7 +16,7 @@
 
 import { isObject } from '@theia/core/lib/common';
 import { nls } from '@theia/core/lib/common/nls';
-import { inject, injectable, interfaces } from '@theia/core/shared/inversify';
+import { inject, injectable, interfaces } from 'inversify';
 import { OpenFileDialogProps } from '@theia/filesystem/lib/browser';
 import { FileDialogService } from '@theia/filesystem/lib/browser/file-dialog/file-dialog-service';
 import { WorkspaceCommands } from '@theia/workspace/lib/browser';

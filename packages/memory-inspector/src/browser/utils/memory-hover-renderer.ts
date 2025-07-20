@@ -16,7 +16,7 @@
 
 import { Disposable } from '@theia/core';
 import { Anchor } from '@theia/core/lib/browser';
-import { injectable } from '@theia/core/shared/inversify';
+import { injectable } from 'inversify';
 
 export interface EasilyMappedObject {
     [key: string]: string | number;

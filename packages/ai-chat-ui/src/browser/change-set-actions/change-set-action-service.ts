@@ -16,7 +16,7 @@
 
 import { ContributionProvider, Event, Emitter } from '@theia/core';
 import { ChangeSet } from '@theia/ai-chat';
-import { inject, injectable, named, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, named, postConstruct } from 'inversify';
 
 export const ChangeSetActionRenderer = Symbol('ChangeSetActionRenderer');
 /**

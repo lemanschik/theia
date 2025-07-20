@@ -19,14 +19,14 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 import { ArrayUtils, CommandService, DisposableCollection, Event, ILogger, nls, QuickInputButton, QuickInputService, QuickPickInput, QuickPickItem, URI, } from '@theia/core';
-import { inject, injectable, named } from '@theia/core/shared/inversify';
+import { inject, injectable, named } from 'inversify';
 import { NotebookKernelService, NotebookKernel, NotebookKernelMatchResult, SourceCommand } from './notebook-kernel-service';
 import { NotebookModel } from '../view-model/notebook-model';
 import { NotebookEditorWidget } from '../notebook-editor-widget';
 import { codicon, OpenerService } from '@theia/core/lib/browser';
 import { NotebookKernelHistoryService } from './notebook-kernel-history-service';
 import { NotebookCommand, NotebookModelResource } from '../../common';
-import debounce from '@theia/core/shared/lodash.debounce';
+import debounce from 'lodash.debounce';
 
 export const JUPYTER_EXTENSION_ID = 'ms-toolsai.jupyter';
 

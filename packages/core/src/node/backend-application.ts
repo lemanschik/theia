@@ -14,13 +14,13 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as dns from 'dns';
-import * as path from 'path';
-import * as http from 'http';
-import * as https from 'https';
+import dns from 'dns';
+import path from 'path';
+import http from 'http';
+import https from 'https';
 import { default as express } from 'express';
 import { default as yargs } from 'yargs';
-import * as fs from 'fs-extra';
+import fs from 'fs-extra';
 import { inject, named, injectable, postConstruct } from 'inversify';
 import { ContributionProvider, MaybePromise, Stopwatch } from '../common';
 import { CliContribution } from './cli';

@@ -14,17 +14,17 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as path from 'path';
-import * as semver from 'semver';
-import * as fs from '@theia/core/shared/fs-extra';
-import { injectable, inject } from '@theia/core/shared/inversify';
+import path from 'path';
+import semver from 'semver';
+import fs from 'fs-extra';
+import { injectable, inject } from 'inversify';
 import URI from '@theia/core/lib/common/uri';
 import { PluginDeployerHandler, PluginDeployerResolver, PluginDeployerResolverContext, PluginDeployOptions, PluginIdentifiers } from '@theia/plugin-ext/lib/common/plugin-protocol';
 import { FileUri } from '@theia/core/lib/node';
 import { VSCodeExtensionUri } from '@theia/plugin-ext-vscode/lib/common/plugin-vscode-uri';
 import { OVSXClientProvider } from '../common/ovsx-client-provider';
 import { OVSXApiFilterProvider, VSXExtensionRaw, VSXTargetPlatform } from '@theia/ovsx-client';
-import { RequestService } from '@theia/core/shared/@theia/request';
+import { RequestService } from '@theia/request';
 import { PluginVSCodeEnvironment } from '@theia/plugin-ext-vscode/lib/common/plugin-vscode-environment';
 import { PluginUninstallationManager } from '@theia/plugin-ext/lib/main/node/plugin-uninstallation-manager';
 

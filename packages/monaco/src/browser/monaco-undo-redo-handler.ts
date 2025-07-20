@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { UndoRedoHandler } from '@theia/core/lib/browser';
-import { injectable } from '@theia/core/shared/inversify';
+import { injectable } from 'inversify';
 import { ICodeEditor } from '@theia/monaco-editor-core/esm/vs/editor/browser/editorBrowser';
 import { ICodeEditorService } from '@theia/monaco-editor-core/esm/vs/editor/browser/services/codeEditorService';
 import { StandaloneServices } from '@theia/monaco-editor-core/esm/vs/editor/standalone/browser/standaloneServices';

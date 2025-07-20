@@ -14,12 +14,12 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { RequestContext, RequestService } from '@theia/core/shared/@theia/request';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { RequestContext, RequestService } from '@theia/request';
+import { inject, injectable } from 'inversify';
 import { Deferred } from '@theia/core/lib/common/promise-util';
 import { promises as fs } from 'fs';
-import * as path from 'path';
-import * as url from 'url';
+import path from 'path';
+import url from 'url';
 import { PluginDeployerResolver, PluginDeployerResolverContext } from '../../common';
 import { getTempDirPathAsync } from './temp-dir-util';
 

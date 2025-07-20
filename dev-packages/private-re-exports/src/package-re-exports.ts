@@ -14,9 +14,9 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as cp from 'child_process';
-import * as fs from 'fs';
-import * as path from 'path';
+import cp from 'child_process';
+import fs from 'fs';
+import path from 'path';
 import { PackageJson, parseModule, ReExportJson } from './utility.js';
 import { createRequire } from 'module';
 

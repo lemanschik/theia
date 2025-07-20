@@ -14,10 +14,10 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { Position, Range } from '@theia/core/shared/vscode-languageserver-protocol';
+import { Position, Range } from 'vscode-languageserver-protocol';
 import { DisposableCollection } from '@theia/core';
 import { MonacoEditor } from './monaco-editor';
-import * as monaco from '@theia/monaco-editor-core';
+import monaco from '@theia/monaco-editor-core';
 import { PeekViewWidget, IPeekViewOptions, IPeekViewStyles } from '@theia/monaco-editor-core/esm/vs/editor/contrib/peekView/browser/peekView';
 import { ICodeEditor } from '@theia/monaco-editor-core/esm/vs/editor/browser/editorBrowser';
 import { ActionBar } from '@theia/monaco-editor-core/esm/vs/base/browser/ui/actionbar/actionbar';

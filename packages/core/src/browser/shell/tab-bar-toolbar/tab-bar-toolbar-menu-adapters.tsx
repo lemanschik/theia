@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { Widget } from '@lumino/widgets';
-import * as React from 'react';
+import React from 'react';
 import { CommandRegistry, Event } from '../../../common';
 import { NAVIGATION, RenderedToolbarAction } from './tab-bar-toolbar-types';
 import { TabBarToolbar, toAnchor } from './tab-bar-toolbar';

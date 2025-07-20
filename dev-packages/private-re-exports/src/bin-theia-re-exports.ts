@@ -14,11 +14,11 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as fs from 'fs';
+import fs from 'fs';
 import { default as mustache } from 'mustache';
-import * as os from 'os';
-import * as path from 'path';
-import * as semver from 'semver';
+import os from 'os';
+import path from 'path';
+import semver from 'semver';
 import { default as yargs } from 'yargs';
 import { parseModule } from './utility.js';
 import { ReExport, PackageReExports } from './package-re-exports.js';

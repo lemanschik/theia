@@ -19,8 +19,8 @@
  *--------------------------------------------------------------------------------------------*/
 
 import { Emitter } from '@theia/core';
-import { inject, injectable } from '@theia/core/shared/inversify';
-import { Disposable } from '@theia/core/shared/vscode-languageserver-protocol';
+import { inject, injectable } from 'inversify';
+import { Disposable } from 'vscode-languageserver-protocol';
 import { NotebookEditorWidgetService } from './notebook-editor-widget-service';
 
 interface RendererMessage {

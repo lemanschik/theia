@@ -28,7 +28,7 @@
  */
 
 // Before importing anything from monaco we need to override its localization function
-import * as MonacoNls from '@theia/monaco-editor-core/esm/vs/nls';
+import MonacoNls from '@theia/monaco-editor-core/esm/vs/nls';
 import { nls } from '@theia/core/lib/common/nls';
 import { FormatType, Localization } from '@theia/core/lib/common/i18n/localization';
 
@@ -58,7 +58,7 @@ Object.assign(MonacoNls, {
     }
 });
 
-import { Container } from '@theia/core/shared/inversify';
+import { Container } from 'inversify';
 import { ICodeEditorService } from '@theia/monaco-editor-core/esm/vs/editor/browser/services/codeEditorService';
 import { StandaloneServices } from '@theia/monaco-editor-core/esm/vs/editor/standalone/browser/standaloneServices';
 import { SyncDescriptor } from '@theia/monaco-editor-core/esm/vs/platform/instantiation/common/descriptors';

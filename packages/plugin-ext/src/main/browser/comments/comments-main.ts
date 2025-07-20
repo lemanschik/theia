@@ -34,10 +34,10 @@ import {
 import { Disposable } from '@theia/core/lib/common/disposable';
 import { CommentsService, CommentInfoMain } from './comments-service';
 import { UriComponents } from '../../../common/uri-components';
-import { URI } from '@theia/core/shared/vscode-uri';
+import { URI } from 'vscode-uri';
 import { CancellationToken } from '@theia/core/lib/common';
 import { RPCProtocol } from '../../../common/rpc-protocol';
-import { interfaces } from '@theia/core/shared/inversify';
+import { interfaces } from 'inversify';
 import { generateUuid } from '@theia/core/lib/common/uuid';
 import { CommentsContribution } from './comments-contribution';
 import { CommentAuthorInformation } from '@theia/plugin';

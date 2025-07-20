@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as fs from '@theia/core/shared/fs-extra';
-import * as path from 'path';
+import fs from 'fs-extra';
+import path from 'path';
 import { GitLocator, GitLocateOptions } from './git-locator-protocol';
 
 export type FindGitRepositories = (path: string, progressCb: (repos: string[]) => void) => Promise<string[]>;

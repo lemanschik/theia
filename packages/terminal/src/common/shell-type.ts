@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { OS } from '@theia/core';
-import * as path from 'path';
+import path from 'path';
 
 /*---------------------------------------------------------------------------------------------
  *  Copyright (c) Microsoft Corporation. All rights reserved.

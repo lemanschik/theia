@@ -16,7 +16,7 @@
 import { Command, CommandContribution, CommandRegistry, CommandService, isObject, MenuContribution, MenuModelRegistry } from '@theia/core';
 import { CommonCommands, TreeNode } from '@theia/core/lib/browser';
 import { ClipboardService } from '@theia/core/lib/browser/clipboard-service';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import {
     ChatViewTreeWidget, isEditableRequestNode, isRequestNode,
     isResponseNode, RequestNode, ResponseNode, type EditableRequestNode

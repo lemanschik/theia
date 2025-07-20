@@ -16,7 +16,7 @@
 
 import { Mutex } from 'async-mutex';
 import { injectable, interfaces } from 'inversify';
-import * as path from 'path';
+import path from 'path';
 
 export const FileSystemLocking = Symbol('FileSystemLocking') as symbol & interfaces.Abstract<FileSystemLocking>;
 /**

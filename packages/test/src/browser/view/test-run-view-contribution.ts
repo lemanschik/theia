@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { AbstractViewContribution, Widget } from '@theia/core/lib/browser';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { TestRun, TestService } from '../test-service';
 import { ContextKeyService } from '@theia/core/lib/browser/context-key-service';
 import { TestRunTreeWidget } from './test-run-widget';

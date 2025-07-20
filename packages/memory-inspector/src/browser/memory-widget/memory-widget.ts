@@ -16,7 +16,7 @@
 
 import { nls } from '@theia/core';
 import { BaseWidget, PanelLayout } from '@theia/core/lib/browser';
-import { Container, inject, injectable, interfaces, postConstruct } from '@theia/core/shared/inversify';
+import { Container, inject, injectable, interfaces, postConstruct } from 'inversify';
 import { MemoryWidgetOptions } from '../utils/memory-widget-utils';
 import { MemoryOptionsWidget } from './memory-options-widget';
 import { MemoryTableWidget } from './memory-table-widget';

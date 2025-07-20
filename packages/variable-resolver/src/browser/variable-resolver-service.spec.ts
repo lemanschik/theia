@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as chai from 'chai';
-import { Container } from '@theia/core/shared/inversify';
+import chai from 'chai';
+import { Container } from 'inversify';
 import { cancelled } from '@theia/core/lib/common';
 import { VariableRegistry } from './variable';
 import { VariableResolverService } from './variable-resolver-service';

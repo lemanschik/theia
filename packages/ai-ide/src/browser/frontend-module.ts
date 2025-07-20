@@ -16,7 +16,7 @@
 
 import '../../src/browser/style/index.css';
 
-import { ContainerModule } from '@theia/core/shared/inversify';
+import { ContainerModule } from 'inversify';
 import { ChatAgent, DefaultChatAgentId, FallbackChatAgentId } from '@theia/ai-chat/lib/common';
 import { Agent, AIVariableContribution, bindToolProvider } from '@theia/ai-core/lib/common';
 import { ArchitectAgent } from './architect-agent';

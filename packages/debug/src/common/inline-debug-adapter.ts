@@ -16,7 +16,7 @@
 
 import { Emitter, Event } from '@theia/core/lib/common/event';
 import { DebugAdapter } from './debug-model';
-import * as theia from '@theia/plugin';
+import theia from '@theia/plugin';
 
 /**
  * A debug adapter for using the inline implementation from a plugin.

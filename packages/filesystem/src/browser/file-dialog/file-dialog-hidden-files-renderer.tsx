@@ -16,8 +16,8 @@
 
 import { nls } from '@theia/core';
 import { ReactRenderer } from '@theia/core/lib/browser';
-import { inject, postConstruct } from '@theia/core/shared/inversify';
-import * as React from 'react';
+import { inject, postConstruct } from 'inversify';
+import React from 'react';
 import { FileDialogTree } from './file-dialog-tree';
 
 const TOGGLE_HIDDEN_PANEL_CLASS = 'theia-ToggleHiddenPanel';

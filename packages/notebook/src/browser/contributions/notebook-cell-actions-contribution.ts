@@ -16,7 +16,7 @@
 
 import { Command, CommandContribution, CommandHandler, CommandRegistry, MenuContribution, MenuModelRegistry, nls } from '@theia/core';
 import { codicon, Key, KeybindingContribution, KeybindingRegistry, KeyCode, KeyModifier } from '@theia/core/lib/browser';
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, postConstruct } from 'inversify';
 import { NotebookModel } from '../view-model/notebook-model';
 import { NotebookCellModel } from '../view-model/notebook-cell-model';
 import {
@@ -35,7 +35,7 @@ import { changeCellType } from './cell-operations';
 import { EditorLanguageQuickPickService } from '@theia/editor/lib/browser/editor-language-quick-pick-service';
 import { NotebookService } from '../service/notebook-service';
 import { Selection } from '@theia/monaco-editor-core/esm/vs/editor/common/core/selection';
-import { Range } from '@theia/core/shared/vscode-languageserver-protocol';
+import { Range } from 'vscode-languageserver-protocol';
 import { NOTEBOOK_EDITOR_ID_PREFIX } from '../notebook-editor-widget';
 
 export namespace NotebookCellCommands {

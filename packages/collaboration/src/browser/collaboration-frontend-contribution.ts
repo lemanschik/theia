@@ -20,7 +20,7 @@ import {
     CancellationToken, CancellationTokenSource, Command, CommandContribution, CommandRegistry, MessageService, nls, Progress, QuickInputService, QuickPickItem,
     URI
 } from '@theia/core';
-import { inject, injectable, optional, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, optional, postConstruct } from 'inversify';
 import { AuthMetadata, AuthProvider, ConnectionProvider, FormAuthProvider, initializeProtocol, SocketIoTransportProvider, WebAuthProvider } from 'open-collaboration-protocol';
 import { WindowService } from '@theia/core/lib/browser/window/window-service';
 import { CollaborationInstance, CollaborationInstanceFactory } from './collaboration-instance';

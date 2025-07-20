@@ -14,13 +14,13 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as theia from '@theia/plugin';
+import theia from '@theia/plugin';
 import type * as monaco from '@theia/monaco-editor-core';
 import { MarkdownString as MarkdownStringDTO } from '@theia/core/lib/common/markdown-rendering';
 import { UriComponents } from './uri-components';
 import { CompletionItemTag, DocumentPasteEditKind, SnippetString } from '../plugin/types-impl';
 import { Event as TheiaEvent } from '@theia/core/lib/common/event';
-import { URI } from '@theia/core/shared/vscode-uri';
+import { URI } from 'vscode-uri';
 import { SerializedRegExp } from './plugin-api-rpc';
 
 // Should contains internal Plugin API types

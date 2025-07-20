@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable, inject, postConstruct } from '@theia/core/shared/inversify';
+import { injectable, inject, postConstruct } from 'inversify';
 import { FileNode, FileStatNode, FileTreeModel } from '@theia/filesystem/lib/browser';
 import {
     ApplicationShell,
@@ -29,7 +29,7 @@ import {
     TabBar
 } from '@theia/core/lib/browser';
 import { WorkspaceService } from '@theia/workspace/lib/browser';
-import debounce from '@theia/core/shared/lodash.debounce';
+import debounce from 'lodash.debounce';
 import { DisposableCollection, nls } from '@theia/core/lib/common';
 import { FileStat } from '@theia/filesystem/lib/common/files';
 

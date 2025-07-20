@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { AIVariableContext } from '@theia/ai-core';
-import * as monaco from '@theia/monaco-editor-core';
+import monaco from '@theia/monaco-editor-core';
 
 export interface CodeCompletionVariableContext {
     model: monaco.editor.ITextModel,

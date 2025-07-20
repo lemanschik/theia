@@ -16,8 +16,8 @@
 
 import { ReactRenderer } from '@theia/core/lib/browser/widgets/react-renderer';
 import { FileDialogTree } from './file-dialog-tree';
-import * as React from 'react';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import React from 'react';
+import { inject, injectable } from 'inversify';
 
 export const FILE_TREE_FILTERS_LIST_CLASS = 'theia-FileTreeFiltersList';
 

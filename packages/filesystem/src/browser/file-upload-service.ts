@@ -16,14 +16,14 @@
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { injectable, inject, postConstruct } from '@theia/core/shared/inversify';
+import { injectable, inject, postConstruct } from 'inversify';
 import URI from '@theia/core/lib/common/uri';
 import { CancellationTokenSource, CancellationToken, checkCancelled, cancelled, isCancelled } from '@theia/core/lib/common/cancellation';
 import { Deferred } from '@theia/core/lib/common/promise-util';
 import { MessageService } from '@theia/core/lib/common/message-service';
 import { Progress } from '@theia/core/lib/common/message-service-protocol';
 import { Endpoint } from '@theia/core/lib/browser/endpoint';
-import throttle from '@theia/core/shared/lodash.throttle';
+import throttle from 'lodash.throttle';
 import { HTTP_FILE_UPLOAD_PATH } from '../common/file-upload';
 import { Semaphore } from 'async-mutex';
 import { FileSystemPreferences } from './filesystem-preferences';

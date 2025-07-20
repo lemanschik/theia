@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable, inject, named } from '@theia/core/shared/inversify';
+import { injectable, inject, named } from 'inversify';
 import { Registry } from 'vscode-textmate';
 import { ILogger, ContributionProvider, DisposableCollection, Disposable } from '@theia/core';
 import { FrontendApplicationContribution, isBasicWasmSupported } from '@theia/core/lib/browser';
@@ -24,7 +24,7 @@ import { createTextmateTokenizer, TokenizerOption } from './textmate-tokenizer';
 import { TextmateRegistry } from './textmate-registry';
 import { MonacoThemeRegistry } from './monaco-theme-registry';
 import { EditorPreferences } from '@theia/editor/lib/browser/editor-preferences';
-import * as monaco from '@theia/monaco-editor-core';
+import monaco from '@theia/monaco-editor-core';
 import { TokenizationRegistry } from '@theia/monaco-editor-core/esm/vs/editor/common/languages';
 import { IStandaloneThemeService } from '@theia/monaco-editor-core/esm/vs/editor/standalone/common/standaloneTheme';
 import { StandaloneServices } from '@theia/monaco-editor-core/esm/vs/editor/standalone/browser/standaloneServices';

@@ -17,7 +17,7 @@
 import { expect } from 'chai';
 import { promises as fs } from 'fs';
 import { Container } from 'inversify';
-import * as sinon from 'sinon';
+import sinon from 'sinon';
 import { EnvVariablesServer } from '../common/env-variables';
 import { ILogger } from '../common/logger';
 import { MockLogger } from '../common/test/mock-logger';

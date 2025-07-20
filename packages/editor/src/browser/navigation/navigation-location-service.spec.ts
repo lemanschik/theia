@@ -18,7 +18,7 @@ import { enableJSDOM } from '@theia/core/lib/browser/test/jsdom';
 let disableJSDOM = enableJSDOM();
 
 import { expect } from 'chai';
-import { Container } from '@theia/core/shared/inversify';
+import { Container } from 'inversify';
 import URI from '@theia/core/lib/common/uri';
 import { ILogger } from '@theia/core/lib/common/logger';
 import { MockLogger } from '@theia/core/lib/common/test/mock-logger';

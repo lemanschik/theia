@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable, inject } from '@theia/core/shared/inversify';
+import { injectable, inject } from 'inversify';
 import { CancellationToken, nls, QuickPickItemOrSeparator } from '@theia/core/lib/common';
 import { LabelProvider } from '@theia/core/lib/browser/label-provider';
 import { QuickAccessProvider, QuickAccessRegistry, QuickAccessContribution } from '@theia/core/lib/browser/quick-input/quick-access';

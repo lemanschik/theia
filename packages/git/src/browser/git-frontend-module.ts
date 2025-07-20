@@ -16,12 +16,12 @@
 
 import '../../src/browser/style/index.css';
 
-import { ContainerModule, interfaces } from '@theia/core/shared/inversify';
+import { ContainerModule, interfaces } from 'inversify';
 import { CommandContribution, MenuContribution, ResourceResolver } from '@theia/core/lib/common';
 import {
     WebSocketConnectionProvider,
     FrontendApplicationContribution,
-    } from '@theia/core/lib/browser';
+} from '@theia/core/lib/browser';
 import { TabBarToolbarContribution } from '@theia/core/lib/browser/shell/tab-bar-toolbar';
 import { Git, GitPath, GitWatcher, GitWatcherPath, GitWatcherServer, GitWatcherServerProxy, ReconnectingGitWatcherServer } from '../common';
 import { GitContribution } from './git-contribution';

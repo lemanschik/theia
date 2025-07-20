@@ -16,7 +16,7 @@
 
 import { URI, MaybePromise, Disposable } from '@theia/core';
 import { NavigatableWidgetOpenHandler, PreferenceService, WidgetOpenerOptions, getDefaultHandler, defaultHandlerPriority } from '@theia/core/lib/browser';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { NotebookFileSelector, NotebookTypeDescriptor } from '../common/notebook-protocol';
 import { NotebookEditorWidget } from './notebook-editor-widget';
 import { match } from '@theia/core/lib/common/glob';

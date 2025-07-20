@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { interfaces } from '@theia/core/shared/inversify';
+import { interfaces } from 'inversify';
 import { PluginApiContribution } from './plugin-service';
 import { BackendApplicationContribution, CliContribution } from '@theia/core/lib/node';
 import { WsRequestValidatorContribution } from '@theia/core/lib/node/ws-request-validators';

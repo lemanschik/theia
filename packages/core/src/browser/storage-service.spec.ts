@@ -21,7 +21,7 @@ import { LocalStorageService, StorageService } from './storage-service';
 import { expect } from 'chai';
 import { ILogger } from '../common/logger';
 import { MockLogger } from '../common/test/mock-logger';
-import * as sinon from 'sinon';
+import sinon from 'sinon';
 import { MessageService, MessageClient } from '../common/';
 
 let storageService: StorageService;

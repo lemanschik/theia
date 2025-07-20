@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { DebugAdapterSessionImpl } from '@theia/debug/lib/common/debug-adapter-session';
-import * as theia from '@theia/plugin';
+import theia from '@theia/plugin';
 import { DebugAdapter } from '@theia/debug/lib/common/debug-model';
 import { DebugChannel } from '@theia/debug/lib/common/debug-service';
 

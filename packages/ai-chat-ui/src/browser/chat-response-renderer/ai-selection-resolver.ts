@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { CancellationToken, RecursivePartial, URI } from '@theia/core';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { EditorOpenerOptions, EditorWidget, Range } from '@theia/editor/lib/browser';
 
 import { EditorSelectionResolver } from '@theia/editor/lib/browser/editor-manager';

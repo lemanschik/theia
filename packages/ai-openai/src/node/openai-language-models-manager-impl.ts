@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { LanguageModelRegistry, TokenUsageService } from '@theia/ai-core';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { OpenAiModel, OpenAiModelUtils } from './openai-language-model';
 import { OpenAiLanguageModelsManager, OpenAiModelDescription } from '../common';
 

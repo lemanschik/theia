@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { nls } from '@theia/core';
-import { injectable } from '@theia/core/shared/inversify';
+import { injectable } from 'inversify';
 
 export interface PreferenceLayout {
     id: string;

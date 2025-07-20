@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { codiconArray } from '@theia/core/lib/browser';
-import { injectable, interfaces } from '@theia/core/shared/inversify';
+import { injectable, interfaces } from 'inversify';
 import { IJSONSchema } from '@theia/core/lib/common/json-schema';
 import { Preference } from '../../util/preference-types';
 import { PreferenceLeafNodeRenderer, PreferenceNodeRenderer } from './preference-node-renderer';

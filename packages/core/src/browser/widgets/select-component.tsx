@@ -14,9 +14,9 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import * as DOMPurify from 'dompurify';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import DOMPurify from 'dompurify';
 import { codicon } from './widget';
 import { measureTextHeight, measureTextWidth } from '../browser';
 

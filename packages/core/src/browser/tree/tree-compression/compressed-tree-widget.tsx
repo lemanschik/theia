@@ -16,7 +16,7 @@
 
 import '../../../../src/browser/tree/tree-compression/tree-compression.css';
 import { injectable, inject } from 'inversify';
-import * as React from 'react';
+import React from 'react';
 import { ArrayUtils } from '../../../common/types';
 import { ContextMenuRenderer } from '../../context-menu-renderer';
 import { CompressionToggle, TreeCompressionService } from './tree-compression-service';

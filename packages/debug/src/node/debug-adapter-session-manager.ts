@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { UUID } from '@theia/core/shared/@lumino/coreutils';
-import { injectable, inject } from '@theia/core/shared/inversify';
+import { UUID } from '@lumino/coreutils';
+import { injectable, inject } from 'inversify';
 import { MessagingService } from '@theia/core/lib/node/messaging/messaging-service';
 
 import { DebugAdapterPath, ForwardingDebugChannel } from '../common/debug-service';

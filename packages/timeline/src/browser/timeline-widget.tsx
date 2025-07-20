@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { Message } from '@theia/core/shared/@lumino/messaging';
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
+import { Message } from '@lumino/messaging';
+import { inject, injectable, postConstruct } from 'inversify';
 import {
     ApplicationShell,
     BaseWidget,
@@ -28,9 +28,9 @@ import { TimelineTreeWidget } from './timeline-tree-widget';
 import { TimelineService, TimelineAggregate } from './timeline-service';
 import { CommandRegistry, SelectionService } from '@theia/core/lib/common';
 import { TimelineEmptyWidget } from './timeline-empty-widget';
-import { toArray } from '@theia/core/shared/@lumino/algorithm';
+import { toArray } from '@lumino/algorithm';
 import URI from '@theia/core/lib/common/uri';
-import { URI as CodeURI } from '@theia/core/shared/vscode-uri';
+import { URI as CodeURI } from 'vscode-uri';
 import { nls } from '@theia/core/lib/common/nls';
 
 @injectable()

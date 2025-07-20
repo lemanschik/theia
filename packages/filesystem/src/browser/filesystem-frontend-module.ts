@@ -16,7 +16,7 @@
 
 import '../../src/browser/style/index.css';
 
-import { ContainerModule, interfaces } from '@theia/core/shared/inversify';
+import { ContainerModule, interfaces } from 'inversify';
 import { ResourceResolver, CommandContribution } from '@theia/core/lib/common';
 import { WebSocketConnectionProvider, FrontendApplicationContribution, LabelProviderContribution, BreadcrumbsContribution } from '@theia/core/lib/browser';
 import { FileResourceResolver } from './file-resource';

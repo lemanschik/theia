@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { Position, Range, TextDocumentSaveReason } from '@theia/core/shared/vscode-languageserver-protocol';
+import { Position, Range, TextDocumentSaveReason } from 'vscode-languageserver-protocol';
 import { TextEditorDocument, EncodingMode, FindMatchesOptions, FindMatch, EditorPreferences } from '@theia/editor/lib/browser';
 import { DisposableCollection, Disposable } from '@theia/core/lib/common/disposable';
 import { Emitter, Event } from '@theia/core/lib/common/event';
@@ -26,7 +26,7 @@ import { ProtocolToMonacoConverter } from './protocol-to-monaco-converter';
 import { ILogger, Loggable, Log } from '@theia/core/lib/common/logger';
 import { ITextBufferFactory, ITextModel, ITextSnapshot } from '@theia/monaco-editor-core/esm/vs/editor/common/model';
 import { IResolvedTextEditorModel } from '@theia/monaco-editor-core/esm/vs/editor/common/services/resolverService';
-import * as monaco from '@theia/monaco-editor-core';
+import monaco from '@theia/monaco-editor-core';
 import { StandaloneServices } from '@theia/monaco-editor-core/esm/vs/editor/standalone/browser/standaloneServices';
 import { ILanguageService } from '@theia/monaco-editor-core/esm/vs/editor/common/languages/language';
 import { IModelService } from '@theia/monaco-editor-core/esm/vs/editor/common/services/model';

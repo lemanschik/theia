@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable, inject, postConstruct } from '@theia/core/shared/inversify';
+import { injectable, inject, postConstruct } from 'inversify';
 import { ApplicationShell, DepthFirstTreeIterator, NavigatableWidget, Tree, TreeDecoration, TreeDecorator } from '@theia/core/lib/browser';
 import { FileSystemFrontendContribution } from '@theia/filesystem/lib/browser/filesystem-frontend-contribution';
 import { Emitter } from '@theia/core';

@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as React from 'react';
-import { injectable } from '@theia/core/shared/inversify';
+import React from 'react';
+import { injectable } from 'inversify';
 import { ChangeSetActionRenderer } from './change-set-action-service';
 import { ChangeSet, ChangeSetElement } from '@theia/ai-chat';
 import { nls } from '@theia/core';

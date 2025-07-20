@@ -14,11 +14,11 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, postConstruct } from 'inversify';
 import { CompositeTreeNode, PreferenceSchemaProvider, OVERRIDE_PROPERTY_PATTERN, PreferenceDataProperty } from '@theia/core/lib/browser';
 import { PreferenceConfigurations } from '@theia/core/lib/browser/preferences/preference-configurations';
 import { Emitter } from '@theia/core';
-import debounce from '@theia/core/shared/lodash.debounce';
+import debounce from 'lodash.debounce';
 import { Preference } from './preference-types';
 import { COMMONLY_USED_SECTION_PREFIX, PreferenceLayoutProvider } from './preference-layout';
 import { PreferenceTreeLabelProvider } from './preference-tree-label-provider';

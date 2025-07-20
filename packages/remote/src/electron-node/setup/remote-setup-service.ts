@@ -14,10 +14,10 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { inject, injectable, named } from '@theia/core/shared/inversify';
+import { inject, injectable, named } from 'inversify';
 import { RemoteConnection, RemoteExecResult, RemoteStatusReport } from '../remote-types';
 import { RemoteCliContext, RemoteCliContribution, RemotePlatform } from '@theia/core/lib/node/remote/remote-cli-contribution';
-import { ApplicationPackage } from '@theia/core/shared/@theia/application-package';
+import { ApplicationPackage } from '@theia/application-package';
 import { RemoteCopyService } from './remote-copy-service';
 import { RemoteNativeDependencyService } from './remote-native-dependency-service';
 import { ContributionProvider, OS, THEIA_VERSION } from '@theia/core';

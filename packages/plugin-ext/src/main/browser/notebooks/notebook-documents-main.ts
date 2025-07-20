@@ -16,7 +16,7 @@
 
 import { DisposableCollection, Event } from '@theia/core';
 import { URI, UriComponents } from '@theia/core/lib/common/uri';
-import { interfaces } from '@theia/core/shared/inversify';
+import { interfaces } from 'inversify';
 import { NotebookModelResolverService } from '@theia/notebook/lib/browser';
 import { NotebookModel } from '@theia/notebook/lib/browser/view-model/notebook-model';
 import { NotebookCellsChangeType } from '@theia/notebook/lib/common';

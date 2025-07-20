@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { Disposable, Emitter, Event } from '@theia/core';
-import { injectable, inject } from '@theia/core/shared/inversify';
+import { injectable, inject } from 'inversify';
 import URI from '@theia/core/lib/common/uri';
 import { Breadcrumb, BreadcrumbsContribution, CompositeTreeNode, LabelProvider, SelectableTreeNode, Widget } from '@theia/core/lib/browser';
 import { FilepathBreadcrumb } from './filepath-breadcrumb';

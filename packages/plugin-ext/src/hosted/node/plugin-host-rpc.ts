@@ -17,7 +17,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { dynamicRequire, removeFromCache } from '@theia/core/lib/node/dynamic-require';
-import { ContainerModule, inject, injectable, postConstruct, unmanaged } from '@theia/core/shared/inversify';
+import { ContainerModule, inject, injectable, postConstruct, unmanaged } from 'inversify';
 import { AbstractPluginManagerExtImpl, PluginHost, PluginManagerExtImpl } from '../../plugin/plugin-manager';
 import {
     MAIN_RPC_CONTEXT, Plugin, PluginAPIFactory, PluginManager,

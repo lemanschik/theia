@@ -14,11 +14,11 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as path from 'path';
-import * as fs from '@theia/core/shared/fs-extra';
+import path from 'path';
+import fs from 'fs-extra';
 import { LazyLocalization, LocalizationProvider } from '@theia/core/lib/node/i18n/localization-provider';
 import { Localization } from '@theia/core/lib/common/i18n/localization';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { DeployedPlugin, Localization as PluginLocalization, PluginIdentifiers, Translation } from '../../common';
 import { EnvVariablesServer } from '@theia/core/lib/common/env-variables';
 import { BackendApplicationContribution } from '@theia/core/lib/node';

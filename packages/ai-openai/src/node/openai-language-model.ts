@@ -27,7 +27,7 @@ import {
     ImageContent
 } from '@theia/ai-core';
 import { CancellationToken } from '@theia/core';
-import { injectable } from '@theia/core/shared/inversify';
+import { injectable } from 'inversify';
 import { OpenAI, AzureOpenAI } from 'openai';
 import { ChatCompletionStream } from 'openai/lib/ChatCompletionStream';
 import { RunnableToolFunctionWithoutParse } from 'openai/lib/RunnableFunction';

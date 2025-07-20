@@ -20,13 +20,13 @@ import {
 } from '@theia/test/lib/browser/test-service';
 import { TestExecutionProgressService } from '@theia/test/lib/browser/test-execution-progress-service';
 import { AccumulatingTreeDeltaEmitter, CollectionDelta, DeltaKind, TreeDelta, TreeDeltaBuilder } from '@theia/test/lib/common/tree-delta';
-import { Emitter, Location, Range } from '@theia/core/shared/vscode-languageserver-protocol';
+import { Emitter, Location, Range } from 'vscode-languageserver-protocol';
 import { Range as PluginRange, Location as PluginLocation } from '../../common/plugin-api-rpc-model';
 import { MarkdownString } from '@theia/core/lib/common/markdown-rendering';
 import { CancellationToken, Disposable, Event, URI } from '@theia/core';
 import { MAIN_RPC_CONTEXT, TestControllerUpdate, TestingExt, TestingMain } from '../../common';
 import { RPCProtocol } from '../../common/rpc-protocol';
-import { interfaces } from '@theia/core/shared/inversify';
+import { interfaces } from 'inversify';
 import {
     TestExecutionState, TestItemDTO, TestItemReference, TestOutputDTO,
     TestRunDTO, TestRunProfileDTO, TestStateChangeDTO

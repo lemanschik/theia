@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { ContainerModule, interfaces } from '@theia/core/shared/inversify';
+import { ContainerModule, interfaces } from 'inversify';
 import { WebSocketConnectionProvider } from '@theia/core/lib/browser/messaging/ws-connection-provider';
 import { GitPrompt, GitPromptServer, GitPromptServerProxy, GitPromptServerImpl } from '../../common/git-prompt';
 

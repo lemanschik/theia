@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import '../../src/browser/style/index.css';
-import { ContainerModule, interfaces } from '@theia/core/shared/inversify';
+import { ContainerModule, interfaces } from 'inversify';
 import { MenuContribution, CommandContribution, quickInputServicePath } from '@theia/core/lib/common';
 import {
     FrontendApplicationContribution, KeybindingContribution,

@@ -15,8 +15,8 @@
 // *****************************************************************************
 
 import { nls } from '@theia/core';
-import { injectable } from '@theia/core/shared/inversify';
-import { Disposable } from '@theia/core/shared/vscode-languageserver-protocol';
+import { injectable } from 'inversify';
+import { Disposable } from 'vscode-languageserver-protocol';
 import { FileStat } from '@theia/filesystem/lib/common/files';
 import { WorkspaceService } from '@theia/workspace/lib/browser';
 import { Workspace, ProtocolBroadcastConnection } from 'open-collaboration-protocol';

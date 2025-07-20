@@ -14,11 +14,11 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as assert from 'assert';
-import * as Converter from './type-converters';
-import * as theia from '@theia/plugin';
-import * as types from './types-impl';
-import * as model from '../common/plugin-api-rpc-model';
+import assert from 'assert';
+import Converter from './type-converters';
+import theia from '@theia/plugin';
+import types from './types-impl';
+import model from '../common/plugin-api-rpc-model';
 import { MarkdownString } from './markdown-string';
 import { MarkdownString as MarkdownStringInterface } from '@theia/core/lib/common/markdown-rendering';
 import { TaskDto } from '../common/plugin-api-rpc';

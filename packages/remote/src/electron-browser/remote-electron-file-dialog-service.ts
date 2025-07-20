@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { MaybeArray, URI } from '@theia/core';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { OpenFileDialogProps, SaveFileDialogProps } from '@theia/filesystem/lib/browser/file-dialog';
 import { FileStat } from '@theia/filesystem/lib/common/files';
 import { DefaultFileDialogService } from '@theia/filesystem/lib/browser/file-dialog/file-dialog-service';

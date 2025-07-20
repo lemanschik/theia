@@ -20,8 +20,8 @@
 // Partially copied from https://github.com/microsoft/vscode/blob/a2cab7255c0df424027be05d58e1b7b941f4ea60/src/vs/workbench/contrib/chat/common/chatVariables.ts
 
 import { ContributionProvider, Disposable, Emitter, ILogger, MaybePromise, Prioritizeable, Event } from '@theia/core';
-import { inject, injectable, named } from '@theia/core/shared/inversify';
-import * as monaco from '@theia/monaco-editor-core';
+import { inject, injectable, named } from 'inversify';
+import monaco from '@theia/monaco-editor-core';
 import { PromptText } from './prompt-text';
 
 /**

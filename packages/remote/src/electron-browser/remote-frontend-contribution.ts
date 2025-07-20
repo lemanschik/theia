@@ -16,7 +16,7 @@
 
 import { Command, CommandContribution, CommandRegistry, ContributionProvider, nls, QuickInputService, QuickPickInput } from '@theia/core';
 import { FrontendApplicationContribution, StatusBar, StatusBarAlignment, StatusBarEntry } from '@theia/core/lib/browser';
-import { inject, injectable, named, optional } from '@theia/core/shared/inversify';
+import { inject, injectable, named, optional } from 'inversify';
 import { RemoteStatus, RemoteStatusService } from '../electron-common/remote-status-service';
 import { RemoteRegistry, RemoteRegistryContribution } from './remote-registry-contribution';
 import { RemoteService } from './remote-service';

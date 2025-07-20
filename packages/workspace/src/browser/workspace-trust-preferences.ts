@@ -18,7 +18,7 @@ import {
     createPreferenceProxy, PreferenceContribution, PreferenceProxy, PreferenceSchema, PreferenceScope, PreferenceService
 } from '@theia/core/lib/browser/preferences';
 import { nls } from '@theia/core/lib/common/nls';
-import { interfaces } from '@theia/core/shared/inversify';
+import { interfaces } from 'inversify';
 
 export const WORKSPACE_TRUST_ENABLED = 'security.workspace.trust.enabled';
 export const WORKSPACE_TRUST_STARTUP_PROMPT = 'security.workspace.trust.startupPrompt';

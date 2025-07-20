@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { ToolProvider, ToolRequest } from '@theia/ai-core';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { TaskService } from '@theia/task/lib/browser/task-service';
 import { TerminalService } from '@theia/terminal/lib/browser/base/terminal-service';
 import { MutableChatRequestModel } from '@theia/ai-chat';

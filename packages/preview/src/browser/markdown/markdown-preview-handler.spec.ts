@@ -23,7 +23,7 @@ let disableJSDOM = enableJSDOM();
 import { FrontendApplicationConfigProvider } from '@theia/core/lib/browser/frontend-application-config-provider';
 FrontendApplicationConfigProvider.set({});
 
-import * as chai from 'chai';
+import chai from 'chai';
 import { expect } from 'chai';
 import URI from '@theia/core/lib/common/uri';
 import { MarkdownPreviewHandler } from './markdown-preview-handler';

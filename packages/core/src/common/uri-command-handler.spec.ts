@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as chai from 'chai';
+import chai from 'chai';
 import { SelectionService } from './selection-service';
 import { MaybeArray } from './types';
 import URI from './uri';

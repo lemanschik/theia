@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as React from 'react';
+import React from 'react';
 import { CommandRegistry, MenuModelRegistry, URI, nls } from '@theia/core';
 import { ReactWidget, Navigatable, SaveableSource, Message, DelegatingSaveable, lock, unlock, animationFrame, codicon } from '@theia/core/lib/browser';
 import { ReactNode } from 'react';
@@ -24,8 +24,8 @@ import { NotebookCodeCellRenderer } from './view/notebook-code-cell-view';
 import { NotebookMarkdownCellRenderer } from './view/notebook-markdown-cell-view';
 import { NotebookModel } from './view-model/notebook-model';
 import { NotebookCellToolbarFactory } from './view/notebook-cell-toolbar-factory';
-import { inject, injectable, interfaces, postConstruct } from '@theia/core/shared/inversify';
-import { Emitter } from '@theia/core/shared/vscode-languageserver-protocol';
+import { inject, injectable, interfaces, postConstruct } from 'inversify';
+import { Emitter } from 'vscode-languageserver-protocol';
 import { NotebookEditorWidgetService } from './service/notebook-editor-widget-service';
 import { NotebookMainToolbarRenderer } from './view/notebook-main-toolbar';
 import { Deferred } from '@theia/core/lib/common/promise-util';

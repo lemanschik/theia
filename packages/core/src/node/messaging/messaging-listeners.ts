@@ -18,7 +18,7 @@ import { inject, injectable, named } from 'inversify';
 import { ContributionProvider, MaybePromise } from '../../common';
 import { Socket } from 'socket.io';
 
-import * as http from 'http';
+import http from 'http';
 
 /**
  * Bind components to this symbol to subscribe to WebSocket events.

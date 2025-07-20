@@ -18,7 +18,7 @@ import {
     inject,
     injectable,
     postConstruct,
-} from '@theia/core/shared/inversify';
+} from 'inversify';
 import {
     OutputChannel,
     OutputChannelManager,

@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { interfaces, Container } from '@theia/core/shared/inversify';
+import { interfaces, Container } from 'inversify';
 import { GitDiffContribution } from './git-diff-contribution';
 import { WidgetFactory, bindViewContribution, TreeModel } from '@theia/core/lib/browser';
 import { GitDiffWidget, GIT_DIFF } from './git-diff-widget';

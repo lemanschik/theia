@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as chai from 'chai';
-import { Container, ContainerModule } from '@theia/core/shared/inversify';
+import chai from 'chai';
+import { Container, ContainerModule } from 'inversify';
 import { ILogger, Disposable } from '@theia/core/lib/common';
 import { MockLogger } from '@theia/core/lib/common/test/mock-logger';
 import { Variable, VariableRegistry } from './variable';

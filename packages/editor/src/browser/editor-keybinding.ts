@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable } from '@theia/core/shared/inversify';
-import { environment } from '@theia/core/shared/@theia/application-package/lib/environment';
+import { injectable } from 'inversify';
+import { environment } from '@theia/application-package/lib/environment';
 import { isOSX, isWindows } from '@theia/core/lib/common/os';
 import { KeybindingContribution, KeybindingRegistry } from '@theia/core/lib/browser/keybinding';
 import { EditorCommands } from './editor-command';

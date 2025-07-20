@@ -21,7 +21,7 @@
 // some code is copied and modified from: https://github.com/microsoft/vscode/blob/573e5145ae3b50523925a6f6315d373e649d1b06/src/vs/base/common/linkedText.ts
 // aligned the API and enablement behavior to https://github.com/microsoft/vscode/blob/c711bc9333ba339fde1a530de0094b3fa32f09de/src/vs/base/common/linkedText.ts
 
-import * as React from 'react';
+import React from 'react';
 import { inject, injectable } from 'inversify';
 import { URI as CodeUri } from 'vscode-uri';
 import { CommandRegistry, DisposableCollection } from '../../common';

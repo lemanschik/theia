@@ -18,7 +18,7 @@ import { AIVariableContext, AIVariableResolutionRequest, AIVariableResolver, Res
 import { FrontendVariableContribution, FrontendVariableService } from '@theia/ai-core/lib/browser';
 import { MaybePromise } from '@theia/core';
 import { PreferenceService } from '@theia/core/lib/browser/preferences/preference-service';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { PREF_AI_INLINE_COMPLETION_MAX_CONTEXT_LINES } from './ai-code-completion-preference';
 import { CodeCompletionVariableContext } from './code-completion-variable-context';
 import { FILE, LANGUAGE, PREFIX, SUFFIX } from './code-completion-variables';

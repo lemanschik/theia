@@ -14,11 +14,11 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as path from 'path';
-import { injectable } from '@theia/core/shared/inversify';
+import path from 'path';
+import { injectable } from 'inversify';
 import { PluginScanner, PluginEngine, PluginPackage, PluginModel, PluginLifecycle, PluginEntryPoint, buildFrontendModuleName, UIKind, PluginIdentifiers } from '@theia/plugin-ext';
 import { TheiaPluginScanner } from '@theia/plugin-ext/lib/hosted/node/scanners/scanner-theia';
-import { environment } from '@theia/core/shared/@theia/application-package/lib/environment';
+import { environment } from '@theia/application-package/lib/environment';
 import { VSCodeExtensionUri } from '../common/plugin-vscode-uri';
 
 const uiKind = environment.electron.is() ? UIKind.Desktop : UIKind.Web;

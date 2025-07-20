@@ -13,13 +13,13 @@
 //
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
-import * as Docker from 'dockerode';
-import { inject, injectable, interfaces } from '@theia/core/shared/inversify';
+import Docker from 'dockerode';
+import { inject, injectable, interfaces } from 'inversify';
 import { ContainerCreationContribution } from '../docker-container-service';
 import { DevContainerConfiguration, DockerfileContainer, ImageContainer, NonComposeContainerBase } from '../devcontainer-file';
 import { Path } from '@theia/core';
 import { ContainerOutputProvider } from '../../electron-common/container-output-provider';
-import * as fs from '@theia/core/shared/fs-extra';
+import fs from 'fs-extra';
 import { RemotePortForwardingProvider } from '@theia/remote/lib/electron-common/remote-port-forwarding-provider';
 import { RemoteDockerContainerConnection } from '../remote-container-connection-provider';
 

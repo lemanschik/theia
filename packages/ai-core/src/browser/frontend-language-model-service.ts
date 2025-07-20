@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { PreferenceService } from '@theia/core/lib/browser';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { Prioritizeable } from '@theia/core/lib/common/prioritizeable';
 import { LanguageModel, LanguageModelResponse, UserRequest } from '../common';
 import { LanguageModelServiceImpl } from '../common/language-model-service';

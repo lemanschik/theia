@@ -21,7 +21,7 @@
 
 import { Disposable, DisposableCollection } from '@theia/core/lib/common/disposable';
 import { Deferred } from '@theia/core/lib/common/promise-util';
-import { injectable, postConstruct } from '@theia/core/shared/inversify';
+import { injectable, postConstruct } from 'inversify';
 import { NamedProblemPattern, ProblemLocationKind, ProblemPattern, ProblemPatternContribution } from '../common';
 
 @injectable()

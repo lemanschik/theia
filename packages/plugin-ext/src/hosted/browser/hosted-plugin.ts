@@ -22,7 +22,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { generateUuid } from '@theia/core/lib/common/uuid';
-import { injectable, inject, postConstruct } from '@theia/core/shared/inversify';
+import { injectable, inject, postConstruct } from 'inversify';
 import { PluginWorker } from './plugin-worker';
 import { getPluginId, DeployedPlugin, HostedPluginServer } from '../../common/plugin-protocol';
 import { HostedPluginWatcher } from './hosted-plugin-watcher';
@@ -55,7 +55,7 @@ import { WidgetManager } from '@theia/core/lib/browser/widget-manager';
 import { TerminalService } from '@theia/terminal/lib/browser/base/terminal-service';
 import URI from '@theia/core/lib/common/uri';
 import { FrontendApplicationConfigProvider } from '@theia/core/lib/browser/frontend-application-config-provider';
-import { environment } from '@theia/core/shared/@theia/application-package/lib/environment';
+import { environment } from '@theia/application-package/lib/environment';
 import { JsonSchemaStore } from '@theia/core/lib/browser/json-schema-store';
 import { FileService, FileSystemProviderActivationEvent } from '@theia/filesystem/lib/browser/file-service';
 import { PluginCustomEditorRegistry } from '../../main/browser/custom-editors/plugin-custom-editor-registry';

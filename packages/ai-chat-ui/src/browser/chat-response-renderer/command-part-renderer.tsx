@@ -15,10 +15,10 @@
 // *****************************************************************************
 
 import { ChatResponsePartRenderer } from '../chat-response-part-renderer';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { ChatResponseContent, CommandChatResponseContent } from '@theia/ai-chat/lib/common';
 import { ReactNode } from 'react';
-import * as React from 'react';
+import React from 'react';
 import { CommandRegistry, CommandService } from '@theia/core';
 
 @injectable()

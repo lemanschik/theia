@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as net from 'net';
+import net from 'net';
 import {
     ContainerConnectionOptions, ContainerConnectionResult,
     DevContainerFile, RemoteContainerConnectionProvider
@@ -25,8 +25,8 @@ import { RemoteConnectionService } from '@theia/remote/lib/electron-node/remote-
 import { RemoteProxyServerProvider } from '@theia/remote/lib/electron-node/remote-proxy-server-provider';
 import { Emitter, Event, generateUuid, MessageService, RpcServer, ILogger } from '@theia/core';
 import { Socket } from 'net';
-import { inject, injectable } from '@theia/core/shared/inversify';
-import * as Docker from 'dockerode';
+import { inject, injectable } from 'inversify';
+import Docker from 'dockerode';
 import { DockerContainerService } from './docker-container-service';
 import { Deferred } from '@theia/core/lib/common/promise-util';
 import { WriteStream } from 'tty';

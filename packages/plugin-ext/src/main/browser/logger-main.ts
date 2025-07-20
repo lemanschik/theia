@@ -16,7 +16,7 @@
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { interfaces } from '@theia/core/shared/inversify';
+import { interfaces } from 'inversify';
 import { LoggerMain, LogLevel } from '../../common';
 import { ILogger } from '@theia/core';
 

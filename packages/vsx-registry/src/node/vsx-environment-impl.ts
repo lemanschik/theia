@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import URI from '@theia/core/lib/common/uri';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { OVSXRouterConfig } from '@theia/ovsx-client';
 import { PluginVsCodeCliContribution } from '@theia/plugin-ext-vscode/lib/node/plugin-vscode-cli-contribution';
 import { VSXEnvironment } from '../common/vsx-environment';

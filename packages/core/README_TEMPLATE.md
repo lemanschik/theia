@@ -60,7 +60,7 @@ In order to make application builds more stable `@theia/core` re-exports some co
 Let's take inversify as an example since you will most likely use this package, you can import it by prefixing with `@theia/core/shared/`:
 
 ```ts
-import { injectable } from '@theia/core/shared/inversify';
+import { injectable } from 'inversify';
 
 @injectable()
 export class SomeClass {

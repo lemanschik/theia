@@ -15,14 +15,14 @@
 // *****************************************************************************
 
 import { BackendApplicationContribution } from '@theia/core/lib/node';
-import * as express from '@theia/core/shared/express';
-import * as fs from 'fs';
+import express from '@theia/core/shared/express';
+import fs from 'fs';
 import { inject, injectable } from '@theia/core/shared/inversify';
 import { OVSXMockClient, VSXExtensionRaw } from '@theia/ovsx-client';
-import * as path from 'path';
+import path from 'path';
 import { SampleAppInfo } from '../common/vsx/sample-app-info';
-import * as http from 'http';
-import * as https from 'https';
+import http from 'http';
+import https from 'https';
 import { Deferred } from '@theia/core/lib/common/promise-util';
 
 type VersionedId = `${string}.${string}@${string}`;

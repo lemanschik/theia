@@ -18,8 +18,8 @@ import {
     AbstractViewContribution, KeybindingRegistry, Widget, CompositeTreeNode, LabelProvider, codicon, OnWillStopAction, FrontendApplicationContribution, ConfirmDialog, Dialog
 } from '@theia/core/lib/browser';
 import { TreeElementNode } from '@theia/core/lib/browser/source-tree';
-import { injectable, inject } from '@theia/core/shared/inversify';
-import * as monaco from '@theia/monaco-editor-core';
+import { injectable, inject } from 'inversify';
+import monaco from '@theia/monaco-editor-core';
 import { MenuModelRegistry, CommandRegistry, MAIN_MENU_BAR, Command, Emitter, Mutable } from '@theia/core/lib/common';
 import { EDITOR_CONTEXT_MENU, EDITOR_LINENUMBER_CONTEXT_MENU, EditorManager } from '@theia/editor/lib/browser';
 import { DebugSessionManager } from './debug-session-manager';

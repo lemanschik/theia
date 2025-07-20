@@ -16,7 +16,7 @@
 
 import 'reflect-metadata';
 import { expect } from 'chai';
-import { Container } from '@theia/core/shared/inversify';
+import { Container } from 'inversify';
 import { EnvVariablesServer } from '@theia/core/lib/common/env-variables';
 import { PluginsKeyValueStorage } from './plugins-key-value-storage';
 import { PluginPathsService } from '../common/plugin-paths-protocol';
@@ -29,7 +29,7 @@ import { FileSystemLocking, FileUri } from '@theia/core/lib/node';
 import { FileSystemLockingImpl } from '@theia/core/lib/node/filesystem-locking';
 import { WorkspaceFileService } from '@theia/workspace/lib/common';
 import { UntitledWorkspaceService } from '@theia/workspace/lib/common/untitled-workspace-service';
-import * as temp from 'temp';
+import temp from 'temp';
 
 const GlobalStorageKind = undefined;
 

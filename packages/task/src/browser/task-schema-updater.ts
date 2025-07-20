@@ -20,9 +20,9 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import * as Ajv from '@theia/core/shared/ajv';
+import Ajv from 'ajv';
 import debounce from 'p-debounce';
-import { postConstruct, injectable, inject } from '@theia/core/shared/inversify';
+import { postConstruct, injectable, inject } from 'inversify';
 import { JsonSchemaContribution, JsonSchemaDataStore, JsonSchemaRegisterContext } from '@theia/core/lib/browser/json-schema-store';
 import { deepClone, Emitter } from '@theia/core/lib/common';
 import { IJSONSchema } from '@theia/core/lib/common/json-schema';
@@ -33,7 +33,7 @@ import { TaskDefinitionRegistry } from './task-definition-registry';
 import { TaskServer, asVariableName } from '../common';
 import { UserStorageUri } from '@theia/userstorage/lib/browser';
 import { WorkspaceService } from '@theia/workspace/lib/browser';
-import { JSONObject } from '@theia/core/shared/@lumino/coreutils';
+import { JSONObject } from '@lumino/coreutils';
 
 export const taskSchemaId = 'vscode://schemas/tasks';
 

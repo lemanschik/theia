@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable, inject, named } from '@theia/core/shared/inversify';
+import { injectable, inject, named } from 'inversify';
 import { ITokenTypeMap, IEmbeddedLanguagesMap } from 'vscode-textmate';
 import { TextmateRegistry, getEncodedLanguageId, MonacoTextmateService, GrammarDefinition } from '@theia/monaco/lib/browser/textmate';
 import { MenusContributionPointHandler } from './menus/menus-contribution-handler';
@@ -45,7 +45,7 @@ import { ColorRegistry } from '@theia/core/lib/browser/color-registry';
 import { PluginIconService } from './plugin-icon-service';
 import { PluginIconThemeService } from './plugin-icon-theme-service';
 import { ContributionProvider } from '@theia/core/lib/common';
-import * as monaco from '@theia/monaco-editor-core';
+import monaco from '@theia/monaco-editor-core';
 import { ContributedTerminalProfileStore, TerminalProfileStore } from '@theia/terminal/lib/browser/terminal-profile-service';
 import { TerminalWidget } from '@theia/terminal/lib/browser/base/terminal-widget';
 import { TerminalService } from '@theia/terminal/lib/browser/base/terminal-service';

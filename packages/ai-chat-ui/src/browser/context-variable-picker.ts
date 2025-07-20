@@ -16,7 +16,7 @@
 
 import { AIContextVariable, AIVariableResolutionRequest, AIVariableService, PromptText } from '@theia/ai-core';
 import { QuickInputService } from '@theia/core';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 
 const QUERY_CONTEXT = { type: 'context-variable-picker' };
 

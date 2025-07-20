@@ -15,10 +15,10 @@
 // *****************************************************************************
 
 import { CliContribution } from '@theia/core/lib/node';
-import { injectable } from '@theia/core/shared/inversify';
-import { Argv } from '@theia/core/shared/yargs';
+import { injectable } from 'inversify';
+import { Argv } from 'yargs';
 import { OVSX_RATE_LIMIT, OVSXRouterConfig } from '@theia/ovsx-client';
-import * as fs from 'fs';
+import fs from 'fs';
 
 @injectable()
 export class VsxCli implements CliContribution {

@@ -14,12 +14,12 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable, inject, named } from '@theia/core/shared/inversify';
+import { injectable, inject, named } from 'inversify';
 import { ProcessManager } from './process-manager';
 import { ILogger } from '@theia/core/lib/common';
 import { Process, ProcessType, ProcessOptions, ForkOptions, ProcessErrorEvent } from './process';
 import { ChildProcess, spawn, fork } from 'child_process';
-import * as stream from 'stream';
+import stream from 'stream';
 
 // The class was here before, exporting to not break anything.
 export { DevNullStream } from './dev-null-stream';

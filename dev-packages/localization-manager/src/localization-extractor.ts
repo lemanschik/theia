@@ -14,10 +14,10 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as fs from 'fs-extra';
-import * as ts from 'typescript';
-import * as os from 'os';
-import * as path from 'path';
+import fs from 'fs-extra';
+import ts from 'typescript';
+import os from 'os';
+import path from 'path';
 import { glob } from 'glob';
 import { promisify } from 'util';
 import { default as deepmerge } from 'deepmerge';

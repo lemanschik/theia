@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { environment, MessageService, nls } from '@theia/core';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { Navigatable, Saveable, SaveableSource, SaveOptions, Widget, open, OpenerService, ConfirmDialog, CommonCommands, LabelProvider } from '@theia/core/lib/browser';
 import { SaveableService } from '@theia/core/lib/browser/saveable-service';
 import URI from '@theia/core/lib/common/uri';

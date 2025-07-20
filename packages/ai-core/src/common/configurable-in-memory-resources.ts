@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable } from '@theia/core/shared/inversify';
+import { injectable } from 'inversify';
 import { SyncReferenceCollection, Reference, ResourceResolver, Resource, Event, Emitter, URI } from '@theia/core';
 import { MarkdownString } from '@theia/core/lib/common/markdown-rendering';
 

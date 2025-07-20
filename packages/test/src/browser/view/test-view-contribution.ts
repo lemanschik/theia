@@ -16,7 +16,7 @@
 
 import { AbstractViewContribution, FrontendApplicationContribution, ViewContainerTitleOptions, Widget, codicon } from '@theia/core/lib/browser';
 import { Command, CommandRegistry, MenuModelRegistry, nls } from '@theia/core';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { TestItem, TestRunProfileKind, TestService } from '../test-service';
 import { ContextKeyService } from '@theia/core/lib/browser/context-key-service';
 import { TestTreeWidget } from './test-tree-widget';

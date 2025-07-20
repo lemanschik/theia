@@ -15,16 +15,16 @@
 // *****************************************************************************
 
 import { enableJSDOM } from '@theia/core/lib/browser/test/jsdom';
-import * as chai from 'chai';
+import chai from 'chai';
 import { ResourceTextEdit } from '@theia/monaco-editor-core/esm/vs/editor/browser/services/bulkEditService';
-import { URI as Uri } from '@theia/core/shared/vscode-uri';
+import { URI as Uri } from 'vscode-uri';
 
 let disableJSDOM = enableJSDOM();
 
 import { FrontendApplicationConfigProvider } from '@theia/core/lib/browser/frontend-application-config-provider';
 FrontendApplicationConfigProvider.set({});
 
-import { Container } from '@theia/core/shared/inversify';
+import { Container } from 'inversify';
 import { BulkEditInfoNode, BulkEditTree } from './bulk-edit-tree';
 
 const expect = chai.expect;

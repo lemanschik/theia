@@ -21,14 +21,14 @@ import {
     TaskDto,
     TaskExecutionDto
 } from '../../common/plugin-api-rpc';
-import * as theia from '@theia/plugin';
-import * as converter from '../type-converters';
+import theia from '@theia/plugin';
+import converter from '../type-converters';
 import { CustomExecution, Disposable } from '../types-impl';
 import { RPCProtocol } from '../../common/rpc-protocol';
 import { TaskProviderAdapter } from './task-provider';
 import { Emitter, Event } from '@theia/core/lib/common/event';
 import { TerminalServiceExtImpl } from '../terminal-ext';
-import { UUID } from '@theia/core/shared/@lumino/coreutils';
+import { UUID } from '@lumino/coreutils';
 import { CancellationToken } from '@theia/core/lib/common/cancellation';
 
 type ExecutionCallback = (resolvedDefinition: theia.TaskDefinition) => Thenable<theia.Pseudoterminal>;

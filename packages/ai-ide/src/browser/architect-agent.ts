@@ -15,7 +15,7 @@
 // *****************************************************************************
 import { AbstractStreamParsingChatAgent, ChatRequestModel, ChatService, ChatSession, MutableChatModel, MutableChatRequestModel } from '@theia/ai-chat/lib/common';
 import { LanguageModelRequirement } from '@theia/ai-core';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { architectSystemVariants, architectTaskSummaryVariants } from '../common/architect-prompt-template';
 import { FILE_CONTENT_FUNCTION_ID, GET_WORKSPACE_FILE_LIST_FUNCTION_ID } from '../common/workspace-functions';
 import { nls } from '@theia/core';

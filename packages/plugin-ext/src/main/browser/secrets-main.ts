@@ -22,7 +22,7 @@
 
 import { SecretsExt, SecretsMain } from '../../common/plugin-api-rpc';
 import { RPCProtocol } from '../../common/rpc-protocol';
-import { interfaces } from '@theia/core/shared/inversify';
+import { interfaces } from 'inversify';
 import { MAIN_RPC_CONTEXT } from '../../common';
 import { CredentialsService } from '@theia/core/lib/browser/credentials-service';
 

@@ -14,11 +14,11 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as React from 'react';
-import { inject, injectable } from '@theia/core/shared/inversify';
-import { DockPanel } from '@theia/core/shared/@lumino/widgets';
+import React from 'react';
+import { inject, injectable } from 'inversify';
+import { DockPanel } from '@lumino/widgets';
 import URI from '@theia/core/lib/common/uri';
-import { SymbolKind, Range } from '@theia/core/shared/vscode-languageserver-protocol';
+import { SymbolKind, Range } from 'vscode-languageserver-protocol';
 import { TreeNode } from '@theia/core/lib/browser/tree/tree';
 import { EditorManager } from '@theia/editor/lib/browser/editor-manager';
 import { ContextMenuRenderer } from '@theia/core/lib/browser/context-menu-renderer';

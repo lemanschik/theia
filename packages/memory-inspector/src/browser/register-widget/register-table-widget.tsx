@@ -15,8 +15,8 @@
  ********************************************************************************/
 
 import { Key, KeyCode } from '@theia/core/lib/browser';
-import { inject } from '@theia/core/shared/inversify';
-import * as React from 'react';
+import { inject } from 'inversify';
+import React from 'react';
 import { DebugVariable } from '@theia/debug/lib/browser/console/debug-console-items';
 import { EMPTY_MEMORY } from '../memory-widget/memory-options-widget';
 import { MemoryTable, MemoryTableWidget } from '../memory-widget/memory-table-widget';

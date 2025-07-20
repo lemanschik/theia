@@ -17,7 +17,7 @@
 import { KeybindingRegistry, QuickPickItem, QuickPickSeparator } from '@theia/core/lib/browser';
 import { QuickAccessProviderDescriptor, QuickAccessRegistry } from '@theia/core/lib/browser/quick-input/quick-access';
 import { CancellationToken, Disposable } from '@theia/core/lib/common';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { MonacoQuickPickItem } from './monaco-quick-input-service';
 import {
     IPickerQuickAccessProviderOptions, PickerQuickAccessProvider, Picks, Pick, IPickerQuickAccessItem

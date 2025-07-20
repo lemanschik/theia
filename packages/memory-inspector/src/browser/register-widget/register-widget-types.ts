@@ -15,7 +15,7 @@
  ********************************************************************************/
 
 import { nls } from '@theia/core';
-import { interfaces } from '@theia/core/shared/inversify';
+import { interfaces } from 'inversify';
 import { MemoryOptionsWidget } from '../memory-widget/memory-options-widget';
 import { MemoryTableWidget } from '../memory-widget/memory-table-widget';
 import { MemoryWidget } from '../memory-widget/memory-widget';

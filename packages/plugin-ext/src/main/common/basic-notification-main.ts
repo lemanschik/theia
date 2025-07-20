@@ -16,7 +16,7 @@
 
 import { NotificationExt, NotificationMain } from '../../common';
 import { ProgressService, Progress, ProgressMessage } from '@theia/core/lib/common';
-import { interfaces } from '@theia/core/shared/inversify';
+import { interfaces } from 'inversify';
 import { ProxyIdentifier, RPCProtocol } from '../../common/rpc-protocol';
 import { Disposable, DisposableCollection } from '@theia/core/lib/common/disposable';
 

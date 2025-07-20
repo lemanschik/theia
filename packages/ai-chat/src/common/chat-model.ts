@@ -31,11 +31,11 @@ import {
 } from '@theia/ai-core';
 import { ArrayUtils, CancellationToken, CancellationTokenSource, Command, Disposable, DisposableCollection, Emitter, Event, generateUuid, URI } from '@theia/core';
 import { MarkdownString, MarkdownStringImpl } from '@theia/core/lib/common/markdown-rendering';
-import { Position } from '@theia/core/shared/vscode-languageserver-protocol';
+import { Position } from 'vscode-languageserver-protocol';
 import { ChangeSet, ChangeSetElement, ChangeSetImpl, ChatUpdateChangeSetEvent } from './change-set';
 import { ChatAgentLocation } from './chat-agents';
 import { ParsedChatRequest } from './parsed-chat-request';
-import debounce from '@theia/core/shared/lodash.debounce';
+import debounce from 'lodash.debounce';
 export { ChangeSet, ChangeSetElement, ChangeSetImpl };
 
 /**********************

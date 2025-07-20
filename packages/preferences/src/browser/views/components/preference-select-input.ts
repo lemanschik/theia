@@ -15,13 +15,13 @@
 // *****************************************************************************
 
 import { PreferenceLeafNodeRenderer, PreferenceNodeRenderer } from './preference-node-renderer';
-import { injectable, interfaces } from '@theia/core/shared/inversify';
-import { JSONValue } from '@theia/core/shared/@lumino/coreutils';
+import { injectable, interfaces } from 'inversify';
+import { JSONValue } from '@lumino/coreutils';
 import { PreferenceProvider } from '@theia/core/lib/browser/preferences/preference-provider';
 import { SelectComponent, SelectOption } from '@theia/core/lib/browser/widgets/select-component';
 import { Preference } from '../../util/preference-types';
 import { PreferenceLeafNodeRendererContribution } from './preference-node-renderer-creator';
-import * as React from 'react';
+import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { escapeInvisibleChars } from '@theia/core/lib/common/strings';
 

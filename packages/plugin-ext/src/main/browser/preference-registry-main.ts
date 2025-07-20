@@ -20,7 +20,7 @@ import {
     PreferenceScope,
     PreferenceProviderProvider
 } from '@theia/core/lib/browser/preferences';
-import { interfaces } from '@theia/core/shared/inversify';
+import { interfaces } from 'inversify';
 import {
     MAIN_RPC_CONTEXT,
     PreferenceRegistryExt,

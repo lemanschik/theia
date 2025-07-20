@@ -15,7 +15,7 @@
  ********************************************************************************/
 
 import { ContributionProvider } from '@theia/core';
-import { inject, injectable, named } from '@theia/core/shared/inversify';
+import { inject, injectable, named } from 'inversify';
 import { DebugVariable } from '@theia/debug/lib/browser/console/debug-console-items';
 import { DebugSession } from '@theia/debug/lib/browser/debug-session';
 import { DebugSessionManager } from '@theia/debug/lib/browser/debug-session-manager';

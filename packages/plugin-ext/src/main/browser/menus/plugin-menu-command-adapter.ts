@@ -16,8 +16,8 @@
 
 import { SelectionService, UriSelection } from '@theia/core';
 import { ResourceContextKey } from '@theia/core/lib/browser/resource-context-key';
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
-import { URI as CodeUri } from '@theia/core/shared/vscode-uri';
+import { inject, injectable, postConstruct } from 'inversify';
+import { URI as CodeUri } from 'vscode-uri';
 import { TreeWidgetSelection } from '@theia/core/lib/browser/tree/tree-widget-selection';
 import { ScmRepository } from '@theia/scm/lib/browser/scm-repository';
 import { ScmService } from '@theia/scm/lib/browser/scm-service';

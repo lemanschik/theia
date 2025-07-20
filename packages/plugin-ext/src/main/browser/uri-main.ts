@@ -17,7 +17,7 @@
 import { Disposable, URI } from '@theia/core';
 import { MAIN_RPC_CONTEXT, UriExt, UriMain } from '../../common';
 import { RPCProtocol } from '../../common/rpc-protocol';
-import { interfaces } from '@theia/core/shared/inversify';
+import { interfaces } from 'inversify';
 import { OpenHandler, OpenerOptions, OpenerService } from '@theia/core/lib/browser';
 import { FrontendApplicationConfigProvider } from '@theia/core/lib/browser/frontend-application-config-provider';
 import { HostedPluginSupport } from '../../hosted/browser/hosted-plugin';

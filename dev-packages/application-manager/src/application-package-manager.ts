@@ -14,10 +14,10 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as path from 'path';
-import * as fs from 'fs-extra';
-import * as cp from 'child_process';
-import * as semver from 'semver';
+import path from 'path';
+import fs from 'fs-extra';
+import cp from 'child_process';
+import semver from 'semver';
 import { ApplicationPackage, ApplicationPackageOptions } from '@theia/application-package';
 import { WebpackGenerator, FrontendGenerator, BackendGenerator } from './generator';
 import { ApplicationProcess } from './application-process';

@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { UriComponents } from '@theia/core/lib/common/uri';
-import { Range, SymbolKind, SymbolTag } from '@theia/core/shared/vscode-languageserver-protocol';
+import { Range, SymbolKind, SymbolTag } from 'vscode-languageserver-protocol';
 
 export interface TypeHierarchyItem {
     _sessionId?: string;

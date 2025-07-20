@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { AuthenticationProvider, AuthenticationService, AuthenticationServiceImpl, AuthenticationSession } from '@theia/core/lib/browser/authentication-service';
-import { inject } from '@theia/core/shared/inversify';
+import { inject } from 'inversify';
 import { Deferred, timeoutReject } from '@theia/core/lib/common/promise-util';
 import { HostedPluginSupport } from '../../hosted/browser/hosted-plugin';
 

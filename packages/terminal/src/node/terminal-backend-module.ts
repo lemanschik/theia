@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { ContainerModule, Container, interfaces } from '@theia/core/shared/inversify';
+import { ContainerModule, Container, interfaces } from 'inversify';
 import { TerminalBackendContribution } from './terminal-backend-contribution';
 import { ConnectionHandler, RpcConnectionHandler } from '@theia/core/lib/common/messaging';
 import { ShellProcess, ShellProcessFactory, ShellProcessOptions } from './shell-process';

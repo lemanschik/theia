@@ -18,7 +18,7 @@ import { createPreferenceProxy, PreferenceContribution, PreferenceSchema, Prefer
 import { JsonSchemaContribution } from '@theia/core/lib/browser/json-schema-store';
 import { nls } from '@theia/core/lib/common/nls';
 import { PreferenceConfiguration } from '@theia/core/lib/browser/preferences/preference-configurations';
-import { interfaces } from '@theia/core/shared/inversify';
+import { interfaces } from 'inversify';
 import { ExtensionSchemaContribution, extensionsSchemaID } from './recommended-extensions-json-schema';
 
 export interface RecommendedExtensions {

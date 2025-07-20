@@ -14,9 +14,9 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as jsoncparser from 'jsonc-parser';
+import jsoncparser from 'jsonc-parser';
 import debounce from 'p-debounce';
-import { inject, injectable, postConstruct, named } from '@theia/core/shared/inversify';
+import { inject, injectable, postConstruct, named } from 'inversify';
 import URI from '@theia/core/lib/common/uri';
 import { Emitter, Event } from '@theia/core/lib/common/event';
 import { EditorManager, EditorWidget } from '@theia/editor/lib/browser';

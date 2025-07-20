@@ -14,11 +14,11 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as jsoncparser from 'jsonc-parser';
+import jsoncparser from 'jsonc-parser';
 import { MonacoEditorModel } from '@theia/monaco/lib/browser/monaco-editor-model';
 import { MonacoWorkspace } from '@theia/monaco/lib/browser/monaco-workspace';
-import { inject, injectable } from '@theia/core/shared/inversify';
-import * as monaco from '@theia/monaco-editor-core';
+import { inject, injectable } from 'inversify';
+import monaco from '@theia/monaco-editor-core';
 
 @injectable()
 export class MonacoJSONCEditor {

@@ -23,7 +23,7 @@ FrontendApplicationConfigProvider.set({});
 import { Disposable, Emitter, URI } from '@theia/core';
 import { Deferred } from '@theia/core/lib/common/promise-util';
 import { expect } from 'chai';
-import * as sinon from 'sinon';
+import sinon from 'sinon';
 import { FileChangesEvent, FileChangeType, FileStatWithMetadata } from '../common/files';
 import { FileResource } from './file-resource';
 import { FileService } from './file-service';

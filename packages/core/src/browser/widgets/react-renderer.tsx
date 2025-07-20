@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { inject, injectable, optional } from 'inversify';
-import * as React from 'react';
+import React from 'react';
 import { createRoot, Root } from 'react-dom/client';
 import { Disposable, DisposableCollection } from '../../common';
 

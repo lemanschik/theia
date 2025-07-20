@@ -22,7 +22,7 @@ import { expect } from 'chai';
 import { FrontendApplicationConfigProvider } from '@theia/core/lib/browser/frontend-application-config-provider';
 FrontendApplicationConfigProvider.set({});
 
-import { Container } from '@theia/core/shared/inversify';
+import { Container } from 'inversify';
 import { TreeNode } from '@theia/core/lib/browser/tree/tree';
 import { DEFAULT_INFO_ICON, ResourcePropertiesLabelProvider, } from './resource-property-view-label-provider';
 import { LabelProvider, LabelProviderContribution } from '@theia/core/lib/browser/label-provider';

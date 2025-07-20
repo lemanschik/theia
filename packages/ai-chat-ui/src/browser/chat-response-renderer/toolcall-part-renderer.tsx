@@ -15,12 +15,12 @@
 // *****************************************************************************
 
 import { ChatResponsePartRenderer } from '../chat-response-part-renderer';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { ChatResponseContent, ToolCallChatResponseContent } from '@theia/ai-chat/lib/common';
 import { ReactNode } from 'react';
 import { nls } from '@theia/core/lib/common/nls';
 import { codicon, OpenerService } from '@theia/core/lib/browser';
-import * as React from 'react';
+import React from 'react';
 import { ToolConfirmation, ToolConfirmationState } from './tool-confirmation';
 import { ToolConfirmationManager, ToolConfirmationMode } from '@theia/ai-chat/lib/browser/chat-tool-preferences';
 import { ResponseNode } from '../chat-tree-view';

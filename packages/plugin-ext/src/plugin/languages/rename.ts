@@ -14,10 +14,10 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { URI } from '@theia/core/shared/vscode-uri';
-import * as theia from '@theia/plugin';
-import * as Converter from '../type-converters';
-import * as model from '../../common/plugin-api-rpc-model';
+import { URI } from 'vscode-uri';
+import theia from '@theia/plugin';
+import Converter from '../type-converters';
+import model from '../../common/plugin-api-rpc-model';
 import { DocumentsExtImpl } from '../documents';
 import { Position, WorkspaceEditDto } from '../../common/plugin-api-rpc';
 import { Range } from '../types-impl';

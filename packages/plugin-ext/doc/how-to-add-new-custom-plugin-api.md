@@ -79,14 +79,14 @@ It also implements for us the customization of Node's module loading system to h
 Example `node/foo-init.ts`:
 
 ```typescript
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { RPCProtocol } from '@theia/plugin-ext/lib/common/rpc-protocol';
 import { Plugin } from '@theia/plugin-ext/lib/common/plugin-api-rpc';
 import { PluginContainerModule } from '@theia/plugin-ext/lib/plugin/node/plugin-container-module';
 import { FooExt } from '../common/foo-api-rpc';
 import { FooExtImpl } from './foo-ext-impl';
 
-import * as fooBarAPI from '@bar/foo';
+import fooBarAPI from '@bar/foo';
 
 type FooBarApi = typeof fooBarAPI;
 type Foo = FooBarApi['Foo'];
@@ -180,7 +180,7 @@ On the plugin host side we can register our implementation and retrieve the prox
 Example `plugin/foo-ext.ts`:
 
 ```typescript
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { RPCProtocol } from '@theia/plugin-ext/lib/common/rpc-protocol';
 import { FooExt, FooMain, FOO_PLUGIN_RPC_CONTEXT } from '../common/foo-api-rpc';
 
@@ -250,7 +250,7 @@ In this example, we can already see the big advantage of going to the main appli
 When using the API in a plugin the user can simply use the API as follows:
 
 ```typescript
-import * as foo from '@bar/foo';
+import foo from '@bar/foo';
 
 foo.fooBar.getFoo();
 ```

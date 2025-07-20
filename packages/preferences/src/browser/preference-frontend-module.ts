@@ -16,7 +16,7 @@
 
 import '../../src/browser/style/index.css';
 import './preferences-monaco-contribution';
-import { ContainerModule, interfaces } from '@theia/core/shared/inversify';
+import { ContainerModule, interfaces } from 'inversify';
 import { bindViewContribution, FrontendApplicationContribution, noopWidgetStatusBarContribution, OpenHandler, WidgetStatusBarContribution } from '@theia/core/lib/browser';
 import { TabBarToolbarContribution } from '@theia/core/lib/browser/shell/tab-bar-toolbar';
 import { PreferenceTreeGenerator } from './util/preference-tree-generator';

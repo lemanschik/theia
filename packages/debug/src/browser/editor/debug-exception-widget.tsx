@@ -14,10 +14,10 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as React from 'react';
+import React from 'react';
 import { createRoot, Root } from 'react-dom/client';
-import * as monaco from '@theia/monaco-editor-core';
-import { injectable, inject, postConstruct } from '@theia/core/shared/inversify';
+import monaco from '@theia/monaco-editor-core';
+import { injectable, inject, postConstruct } from 'inversify';
 import { Disposable, DisposableCollection } from '@theia/core/lib/common/disposable';
 import { MonacoEditorZoneWidget } from '@theia/monaco/lib/browser/monaco-editor-zone-widget';
 import { DebugEditor } from './debug-editor';

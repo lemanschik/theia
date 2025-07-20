@@ -14,9 +14,9 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as fs from 'fs';
-import * as path from 'path';
-import * as temp from 'temp';
+import fs from 'fs';
+import path from 'path';
+import temp from 'temp';
 import { default as yargs } from 'yargs';
 import yargsFactory from 'yargs/yargs';
 import { ApplicationPackageManager, rebuild } from '@theia/application-manager';

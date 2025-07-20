@@ -22,7 +22,7 @@ import { FileUri } from '@theia/core/lib/common/file-uri';
 import { isOSX, isWindows } from '@theia/core/lib/common/os';
 import { UriAwareCommandHandler } from '@theia/core/lib/common/uri-command-handler';
 import '@theia/core/lib/electron-common/electron-api';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { FileStatNode } from '@theia/filesystem/lib/browser';
 import { WorkspaceService } from '@theia/workspace/lib/browser';
 import { FILE_NAVIGATOR_ID, FileNavigatorWidget } from '../browser';

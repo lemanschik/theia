@@ -15,8 +15,8 @@
 // *****************************************************************************
 
 import { CancellationToken, URI } from '@theia/core/lib/common';
-import { injectable } from '@theia/core/shared/inversify';
-import { Disposable } from '@theia/core/shared/vscode-languageserver-protocol';
+import { injectable } from 'inversify';
+import { Disposable } from 'vscode-languageserver-protocol';
 
 export interface CanonicalUriProvider extends Disposable {
     provideCanonicalUri(uri: URI, targetScheme: string, token: CancellationToken): Promise<URI | undefined>;

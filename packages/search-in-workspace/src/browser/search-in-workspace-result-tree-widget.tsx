@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, postConstruct } from 'inversify';
 import {
     TreeWidget,
     CompositeTreeNode,
@@ -45,12 +45,12 @@ import { SearchInWorkspaceResult, SearchInWorkspaceOptions, SearchMatch } from '
 import { SearchInWorkspaceService } from './search-in-workspace-service';
 import { MEMORY_TEXT } from '@theia/core/lib/common';
 import URI from '@theia/core/lib/common/uri';
-import * as React from 'react';
+import React from 'react';
 import { SearchInWorkspacePreferences } from './search-in-workspace-preferences';
 import { ColorRegistry } from '@theia/core/lib/browser/color-registry';
-import * as minimatch from 'minimatch';
+import minimatch from 'minimatch';
 import { DisposableCollection } from '@theia/core/lib/common/disposable';
-import debounce from '@theia/core/shared/lodash.debounce';
+import debounce from 'lodash.debounce';
 import { nls } from '@theia/core/lib/common/nls';
 
 const ROOT_ID = 'ResultTree';

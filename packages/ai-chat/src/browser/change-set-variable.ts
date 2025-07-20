@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { MaybePromise, nls } from '@theia/core';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { AIVariable, ResolvedAIVariable, AIVariableContribution, AIVariableResolver, AIVariableService, AIVariableResolutionRequest, AIVariableContext } from '@theia/ai-core';
 import { WorkspaceService } from '@theia/workspace/lib/browser';
 import { CHANGE_SET_SUMMARY_VARIABLE_ID, ChatSessionContext } from '../common';

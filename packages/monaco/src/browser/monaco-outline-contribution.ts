@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable, inject } from '@theia/core/shared/inversify';
+import { injectable, inject } from 'inversify';
 import { FrontendApplicationContribution, FrontendApplication, TreeNode } from '@theia/core/lib/browser';
 import { Range, EditorManager, EditorOpenerOptions } from '@theia/editor/lib/browser';
 import { DisposableCollection, Disposable } from '@theia/core';
@@ -22,8 +22,8 @@ import { OutlineViewService } from '@theia/outline-view/lib/browser/outline-view
 import { OutlineSymbolInformationNode } from '@theia/outline-view/lib/browser/outline-view-widget';
 import URI from '@theia/core/lib/common/uri';
 import { MonacoEditor } from './monaco-editor';
-import debounce from '@theia/core/shared/lodash.debounce';
-import * as monaco from '@theia/monaco-editor-core';
+import debounce from 'lodash.debounce';
+import monaco from '@theia/monaco-editor-core';
 import { ILanguageFeaturesService } from '@theia/monaco-editor-core/esm/vs/editor/common/services/languageFeatures';
 import { StandaloneServices } from '@theia/monaco-editor-core/esm/vs/editor/standalone/browser/standaloneServices';
 import { ITextModel } from '@theia/monaco-editor-core/esm/vs/editor/common/model';

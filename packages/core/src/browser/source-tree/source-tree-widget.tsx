@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as React from 'react';
+import React from 'react';
 import { injectable, postConstruct, interfaces, Container } from 'inversify';
 import { DisposableCollection } from '../../common/disposable';
 import { TreeWidget, TreeNode, createTreeContainer, TreeProps, TreeModel, TREE_NODE_SEGMENT_GROW_CLASS } from '../tree';

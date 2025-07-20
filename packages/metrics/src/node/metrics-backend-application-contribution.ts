@@ -14,9 +14,9 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable, inject, named } from '@theia/core/shared/inversify';
-import * as http from 'http';
-import * as https from 'https';
+import { injectable, inject, named } from 'inversify';
+import http from 'http';
+import https from 'https';
 import { default as express } from 'express';
 import { ContributionProvider } from '@theia/core/lib/common';
 import { BackendApplicationContribution } from '@theia/core/lib/node';

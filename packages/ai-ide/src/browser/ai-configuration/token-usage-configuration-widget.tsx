@@ -15,8 +15,8 @@
 // *****************************************************************************
 
 import { ReactWidget } from '@theia/core/lib/browser';
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
-import * as React from 'react';
+import { inject, injectable, postConstruct } from 'inversify';
+import React from 'react';
 import { MessageService, nls } from '@theia/core';
 import { TokenUsageFrontendService, ModelTokenUsageData } from '@theia/ai-core/lib/browser/token-usage-frontend-service';
 import { formatDistanceToNow } from 'date-fns';

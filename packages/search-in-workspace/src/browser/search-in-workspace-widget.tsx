@@ -15,10 +15,10 @@
 // *****************************************************************************
 
 import { Widget, Message, BaseWidget, Key, StatefulWidget, MessageLoop, KeyCode, codicon } from '@theia/core/lib/browser';
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, postConstruct } from 'inversify';
 import { SearchInWorkspaceResultTreeWidget } from './search-in-workspace-result-tree-widget';
 import { SearchInWorkspaceOptions } from '../common/search-in-workspace-interface';
-import * as React from 'react';
+import React from 'react';
 import { createRoot, Root } from 'react-dom/client';
 import { Event, Emitter, Disposable } from '@theia/core/lib/common';
 import { WorkspaceService } from '@theia/workspace/lib/browser';

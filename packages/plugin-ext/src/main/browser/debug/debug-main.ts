@@ -16,7 +16,7 @@
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { interfaces } from '@theia/core/shared/inversify';
+import { interfaces } from 'inversify';
 import { RPCProtocol } from '../../../common/rpc-protocol';
 import {
     DebugConfigurationProviderDescriptor,
@@ -30,7 +30,7 @@ import { LabelProvider } from '@theia/core/lib/browser';
 import { EditorManager } from '@theia/editor/lib/browser';
 import { BreakpointManager, BreakpointsChangeEvent } from '@theia/debug/lib/browser/breakpoint/breakpoint-manager';
 import { DebugSourceBreakpoint } from '@theia/debug/lib/browser/model/debug-source-breakpoint';
-import { URI as Uri } from '@theia/core/shared/vscode-uri';
+import { URI as Uri } from 'vscode-uri';
 import { SourceBreakpoint, FunctionBreakpoint } from '@theia/debug/lib/browser/breakpoint/breakpoint-marker';
 import { DebugConfiguration, DebugSessionOptions } from '@theia/debug/lib/common/debug-configuration';
 import { DebuggerDescription } from '@theia/debug/lib/common/debug-service';

@@ -19,8 +19,8 @@ import { PromptText } from '@theia/ai-core/lib/common/prompt-text';
 import { ToolInvocationRegistry } from '@theia/ai-core/lib/common/tool-invocation-registry';
 import { MaybePromise, nls } from '@theia/core';
 import { FrontendApplication, FrontendApplicationContribution } from '@theia/core/lib/browser';
-import { inject, injectable } from '@theia/core/shared/inversify';
-import * as monaco from '@theia/monaco-editor-core';
+import { inject, injectable } from 'inversify';
+import monaco from '@theia/monaco-editor-core';
 import { ProviderResult } from '@theia/monaco-editor-core/esm/vs/editor/common/languages';
 import { AIChatFrontendContribution, VARIABLE_ADD_CONTEXT_COMMAND } from '@theia/ai-chat/lib/browser/ai-chat-frontend-contribution';
 

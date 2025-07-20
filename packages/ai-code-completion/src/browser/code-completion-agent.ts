@@ -22,8 +22,8 @@ import {
     UserRequest
 } from '@theia/ai-core/lib/common';
 import { generateUuid, ILogger, nls, ProgressService } from '@theia/core';
-import { inject, injectable, named } from '@theia/core/shared/inversify';
-import * as monaco from '@theia/monaco-editor-core';
+import { inject, injectable, named } from 'inversify';
+import monaco from '@theia/monaco-editor-core';
 import { codeCompletionPrompts } from './code-completion-prompt-template';
 import { CodeCompletionPostProcessor } from './code-completion-postprocessor';
 import { CodeCompletionVariableContext } from './code-completion-variable-context';

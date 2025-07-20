@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as fs from 'fs-extra';
-import * as path from 'path';
+import fs from 'fs-extra';
+import path from 'path';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import type { RawSourceMap } from 'source-map';
 import { ApplicationPackage } from '@theia/application-package/lib/application-package';

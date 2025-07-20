@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as chai from 'chai';
+import chai from 'chai';
 import {
     CommandContribution, CommandMenu, CommandRegistry, CompoundMenuNode, Group, GroupImpl, MenuAction, MenuContribution,
     MenuModelRegistry, MenuNode, MenuNodeFactory, MutableCompoundMenuNode, Submenu,

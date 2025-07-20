@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable, unmanaged } from '@theia/core/shared/inversify';
+import { injectable, unmanaged } from 'inversify';
 import { ILogger, Disposable, DisposableCollection, Emitter, Event, MaybePromise } from '@theia/core/lib/common/';
 import { TaskInfo, TaskExitedEvent, TaskConfiguration, TaskOutputEvent, ManagedTask, ManagedTaskManager } from '../common/task-protocol';
 /**

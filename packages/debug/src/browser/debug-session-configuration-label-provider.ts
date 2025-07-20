@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import URI from '@theia/core/lib/common/uri';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { WorkspaceService } from '@theia/workspace/lib/browser';
 import { type DebugSessionOptions } from './debug-session-options';
 

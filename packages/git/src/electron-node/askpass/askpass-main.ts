@@ -5,8 +5,8 @@
  *--------------------------------------------------------------------------------------------*/
 // Based on: https://github.com/Microsoft/vscode/blob/dd3e2d94f81139f9d18ba15a24c16c6061880b93/extensions/git/src/askpass-main.ts.
 
-import * as url from 'url';
-import * as http from 'http';
+import url from 'url';
+import http from 'http';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function fatal(err: any): void {

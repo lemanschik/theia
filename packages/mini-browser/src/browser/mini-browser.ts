@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
-import { Message } from '@theia/core/shared/@lumino/messaging';
+import { inject, injectable, postConstruct } from 'inversify';
+import { Message } from '@lumino/messaging';
 import URI from '@theia/core/lib/common/uri';
 import { NavigatableWidget, StatefulWidget } from '@theia/core/lib/browser';
 import { DisposableCollection } from '@theia/core/lib/common/disposable';

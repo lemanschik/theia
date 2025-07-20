@@ -14,10 +14,10 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { PreferenceTreeModel } from '../../preference-tree-model';
 import { PreferenceTreeLabelProvider } from '../../util/preference-tree-label-provider';
-import * as markdownit from '@theia/core/shared/markdown-it';
+import { default as markdownit } from 'markdown-it';;
 import { CommandRegistry } from '@theia/core';
 
 @injectable()

@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { inject, injectable, optional, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, optional, postConstruct } from 'inversify';
 import { AIChatInputWidget, type AIChatInputConfiguration } from '../chat-input-widget';
 import type { EditableRequestNode } from './chat-view-tree-widget';
 import { URI } from '@theia/core';

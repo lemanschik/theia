@@ -38,7 +38,7 @@ import {
     InlayHintDto,
     IdentifiableInlineCompletions
 } from '../../common/plugin-api-rpc';
-import { injectable, inject } from '@theia/core/shared/inversify';
+import { injectable, inject } from 'inversify';
 import {
     SerializedDocumentFilter, MarkerData, Range, RelatedInformation,
     MarkerSeverity, DocumentLink, WorkspaceSymbolParams, CodeAction, CompletionDto,
@@ -50,24 +50,24 @@ import { URI } from '@theia/core/lib/common/uri';
 import { Disposable, DisposableCollection } from '@theia/core/lib/common/disposable';
 import { Emitter, Event } from '@theia/core/lib/common/event';
 import { ProblemManager } from '@theia/markers/lib/browser';
-import * as vst from '@theia/core/shared/vscode-languageserver-protocol';
-import * as theia from '@theia/plugin';
+import vst from 'vscode-languageserver-protocol';
+import theia from '@theia/plugin';
 import { UriComponents } from '../../common/uri-components';
 import { CancellationToken } from '@theia/core/lib/common';
 import { CallHierarchyService, CallHierarchyServiceProvider, CallHierarchyItem } from '@theia/callhierarchy/lib/browser';
 import { toItemHierarchyDefinition, toUriComponents, fromItemHierarchyDefinition, fromPosition, toCaller, toCallee } from './hierarchy/hierarchy-types-converters';
 import { TypeHierarchyService, TypeHierarchyServiceProvider } from '@theia/typehierarchy/lib/browser';
-import { Position, DocumentUri, DiagnosticTag } from '@theia/core/shared/vscode-languageserver-protocol';
+import { Position, DocumentUri, DiagnosticTag } from 'vscode-languageserver-protocol';
 import { ObjectIdentifier } from '../../common/object-identifier';
 import { mixin } from '../../common/types';
 import { relative } from '../../common/paths-util';
 import { decodeSemanticTokensDto } from '../../common/semantic-tokens-dto';
-import * as monaco from '@theia/monaco-editor-core';
+import monaco from '@theia/monaco-editor-core';
 import { ExtensionIdentifier } from '@theia/monaco-editor-core/esm/vs/platform/extensions/common/extensions';
 import { StandaloneServices } from '@theia/monaco-editor-core/esm/vs/editor/standalone/browser/standaloneServices';
 import { IMarkerService } from '@theia/monaco-editor-core/esm/vs/platform/markers/common/markers';
-import * as MonacoLanguageSelector from '@theia/monaco-editor-core/esm/vs/editor/common/languageSelector';
-import * as MonacoPath from '@theia/monaco-editor-core/esm/vs/base/common/path';
+import MonacoLanguageSelector from '@theia/monaco-editor-core/esm/vs/editor/common/languageSelector';
+import MonacoPath from '@theia/monaco-editor-core/esm/vs/base/common/path';
 import { IRelativePattern } from '@theia/monaco-editor-core/esm/vs/base/common/glob';
 import { EditorLanguageStatusService, LanguageStatus as EditorLanguageStatus } from '@theia/editor/lib/browser/language-status/editor-language-status-service';
 import { LanguageSelector, RelativePattern } from '@theia/editor/lib/common/language-selector';

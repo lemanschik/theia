@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
-import { Position, Range } from '@theia/core/shared/vscode-languageserver-protocol';
+import { inject, injectable, postConstruct } from 'inversify';
+import { Position, Range } from 'vscode-languageserver-protocol';
 import { CommandMenu, Disposable, Emitter, Event, MenuModelRegistry, MenuPath, URI, nls } from '@theia/core';
 import { codicon } from '@theia/core/lib/browser';
 import { ContextKeyService } from '@theia/core/lib/browser/context-key-service';
@@ -26,7 +26,7 @@ import { MonacoEditorPeekViewWidget, peekViewBorder, peekViewTitleBackground, pe
     from '@theia/monaco/lib/browser/monaco-editor-peek-view-widget';
 import { Change, LineRange } from './diff-computer';
 import { ScmColors } from '../scm-colors';
-import * as monaco from '@theia/monaco-editor-core';
+import monaco from '@theia/monaco-editor-core';
 
 export const SCM_CHANGE_TITLE_MENU: MenuPath = ['scm-change-title-menu'];
 /** Reserved for plugin contributions, corresponds to contribution point 'scm/change/title'. */

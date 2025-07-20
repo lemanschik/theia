@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { PluginMetrics } from '../common/metrics-protocol';
-import { injectable } from '@theia/core/shared/inversify';
+import { injectable } from 'inversify';
 import { AnalyticsFromRequests, MetricsMap } from '../common/plugin-metrics-types';
 
 @injectable()

@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { CommandContribution } from '@theia/core';
-import { ContainerModule } from '@theia/core/shared/inversify';
+import { ContainerModule } from 'inversify';
 import { WorkspaceService } from '@theia/workspace/lib/browser';
 import { CollaborationColorService } from './collaboration-color-service';
 import { CollaborationFrontendContribution } from './collaboration-frontend-contribution';

@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { Command, CommandContribution, CommandRegistry } from '@theia/core';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { NotebookEditorWidgetService } from '../service/notebook-editor-widget-service';
 import { CellOutput, CellUri } from '../../common';
 import { NotebookCellModel } from '../view-model/notebook-cell-model';

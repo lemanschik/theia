@@ -32,7 +32,7 @@ import { TreeDecoratorService, TreeDecoration, DecoratedTreeNode } from './tree-
 import { notEmpty } from '../../common/objects';
 import { isOSX } from '../../common/os';
 import { ReactWidget } from '../widgets/react-widget';
-import * as React from 'react';
+import React from 'react';
 import { Virtuoso, VirtuosoHandle, VirtuosoProps } from 'react-virtuoso';
 import { TopDownTreeIterator } from './tree-iterator';
 import { SearchBox, SearchBoxFactory, SearchBoxProps } from './search-box';

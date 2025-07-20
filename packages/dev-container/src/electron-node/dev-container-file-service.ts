@@ -14,12 +14,12 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { inject, injectable, named } from '@theia/core/shared/inversify';
+import { inject, injectable, named } from 'inversify';
 import { WorkspaceServer } from '@theia/workspace/lib/common';
 import { DevContainerFile } from '../electron-common/remote-container-connection-provider';
 import { DevContainerConfiguration } from './devcontainer-file';
 import { parse } from 'jsonc-parser';
-import * as fs from '@theia/core/shared/fs-extra';
+import fs from 'fs-extra';
 import { ContributionProvider, Path, URI } from '@theia/core';
 import { VariableResolverContribution } from './devcontainer-contributions/variable-resolver-contribution';
 

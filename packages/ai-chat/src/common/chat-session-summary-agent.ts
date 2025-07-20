@@ -18,7 +18,7 @@ import {
     LanguageModelRequirement,
     PromptVariantSet
 } from '@theia/ai-core';
-import { injectable } from '@theia/core/shared/inversify';
+import { injectable } from 'inversify';
 import { AbstractStreamParsingChatAgent, ChatAgent } from './chat-agents';
 import { CHAT_SESSION_SUMMARY_PROMPT } from './chat-session-summary-agent-prompt';
 

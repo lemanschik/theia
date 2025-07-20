@@ -16,7 +16,7 @@
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { injectable, inject } from '@theia/core/shared/inversify';
+import { injectable, inject } from 'inversify';
 import { VariableRegistry } from './variable';
 import URI from '@theia/core/lib/common/uri';
 import { CommandIdVariables } from '../common/variable-types';

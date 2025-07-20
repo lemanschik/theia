@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { Severity } from '@theia/core/lib/common/severity';
-import { DiagnosticSeverity } from '@theia/core/shared/vscode-languageserver-protocol';
+import { DiagnosticSeverity } from 'vscode-languageserver-protocol';
 import { expect } from 'chai';
 import { ApplyToKind, FileLocationKind, ProblemLocationKind, ProblemMatch, ProblemMatchData, ProblemMatcher } from '../common/problem-matcher-protocol';
 import { ProblemCollector } from './task-problem-collector';

@@ -14,9 +14,9 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as path from 'path';
-import * as fs from 'fs';
-import * as os from 'os';
+import path from 'path';
+import fs from 'fs';
+import os from 'os';
 
 import type { Compiler } from 'webpack';
 

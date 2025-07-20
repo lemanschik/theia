@@ -22,7 +22,7 @@
 /* eslint-disable no-null/no-null */
 
 import { Buffer as SaferBuffer } from 'safer-buffer';
-import * as iconv from 'iconv-lite';
+import iconv from 'iconv-lite';
 import * as streams from './stream';
 
 const hasBuffer = (typeof Buffer !== 'undefined');

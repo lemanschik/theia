@@ -30,7 +30,7 @@ import {
     IdentifiableInlineCompletions,
 } from '../common/plugin-api-rpc';
 import { RPCProtocol } from '../common/rpc-protocol';
-import * as theia from '@theia/plugin';
+import theia from '@theia/plugin';
 import { DocumentsExtImpl } from './documents';
 import { PluginModel } from '../common/plugin-protocol';
 import { Disposable, URI, LanguageStatusSeverity } from './types-impl';
@@ -92,7 +92,7 @@ import { CodeLensAdapter } from './languages/lens';
 import { OutlineAdapter } from './languages/outline';
 import { ReferenceAdapter } from './languages/reference';
 import { WorkspaceSymbolAdapter } from './languages/workspace-symbol';
-import { SymbolInformation } from '@theia/core/shared/vscode-languageserver-protocol';
+import { SymbolInformation } from 'vscode-languageserver-protocol';
 import { FoldingProviderAdapter } from './languages/folding';
 import { SelectionRangeProviderAdapter } from './languages/selection-range';
 import { ColorProviderAdapter } from './languages/color';

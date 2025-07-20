@@ -20,7 +20,7 @@
  *--------------------------------------------------------------------------------------------*/
 
 import { EOL } from '@theia/core/lib/common/os';
-import { Diagnostic, DiagnosticSeverity, Range } from '@theia/core/shared/vscode-languageserver-protocol';
+import { Diagnostic, DiagnosticSeverity, Range } from 'vscode-languageserver-protocol';
 import {
     FileLocationKind, ProblemMatcher, ProblemPattern,
     ProblemMatch, ProblemMatchData, ProblemLocationKind

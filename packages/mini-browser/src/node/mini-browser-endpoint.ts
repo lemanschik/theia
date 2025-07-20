@@ -17,9 +17,9 @@
 // @ts-expect-error bad
 import vhost from 'vhost';
 
-import * as fs from '@theia/core/shared/fs-extra';
+import fs from 'fs-extra';
 import { lookup } from 'mime-types';
-import { injectable, inject, named } from '@theia/core/shared/inversify';
+import { injectable, inject, named } from 'inversify';
 import express, { Application, Request, Response } from 'express';
 import { FileUri } from '@theia/core/lib/common/file-uri';
 import { ILogger } from '@theia/core/lib/common/logger';

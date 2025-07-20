@@ -17,7 +17,7 @@
 import { ChatRequest } from '@theia/ai-chat';
 import { Disposable } from '@theia/core/lib/common/disposable';
 import { Emitter, Event } from '@theia/core/lib/common/event';
-import * as monaco from '@theia/monaco-editor-core';
+import monaco from '@theia/monaco-editor-core';
 import { MonacoEditorZoneWidget } from '@theia/monaco/lib/browser/monaco-editor-zone-widget';
 import { AskAIInputFactory, AskAIInputWidget } from './ask-ai-input-widget';
 

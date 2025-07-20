@@ -16,7 +16,7 @@
 
 import { nls } from '@theia/core';
 import { UriComponents } from '@theia/core/lib/common/uri';
-import { Range, SymbolKind, SymbolTag } from '@theia/core/shared/vscode-languageserver-protocol';
+import { Range, SymbolKind, SymbolTag } from 'vscode-languageserver-protocol';
 
 export const CALLHIERARCHY_ID = 'callhierarchy';
 export const CALL_HIERARCHY_TOGGLE_COMMAND_ID = 'callhierarchy:toggle';

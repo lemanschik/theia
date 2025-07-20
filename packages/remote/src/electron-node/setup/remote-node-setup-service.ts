@@ -14,12 +14,12 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as path from 'path';
-import * as fs from '@theia/core/shared/fs-extra';
-import * as os from 'os';
+import path from 'path';
+import fs from 'fs-extra';
+import os from 'os';
 
-import { inject, injectable } from '@theia/core/shared/inversify';
-import { RequestService } from '@theia/core/shared/@theia/request';
+import { inject, injectable } from 'inversify';
+import { RequestService } from '@theia/request';
 import { RemoteSetupScriptService } from './remote-setup-script-service';
 import { RemotePlatform } from '@theia/core/lib/node/remote/remote-cli-contribution';
 import { OS } from '@theia/core';

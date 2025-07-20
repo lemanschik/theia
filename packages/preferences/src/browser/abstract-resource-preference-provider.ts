@@ -17,8 +17,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-null/no-null */
 
-import * as jsoncparser from 'jsonc-parser';
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
+import jsoncparser from 'jsonc-parser';
+import { inject, injectable, postConstruct } from 'inversify';
 import { Disposable } from '@theia/core/lib/common/disposable';
 import { PreferenceProvider, PreferenceSchemaProvider, PreferenceScope, PreferenceProviderDataChange } from '@theia/core/lib/browser';
 import URI from '@theia/core/lib/common/uri';

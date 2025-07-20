@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable, inject } from '@theia/core/shared/inversify';
+import { injectable, inject } from 'inversify';
 import URI from '@theia/core/lib/common/uri';
 import { Deferred } from '@theia/core/lib/common/promise-util';
 import { Resource, ResourceResolver } from '@theia/core/lib/common/resource';
@@ -25,7 +25,7 @@ import { OutputUri } from '../common/output-uri';
 import { OutputResource } from '../browser/output-resource';
 import { OutputPreferences } from './output-preferences';
 import { IReference } from '@theia/monaco-editor-core/esm/vs/base/common/lifecycle';
-import * as monaco from '@theia/monaco-editor-core';
+import monaco from '@theia/monaco-editor-core';
 import PQueue from 'p-queue';
 
 @injectable()

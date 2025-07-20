@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { CommandContribution, MenuContribution } from '@theia/core';
-import { ContainerModule } from '@theia/core/shared/inversify';
+import { ContainerModule } from 'inversify';
 import { KeybindingContribution } from '@theia/core/lib/browser';
 import { ElectronNavigatorMenuContribution } from './electron-navigator-menu-contribution';
 

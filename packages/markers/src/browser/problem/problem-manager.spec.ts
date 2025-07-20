@@ -18,14 +18,14 @@ import { enableJSDOM } from '@theia/core/lib/browser/test/jsdom';
 
 const disableJSDOM = enableJSDOM();
 
-import * as chai from 'chai';
+import chai from 'chai';
 import URI from '@theia/core/lib/common/uri';
 
-import { Container } from '@theia/core/shared/inversify';
+import { Container } from 'inversify';
 import { ProblemManager } from './problem-manager';
 import { Event } from '@theia/core/lib/common/event';
 import { ILogger } from '@theia/core/lib/common/logger';
-import { DiagnosticSeverity, Range } from '@theia/core/shared/vscode-languageserver-protocol';
+import { DiagnosticSeverity, Range } from 'vscode-languageserver-protocol';
 import { MockLogger } from '@theia/core/lib/common/test/mock-logger';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
 import { LocalStorageService, StorageService } from '@theia/core/lib/browser/storage-service';

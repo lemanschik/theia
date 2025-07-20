@@ -16,7 +16,7 @@
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { injectable } from '@theia/core/shared/inversify';
+import { injectable } from 'inversify';
 import { generateUuid } from '@theia/core/lib/common/uuid';
 import URI from '@theia/core/lib/common/uri';
 import { Location } from '@theia/editor/lib/browser/editor';

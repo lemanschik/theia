@@ -19,7 +19,7 @@ import {
     FrontendApplicationContribution, CommonCommands, StylingParticipant, ColorTheme, CssStyleCollector
 } from '@theia/core/lib/browser';
 import { SearchInWorkspaceWidget } from './search-in-workspace-widget';
-import { injectable, inject, postConstruct } from '@theia/core/shared/inversify';
+import { injectable, inject, postConstruct } from 'inversify';
 import { CommandRegistry, MenuModelRegistry, SelectionService, Command, isOSX, nls } from '@theia/core';
 import { codicon, Widget } from '@theia/core/lib/browser/widgets';
 import { FileNavigatorCommands, NavigatorContextMenu } from '@theia/navigator/lib/browser/navigator-contribution';
@@ -29,7 +29,7 @@ import { WorkspaceService } from '@theia/workspace/lib/browser';
 import { SearchInWorkspaceContextKeyService } from './search-in-workspace-context-key-service';
 import { TabBarToolbarContribution, TabBarToolbarRegistry } from '@theia/core/lib/browser/shell/tab-bar-toolbar';
 import { EditorManager } from '@theia/editor/lib/browser/editor-manager';
-import { Range } from '@theia/core/shared/vscode-languageserver-protocol';
+import { Range } from 'vscode-languageserver-protocol';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
 import { SEARCH_VIEW_CONTAINER_ID } from './search-in-workspace-factory';
 import { SearchInWorkspaceFileNode, SearchInWorkspaceResultTreeWidget } from './search-in-workspace-result-tree-widget';

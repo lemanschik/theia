@@ -849,7 +849,7 @@ SPAN {
         assert.isNotNull(editor.getControl());
         assert.isNotNull(editor.getControl().getModel());
         console.log(`content: ${editor.getControl().getModel().getLineContent(30)}`);
-        await waitForAnimation(() => editor.getControl().getModel().getLineContent(30) === 'import * as demoDefinitionsFile from "./demo-definitions-file";', 5000, 'The namespace import did not take effect.');
+        await waitForAnimation(() => editor.getControl().getModel().getLineContent(30) === 'import demoDefinitionsFile from "./demo-definitions-file";', 5000, 'The namespace import did not take effect.');
 
         // momentarily toggle selection, waiting for code action to become unavailable.
         // Without doing this, the call to the quickfix command would sometimes fail because of an

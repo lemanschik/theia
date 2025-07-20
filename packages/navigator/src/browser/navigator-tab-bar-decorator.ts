@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable } from '@theia/core/shared/inversify';
+import { injectable } from 'inversify';
 import { Emitter, Event } from '@theia/core/lib/common/event';
 import { TabBarDecorator } from '@theia/core/lib/browser/shell/tab-bar-decorator';
 import { ApplicationShell, FrontendApplication, FrontendApplicationContribution, Saveable, Title, ViewContainer, Widget } from '@theia/core/lib/browser';

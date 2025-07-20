@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { MaybePromise, nls } from '@theia/core';
-import { injectable } from '@theia/core/shared/inversify';
+import { injectable } from 'inversify';
 import { AIVariable, ResolvedAIVariable, AIVariableContribution, AIVariableResolver, AIVariableService, AIVariableResolutionRequest, AIVariableContext } from '@theia/ai-core';
 import { dataToJsonCodeBlock } from './chat-string-utils';
 import { ChatSessionContext } from './chat-agents';

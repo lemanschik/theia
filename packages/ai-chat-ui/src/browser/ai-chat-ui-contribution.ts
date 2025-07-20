@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, postConstruct } from 'inversify';
 import { CommandRegistry, Emitter, isOSX, MessageService, nls, QuickInputButton, QuickInputService, QuickPickItem } from '@theia/core';
 import { Widget } from '@theia/core/lib/browser';
 import {
@@ -31,7 +31,7 @@ import { ChatViewWidget } from './chat-view-widget';
 import { Deferred } from '@theia/core/lib/common/promise-util';
 import { SecondaryWindowHandler } from '@theia/core/lib/browser/secondary-window-handler';
 import { formatDistance } from 'date-fns';
-import * as locales from 'date-fns/locale';
+import locales from 'date-fns/locale';
 import { AI_SHOW_SETTINGS_COMMAND, AIActivationService, ENABLE_AI_CONTEXT_KEY } from '@theia/ai-core/lib/browser';
 import { ChatNodeToolbarCommands } from './chat-node-toolbar-action-contribution';
 import { isEditableRequestNode, isResponseNode, type EditableRequestNode, type ResponseNode } from './chat-tree-view';

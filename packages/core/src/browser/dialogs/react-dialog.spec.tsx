@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as assert from 'assert';
-import * as React from 'react';
+import assert from 'assert';
+import React from 'react';
 import { enableJSDOM } from '../test/jsdom';
 
 let disableJSDOM = enableJSDOM();

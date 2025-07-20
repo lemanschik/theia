@@ -22,7 +22,7 @@ import { CommandRegistry, Event, Disposable, Emitter, DisposableCollection } fro
 import { KeybindingRegistry } from '../../keybinding';
 import { ACTION_ITEM } from '../../widgets';
 import { TabBarToolbar } from './tab-bar-toolbar';
-import * as React from 'react';
+import React from 'react';
 import { ActionMenuNode, GroupImpl, MenuNode } from '../../../common/menu';
 
 export interface TabBarToolbarItem {

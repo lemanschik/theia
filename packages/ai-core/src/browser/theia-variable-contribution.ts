@@ -15,7 +15,7 @@
 // *****************************************************************************
 import { FrontendApplicationStateService } from '@theia/core/lib/browser/frontend-application-state';
 import { nls } from '@theia/core/lib/common/nls';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { VariableRegistry, VariableResolverService } from '@theia/variable-resolver/lib/browser';
 import { AIVariableContribution, AIVariableResolver, AIVariableService, AIVariableResolutionRequest, AIVariableContext, ResolvedAIVariable } from '../common';
 

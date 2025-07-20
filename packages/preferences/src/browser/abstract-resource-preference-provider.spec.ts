@@ -23,7 +23,7 @@ import { FrontendApplicationConfigProvider } from '@theia/core/lib/browser/front
 FrontendApplicationConfigProvider.set({});
 
 import { expect } from 'chai';
-import { Container } from '@theia/core/shared/inversify';
+import { Container } from 'inversify';
 import { AbstractResourcePreferenceProvider } from './abstract-resource-preference-provider';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
 import { bindPreferenceService } from '@theia/core/lib/browser/frontend-application-bindings';

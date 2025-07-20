@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { Locator, PlaywrightWorkerArgs, expect, test } from '@playwright/test';
-import * as path from 'path';
+import path from 'path';
 import { TheiaApp } from '../theia-app';
 import { TheiaAppLoader, TheiaPlaywrightTestConfig } from '../theia-app-loader';
 import { TheiaNotebookCell } from '../theia-notebook-cell';

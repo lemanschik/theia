@@ -19,7 +19,7 @@
  *--------------------------------------------------------------------------------------------*/
 
 import { nls } from '@theia/core';
-import { interfaces } from '@theia/core/shared/inversify';
+import { interfaces } from 'inversify';
 import { PreferenceContribution, PreferenceSchema } from '@theia/core/lib/browser';
 
 export namespace NotebookPreferences {

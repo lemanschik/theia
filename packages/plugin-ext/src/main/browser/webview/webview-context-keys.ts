@@ -16,7 +16,7 @@
 
 import { ApplicationShell, FocusTracker, Widget } from '@theia/core/lib/browser';
 import { ContextKey, ContextKeyService } from '@theia/core/lib/browser/context-key-service';
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, postConstruct } from 'inversify';
 import { CustomEditorWidget } from '../custom-editors/custom-editor-widget';
 import { WebviewWidget } from './webview';
 

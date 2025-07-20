@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { BaseWidget, LabelProvider, Message, OpenerService, codicon } from '@theia/core/lib/browser';
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, postConstruct } from 'inversify';
 import { TestOutputUIModel } from './test-output-ui-model';
 import { DisposableCollection, nls } from '@theia/core';
 import { TestFailure, TestMessage, TestMessageStackFrame } from '../test-service';

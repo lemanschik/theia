@@ -18,7 +18,7 @@ import { CancellationToken } from '@theia/core';
 import { SaveOptions, SaveReason } from '@theia/core/lib/browser';
 import { MonacoEditor } from './monaco-editor';
 import { SaveParticipant, SAVE_PARTICIPANT_DEFAULT_ORDER } from './monaco-editor-provider';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { MonacoCodeActionService } from './monaco-code-action-service';
 
 /*---------------------------------------------------------------------------------------------

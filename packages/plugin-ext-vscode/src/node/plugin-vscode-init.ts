@@ -16,7 +16,7 @@
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import * as theia from '@theia/plugin';
+import theia from '@theia/plugin';
 import { BackendInitializationFn, PluginAPIFactory, Plugin, emptyPlugin } from '@theia/plugin-ext';
 import { VSCODE_DEFAULT_API_VERSION } from '../common/plugin-vscode-types';
 

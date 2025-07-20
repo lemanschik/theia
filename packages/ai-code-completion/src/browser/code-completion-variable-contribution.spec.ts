@@ -20,10 +20,10 @@ let disableJSDOM = enableJSDOM();
 FrontendApplicationConfigProvider.set({});
 
 import { PreferenceService } from '@theia/core/lib/browser';
-import { Container } from '@theia/core/shared/inversify';
+import { Container } from 'inversify';
 import { editor, languages, Uri } from '@theia/monaco-editor-core/esm/vs/editor/editor.api';
 import { expect } from 'chai';
-import * as sinon from 'sinon';
+import sinon from 'sinon';
 import { CodeCompletionVariableContext } from './code-completion-variable-context';
 import { CodeCompletionVariableContribution } from './code-completion-variable-contribution';
 import { FILE, LANGUAGE, PREFIX, SUFFIX } from './code-completion-variables';

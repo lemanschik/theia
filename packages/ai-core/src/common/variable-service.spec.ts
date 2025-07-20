@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as sinon from 'sinon';
+import sinon from 'sinon';
 import { ContributionProvider, Logger } from '@theia/core';
 import { expect } from 'chai';
 import {

@@ -20,11 +20,11 @@ import {
 import { ContributionProvider, UntitledResourceResolver, URI } from '@theia/core';
 import { ContextMenuRenderer, TreeNode } from '@theia/core/lib/browser';
 import { ClipboardService } from '@theia/core/lib/browser/clipboard-service';
-import { inject, injectable, named } from '@theia/core/shared/inversify';
-import * as React from 'react';
+import { inject, injectable, named } from 'inversify';
+import React from 'react';
 import { ReactNode } from 'react';
 import { nls } from '@theia/core/lib/common/nls';
-import { Position } from '@theia/core/shared/vscode-languageserver-protocol';
+import { Position } from 'vscode-languageserver-protocol';
 import { EditorManager, EditorWidget } from '@theia/editor/lib/browser';
 import { SimpleMonacoEditor } from '@theia/monaco/lib/browser/simple-monaco-editor';
 import { MonacoEditorProvider } from '@theia/monaco/lib/browser/monaco-editor-provider';

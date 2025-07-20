@@ -17,8 +17,8 @@
 import { deepFreeze, Disposable, DisposableCollection, Emitter, nls } from '@theia/core';
 import { Key, KeyCode, Message, ReactWidget, StatefulWidget } from '@theia/core/lib/browser';
 import { Deferred } from '@theia/core/lib/common/promise-util';
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
-import * as React from 'react';
+import { inject, injectable, postConstruct } from 'inversify';
+import React from 'react';
 import { DebugSession, DebugState } from '@theia/debug/lib/browser/debug-session';
 import { DebugSessionManager } from '@theia/debug/lib/browser/debug-session-manager';
 import Long from 'long';
@@ -28,7 +28,7 @@ import { MWInput, MWInputWithSelect, MWSelect } from '../utils/memory-widget-com
 import { Constants, Interfaces, MemoryWidgetOptions, Utils } from '../utils/memory-widget-utils';
 import { VariableRange } from '../utils/memory-widget-variable-utils';
 import { MWMultiSelect, SingleSelectItemProps } from '../utils/multi-select-bar';
-import debounce from '@theia/core/shared/lodash.debounce';
+import debounce from 'lodash.debounce';
 
 export const EMPTY_MEMORY: Interfaces.MemoryReadResult = deepFreeze({
     bytes: new Uint8Array(),

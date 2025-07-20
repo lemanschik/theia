@@ -18,7 +18,7 @@ import { TabBarToolbarContribution, TabBarToolbarRegistry } from '@theia/core/li
 import { AIViewContribution } from '@theia/ai-core/lib/browser';
 import { ChatViewWidget } from '@theia/ai-chat-ui/lib/browser/chat-view-widget';
 import { FrontendApplication } from '@theia/core/lib/browser';
-import { injectable } from '@theia/core/shared/inversify';
+import { injectable } from 'inversify';
 import { AIConfigurationContainerWidget } from './ai-configuration-widget';
 
 export const AI_CONFIGURATION_TOGGLE_COMMAND_ID = 'aiConfiguration:toggle';

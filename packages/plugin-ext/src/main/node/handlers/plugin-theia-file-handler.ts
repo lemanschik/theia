@@ -16,11 +16,11 @@
 
 import { PluginDeployerFileHandler, PluginDeployerEntry, PluginDeployerFileHandlerContext, PluginType } from '../../../common/plugin-protocol';
 import type { URI } from '@theia/core';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { Deferred } from '@theia/core/lib/common/promise-util';
 import { getTempDirPathAsync } from '../temp-dir-util';
-import * as fs from '@theia/core/shared/fs-extra';
-import * as filenamify from 'filenamify';
+import fs from 'fs-extra';
+import filenamify from 'filenamify';
 import { FileUri } from '@theia/core/lib/common/file-uri';
 import { PluginTheiaEnvironment } from '../../common/plugin-theia-environment';
 

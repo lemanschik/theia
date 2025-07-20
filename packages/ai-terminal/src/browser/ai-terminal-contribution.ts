@@ -17,7 +17,7 @@
 import { ENABLE_AI_CONTEXT_KEY } from '@theia/ai-core/lib/browser';
 import { Command, CommandContribution, CommandRegistry, MenuContribution, MenuModelRegistry } from '@theia/core';
 import { ApplicationShell, codicon, KeybindingContribution, KeybindingRegistry } from '@theia/core/lib/browser';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { TerminalService } from '@theia/terminal/lib/browser/base/terminal-service';
 import { TerminalMenus } from '@theia/terminal/lib/browser/terminal-frontend-contribution';
 import { TerminalWidgetImpl } from '@theia/terminal/lib/browser/terminal-widget-impl';

@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { Command, MessageService, nls, QuickInputService, QuickPickInput } from '@theia/core';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { RemoteSSHConnectionProvider } from '../electron-common/remote-ssh-connection-provider';
 import { AbstractRemoteRegistryContribution, RemoteRegistry } from './remote-registry-contribution';
 import { RemotePreferences } from './remote-preferences';

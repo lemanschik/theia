@@ -26,7 +26,7 @@ import { Color } from '@theia/core/lib/common/color';
 import { Command, CommandRegistry } from '@theia/core/lib/common/command';
 import URI from '@theia/core/lib/common/uri';
 import { UriAwareCommandHandler } from '@theia/core/lib/common/uri-command-handler';
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, postConstruct } from 'inversify';
 import { FileDialogService, OpenFileDialogProps } from '@theia/filesystem/lib/browser';
 import { NAVIGATOR_CONTEXT_MENU } from '@theia/navigator/lib/browser/navigator-contribution';
 import { OVSXApiFilterProvider, VSXExtensionRaw } from '@theia/ovsx-client';
@@ -40,7 +40,7 @@ import { VSXExtensionsModel } from './vsx-extensions-model';
 import { BUILTIN_QUERY, INSTALLED_QUERY, RECOMMENDED_QUERY } from './vsx-extensions-search-model';
 import { VSXExtensionsViewContainer } from './vsx-extensions-view-container';
 import { ApplicationServer } from '@theia/core/lib/common/application-protocol';
-import debounce from '@theia/core/shared/lodash.debounce';
+import debounce from 'lodash.debounce';
 
 export namespace VSXCommands {
     export const TOGGLE_EXTENSIONS: Command = {

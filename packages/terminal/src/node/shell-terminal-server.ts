@@ -14,14 +14,14 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { inject, injectable, named } from '@theia/core/shared/inversify';
+import { inject, injectable, named } from 'inversify';
 import { ILogger } from '@theia/core/lib/common/logger';
 import { EnvironmentUtils } from '@theia/core/lib/node/environment-utils';
 import { BaseTerminalServer } from './base-terminal-server';
 import { ShellProcessFactory, getRootPath } from './shell-process';
 import { ProcessManager, TerminalProcess } from '@theia/process/lib/node';
 import { isWindows } from '@theia/core/lib/common/os';
-import * as cp from 'child_process';
+import cp from 'child_process';
 import {
     EnvironmentVariableCollectionWithPersistence, EnvironmentVariableMutatorType, NO_ROOT_URI, SerializableEnvironmentVariableCollection,
     IShellTerminalServer, IShellTerminalServerOptions

@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, postConstruct } from 'inversify';
 import { KeybindingContribution, KeybindingRegistry } from '@theia/core/lib/browser';
 import { CommandContribution, CommandRegistry, Command, MenuContribution, MenuModelRegistry, DisposableCollection } from '@theia/core/lib/common';
 import { BlameDecorator } from './blame-decorator';
@@ -24,7 +24,7 @@ import URI from '@theia/core/lib/common/uri';
 import { EDITOR_CONTEXT_MENU_SCM } from '@theia/scm-extra/lib/browser/scm-extra-contribution';
 import { ContextKey, ContextKeyService } from '@theia/core/lib/browser/context-key-service';
 
-import debounce from '@theia/core/shared/lodash.debounce';
+import debounce from 'lodash.debounce';
 
 export namespace BlameCommands {
     export const TOGGLE_GIT_ANNOTATIONS = Command.toLocalizedCommand({

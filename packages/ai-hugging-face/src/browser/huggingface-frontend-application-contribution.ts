@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { FrontendApplicationContribution, PreferenceService } from '@theia/core/lib/browser';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { HuggingFaceLanguageModelsManager, HuggingFaceModelDescription } from '../common';
 import { API_KEY_PREF, MODELS_PREF } from './huggingface-preferences';
 

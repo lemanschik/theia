@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { Widget } from '@theia/core/shared/@lumino/widgets';
-import { injectable, inject, optional } from '@theia/core/shared/inversify';
+import { Widget } from '@lumino/widgets';
+import { injectable, inject, optional } from 'inversify';
 import URI from '@theia/core/lib/common/uri';
 import { MaybePromise } from '@theia/core/lib/common/types';
 import { codicon, QuickInputService } from '@theia/core/lib/browser';

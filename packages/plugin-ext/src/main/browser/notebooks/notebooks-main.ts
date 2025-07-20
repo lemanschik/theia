@@ -25,7 +25,7 @@ import { NotebookDto } from './notebook-dto';
 import { HostedPluginSupport } from '../../../hosted/browser/hosted-plugin';
 import { NotebookModel } from '@theia/notebook/lib/browser/view-model/notebook-model';
 import { NotebookCellModel } from '@theia/notebook/lib/browser/view-model/notebook-cell-model';
-import { interfaces } from '@theia/core/shared/inversify';
+import { interfaces } from 'inversify';
 import {
     NotebookCellStatusBarItemProvider,
     NotebookCellStatusBarItemList,

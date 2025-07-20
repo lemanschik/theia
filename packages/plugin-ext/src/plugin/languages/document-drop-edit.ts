@@ -13,16 +13,16 @@
 //
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
-import * as theia from '@theia/plugin';
+import theia from '@theia/plugin';
 import { DataTransferDTO, DocumentDropEdit } from '../../common/plugin-api-rpc-model';
-import { CancellationToken } from '@theia/core/shared/vscode-languageserver-protocol';
+import { CancellationToken } from 'vscode-languageserver-protocol';
 import { Position } from '../../common/plugin-api-rpc';
-import * as Converter from '../type-converters';
+import Converter from '../type-converters';
 import { DocumentsExtImpl } from '../documents';
-import { URI } from '@theia/core/shared/vscode-uri';
+import { URI } from 'vscode-uri';
 import { FileSystemExtImpl } from '../file-system-ext-impl';
-import * as os from 'os';
-import * as path from 'path';
+import os from 'os';
+import path from 'path';
 
 export class DocumentDropEditAdapter {
     constructor(private readonly provider: theia.DocumentDropEditProvider,

@@ -14,10 +14,10 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as theia from '@theia/plugin';
-import { URI } from '@theia/core/shared/vscode-uri';
+import theia from '@theia/plugin';
+import { URI } from 'vscode-uri';
 import { DocumentsExtImpl } from '../documents';
-import * as Converter from '../type-converters';
+import Converter from '../type-converters';
 import { RawColorInfo } from '../../common/plugin-api-rpc';
 import { ColorPresentation } from '../../common/plugin-api-rpc-model';
 

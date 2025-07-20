@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as path from 'path';
-import { ContainerModule, interfaces } from '@theia/core/shared/inversify';
+import path from 'path';
+import { ContainerModule, interfaces } from 'inversify';
 import { ConnectionHandler, RpcConnectionHandler, ILogger } from '@theia/core/lib/common';
 import { FileSystemWatcherServer, FileSystemWatcherService } from '../common/filesystem-watcher-protocol';
 import { FileSystemWatcherServerClient } from './filesystem-watcher-client';

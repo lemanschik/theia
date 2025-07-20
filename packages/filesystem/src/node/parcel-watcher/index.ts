@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { default as yargs } from '@theia/core/shared/yargs';
+import { default as yargs } from 'yargs';
 import { RpcProxyFactory } from '@theia/core';
 import { FileSystemWatcherServiceClient } from '../../common/filesystem-watcher-protocol';
 import { ParcelFileSystemWatcherService } from './parcel-filesystem-service';

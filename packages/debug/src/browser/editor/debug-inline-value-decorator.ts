@@ -21,8 +21,8 @@
 // Based on https://github.com/theia-ide/vscode/blob/standalone/0.19.x/src/vs/workbench/contrib/debug/browser/debugEditorContribution.ts
 
 import { FrontendApplicationContribution } from '@theia/core/lib/browser/frontend-application-contribution';
-import { inject, injectable } from '@theia/core/shared/inversify';
-import * as monaco from '@theia/monaco-editor-core';
+import { inject, injectable } from 'inversify';
+import monaco from '@theia/monaco-editor-core';
 import { CancellationTokenSource } from '@theia/monaco-editor-core/esm/vs/base/common/cancellation';
 import { DEFAULT_WORD_REGEXP } from '@theia/monaco-editor-core/esm/vs/editor/common/core/wordHelper';
 import { IDecorationOptions } from '@theia/monaco-editor-core/esm/vs/editor/common/editorCommon';

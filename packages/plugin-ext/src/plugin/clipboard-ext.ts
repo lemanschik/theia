@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as theia from '@theia/plugin';
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
+import theia from '@theia/plugin';
+import { inject, injectable, postConstruct } from 'inversify';
 import { RPCProtocol } from '../common/rpc-protocol';
 import { PLUGIN_RPC_CONTEXT, ClipboardMain } from '../common';
 

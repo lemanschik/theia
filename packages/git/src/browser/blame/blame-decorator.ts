@@ -14,14 +14,14 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { inject, injectable, unmanaged } from '@theia/core/shared/inversify';
+import { inject, injectable, unmanaged } from 'inversify';
 import { EditorManager, TextEditor, EditorDecoration, EditorDecorationOptions, Range, Position, EditorDecorationStyle } from '@theia/editor/lib/browser';
 import { GitFileBlame } from '../../common';
 import { Disposable, DisposableCollection, nls } from '@theia/core';
 import { DateTime } from 'luxon';
 import URI from '@theia/core/lib/common/uri';
 import { DecorationStyle } from '@theia/core/lib/browser';
-import * as monaco from '@theia/monaco-editor-core';
+import monaco from '@theia/monaco-editor-core';
 import { LanguageSelector } from '@theia/monaco-editor-core/esm/vs/editor/common/languageSelector';
 
 @injectable()

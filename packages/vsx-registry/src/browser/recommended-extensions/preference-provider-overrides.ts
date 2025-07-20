@@ -21,7 +21,7 @@ import {
     UserPreferenceProvider,
     UserPreferenceProviderFactory
 } from '@theia/preferences/lib/browser';
-import { Container, injectable, interfaces } from '@theia/core/shared/inversify';
+import { Container, injectable, interfaces } from 'inversify';
 import { extensionsConfigurationSchema } from './recommended-extensions-json-schema';
 import {
     WorkspaceFilePreferenceProvider,

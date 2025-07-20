@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { LanguageModelRegistry, TokenUsageService } from '@theia/ai-core';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { OllamaModel } from './ollama-language-model';
 import { OllamaLanguageModelsManager, OllamaModelDescription } from '../common';
 

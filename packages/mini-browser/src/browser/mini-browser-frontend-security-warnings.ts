@@ -19,7 +19,7 @@ import { Dialog, FrontendApplicationContribution } from '@theia/core/lib/browser
 import { FrontendApplicationConfigProvider } from '@theia/core/lib/browser/frontend-application-config-provider';
 import { nls } from '@theia/core/lib/common/nls';
 import { WindowService } from '@theia/core/lib/browser/window/window-service';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { MiniBrowserEndpoint } from '../common/mini-browser-endpoint';
 import { MiniBrowserEnvironment } from './environment/mini-browser-environment';
 

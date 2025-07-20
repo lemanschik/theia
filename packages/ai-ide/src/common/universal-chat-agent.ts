@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { LanguageModelRequirement } from '@theia/ai-core/lib/common';
-import { injectable } from '@theia/core/shared/inversify';
+import { injectable } from 'inversify';
 import { AbstractStreamParsingChatAgent } from '@theia/ai-chat/lib/common/chat-agents';
 import { nls } from '@theia/core';
 import { universalTemplate, universalTemplateVariant } from './universal-prompt-template';

@@ -14,9 +14,9 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as cp from 'child_process';
-import * as fs from '@theia/core/shared/fs-extra';
-import { injectable } from '@theia/core/shared/inversify';
+import cp from 'child_process';
+import fs from 'fs-extra';
+import { injectable } from 'inversify';
 import { OS } from '@theia/core/lib/common/os';
 import { FileUri } from '@theia/core/lib/common/file-uri';
 import { ExternalTerminalService, ExternalTerminalConfiguration } from '../common/external-terminal';

@@ -42,7 +42,7 @@ import { toMonacoWorkspaceEdit } from './languages-main';
 import { MonacoBulkEditService } from '@theia/monaco/lib/browser/monaco-bulk-edit-service';
 import { UriComponents } from '../../common/uri-components';
 import { Endpoint } from '@theia/core/lib/browser/endpoint';
-import * as monaco from '@theia/monaco-editor-core';
+import monaco from '@theia/monaco-editor-core';
 import { ResourceEdit } from '@theia/monaco-editor-core/esm/vs/editor/browser/services/bulkEditService';
 import { IDecorationRenderOptions } from '@theia/monaco-editor-core/esm/vs/editor/common/editorCommon';
 import { StandaloneServices } from '@theia/monaco-editor-core/esm/vs/editor/standalone/browser/standaloneServices';
@@ -50,7 +50,7 @@ import { ICodeEditorService } from '@theia/monaco-editor-core/esm/vs/editor/brow
 import { type ILineChange } from '@theia/monaco-editor-core/esm/vs/editor/common/diff/legacyLinesDiffComputer';
 import { ArrayUtils, URI } from '@theia/core';
 import { toNotebookWorspaceEdit } from './notebooks/notebooks-main';
-import { interfaces } from '@theia/core/shared/inversify';
+import { interfaces } from 'inversify';
 import { NotebookService } from '@theia/notebook/lib/browser';
 
 export class TextEditorsMainImpl implements TextEditorsMain, Disposable {

@@ -15,9 +15,9 @@
 // *****************************************************************************
 
 import { PluginDeployerResolverContext } from '../../../common/plugin-protocol';
-import { injectable } from '@theia/core/shared/inversify';
-import * as fs from '@theia/core/shared/fs-extra';
-import * as path from 'path';
+import { injectable } from 'inversify';
+import fs from 'fs-extra';
+import path from 'path';
 import { LocalPluginDeployerResolver } from './local-plugin-deployer-resolver';
 
 @injectable()

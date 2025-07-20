@@ -25,7 +25,7 @@ import type {
     TimelineOptions,
     TimelineProvider
 } from '@theia/timeline/lib/common/timeline-model';
-import * as theia from '@theia/plugin';
+import theia from '@theia/plugin';
 import { CancellationToken } from '@theia/core/lib/common/cancellation';
 import { UriComponents } from '../common/uri-components';
 

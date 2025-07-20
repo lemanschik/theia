@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as semver from 'semver';
+import semver from 'semver';
 import { OVSXClient, VSXAllVersions, VSXBuiltinNamespaces, VSXExtensionRaw, VSXQueryOptions, VSXSearchEntry } from './ovsx-types';
 
 export const OVSXApiFilterProvider = Symbol('OVSXApiFilterProvider');

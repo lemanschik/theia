@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { inject, injectable } from '@theia/core/shared/inversify';
-import * as monaco from '@theia/monaco-editor-core';
+import { inject, injectable } from 'inversify';
+import monaco from '@theia/monaco-editor-core';
 import { CommentingRangeDecorator } from './comments-decorator';
 import { EditorManager, EditorMouseEvent, EditorWidget } from '@theia/editor/lib/browser';
 import { MonacoDiffEditor } from '@theia/monaco/lib/browser/monaco-diff-editor';
@@ -23,7 +23,7 @@ import { CommentThreadWidget } from './comment-thread-widget';
 import { CommentsService, CommentInfoMain } from './comments-service';
 import { CommentThread } from '../../../common/plugin-api-rpc-model';
 import { CommandRegistry, DisposableCollection, MenuModelRegistry } from '@theia/core/lib/common';
-import { URI } from '@theia/core/shared/vscode-uri';
+import { URI } from 'vscode-uri';
 import { ContextKeyService } from '@theia/core/lib/browser/context-key-service';
 import { Uri } from '@theia/plugin';
 import { CommentsContext } from './comments-context';

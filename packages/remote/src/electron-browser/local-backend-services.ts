@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { RpcProxy } from '@theia/core';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { RemoteFileSystemProvider, RemoteFileSystemServer } from '@theia/filesystem/lib/common/remote-file-system-provider';
 
 export const LocalEnvVariablesServer = Symbol('LocalEnviromentVariableServer');

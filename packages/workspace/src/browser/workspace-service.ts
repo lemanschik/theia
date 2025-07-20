@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable, inject, postConstruct, named } from '@theia/core/shared/inversify';
+import { injectable, inject, postConstruct, named } from 'inversify';
 import URI from '@theia/core/lib/common/uri';
 import { WorkspaceServer, UntitledWorkspaceService, WorkspaceFileService } from '../common';
 import { WindowService } from '@theia/core/lib/browser/window/window-service';
@@ -26,8 +26,8 @@ import { Deferred } from '@theia/core/lib/common/promise-util';
 import { EnvVariablesServer } from '@theia/core/lib/common/env-variables';
 import { ILogger, Disposable, DisposableCollection, Emitter, Event, MaybePromise, MessageService, nls, ContributionProvider } from '@theia/core';
 import { WorkspacePreferences } from './workspace-preferences';
-import * as jsoncparser from 'jsonc-parser';
-import * as Ajv from '@theia/core/shared/ajv';
+import jsoncparser from 'jsonc-parser';
+import Ajv from 'ajv';
 import { FileStat, BaseStat } from '@theia/filesystem/lib/common/files';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
 import { WindowTitleService } from '@theia/core/lib/browser/window/window-title-service';

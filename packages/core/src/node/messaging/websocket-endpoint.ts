@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 
 import { MessagingService } from './messaging-service';
-import * as http from 'http';
-import * as https from 'https';
+import http from 'http';
+import https from 'https';
 import { inject, injectable } from 'inversify';
 import { Server, Socket } from 'socket.io';
 import { WsRequestValidator } from '../ws-request-validators';

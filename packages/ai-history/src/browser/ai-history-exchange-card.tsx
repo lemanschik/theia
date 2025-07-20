@@ -20,7 +20,7 @@ import {
     LanguageModelExchangeRequestResponse
 } from '@theia/ai-core/lib/common/language-model-interaction-model';
 import { nls } from '@theia/core';
-import * as React from 'react';
+import React from 'react';
 
 const getTextFromResponse = (response: LanguageModelExchangeRequestResponse): string => {
     // Handle monitored stream response

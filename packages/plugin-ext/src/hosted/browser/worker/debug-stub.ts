@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 // eslint-disable-next-line @theia/runtime-import-check
-import { interfaces } from '@theia/core/shared/inversify';
+import { interfaces } from 'inversify';
 import { DebugExtImpl } from '../../../plugin/debug/debug-ext';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */

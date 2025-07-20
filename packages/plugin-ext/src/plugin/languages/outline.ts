@@ -14,12 +14,12 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { URI } from '@theia/core/shared/vscode-uri';
-import * as theia from '@theia/plugin';
+import { URI } from 'vscode-uri';
+import theia from '@theia/plugin';
 import { DocumentsExtImpl } from '../documents';
-import * as Converter from '../type-converters';
+import Converter from '../type-converters';
 import { DocumentSymbol, Range } from '../../common/plugin-api-rpc-model';
-import * as types from '../types-impl';
+import types from '../types-impl';
 
 /** Adapts the calls from main to extension thread for providing the document symbols. */
 export class OutlineAdapter {

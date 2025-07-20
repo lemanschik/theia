@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { OS } from '@theia/core';
-import { interfaces } from '@theia/core/shared/inversify';
+import { interfaces } from 'inversify';
 import {
     PreferenceProxy,
     PreferenceSchema,

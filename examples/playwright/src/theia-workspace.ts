@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as fs from 'fs-extra';
+import fs from 'fs-extra';
 import { join, resolve } from 'path';
 import { OSUtil } from './util';
 

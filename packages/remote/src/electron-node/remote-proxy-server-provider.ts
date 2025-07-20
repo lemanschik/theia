@@ -15,8 +15,8 @@
 // *****************************************************************************
 
 import { Deferred } from '@theia/core/lib/common/promise-util';
-import { injectable } from '@theia/core/shared/inversify';
-import * as net from 'net';
+import { injectable } from 'inversify';
+import net from 'net';
 
 @injectable()
 export class RemoteProxyServerProvider {

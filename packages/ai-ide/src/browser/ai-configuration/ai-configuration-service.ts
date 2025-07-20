@@ -16,7 +16,7 @@
 
 import { Agent } from '@theia/ai-core/lib/common';
 import { Emitter } from '@theia/core';
-import { injectable } from '@theia/core/shared/inversify';
+import { injectable } from 'inversify';
 
 @injectable()
 export class AIConfigurationSelectionService {

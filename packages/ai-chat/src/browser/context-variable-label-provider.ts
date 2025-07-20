@@ -16,7 +16,7 @@
 
 import { AIVariableResolutionRequest } from '@theia/ai-core';
 import { LabelProviderContribution } from '@theia/core/lib/browser';
-import { injectable } from '@theia/core/shared/inversify';
+import { injectable } from 'inversify';
 
 @injectable()
 export class ContextVariableLabelProvider implements LabelProviderContribution {

@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { inject, injectable, interfaces, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, interfaces, postConstruct } from 'inversify';
 import { PreferenceSchema, PreferenceProxy } from '@theia/core/lib/browser';
 import { PreferenceProxyFactory } from '@theia/core/lib/browser/preferences/injectable-preference-proxy';
 import { PreferenceSchemaProvider } from '@theia/core/lib/browser/preferences/preference-contribution';

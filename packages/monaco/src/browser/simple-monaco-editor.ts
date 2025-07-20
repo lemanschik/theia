@@ -22,8 +22,8 @@ import { ServiceCollection } from '@theia/monaco-editor-core/esm/vs/platform/ins
 import { Disposable, DisposableCollection, Emitter, Event, TextDocumentContentChangeDelta, URI } from '@theia/core';
 import { MonacoEditorModel } from './monaco-editor-model';
 import { Dimension, EditorMouseEvent, MouseTarget, Position, TextDocumentChangeEvent } from '@theia/editor/lib/browser';
-import * as monaco from '@theia/monaco-editor-core';
-import { ElementExt } from '@theia/core/shared/@lumino/domutils';
+import monaco from '@theia/monaco-editor-core';
+import { ElementExt } from '@lumino/domutils';
 import { Selection } from '@theia/editor/lib/browser/editor';
 import { SelectionDirection } from '@theia/monaco-editor-core/esm/vs/editor/common/core/selection';
 import { ShowLightbulbIconMode } from '@theia/monaco-editor-core/esm/vs/editor/common/config/editorOptions';

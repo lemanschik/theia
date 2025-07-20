@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as React from 'react';
+import React from 'react';
 import { NotebookModel } from '../view-model/notebook-model';
 import { NotebookCellModel, NotebookCodeEditorFindMatch } from '../view-model/notebook-cell-model';
 import { SimpleMonacoEditor } from '@theia/monaco/lib/browser/simple-monaco-editor';

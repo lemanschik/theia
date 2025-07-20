@@ -14,9 +14,9 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as fs from 'fs-extra';
-import * as paths from 'path';
-import * as semver from 'semver';
+import fs from 'fs-extra';
+import paths from 'path';
+import semver from 'semver';
 import { NpmRegistry, PublishedNodePackage, NodePackage } from './npm-registry';
 
 export interface Extension {

@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { Emitter, Resource, ResourceProvider, UNTITLED_SCHEME, URI } from '@theia/core';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { UriComponents } from '@theia/core/lib/common/uri';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
 import { NotebookData } from '../../common';

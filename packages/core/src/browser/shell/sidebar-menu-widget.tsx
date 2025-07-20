@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { injectable, inject } from 'inversify';
-import * as React from 'react';
+import React from 'react';
 import { ReactWidget } from '../widgets';
 import { ContextMenuRenderer } from '../context-menu-renderer';
 import { CompoundMenuNode, MenuModelRegistry, MenuPath } from '../../common/menu';

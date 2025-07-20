@@ -14,12 +14,12 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, postConstruct } from 'inversify';
 import { OpenerService, open, WidgetOpenerOptions, Widget } from '@theia/core/lib/browser';
 import { KeybindingRegistry, KeybindingScope, ScopedKeybinding } from '@theia/core/lib/browser/keybinding';
 import { Keybinding, RawKeybinding } from '@theia/core/lib/common/keybinding';
 import { UserStorageUri } from '@theia/userstorage/lib/browser';
-import * as jsoncparser from 'jsonc-parser';
+import jsoncparser from 'jsonc-parser';
 import { Emitter } from '@theia/core/lib/common/event';
 import { MonacoTextModelService } from '@theia/monaco/lib/browser/monaco-text-model-service';
 import { MonacoEditorModel } from '@theia/monaco/lib/browser/monaco-editor-model';

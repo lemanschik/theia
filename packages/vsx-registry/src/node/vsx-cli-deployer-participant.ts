@@ -14,13 +14,13 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { PluginDeployerParticipant, PluginDeployerStartContext } from '@theia/plugin-ext';
 import { VsxCli } from './vsx-cli';
 import { VSXExtensionUri } from '../common';
-import * as fs from 'fs';
+import fs from 'fs';
 import { FileUri } from '@theia/core/lib/node';
-import * as path from 'path';
+import path from 'path';
 
 @injectable()
 export class VsxCliDeployerParticipant implements PluginDeployerParticipant {

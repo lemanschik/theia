@@ -14,12 +14,12 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import debounce from '@theia/core/shared/lodash.debounce';
-import { injectable } from '@theia/core/shared/inversify';
+import debounce from 'lodash.debounce';
+import { injectable } from 'inversify';
 import { MimeAssociation, MimeService } from '@theia/core/lib/browser/mime-service';
 import { StandaloneServices } from '@theia/monaco-editor-core/esm/vs/editor/standalone/browser/standaloneServices';
 import { ILanguageService } from '@theia/monaco-editor-core/esm/vs/editor/common/languages/language';
-import * as monaco from '@theia/monaco-editor-core';
+import monaco from '@theia/monaco-editor-core';
 import { clearConfiguredLanguageAssociations, registerConfiguredLanguageAssociation } from '@theia/monaco-editor-core/esm/vs/editor/common/services/languagesAssociations';
 import { LanguageService } from '@theia/monaco-editor-core/esm/vs/editor/common/services/languageService';
 

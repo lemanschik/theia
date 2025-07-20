@@ -16,7 +16,7 @@
 
 import { nls } from '@theia/core';
 import { ConfirmDialog, ReactWidget, codicon } from '@theia/core/lib/browser';
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, postConstruct } from 'inversify';
 import {
     CustomizedPromptFragment,
     PromptFragment,
@@ -25,7 +25,7 @@ import {
     PromptService,
     BasePromptFragment
 } from '@theia/ai-core/lib/common/prompt-service';
-import * as React from 'react';
+import React from 'react';
 import { AgentService } from '@theia/ai-core/lib/common/agent-service';
 import { Agent } from '@theia/ai-core/lib/common/agent';
 import { CustomizationSource } from '@theia/ai-core/lib/browser/frontend-prompt-customization-service';

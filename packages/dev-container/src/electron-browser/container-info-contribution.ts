@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { WindowTitleContribution } from '@theia/core/lib/browser/window/window-title-service';
 import { RemoteStatus, RemoteStatusService } from '@theia/remote/lib/electron-common/remote-status-service';
 import { FrontendApplicationContribution, LabelProviderContribution } from '@theia/core/lib/browser';

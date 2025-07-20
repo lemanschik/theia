@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { MaybePromise, ProgressService, URI, generateUuid, Event, EOL } from '@theia/core';
 import { ChatAgent, ChatAgentLocation, ChatService, ChatSession, MutableChatModel, MutableChatRequestModel, ParsedChatRequestTextPart } from '../common';
 import { PreferenceService } from '@theia/core/lib/browser';
@@ -23,7 +23,7 @@ import { Deferred } from '@theia/core/lib/common/promise-util';
 import { AgentService, PromptService, ResolvedPromptFragment } from '@theia/ai-core';
 import { CHAT_SESSION_SUMMARY_PROMPT } from '../common/chat-session-summary-agent-prompt';
 import { ChangeSetFileElementFactory } from './change-set-file-element';
-import * as yaml from 'js-yaml';
+import yaml from 'js-yaml';
 
 export interface SummaryMetadata {
     label: string;

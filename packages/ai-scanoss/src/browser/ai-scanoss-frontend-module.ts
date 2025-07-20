@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import '../../src/browser/style/index.css';
-import { ContainerModule } from '@theia/core/shared/inversify';
+import { ContainerModule } from 'inversify';
 import { AIScanOSSPreferencesSchema } from './ai-scanoss-preferences';
 import { PreferenceContribution } from '@theia/core/lib/browser';
 import { ScanOSSScanButtonAction } from './ai-scanoss-code-scan-action';

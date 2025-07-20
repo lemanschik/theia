@@ -14,13 +14,13 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as jsoncParser from 'jsonc-parser';
+import jsoncParser from 'jsonc-parser';
 import { Command, deepClone, Disposable, DisposableCollection, Emitter, MessageService, nls } from '@theia/core';
-import { injectable, postConstruct, inject, interfaces } from '@theia/core/shared/inversify';
+import { injectable, postConstruct, inject, interfaces } from 'inversify';
 import { MonacoTextModelService } from '@theia/monaco/lib/browser/monaco-text-model-service';
 import { MonacoEditorModel } from '@theia/monaco/lib/browser/monaco-editor-model';
 import { MonacoWorkspace } from '@theia/monaco/lib/browser/monaco-workspace';
-import * as monaco from '@theia/monaco-editor-core';
+import monaco from '@theia/monaco-editor-core';
 import { FrontendApplicationStateService } from '@theia/core/lib/browser/frontend-application-state';
 import { EditorManager } from '@theia/editor/lib/browser';
 import { Widget } from '@theia/core/lib/browser';

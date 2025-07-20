@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, postConstruct } from 'inversify';
 import { Disposable, DisposableCollection, URI } from '@theia/core';
 import { ContextKey, ContextKeyService } from '@theia/core/lib/browser/context-key-service';
 import { EditorManager, EditorMouseEvent, MouseTargetType, TextEditor } from '@theia/editor/lib/browser';
@@ -137,7 +137,7 @@ export class DirtyDiffController implements Disposable {
         if (dirtyDiff.editor === this.editor) {
             this.dirtyDiff = dirtyDiff;
             if (this.widget) {
-                this.widget.changes = dirtyDiff.changes                ;
+                this.widget.changes = dirtyDiff.changes;
             }
         }
     }

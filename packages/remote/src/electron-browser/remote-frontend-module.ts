@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { bindContributionProvider, CommandContribution } from '@theia/core';
-import { ContainerModule } from '@theia/core/shared/inversify';
+import { ContainerModule } from 'inversify';
 import { bindViewContribution, FrontendApplicationContribution, isRemote, WidgetFactory } from '@theia/core/lib/browser';
 import { RemoteSSHContribution } from './remote-ssh-contribution';
 import { RemoteSSHConnectionProvider, RemoteSSHConnectionProviderPath } from '../electron-common/remote-ssh-connection-provider';

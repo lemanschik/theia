@@ -16,12 +16,12 @@
 import { TextEditorConfiguration, TextEditorsMain, TextEditorConfigurationUpdate, SingleEditOperation } from '../common/plugin-api-rpc';
 import { Range as ApiRange } from '../common/plugin-api-rpc-model';
 import { Selection, Range, TextEditorLineNumbersStyle, SnippetString, Position, TextEditorRevealType, EndOfLine } from './types-impl';
-import * as theia from '@theia/plugin';
+import theia from '@theia/plugin';
 import { DocumentDataExt } from './document-data';
 import { readonly, illegalArgument } from '../common/errors';
 import { TextEditorCursorStyle } from '../common/editor-options';
 import { ok } from '../common/assert';
-import * as Converter from './type-converters';
+import Converter from './type-converters';
 
 export class TextEditorExt implements theia.TextEditor {
     private _viewColumn: theia.ViewColumn | undefined;

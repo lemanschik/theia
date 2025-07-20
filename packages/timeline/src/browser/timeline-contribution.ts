@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable, inject } from '@theia/core/shared/inversify';
+import { injectable, inject } from 'inversify';
 import {
     ViewContainer,
     WidgetManager,
@@ -28,7 +28,7 @@ import { TimelineWidget } from './timeline-widget';
 import { TimelineService } from './timeline-service';
 import { CommandContribution, CommandRegistry } from '@theia/core/lib/common';
 import { TabBarToolbarContribution, TabBarToolbarRegistry } from '@theia/core/lib/browser/shell/tab-bar-toolbar';
-import { toArray } from '@theia/core/shared/@lumino/algorithm';
+import { toArray } from '@lumino/algorithm';
 import { LOAD_MORE_COMMAND } from './timeline-tree-model';
 
 @injectable()

@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as fs from '@theia/core/shared/fs-extra';
-import { injectable, inject } from '@theia/core/shared/inversify';
+import fs from 'fs-extra';
+import { injectable, inject } from 'inversify';
 import { ILogger } from '@theia/core';
 import {
     PluginDeployerHandler, PluginDeployerEntry, PluginEntryPoint, DeployedPlugin,

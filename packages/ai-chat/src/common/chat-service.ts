@@ -22,8 +22,8 @@
 import { AIVariableResolutionRequest, AIVariableService, ResolvedAIContextVariable } from '@theia/ai-core';
 import { Emitter, ILogger, URI, generateUuid } from '@theia/core';
 import { Deferred } from '@theia/core/lib/common/promise-util';
-import { inject, injectable, optional } from '@theia/core/shared/inversify';
-import { Event } from '@theia/core/shared/vscode-languageserver-protocol';
+import { inject, injectable, optional } from 'inversify';
+import { Event } from 'vscode-languageserver-protocol';
 import { ChatAgentService } from './chat-agent-service';
 import { ChatAgent, ChatAgentLocation, ChatSessionContext } from './chat-agents';
 import {

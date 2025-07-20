@@ -22,7 +22,7 @@ import { ErrorChatResponseContentImpl, MarkdownChatResponseContentImpl, MutableC
 import { BasePromptFragment, LanguageModelRequirement } from '@theia/ai-core/lib/common';
 import { MCPFrontendService, MCPServerDescription } from '@theia/ai-mcp/lib/common/mcp-server-manager';
 import { nls } from '@theia/core';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { MCP_SERVERS_PREF } from '@theia/ai-mcp/lib/browser/mcp-preferences';
 import { PreferenceScope, PreferenceService } from '@theia/core/lib/browser';
 import { QUERY_DOM_FUNCTION_ID, LAUNCH_BROWSER_FUNCTION_ID, CLOSE_BROWSER_FUNCTION_ID, IS_BROWSER_RUNNING_FUNCTION_ID } from '../common/app-tester-chat-functions';
@@ -115,8 +115,8 @@ export class AppTesterChatAgent extends AbstractStreamParsingChatAgent {
         + 'It can automate testing workflows and provide detailed feedback on application functionality.');
 
     override iconClass: string = 'codicon codicon-beaker';
-   protected override systemPromptId: string = 'app-tester-system';
-   override prompts = [{ id: 'app-tester-system', defaultVariant: appTesterTemplate, variants: [appTesterTemplateVariant] }];
+    protected override systemPromptId: string = 'app-tester-system';
+    override prompts = [{ id: 'app-tester-system', defaultVariant: appTesterTemplate, variants: [appTesterTemplateVariant] }];
 
     /**
      * Override invoke to check if the Playwright MCP server is running, and if not, ask the user if it should be started.

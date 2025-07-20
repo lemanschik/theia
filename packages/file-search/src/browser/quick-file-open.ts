@@ -19,7 +19,7 @@ import { QuickInputService, QuickPickItem, QuickPicks } from '@theia/core/lib/br
 import { CancellationToken, Command, nls } from '@theia/core/lib/common';
 import { MessageService } from '@theia/core/lib/common/message-service';
 import URI from '@theia/core/lib/common/uri';
-import { inject, injectable, optional, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, optional, postConstruct } from 'inversify';
 import { EditorOpenerOptions, EditorWidget, Position, Range } from '@theia/editor/lib/browser';
 import { NavigationLocationService } from '@theia/editor/lib/browser/navigation/navigation-location-service';
 import { WorkspaceService } from '@theia/workspace/lib/browser/workspace-service';

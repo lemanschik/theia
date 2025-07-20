@@ -14,10 +14,10 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable, inject, postConstruct } from '@theia/core/shared/inversify';
+import { injectable, inject, postConstruct } from 'inversify';
 import debounce from 'p-debounce';
-import * as markdownit from '@theia/core/shared/markdown-it';
-import * as DOMPurify from '@theia/core/shared/dompurify';
+import { default as markdownit } from 'markdown-it';
+import DOMPurify from 'dompurify';
 import { Emitter, Event } from '@theia/core/lib/common/event';
 import { CancellationToken, CancellationTokenSource } from '@theia/core/lib/common/cancellation';
 import { HostedPluginSupport } from '@theia/plugin-ext/lib/hosted/browser/hosted-plugin';
@@ -30,7 +30,7 @@ import { RecommendedExtensions } from './recommended-extensions/recommended-exte
 import URI from '@theia/core/lib/common/uri';
 import { OVSXClient, VSXAllVersions, VSXExtensionRaw, VSXResponseError, VSXSearchEntry, VSXSearchOptions, VSXTargetPlatform } from '@theia/ovsx-client/lib/ovsx-types';
 import { OVSXClientProvider } from '../common/ovsx-client-provider';
-import { RequestContext, RequestService } from '@theia/core/shared/@theia/request';
+import { RequestContext, RequestService } from '@theia/request';
 import { OVSXApiFilterProvider } from '@theia/ovsx-client';
 import { ApplicationServer } from '@theia/core/lib/common/application-protocol';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';

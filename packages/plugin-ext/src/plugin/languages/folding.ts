@@ -14,11 +14,11 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as theia from '@theia/plugin';
+import theia from '@theia/plugin';
 import { DocumentsExtImpl } from '../documents';
-import { URI } from '@theia/core/shared/vscode-uri';
-import * as Converter from '../type-converters';
-import * as model from '../../common/plugin-api-rpc-model';
+import { URI } from 'vscode-uri';
+import Converter from '../type-converters';
+import model from '../../common/plugin-api-rpc-model';
 
 export class FoldingProviderAdapter {
 

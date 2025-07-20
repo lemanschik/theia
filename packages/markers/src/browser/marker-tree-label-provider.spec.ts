@@ -23,7 +23,7 @@ FrontendApplicationConfigProvider.set({});
 
 import URI from '@theia/core/lib/common/uri';
 import { expect } from 'chai';
-import { Container } from '@theia/core/shared/inversify';
+import { Container } from 'inversify';
 import { ContributionProvider, Event } from '@theia/core/lib/common';
 import { LabelProvider, LabelProviderContribution, DefaultUriLabelProviderContribution, ApplicationShell, WidgetManager } from '@theia/core/lib/browser';
 import { MarkerInfoNode } from './marker-tree';
@@ -38,7 +38,7 @@ import { EnvVariablesServer } from '@theia/core/lib/common/env-variables';
 import { MockEnvVariablesServerImpl } from '@theia/core/lib/browser/test/mock-env-variables-server';
 import { FileUri } from '@theia/core/lib/node';
 import { OS } from '@theia/core/lib/common/os';
-import * as temp from 'temp';
+import temp from 'temp';
 
 disableJSDOM();
 

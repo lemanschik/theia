@@ -16,15 +16,15 @@
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { injectable, inject } from '@theia/core/shared/inversify';
-import * as jsoncparser from 'jsonc-parser';
-import * as plistparser from 'fast-plist';
+import { injectable, inject } from 'inversify';
+import jsoncparser from 'jsonc-parser';
+import plistparser from 'fast-plist';
 import URI from '@theia/core/lib/common/uri';
 import { Disposable, DisposableCollection } from '@theia/core/lib/common/disposable';
 import { MonacoThemeRegistry } from './textmate/monaco-theme-registry';
 import { getThemes, putTheme, MonacoThemeState, stateToTheme, ThemeServiceWithDB } from './monaco-indexed-db';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
-import * as monaco from '@theia/monaco-editor-core';
+import monaco from '@theia/monaco-editor-core';
 
 export interface MonacoTheme {
     id?: string;

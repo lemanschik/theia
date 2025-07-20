@@ -14,9 +14,9 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as http from 'http';
-import * as cookie from 'cookie';
-import * as crypto from 'crypto';
+import http from 'http';
+import cookie from 'cookie';
+import crypto from 'crypto';
 import { injectable, postConstruct } from 'inversify';
 import { isObject, isString, MaybePromise } from '../../common';
 import { ElectronSecurityToken } from '../../electron-common/electron-token';

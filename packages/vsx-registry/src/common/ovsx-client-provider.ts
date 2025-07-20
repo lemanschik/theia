@@ -15,8 +15,8 @@
 // *****************************************************************************
 
 import { MaybePromise } from '@theia/core/lib/common';
-import { RequestService } from '@theia/core/shared/@theia/request';
-import type { interfaces } from '@theia/core/shared/inversify';
+import { RequestService } from '@theia/request';
+import type { interfaces } from 'inversify';
 import { OVSXClient, OVSXHttpClient } from '@theia/ovsx-client';
 import { VSXEnvironment } from './vsx-environment';
 

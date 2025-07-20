@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as deepEqual from 'fast-deep-equal';
-import { injectable, inject } from '@theia/core/shared/inversify';
+import deepEqual from 'fast-deep-equal';
+import { injectable, inject } from 'inversify';
 import { Emitter } from '@theia/core/lib/common';
 import { StorageService } from '@theia/core/lib/browser';
 import { Marker } from '@theia/markers/lib/common/marker';

@@ -13,14 +13,14 @@
 //
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
-import * as chai from 'chai';
-import * as process from 'process';
-import * as stream from 'stream';
+import chai from 'chai';
+import process from 'process';
+import stream from 'stream';
 import { createProcessTestContainer } from './test/process-test-container';
 import { RawProcessFactory } from './raw-process';
-import * as temp from 'temp';
-import * as fs from 'fs';
-import * as path from 'path';
+import temp from 'temp';
+import fs from 'fs';
+import path from 'path';
 import { IProcessStartEvent, ProcessErrorEvent } from './process';
 
 /* Allow to create temporary files, but delete them when we're done.  */

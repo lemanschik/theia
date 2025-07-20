@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable, inject, postConstruct } from '@theia/core/shared/inversify';
+import { injectable, inject, postConstruct } from 'inversify';
 import { KeybindingContribution, KeybindingRegistry, KeybindingScope, KeyCode } from '@theia/core/lib/browser';
 import { MonacoCommands } from './monaco-command';
 import { MonacoCommandRegistry } from './monaco-command-registry';
@@ -25,7 +25,7 @@ import { StandaloneKeybindingService, StandaloneServices } from '@theia/monaco-e
 import { IKeybindingService } from '@theia/monaco-editor-core/esm/vs/platform/keybinding/common/keybinding';
 import { MonacoContextKeyService } from './monaco-context-key-service';
 import { KEY_CODE_MAP } from './monaco-keycode-map';
-import * as monaco from '@theia/monaco-editor-core';
+import monaco from '@theia/monaco-editor-core';
 
 @injectable()
 export class MonacoKeybindingContribution implements KeybindingContribution {

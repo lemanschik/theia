@@ -15,9 +15,9 @@
 // *****************************************************************************
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { postConstruct, injectable, inject } from '@theia/core/shared/inversify';
-import throttle from '@theia/core/shared/lodash.throttle';
-import * as deepEqual from 'fast-deep-equal';
+import { postConstruct, injectable, inject } from 'inversify';
+import throttle from 'lodash.throttle';
+import deepEqual from 'fast-deep-equal';
 import {
     PreferenceService,
     CompositeTreeNode,

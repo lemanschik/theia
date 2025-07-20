@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { Disposable, DisposableCollection, Emitter, Resource, URI } from '@theia/core';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { BinaryBuffer } from '@theia/core/lib/common/buffer';
 import { CellKind, NotebookData, TransientOptions } from '../../common';
 import { NotebookModel, NotebookModelFactory, NotebookModelProps } from '../view-model/notebook-model';

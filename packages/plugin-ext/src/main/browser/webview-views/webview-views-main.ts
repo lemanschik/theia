@@ -19,7 +19,7 @@
  *--------------------------------------------------------------------------------------------*/
 // some code copied and modified from https://github.com/microsoft/vscode/blob/e1f0f8f51390dea5df9096718fb6b647ed5a9534/src/vs/workbench/api/browser/mainThreadWebviewViews.ts
 
-import { inject, interfaces } from '@theia/core/shared/inversify';
+import { inject, interfaces } from 'inversify';
 import { WebviewViewsMain, MAIN_RPC_CONTEXT, WebviewViewsExt } from '../../../common/plugin-api-rpc';
 import { RPCProtocol } from '../../../common/rpc-protocol';
 import { Disposable, DisposableCollection, ILogger } from '@theia/core';

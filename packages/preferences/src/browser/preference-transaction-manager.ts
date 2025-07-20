@@ -16,7 +16,7 @@
 
 import { CancellationError, Emitter, Event, MaybePromise, MessageService, nls, WaitUntilEvent } from '@theia/core';
 import { Deferred } from '@theia/core/lib/common/promise-util';
-import { inject, injectable, interfaces, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, interfaces, postConstruct } from 'inversify';
 import { PreferenceScope } from '@theia/core/lib/common/preferences/preference-scope';
 import URI from '@theia/core/lib/common/uri';
 import { MonacoEditorModel } from '@theia/monaco/lib/browser/monaco-editor-model';

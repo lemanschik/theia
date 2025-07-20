@@ -19,7 +19,7 @@ import { AICommandHandlerFactory, ENABLE_AI_CONTEXT_KEY } from '@theia/ai-core/l
 import { isObject, isString, MenuContribution, MenuModelRegistry } from '@theia/core';
 import { ApplicationShell, codicon, KeybindingContribution, KeybindingRegistry } from '@theia/core/lib/browser';
 import { Command, CommandContribution, CommandRegistry } from '@theia/core/lib/common';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { EditorContextMenu, EditorWidget } from '@theia/editor/lib/browser';
 import { MonacoCommandRegistry, MonacoEditorCommandHandler } from '@theia/monaco/lib/browser/monaco-command-registry';
 import { MonacoEditor } from '@theia/monaco/lib/browser/monaco-editor';

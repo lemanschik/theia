@@ -14,9 +14,9 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as chalk from 'chalk';
-import * as fs from 'fs-extra';
-import * as path from 'path';
+import chalk from 'chalk';
+import fs from 'fs-extra';
+import path from 'path';
 import { Localization, sortLocalization } from './common';
 import { deepl, DeeplLanguage, DeeplParameters, defaultLanguages, isSupportedLanguage } from './deepl-api';
 

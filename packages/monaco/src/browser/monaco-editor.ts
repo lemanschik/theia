@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable, inject, unmanaged } from '@theia/core/shared/inversify';
-import { ElementExt } from '@theia/core/shared/@lumino/domutils';
+import { injectable, inject, unmanaged } from 'inversify';
+import { ElementExt } from '@lumino/domutils';
 import URI from '@theia/core/lib/common/uri';
 import { ContextKeyService } from '@theia/core/lib/browser/context-key-service';
 import { DisposableCollection, Disposable, Emitter, Event, nullToUndefined, MaybeNull } from '@theia/core/lib/common';
@@ -41,9 +41,9 @@ import {
 import { MonacoEditorModel } from './monaco-editor-model';
 import { MonacoToProtocolConverter } from './monaco-to-protocol-converter';
 import { ProtocolToMonacoConverter } from './protocol-to-monaco-converter';
-import { TextEdit } from '@theia/core/shared/vscode-languageserver-protocol';
+import { TextEdit } from 'vscode-languageserver-protocol';
 import { UTF8 } from '@theia/core/lib/common/encodings';
-import * as monaco from '@theia/monaco-editor-core';
+import monaco from '@theia/monaco-editor-core';
 import { StandaloneServices } from '@theia/monaco-editor-core/esm/vs/editor/standalone/browser/standaloneServices';
 import { ILanguageService } from '@theia/monaco-editor-core/esm/vs/editor/common/languages/language';
 import { IInstantiationService, ServiceIdentifier } from '@theia/monaco-editor-core/esm/vs/platform/instantiation/common/instantiation';
@@ -61,7 +61,7 @@ import { INotificationService } from '@theia/monaco-editor-core/esm/vs/platform/
 import { IAccessibilityService } from '@theia/monaco-editor-core/esm/vs/platform/accessibility/common/accessibility';
 import { ILanguageConfigurationService } from '@theia/monaco-editor-core/esm/vs/editor/common/languages/languageConfigurationRegistry';
 import { ILanguageFeaturesService } from '@theia/monaco-editor-core/esm/vs/editor/common/services/languageFeatures';
-import * as objects from '@theia/monaco-editor-core/esm/vs/base/common/objects';
+import objects from '@theia/monaco-editor-core/esm/vs/base/common/objects';
 import { Selection } from '@theia/editor/lib/browser/editor';
 import { IHoverService, WorkbenchHoverDelegate } from '@theia/monaco-editor-core/esm/vs/platform/hover/browser/hover';
 import { setHoverDelegateFactory } from '@theia/monaco-editor-core/esm/vs/base/browser/ui/hover/hoverDelegateFactory';

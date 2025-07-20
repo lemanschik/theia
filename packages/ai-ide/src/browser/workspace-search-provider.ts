@@ -18,7 +18,7 @@ import { MutableChatRequestModel } from '@theia/ai-chat';
 import { ToolProvider, ToolRequest } from '@theia/ai-core';
 import { CancellationToken } from '@theia/core';
 import { PreferenceService } from '@theia/core/lib/browser/preferences/preference-service';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
 import { SearchInWorkspaceService, SearchInWorkspaceCallbacks } from '@theia/search-in-workspace/lib/browser/search-in-workspace-service';
 import { SearchInWorkspaceResult, SearchInWorkspaceOptions } from '@theia/search-in-workspace/lib/common/search-in-workspace-interface';

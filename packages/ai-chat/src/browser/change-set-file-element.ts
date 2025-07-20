@@ -18,7 +18,7 @@ import { ConfigurableInMemoryResources, ConfigurableMutableReferenceResource } f
 import { CancellationToken, DisposableCollection, Emitter, URI } from '@theia/core';
 import { ConfirmDialog } from '@theia/core/lib/browser';
 import { Replacement } from '@theia/core/lib/common/content-replacer';
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, postConstruct } from 'inversify';
 import { EditorPreferences } from '@theia/editor/lib/browser';
 import { FileSystemPreferences } from '@theia/filesystem/lib/browser';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';

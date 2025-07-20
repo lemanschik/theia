@@ -16,10 +16,10 @@
 
 import URI from '@theia/core/lib/common/uri';
 import { LocationService } from './location-service';
-import * as React from 'react';
+import React from 'react';
 import { FileService } from '../file-service';
 import { DisposableCollection, Emitter, Path } from '@theia/core/lib/common';
-import { injectable, inject, postConstruct } from '@theia/core/shared/inversify';
+import { injectable, inject, postConstruct } from 'inversify';
 import { FileDialogModel } from '../file-dialog/file-dialog-model';
 import { EnvVariablesServer } from '@theia/core/lib/common/env-variables';
 import { ReactRenderer } from '@theia/core/lib/browser/widgets/react-renderer';

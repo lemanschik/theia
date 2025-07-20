@@ -17,8 +17,8 @@
 import { createTerminalTestContainer } from './test/terminal-test-container';
 import { BackendApplication } from '@theia/core/lib/node/backend-application';
 import { IShellTerminalServer } from '../common/shell-terminal-protocol';
-import * as http from 'http';
-import * as https from 'https';
+import http from 'http';
+import https from 'https';
 import { terminalsPath } from '../common/terminal-protocol';
 import { TestWebSocketChannelSetup } from '@theia/core/lib/node/messaging/test/test-web-socket-channel';
 

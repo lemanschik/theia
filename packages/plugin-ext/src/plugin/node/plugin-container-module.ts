@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { interfaces, ContainerModule } from '@theia/core/shared/inversify';
+import { interfaces, ContainerModule } from 'inversify';
 import { Plugin, PluginManager, emptyPlugin } from '../../common';
 
 export type ApiFactory<T extends object> = (plugin: Plugin) => T;
@@ -31,7 +31,7 @@ export type ApiFactory<T extends object> = (plugin: Plugin) => T;
 export type BindApiFactory = <T extends object>(
     apiModuleName: string,
     serviceIdentifier: interfaces.ServiceIdentifier<ApiFactory<T>>,
-    factoryClass: new () => { createApi: ApiFactory<T>}) => void;
+    factoryClass: new () => { createApi: ApiFactory<T> }) => void;
 
 /**
  * An analogue of the callback function in the constructor of the Inversify
@@ -103,7 +103,7 @@ export class PluginApiCache<T extends object> {
      * obtain the {@link ApiFactory} that will instantiate it.
      */
     constructor(private readonly apiModuleName: string,
-        private readonly serviceIdentifier: interfaces.ServiceIdentifier<ApiFactory<T>>) {}
+        private readonly serviceIdentifier: interfaces.ServiceIdentifier<ApiFactory<T>>) { }
 
     // Called by Theia to do any prep work needed for dishing out the API object
     // when it's requested. The key part of that is hooking into the node module
@@ -149,7 +149,7 @@ export class PluginApiCache<T extends object> {
 
             console.warn(
                 `Extension module ${parent.filename} did an import of '${self.apiModuleName}' but our cache ` +
-                    ' has no knowledge of that extension. Returning a generic API object; some functionality might not work correctly.'
+                ' has no knowledge of that extension. Returning a generic API object; some functionality might not work correctly.'
             );
             if (!self.defaultApi) {
                 self.defaultApi = self.apiFactory(emptyPlugin);

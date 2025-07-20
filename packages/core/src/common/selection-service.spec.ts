@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { SelectionService } from './selection-service';
-import * as chai from 'chai';
+import chai from 'chai';
 
 const expect = chai.expect;
 

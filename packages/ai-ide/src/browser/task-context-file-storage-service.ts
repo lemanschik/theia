@@ -16,12 +16,12 @@
 
 import { Summary, SummaryMetadata, TaskContextStorageService } from '@theia/ai-chat/lib/browser/task-context-service';
 import { InMemoryTaskContextStorage } from '@theia/ai-chat/lib/browser/task-context-storage-service';
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, postConstruct } from 'inversify';
 import { DisposableCollection, EOL, Emitter, ILogger, Path, URI, unreachable } from '@theia/core';
 import { PreferenceService, OpenerService, open } from '@theia/core/lib/browser';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
 import { WorkspaceService } from '@theia/workspace/lib/browser';
-import * as yaml from 'js-yaml';
+import yaml from 'js-yaml';
 import { FileChange, FileChangeType } from '@theia/filesystem/lib/common/files';
 import { TASK_CONTEXT_STORAGE_DIRECTORY_PREF } from './workspace-preferences';
 import { BinaryBuffer } from '@theia/core/lib/common/buffer';

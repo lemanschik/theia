@@ -16,7 +16,7 @@
 
 import '../../src/browser/style/scm-amend-component.css';
 
-import * as React from 'react';
+import React from 'react';
 import { ScmAvatarService } from './scm-avatar-service';
 import { codicon, StorageService } from '@theia/core/lib/browser';
 import { Disposable, DisposableCollection } from '@theia/core';

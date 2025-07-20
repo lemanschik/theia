@@ -16,7 +16,7 @@
 
 import './keymaps-monaco-contribution';
 import '../../src/browser/style/index.css';
-import { ContainerModule } from '@theia/core/shared/inversify';
+import { ContainerModule } from 'inversify';
 import { KeymapsService } from './keymaps-service';
 import { KeymapsFrontendContribution } from './keymaps-frontend-contribution';
 import { CommandContribution, MenuContribution } from '@theia/core/lib/common';

@@ -15,9 +15,9 @@
 // *****************************************************************************
 
 import { DefaultOpenerService, OpenHandler } from './opener-service';
-import * as assert from 'assert';
+import assert from 'assert';
 import { MaybePromise } from '../common/types';
-import * as chai from 'chai';
+import chai from 'chai';
 const expect = chai.expect;
 
 const id = 'my-opener';

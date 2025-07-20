@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable, interfaces, postConstruct, inject } from '@theia/core/shared/inversify';
+import { injectable, interfaces, postConstruct, inject } from 'inversify';
 import { Message, TreeModel, TreeNode } from '@theia/core/lib/browser';
 import { SourceTreeWidget } from '@theia/core/lib/browser/source-tree';
 import { VSXExtensionsSource, VSXExtensionsSourceOptions } from './vsx-extensions-source';
@@ -22,7 +22,7 @@ import { nls } from '@theia/core/lib/common/nls';
 import { BadgeWidget } from '@theia/core/lib/browser/view-container';
 import { Emitter, Event } from '@theia/core/lib/common';
 import { AlertMessage } from '@theia/core/lib/browser/widgets/alert-message';
-import * as React from 'react';
+import React from 'react';
 
 @injectable()
 export class VSXExtensionsWidgetOptions extends VSXExtensionsSourceOptions {

@@ -31,7 +31,7 @@ import { RPCProtocol } from '../../common/rpc-protocol';
 import { CommandRegistryImpl, CommandsConverter } from '../command-registry';
 import { TreeViewItemReference } from '../../common';
 import { PluginIconPath } from '../plugin-icon-path';
-import { URI } from '@theia/core/shared/vscode-uri';
+import { URI } from 'vscode-uri';
 import { UriComponents } from '@theia/core/lib/common/uri';
 import { isObject } from '@theia/core';
 import { coalesce } from '../../common/arrays';

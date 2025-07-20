@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as assert from 'assert';
+import assert from 'assert';
 import { FileUri } from '@theia/core/lib/common/file-uri';
 import { FileChangeCollection } from './file-change-collection';
 import { FileChangeType } from '../common/files';

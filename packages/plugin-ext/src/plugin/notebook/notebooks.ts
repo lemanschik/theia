@@ -30,7 +30,7 @@ import { Cache } from '../../common/cache';
 import { RPCProtocol } from '../../common/rpc-protocol';
 import { UriComponents } from '../../common/uri-components';
 import { CommandRegistryImpl, CommandsConverter } from '../command-registry';
-import * as typeConverters from '../type-converters';
+import typeConverters from '../type-converters';
 import { BinaryBuffer } from '@theia/core/lib/common/buffer';
 import { Cell, NotebookDocument } from './notebook-document';
 import { NotebookEditor } from './notebook-editor';

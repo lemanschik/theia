@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as chai from 'chai';
-import * as path from 'path';
+import chai from 'chai';
+import path from 'path';
 import { app, BrowserWindow } from 'electron';
 
 const expect = chai.expect;

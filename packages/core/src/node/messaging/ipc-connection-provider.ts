@@ -14,9 +14,9 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as cp from 'child_process';
+import cp from 'child_process';
 import { inject, injectable } from 'inversify';
-import * as path from 'path';
+import path from 'path';
 import { createInterface } from 'readline';
 import { Channel, ConnectionErrorHandler, Disposable, DisposableCollection, ILogger } from '../../common';
 import { IPCChannel } from './ipc-channel';

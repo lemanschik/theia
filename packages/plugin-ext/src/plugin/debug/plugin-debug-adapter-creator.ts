@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as theia from '@theia/plugin';
+import theia from '@theia/plugin';
 import { DebugAdapter } from '@theia/debug/lib/common/debug-model';
 import { PluginPackageDebuggersContribution } from '../../common';
 import { DebugAdapterInlineImplementation } from '../types-impl';

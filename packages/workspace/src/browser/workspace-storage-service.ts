@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, postConstruct } from 'inversify';
 import { LocalStorageService, StorageService } from '@theia/core/lib/browser/storage-service';
 import { WorkspaceService } from './workspace-service';
 import { FileStat } from '@theia/filesystem/lib/common/files';

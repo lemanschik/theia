@@ -22,7 +22,7 @@ import { CancellationToken, Command, Disposable, Emitter, Event, URI } from '@th
 import { CellStatusbarAlignment } from '../../common';
 import { ThemeColor } from '@theia/core/lib/common/theme';
 import { AccessibilityInformation } from '@theia/core/lib/common/accessibility';
-import { injectable } from '@theia/core/shared/inversify';
+import { injectable } from 'inversify';
 import { MarkdownString } from '@theia/core/lib/common/markdown-rendering';
 
 export interface NotebookCellStatusBarItem {

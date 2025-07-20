@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { Emitter, URI } from '@theia/core';
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, postConstruct } from 'inversify';
 import { SimpleMonacoEditor } from '@theia/monaco/lib/browser/simple-monaco-editor';
 import { NotebookEditorWidgetService } from './notebook-editor-widget-service';
 import { CellUri } from '../../common';

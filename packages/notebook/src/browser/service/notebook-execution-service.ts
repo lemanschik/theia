@@ -18,7 +18,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import { inject, injectable, named } from '@theia/core/shared/inversify';
+import { inject, injectable, named } from 'inversify';
 import { CellExecution, NotebookExecutionStateService } from '../service/notebook-execution-state-service';
 import { CellKind, NotebookCellExecutionState } from '../../common';
 import { NotebookCellModel } from '../view-model/notebook-cell-model';

@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable } from '@theia/core/shared/inversify';
+import { injectable } from 'inversify';
 import { ColorRegistry } from '@theia/core/lib/browser/color-registry';
 import { Color, ColorDefinition } from '@theia/core/lib/common/color';
 import { Disposable } from '@theia/core/lib/common/disposable';
@@ -22,7 +22,7 @@ import { ColorDefaults, ColorValue, getColorRegistry } from '@theia/monaco-edito
 import { StandaloneServices } from '@theia/monaco-editor-core/esm/vs/editor/standalone/browser/standaloneServices';
 import { IStandaloneThemeService } from '@theia/monaco-editor-core/esm/vs/editor/standalone/common/standaloneTheme';
 import { Color as MonacoColor, HSLA, RGBA } from '@theia/monaco-editor-core/esm/vs/base/common/color';
-import * as Colors from '@theia/monaco-editor-core/esm/vs/platform/theme/common/colorRegistry';
+import Colors from '@theia/monaco-editor-core/esm/vs/platform/theme/common/colorRegistry';
 
 @injectable()
 export class MonacoColorRegistry extends ColorRegistry {

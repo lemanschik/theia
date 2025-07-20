@@ -17,7 +17,7 @@
 import { join } from 'path';
 import { homedir } from 'os';
 import { injectable } from 'inversify';
-import * as drivelist from 'drivelist';
+import drivelist from 'drivelist';
 import { pathExists, mkdir } from 'fs-extra';
 import { EnvVariable, EnvVariablesServer } from '../../common/env-variables';
 import { isWindows } from '../../common/os';

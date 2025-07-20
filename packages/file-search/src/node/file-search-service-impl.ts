@@ -14,17 +14,17 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as cp from 'child_process';
-import * as fuzzy from '@theia/core/shared/fuzzy';
-import * as readline from 'readline';
+import cp from 'child_process';
+import fuzzy from 'fuzzy';
+import readline from 'readline';
 import { rgPath } from '@vscode/ripgrep';
-import { injectable, inject } from '@theia/core/shared/inversify';
+import { injectable, inject } from 'inversify';
 import URI from '@theia/core/lib/common/uri';
 import { FileUri } from '@theia/core/lib/common/file-uri';
 import { CancellationTokenSource, CancellationToken, ILogger, isWindows } from '@theia/core';
 import { RawProcessFactory } from '@theia/process/lib/node';
 import { FileSearchService, WHITESPACE_QUERY_SEPARATOR } from '../common/file-search-service';
-import * as path from 'path';
+import path from 'path';
 
 @injectable()
 export class FileSearchServiceImpl implements FileSearchService {

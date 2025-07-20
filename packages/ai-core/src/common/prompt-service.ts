@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { Event, Emitter, URI, ILogger } from '@theia/core';
-import { inject, injectable, optional, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, optional, postConstruct } from 'inversify';
 import { AIVariableArg, AIVariableContext, AIVariableService, createAIResolveVariableCache, ResolvedAIVariable } from './variable-service';
 import { ToolInvocationRegistry } from './tool-invocation-registry';
 import { toolRequestToPromptText } from './language-model-util';

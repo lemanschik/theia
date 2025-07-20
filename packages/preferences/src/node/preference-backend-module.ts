@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { ContainerModule } from '@theia/core/shared/inversify';
+import { ContainerModule } from 'inversify';
 import { CliContribution } from '@theia/core/lib/node/cli';
 import { PreferenceCliContribution } from './preference-cli-contribution';
 import { ConnectionContainerModule } from '@theia/core/lib/node/messaging/connection-container-module';

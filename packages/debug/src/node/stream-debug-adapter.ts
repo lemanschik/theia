@@ -17,8 +17,8 @@
 import { DisposableCollection } from '@theia/core/lib/common/disposable';
 import { Emitter, Event } from '@theia/core/lib/common/event';
 import { ChildProcess } from 'child_process';
-import * as stream from 'stream';
-import * as net from 'net';
+import stream from 'stream';
+import net from 'net';
 import { DebugAdapter } from '../common/debug-model';
 
 abstract class StreamDebugAdapter extends DisposableCollection {

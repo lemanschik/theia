@@ -14,14 +14,14 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { EditorsAndDocumentsExt, EditorsAndDocumentsDelta, PLUGIN_RPC_CONTEXT } from '../common/plugin-api-rpc';
 import { TextEditorExt } from './text-editor';
 import { RPCProtocol } from '../common/rpc-protocol';
 import { Emitter, Event } from '@theia/core/lib/common/event';
 import { DocumentDataExt } from './document-data';
 import { ok } from '../common/assert';
-import * as Converter from './type-converters';
+import Converter from './type-converters';
 import { dispose } from '../common/disposable-util';
 import { URI } from './types-impl';
 

@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { ToolRequest } from '@theia/ai-core';
-import { injectable, inject } from '@theia/core/shared/inversify';
+import { injectable, inject } from 'inversify';
 import { ChatToolRequestService, ChatToolRequest } from '../common/chat-tool-request-service';
 import { MutableChatRequestModel, ToolCallChatResponseContent } from '../common/chat-model';
 import { ToolConfirmationManager, ToolConfirmationMode, ChatToolPreferences } from './chat-tool-preferences';

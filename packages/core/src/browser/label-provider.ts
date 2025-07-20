@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { inject, injectable, named, postConstruct } from 'inversify';
-import * as fileIcons from 'file-icons-js';
+import fileIcons from 'file-icons-js';
 import URI from '../common/uri';
 import { ContributionProvider } from '../common/contribution-provider';
 import { Event, Emitter, Disposable, isObject, Path, Prioritizeable } from '../common';

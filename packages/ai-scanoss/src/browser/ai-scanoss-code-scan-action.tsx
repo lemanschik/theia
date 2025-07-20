@@ -13,7 +13,7 @@
 //
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // ***
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { CodeChatResponseContent } from '@theia/ai-chat';
 import { CodePartRendererAction } from '@theia/ai-chat-ui/lib/browser/chat-response-renderer';
 import {
@@ -24,7 +24,7 @@ import {
 import { Dialog, PreferenceService } from '@theia/core/lib/browser';
 import { ReactNode } from 'react';
 import { ResponseNode } from '@theia/ai-chat-ui/lib/browser/chat-tree-view';
-import * as React from 'react';
+import React from 'react';
 import { ReactDialog } from '@theia/core/lib/browser/dialogs/react-dialog';
 import { SCAN_OSS_API_KEY_PREF } from '@theia/scanoss/lib/browser/scanoss-preferences';
 import { SCANOSS_MODE_PREF } from './ai-scanoss-preferences';

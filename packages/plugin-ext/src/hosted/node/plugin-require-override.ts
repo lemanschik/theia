@@ -14,7 +14,7 @@
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
  ********************************************************************************/
 
-import * as nodePty from 'node-pty';
+import nodePty from 'node-pty';
 
 const overrides = [
     {

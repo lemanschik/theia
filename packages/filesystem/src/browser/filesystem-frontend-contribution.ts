@@ -35,8 +35,8 @@ import { Emitter, MaybePromise, SelectionService, isCancelled } from '@theia/cor
 import { Command, CommandContribution, CommandRegistry } from '@theia/core/lib/common/command';
 import { Deferred } from '@theia/core/lib/common/promise-util';
 import URI from '@theia/core/lib/common/uri';
-import { environment } from '@theia/core/shared/@theia/application-package/lib/environment';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { environment } from '@theia/application-package/lib/environment';
+import { inject, injectable } from 'inversify';
 import { UserWorkingDirectoryProvider } from '@theia/core/lib/browser/user-working-directory-provider';
 import { FileChangeType, FileChangesEvent, FileOperation } from '../common/files';
 import { FileDialogService, SaveFileDialogProps } from './file-dialog';

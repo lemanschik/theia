@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { Command, CommandContribution, CommandHandler, CommandRegistry, MenuContribution, MenuModelRegistry, nls, URI } from '@theia/core';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { ApplicationShell, codicon, KeybindingContribution, KeybindingRegistry } from '@theia/core/lib/browser';
 import { NotebookModel } from '../view-model/notebook-model';
 import { NotebookService } from '../service/notebook-service';

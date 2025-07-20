@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { AbstractViewContribution } from '@theia/core/lib/browser/shell/view-contribution';
-import { injectable } from '@theia/core/shared/inversify';
+import { injectable } from 'inversify';
 import { PropertyViewWidget } from './property-view-widget';
 
 @injectable()

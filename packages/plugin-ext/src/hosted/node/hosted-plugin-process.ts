@@ -18,8 +18,8 @@ import { ConnectionErrorHandler, ContributionProvider, ILogger, MessageService }
 import { Deferred } from '@theia/core/lib/common/promise-util';
 import { BinaryMessagePipe } from '@theia/core/lib/node/messaging/binary-message-pipe';
 import { createIpcEnv } from '@theia/core/lib/node/messaging/ipc-protocol';
-import { inject, injectable, named } from '@theia/core/shared/inversify';
-import * as cp from 'child_process';
+import { inject, injectable, named } from 'inversify';
+import cp from 'child_process';
 import { Duplex } from 'stream';
 import { HostedPluginClient, PLUGIN_HOST_BACKEND, PluginHostEnvironmentVariable, ServerPluginRunner } from '../../common/plugin-protocol';
 import { HostedPluginCliContribution } from './hosted-plugin-cli-contribution';

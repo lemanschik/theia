@@ -16,7 +16,7 @@
 
 import { CancellationToken, ContributionProvider, DisposableCollection, disposableTimeout, isOSX } from '@theia/core';
 import { PreferenceService } from '@theia/core/lib/browser';
-import { inject, injectable, interfaces, named, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, interfaces, named, postConstruct } from 'inversify';
 import { IBufferRange, ILink, ILinkDecorations } from 'xterm';
 import { TerminalWidget } from './base/terminal-widget';
 import { TerminalContribution } from './terminal-contribution';

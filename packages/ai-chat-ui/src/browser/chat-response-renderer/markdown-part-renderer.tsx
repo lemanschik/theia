@@ -15,16 +15,16 @@
 // *****************************************************************************
 
 import { ChatResponsePartRenderer } from '../chat-response-part-renderer';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import {
     ChatResponseContent,
     InformationalChatResponseContent,
     MarkdownChatResponseContent,
 } from '@theia/ai-chat/lib/common';
 import { ReactNode, useEffect, useRef } from 'react';
-import * as React from 'react';
-import * as markdownit from '@theia/core/shared/markdown-it';
-import * as DOMPurify from '@theia/core/shared/dompurify';
+import React from 'react';
+import { default as markdownit } from 'markdown-it';;
+import DOMPurify from 'dompurify';
 import { MarkdownString } from '@theia/core/lib/common/markdown-rendering';
 import { OpenerService, open } from '@theia/core/lib/browser';
 import { URI } from '@theia/core';

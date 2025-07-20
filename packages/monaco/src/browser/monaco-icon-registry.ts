@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable } from '@theia/core/shared/inversify';
+import { injectable } from 'inversify';
 import { IconRegistry } from '@theia/core/lib/browser/icon-registry';
 import { getIconRegistry } from '@theia/monaco-editor-core/esm/vs/platform/theme/common/iconRegistry';
 import { IconDefinition, IconFontDefinition, ThemeIcon } from '@theia/core/lib/common/theme';

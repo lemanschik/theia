@@ -14,17 +14,17 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import debounce from '@theia/core/shared/lodash.debounce';
+import debounce from 'lodash.debounce';
 
 import { ArrayUtils } from '@theia/core';
 import { Key } from '@theia/core/lib/browser';
 import { SourceTreeWidget } from '@theia/core/lib/browser/source-tree';
 import { Disposable, DisposableCollection } from '@theia/core/lib/common/disposable';
-import { Message } from '@theia/core/shared/@lumino/messaging';
-import { Widget } from '@theia/core/shared/@lumino/widgets';
-import { Container, inject, injectable, interfaces, postConstruct } from '@theia/core/shared/inversify';
-import { URI as CodeUri } from '@theia/core/shared/vscode-uri';
-import * as monaco from '@theia/monaco-editor-core';
+import { Message } from '@lumino/messaging';
+import { Widget } from '@lumino/widgets';
+import { Container, inject, injectable, interfaces, postConstruct } from 'inversify';
+import { URI as CodeUri } from 'vscode-uri';
+import monaco from '@theia/monaco-editor-core';
 import { CancellationTokenSource } from '@theia/monaco-editor-core/esm/vs/base/common/cancellation';
 import { IEditorHoverOptions } from '@theia/monaco-editor-core/esm/vs/editor/common/config/editorOptions';
 import { Position } from '@theia/monaco-editor-core/esm/vs/editor/common/core/position';

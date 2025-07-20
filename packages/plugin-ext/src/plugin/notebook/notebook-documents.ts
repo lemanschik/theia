@@ -18,7 +18,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import * as theia from '@theia/plugin';
+import theia from '@theia/plugin';
 import { Emitter } from '@theia/core';
 import { UriComponents } from '../../common/uri-components';
 import { NotebookCellsChangedEventDto, NotebookDocumentsExt } from '../../common';

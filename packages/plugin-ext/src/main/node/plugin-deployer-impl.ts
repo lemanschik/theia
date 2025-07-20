@@ -16,8 +16,8 @@
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { injectable, optional, multiInject, inject, named } from '@theia/core/shared/inversify';
-import * as semver from 'semver';
+import { injectable, optional, multiInject, inject, named } from 'inversify';
+import semver from 'semver';
 import {
     PluginDeployerResolver, PluginDeployerFileHandler, PluginDeployerDirectoryHandler,
     PluginDeployerEntry, PluginDeployer, PluginDeployerParticipant, PluginDeployerStartContext,

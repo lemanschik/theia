@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable, inject, postConstruct } from '@theia/core/shared/inversify';
+import { injectable, inject, postConstruct } from 'inversify';
 import URI from '@theia/core/lib/common/uri';
 import { Emitter } from '@theia/core/lib/common/event';
 import { Disposable, DisposableCollection } from '@theia/core/lib/common/disposable';
@@ -29,7 +29,7 @@ import {
 import { RpcServer, RpcProxy, RpcProxyFactory } from '@theia/core/lib/common/messaging/proxy-factory';
 import { ApplicationError } from '@theia/core/lib/common/application-error';
 import { Deferred } from '@theia/core/lib/common/promise-util';
-import type { TextDocumentContentChangeEvent } from '@theia/core/shared/vscode-languageserver-protocol';
+import type { TextDocumentContentChangeEvent } from 'vscode-languageserver-protocol';
 import { newWriteableStream, ReadableStreamEvents } from '@theia/core/lib/common/stream';
 import { CancellationToken, cancelled } from '@theia/core/lib/common/cancellation';
 import { MarkdownString } from '@theia/core/lib/common/markdown-rendering';

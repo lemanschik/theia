@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as assert from 'assert';
+import assert from 'assert';
 import { DeeplParameters, DeeplResponse } from './deepl-api';
 import { LocalizationManager, LocalizationOptions } from './localization-manager';
 

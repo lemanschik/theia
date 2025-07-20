@@ -17,12 +17,12 @@
 import { CodeActionProviderDocumentation, Range, SerializedDocumentFilter, WorkspaceSymbolParams } from '@theia/plugin-ext/lib/common/plugin-api-rpc-model';
 import { PluginMetricsResolver } from './plugin-metrics-resolver';
 import { LanguagesMainImpl } from '@theia/plugin-ext/lib/main/browser/languages-main';
-import { SymbolInformation } from '@theia/core/shared/vscode-languageserver-protocol';
-import { injectable, inject } from '@theia/core/shared/inversify';
-import * as vst from '@theia/core/shared/vscode-languageserver-protocol';
+import { SymbolInformation } from 'vscode-languageserver-protocol';
+import { injectable, inject } from 'inversify';
+import vst from 'vscode-languageserver-protocol';
 import { PluginInfo } from '@theia/plugin-ext/lib/common/plugin-api-rpc';
-import * as theia from '@theia/plugin';
-import * as monaco from '@theia/monaco-editor-core';
+import theia from '@theia/plugin';
+import monaco from '@theia/monaco-editor-core';
 
 @injectable()
 export class LanguagesMainPluginMetrics extends LanguagesMainImpl {

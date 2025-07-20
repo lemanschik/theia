@@ -14,11 +14,11 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as idb from 'idb';
+import idb from 'idb';
 import { Disposable, DisposableCollection } from '@theia/core/lib/common/disposable';
 import { ThemeService } from '@theia/core/lib/browser/theming';
-import * as monaco from '@theia/monaco-editor-core';
-import { injectable } from '@theia/core/shared/inversify';
+import monaco from '@theia/monaco-editor-core';
+import { injectable } from 'inversify';
 import type { ThemeMix } from './textmate/monaco-theme-types';
 import { Theme } from '@theia/core/lib/common/theme';
 import { Emitter, Event, isObject } from '@theia/core';

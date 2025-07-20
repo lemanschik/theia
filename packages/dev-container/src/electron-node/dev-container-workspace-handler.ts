@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 import { URI } from '@theia/core';
-import * as fs from '@theia/core/shared/fs-extra';
-import { injectable } from '@theia/core/shared/inversify';
+import fs from 'fs-extra';
+import { injectable } from 'inversify';
 import { WorkspaceHandlerContribution } from '@theia/workspace/lib/node/default-workspace-server';
 import { DEV_CONTAINER_PATH_QUERY, DEV_CONTAINER_WORKSPACE_SCHEME } from '../electron-common/dev-container-workspaces';
 

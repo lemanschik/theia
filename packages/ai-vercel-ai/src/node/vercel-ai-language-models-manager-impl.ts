@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { LanguageModelRegistry, TokenUsageService } from '@theia/ai-core';
-import { inject, injectable, named } from '@theia/core/shared/inversify';
+import { inject, injectable, named } from 'inversify';
 import { VercelAiModel } from './vercel-ai-language-model';
 import { VercelAiLanguageModelsManager, VercelAiModelDescription } from '../common';
 import { ILogger } from '@theia/core';

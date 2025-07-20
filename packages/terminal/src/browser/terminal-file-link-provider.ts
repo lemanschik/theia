@@ -17,7 +17,7 @@
 import { OS, Path, QuickInputService } from '@theia/core';
 import { OpenerService } from '@theia/core/lib/browser';
 import URI from '@theia/core/lib/common/uri';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { Position } from '@theia/editor/lib/browser';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
 import { TerminalWidget } from './base/terminal-widget';

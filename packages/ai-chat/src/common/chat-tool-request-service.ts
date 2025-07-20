@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { ToolRequest } from '@theia/ai-core';
-import { injectable } from '@theia/core/shared/inversify';
+import { injectable } from 'inversify';
 import { MutableChatRequestModel } from './chat-model';
 
 export interface ChatToolRequest extends ToolRequest {

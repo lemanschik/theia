@@ -16,7 +16,7 @@
 
 import { Agent, AIVariableContribution } from '@theia/ai-core';
 import { FrontendApplicationContribution, KeybindingContribution, PreferenceContribution } from '@theia/core/lib/browser';
-import { ContainerModule } from '@theia/core/shared/inversify';
+import { ContainerModule } from 'inversify';
 import { AICodeCompletionPreferencesSchema } from './ai-code-completion-preference';
 import { AIFrontendApplicationContribution } from './ai-code-frontend-application-contribution';
 import { AICodeInlineCompletionsProvider } from './ai-code-inline-completion-provider';

@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import throttle from '@theia/core/shared/lodash.throttle';
+import throttle from 'lodash.throttle';
 import { DebugProtocol } from '@vscode/debugprotocol/lib/debugProtocol';
 import { ConsoleSession, ConsoleItem } from '@theia/console/lib/browser/console-session';
 import { AnsiConsoleItem } from '@theia/console/lib/browser/ansi-console-item';
@@ -22,9 +22,9 @@ import { DebugSession } from '../debug-session';
 import URI from '@theia/core/lib/common/uri';
 import { ExpressionContainer, ExpressionItem } from './debug-console-items';
 import { Severity } from '@theia/core/lib/common/severity';
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, postConstruct } from 'inversify';
 import { DebugSessionManager } from '../debug-session-manager';
-import * as monaco from '@theia/monaco-editor-core';
+import monaco from '@theia/monaco-editor-core';
 import { LanguageSelector } from '@theia/monaco-editor-core/esm/vs/editor/common/languageSelector';
 import { Disposable } from '@theia/core';
 

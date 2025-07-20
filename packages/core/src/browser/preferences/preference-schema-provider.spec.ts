@@ -18,7 +18,7 @@ import { enableJSDOM } from '../test/jsdom';
 
 let disableJSDOM = enableJSDOM();
 
-import * as assert from 'assert';
+import assert from 'assert';
 import { Container } from 'inversify';
 import { bindPreferenceService } from '../frontend-application-bindings';
 import { PreferenceSchemaProperties, PreferenceSchemaProvider } from './preference-contribution';

@@ -15,7 +15,7 @@
  ********************************************************************************/
 
 import URI from '@theia/core/lib/common/uri';
-import * as React from 'react';
+import React from 'react';
 import { DebugConfigurationManager } from '../debug-configuration-manager';
 import { DebugSessionOptions } from '../debug-session-options';
 import { SelectComponent, SelectOption } from '@theia/core/lib/browser/widgets/select-component';

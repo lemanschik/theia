@@ -27,7 +27,7 @@ import {
     CellExecution, NotebookEditorWidgetService, NotebookExecutionStateService,
     NotebookKernelChangeEvent, NotebookKernelService, NotebookService, NotebookKernel as NotebookKernelServiceKernel
 } from '@theia/notebook/lib/browser';
-import { interfaces } from '@theia/core/shared/inversify';
+import { interfaces } from 'inversify';
 import { NotebookKernelSourceAction } from '@theia/notebook/lib/common';
 import { NotebookDto } from './notebook-dto';
 

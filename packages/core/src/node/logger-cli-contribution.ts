@@ -18,10 +18,10 @@ import { default as yargs } from 'yargs';
 import { injectable } from 'inversify';
 import { LogLevel } from '../common/logger';
 import { CliContribution } from './cli';
-import * as fs from 'fs-extra';
+import fs from 'fs-extra';
 import { subscribe } from '@parcel/watcher';
 import { Event, Emitter } from '../common/event';
-import * as path from 'path';
+import path from 'path';
 
 /** Maps logger names to log levels.  */
 export interface LogLevels {

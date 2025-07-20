@@ -16,7 +16,7 @@
 
 import { AI_CORE_PREFERENCES_TITLE } from '@theia/ai-core/lib/browser/ai-core-preferences';
 import { nls } from '@theia/core';
-import { interfaces, injectable, inject } from '@theia/core/shared/inversify';
+import { interfaces, injectable, inject } from 'inversify';
 import {
     createPreferenceProxy,
     PreferenceProxy,

@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, postConstruct } from 'inversify';
 import { EditorManager, EditorWidget, TextEditor, TextEditorDocument, TextDocumentChangeEvent } from '@theia/editor/lib/browser';
 import URI from '@theia/core/lib/common/uri';
 import { Emitter, Event, Disposable, DisposableCollection } from '@theia/core';
@@ -28,7 +28,7 @@ import { GitResourceResolver } from '../git-resource-resolver';
 import { WorkingDirectoryStatus, GitFileStatus, GitFileChange, Repository, Git, GitStatusChangeEvent } from '../../common';
 import { GitRepositoryTracker } from '../git-repository-tracker';
 
-import throttle from '@theia/core/shared/lodash.throttle';
+import throttle from 'lodash.throttle';
 
 @injectable()
 export class DirtyDiffManager {

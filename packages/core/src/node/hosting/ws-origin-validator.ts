@@ -14,9 +14,9 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as http from 'http';
+import http from 'http';
 import { inject, injectable } from 'inversify';
-import * as url from 'url';
+import url from 'url';
 import { WsRequestValidatorContribution } from '../ws-request-validators';
 import { BackendApplicationHosts } from './backend-application-hosts';
 

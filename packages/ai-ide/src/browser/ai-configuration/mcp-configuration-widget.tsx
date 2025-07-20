@@ -15,8 +15,8 @@
 // *****************************************************************************
 
 import { ReactWidget } from '@theia/core/lib/browser';
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
-import * as React from 'react';
+import { inject, injectable, postConstruct } from 'inversify';
+import React from 'react';
 import { HoverService } from '@theia/core/lib/browser/hover-service';
 import {
     isLocalMCPServerDescription,

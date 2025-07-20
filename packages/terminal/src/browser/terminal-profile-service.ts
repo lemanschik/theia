@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { Emitter, Event } from '@theia/core';
-import { injectable, unmanaged } from '@theia/core/shared/inversify';
+import { injectable, unmanaged } from 'inversify';
 import { TerminalWidget } from './base/terminal-widget';
 import { ShellTerminalProfile } from './shell-terminal-profile';
 

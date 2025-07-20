@@ -20,8 +20,8 @@
 
 import { Emitter } from '@theia/core';
 import { NotebookEditorPropertiesChangeData, NotebookEditorsExt, NotebookEditorViewColumnInfo } from '../../common';
-import * as typeConverters from '../type-converters';
-import * as theia from '@theia/plugin';
+import typeConverters from '../type-converters';
+import theia from '@theia/plugin';
 import { NotebooksExtImpl } from './notebooks';
 
 export class NotebookEditorsExtImpl implements NotebookEditorsExt {

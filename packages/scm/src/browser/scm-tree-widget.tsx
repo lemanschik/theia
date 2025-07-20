@@ -16,8 +16,8 @@
 
 /* eslint-disable no-null/no-null, @typescript-eslint/no-explicit-any */
 
-import * as React from 'react';
-import { injectable, inject, postConstruct } from '@theia/core/shared/inversify';
+import React from 'react';
+import { injectable, inject, postConstruct } from 'inversify';
 import URI from '@theia/core/lib/common/uri';
 import { isOSX } from '@theia/core/lib/common/os';
 import { DisposableCollection, Disposable } from '@theia/core/lib/common/disposable';

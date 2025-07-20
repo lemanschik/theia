@@ -14,13 +14,13 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as React from 'react';
+import React from 'react';
 import { CancellationTokenSource, Emitter, Event, MessageType, nls } from '@theia/core';
 import { DebugProtocol } from '@vscode/debugprotocol/lib/debugProtocol';
 import { TreeElement } from '@theia/core/lib/browser/source-tree';
 import { DebugStackFrame } from './debug-stack-frame';
 import { DebugSession } from '../debug-session';
-import * as monaco from '@theia/monaco-editor-core';
+import monaco from '@theia/monaco-editor-core';
 import URI from '@theia/core/lib/common/uri';
 
 export type StoppedDetails = DebugProtocol.StoppedEvent['body'] & {

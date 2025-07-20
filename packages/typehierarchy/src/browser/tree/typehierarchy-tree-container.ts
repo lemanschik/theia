@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { interfaces, Container } from '@theia/core/shared/inversify';
+import { interfaces, Container } from 'inversify';
 import { createTreeContainer, } from '@theia/core/lib/browser/tree';
 import { TypeHierarchyTree } from './typehierarchy-tree';
 import { TypeHierarchyTreeModel } from './typehierarchy-tree-model';

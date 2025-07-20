@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable, inject } from '@theia/core/shared/inversify';
+import { injectable, inject } from 'inversify';
 import { DisposableCollection, Emitter, Event, ResourceProvider } from '@theia/core';
 import { DirtyDiffDecorator, DirtyDiffUpdate } from '../dirty-diff/dirty-diff-decorator';
 import { DiffComputer } from '../dirty-diff/diff-computer';
@@ -22,7 +22,7 @@ import { ContentLines } from '../dirty-diff/content-lines';
 import { EditorManager, EditorWidget, TextEditor } from '@theia/editor/lib/browser';
 import { ScmService } from '../scm-service';
 
-import throttle from '@theia/core/shared/lodash.throttle';
+import throttle from 'lodash.throttle';
 
 @injectable()
 export class ScmDecorationsService {

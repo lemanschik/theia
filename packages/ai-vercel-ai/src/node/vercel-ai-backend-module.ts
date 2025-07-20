@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { ContainerModule } from '@theia/core/shared/inversify';
+import { ContainerModule } from 'inversify';
 import { VERCEL_AI_LANGUAGE_MODELS_MANAGER_PATH, VercelAiLanguageModelsManager } from '../common/vercel-ai-language-models-manager';
 import { ConnectionHandler, RpcConnectionHandler } from '@theia/core';
 import { VercelAiLanguageModelsManagerImpl } from './vercel-ai-language-models-manager-impl';

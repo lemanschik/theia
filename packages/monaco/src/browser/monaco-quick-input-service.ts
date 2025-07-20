@@ -20,7 +20,7 @@ import {
     QuickInputButton, QuickInputHideReason, QuickInputService, QuickPick, QuickPickItem,
     QuickPickItemButtonEvent, QuickPickItemHighlights, QuickPickOptions, QuickPickSeparator
 } from '@theia/core/lib/browser';
-import { injectable, inject, postConstruct } from '@theia/core/shared/inversify';
+import { injectable, inject, postConstruct } from 'inversify';
 import {
     IInputBox, IInputOptions, IKeyMods, IPickOptions, IQuickInput, IQuickInputButton,
     IQuickInputService, IQuickNavigateConfiguration, IQuickPick, IQuickPickItem, IQuickPickItemButtonEvent, IQuickPickSeparator, IQuickWidget, QuickPickInput
@@ -31,7 +31,7 @@ import { MonacoResolvedKeybinding } from './monaco-resolved-keybinding';
 import { IQuickAccessController } from '@theia/monaco-editor-core/esm/vs/platform/quickinput/common/quickAccess';
 import { QuickAccessController } from '@theia/monaco-editor-core/esm/vs/platform/quickinput/browser/quickAccess';
 import { IContextKey, IContextKeyService } from '@theia/monaco-editor-core/esm/vs/platform/contextkey/common/contextkey';
-import * as monaco from '@theia/monaco-editor-core';
+import monaco from '@theia/monaco-editor-core';
 import { ResolvedKeybinding } from '@theia/monaco-editor-core/esm/vs/base/common/keybindings';
 import { IInstantiationService } from '@theia/monaco-editor-core/esm/vs/platform/instantiation/common/instantiation';
 import { StandaloneServices } from '@theia/monaco-editor-core/esm/vs/editor/standalone/browser/standaloneServices';

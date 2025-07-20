@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { expect, test } from '@playwright/test';
-import * as path from 'path';
+import path from 'path';
 import { TheiaAppLoader } from '../theia-app-loader';
 import { DOT_FILES_FILTER, TheiaExplorerView } from '../theia-explorer-view';
 import { TheiaWorkspace } from '../theia-workspace';

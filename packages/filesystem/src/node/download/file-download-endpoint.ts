@@ -16,8 +16,8 @@
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import * as url from 'url';
-import { injectable, inject, named } from '@theia/core/shared/inversify';
+import url from 'url';
+import { injectable, inject, named } from 'inversify';
 import { json } from 'body-parser';
 import { Application, Router } from 'express';
 import { BackendApplicationContribution } from '@theia/core/lib/node/backend-application';

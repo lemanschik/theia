@@ -15,11 +15,11 @@
 // *****************************************************************************
 
 import { CallHierarchyIncomingCall, CallHierarchyItem, CallHierarchyOutgoingCall } from '@theia/callhierarchy/lib/browser';
-import * as languageProtocol from '@theia/core/shared/vscode-languageserver-protocol';
-import { URI } from '@theia/core/shared/vscode-uri';
+import languageProtocol from 'vscode-languageserver-protocol';
+import { URI } from 'vscode-uri';
 import { TypeHierarchyItem } from '@theia/typehierarchy/lib/browser';
-import * as rpc from '../../../common/plugin-api-rpc';
-import * as model from '../../../common/plugin-api-rpc-model';
+import rpc from '../../../common/plugin-api-rpc';
+import model from '../../../common/plugin-api-rpc-model';
 import { UriComponents } from '../../../common/uri-components';
 
 export function toUriComponents(uri: string): UriComponents {

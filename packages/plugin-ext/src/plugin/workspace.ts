@@ -19,9 +19,9 @@
  *--------------------------------------------------------------------------------------------*/
 // copied and modified from https://github.com/Microsoft/vscode/blob/master/src/vs/workbench/services/workspace/node/workspaceEditingService.ts
 
-import * as paths from 'path';
-import * as theia from '@theia/plugin';
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
+import paths from 'path';
+import theia from '@theia/plugin';
+import { inject, injectable, postConstruct } from 'inversify';
 import { Event, Emitter } from '@theia/core/lib/common/event';
 import { CancellationToken } from '@theia/core/lib/common/cancellation';
 import {
@@ -41,7 +41,7 @@ import { relative } from '../common/paths-util';
 import { Schemes, UriComponents } from '../common/uri-components';
 import { toWorkspaceFolder } from './type-converters';
 import { MessageRegistryExt } from './message-registry';
-import * as Converter from './type-converters';
+import Converter from './type-converters';
 import { FileStat } from '@theia/filesystem/lib/common/files';
 import { isUndefinedOrNull, isUndefined } from '../common/types';
 import { PluginLogger } from './logger';

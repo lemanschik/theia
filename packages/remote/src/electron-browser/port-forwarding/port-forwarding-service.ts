@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { Emitter } from '@theia/core';
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, postConstruct } from 'inversify';
 import { RemotePortForwardingProvider } from '../../electron-common/remote-port-forwarding-provider';
 import { getCurrentPort } from '@theia/core/lib/electron-browser/messaging/electron-local-ws-connection-source';
 

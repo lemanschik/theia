@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { inject, injectable, interfaces, LazyServiceIdentifier } from '@theia/core/shared/inversify';
+import { inject, injectable, interfaces, LazyServiceIdentifier } from 'inversify';
 import { DockerContainerService } from '../docker-container-service';
 
 export const VariableResolverContribution = Symbol('VariableResolverContribution');
@@ -43,7 +43,7 @@ export class LocalEnvVariableResolver implements VariableResolverContribution {
 @injectable()
 export class ContainerIdResolver implements VariableResolverContribution {
     @inject(new LazyServiceIdentifier(() => DockerContainerService))
-        protected readonly dockerContainerService: DockerContainerService;
+    protected readonly dockerContainerService: DockerContainerService;
 
     canResolve(type: string): boolean {
         return type === 'devcontainerId' && !!this.dockerContainerService.container;

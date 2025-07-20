@@ -14,9 +14,9 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import debounce from '@theia/core/shared/lodash.debounce';
-import { URI } from '@theia/core/shared/vscode-uri';
-import { interfaces } from '@theia/core/shared/inversify';
+import debounce from 'lodash.debounce';
+import { URI } from 'vscode-uri';
+import { interfaces } from 'inversify';
 import { WebviewsMain, MAIN_RPC_CONTEXT, WebviewsExt, WebviewPanelViewState } from '../../common/plugin-api-rpc';
 import { RPCProtocol } from '../../common/rpc-protocol';
 import { ViewBadge, WebviewOptions, WebviewPanelOptions, WebviewPanelShowOptions } from '@theia/plugin';
@@ -25,7 +25,7 @@ import { WebviewWidget, WebviewWidgetIdentifier } from './webview/webview';
 import { Disposable, DisposableCollection } from '@theia/core/lib/common/disposable';
 import { ViewColumnService } from '@theia/core/lib/browser/shell/view-column-service';
 import { WidgetManager } from '@theia/core/lib/browser/widget-manager';
-import { JSONExt } from '@theia/core/shared/@lumino/coreutils';
+import { JSONExt } from '@lumino/coreutils';
 import { Mutable } from '@theia/core/lib/common/types';
 import { HostedPluginSupport } from '../../hosted/browser/hosted-plugin';
 import { IconUrl } from '../../common/plugin-protocol';

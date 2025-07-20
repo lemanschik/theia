@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable, inject, postConstruct } from '@theia/core/shared/inversify';
+import { injectable, inject, postConstruct } from 'inversify';
 import { ProblemManager } from './problem-manager';
 import { ProblemMarker } from '../../common/problem-marker';
 import { ProblemTreeModel } from './problem-tree-model';
@@ -23,8 +23,8 @@ import {
     TreeWidget, TreeProps, ContextMenuRenderer, TreeNode, NodeProps, TreeModel,
     ApplicationShell, Navigatable, ExpandableTreeNode, SelectableTreeNode, TREE_NODE_INFO_CLASS, codicon, Message
 } from '@theia/core/lib/browser';
-import { DiagnosticSeverity } from '@theia/core/shared/vscode-languageserver-protocol';
-import * as React from 'react';
+import { DiagnosticSeverity } from 'vscode-languageserver-protocol';
+import React from 'react';
 import { ProblemPreferences } from './problem-preferences';
 import { DisposableCollection } from '@theia/core/lib/common/disposable';
 import { nls } from '@theia/core/lib/common/nls';

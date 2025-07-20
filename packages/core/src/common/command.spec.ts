@@ -16,7 +16,7 @@
 
 import { CommandRegistry, CommandHandler, Command, CommandContribution } from './command';
 import { ContributionProvider } from './contribution-provider';
-import * as chai from 'chai';
+import chai from 'chai';
 
 const expect = chai.expect;
 let commandRegistry: CommandRegistry;

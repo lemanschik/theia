@@ -1,6 +1,19 @@
+TODO:
+
+npm run compile
+
+fix
+
+npm run compile
+
+fix.
+
+
+=========================
+
 import express = require('@theia/core/shared/express');
 import fs = require('@theia/core/shared/fs-extra');
-import * as React from '@theia/core/shared/react';
+import React from '@theia/core/shared/react';
 
 needs fixing
 

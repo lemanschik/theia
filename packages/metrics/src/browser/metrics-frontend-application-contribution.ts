@@ -13,10 +13,10 @@
 //
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { FrontendApplicationContribution } from '@theia/core/lib/browser';
 import { ILogger, LogLevel, MeasurementResult, Stopwatch } from '@theia/core';
-import { UUID } from '@theia/core/shared/@lumino/coreutils';
+import { UUID } from '@lumino/coreutils';
 import { MeasurementNotificationService } from '../common';
 
 @injectable()

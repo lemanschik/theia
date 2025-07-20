@@ -17,7 +17,7 @@
 import type { ChangeSetDecoration, ChangeSetElement } from '@theia/ai-chat';
 import type { ChangeSetDecorator } from '@theia/ai-chat/lib/browser/change-set-decorator-service';
 import { Emitter } from '@theia/core';
-import { injectable } from '@theia/core/shared/inversify';
+import { injectable } from 'inversify';
 import type { ScanOSSResult } from '@theia/scanoss';
 
 @injectable()

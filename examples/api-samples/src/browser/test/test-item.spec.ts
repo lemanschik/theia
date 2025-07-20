@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as chai from 'chai';
+import chai from 'chai';
 import { TestItemImpl } from './test-controller';
 import { URI } from '@theia/core';
 import { DeltaKind, TreeDeltaBuilderImpl } from '@theia/test/lib/common/tree-delta';

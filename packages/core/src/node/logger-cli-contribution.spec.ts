@@ -16,12 +16,12 @@
 
 import { expect } from 'chai';
 import { default as yargs } from 'yargs';
-import * as temp from 'temp';
-import * as fs from 'fs';
+import temp from 'temp';
+import fs from 'fs';
 import { ContainerModule, Container } from 'inversify';
 import { LogLevel } from '../common/logger';
 import { LogLevelCliContribution } from './logger-cli-contribution';
-import * as sinon from 'sinon';
+import sinon from 'sinon';
 
 // Allow creating temporary files, but remove them when we are done.
 const track = temp.track();

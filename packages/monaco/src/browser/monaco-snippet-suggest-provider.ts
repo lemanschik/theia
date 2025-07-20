@@ -18,13 +18,13 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import * as jsoncparser from 'jsonc-parser';
-import { injectable, inject } from '@theia/core/shared/inversify';
+import jsoncparser from 'jsonc-parser';
+import { injectable, inject } from 'inversify';
 import URI from '@theia/core/lib/common/uri';
 import { Disposable, DisposableCollection } from '@theia/core/lib/common/disposable';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
 import { FileOperationError } from '@theia/filesystem/lib/common/files';
-import * as monaco from '@theia/monaco-editor-core';
+import monaco from '@theia/monaco-editor-core';
 import { SnippetParser } from '@theia/monaco-editor-core/esm/vs/editor/contrib/snippet/browser/snippetParser';
 import { isObject } from '@theia/core/lib/common';
 

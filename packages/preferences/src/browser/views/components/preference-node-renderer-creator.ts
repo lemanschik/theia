@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { ContributionProvider, Disposable, Emitter, Event, Prioritizeable } from '@theia/core';
-import { inject, injectable, interfaces, named } from '@theia/core/shared/inversify';
+import { inject, injectable, interfaces, named } from 'inversify';
 import { Preference } from '../../util/preference-types';
 import { PreferenceHeaderRenderer, PreferenceNodeRenderer } from './preference-node-renderer';
 

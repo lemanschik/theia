@@ -16,7 +16,7 @@
 
 import { Disposable, MessageService, Prioritizeable } from '@theia/core';
 import { FrontendApplicationContribution, OpenerService, open } from '@theia/core/lib/browser';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import {
     AIVariable,
     AIVariableArg,
@@ -28,7 +28,7 @@ import {
     DefaultAIVariableService,
     PromptText
 } from '../common';
-import * as monaco from '@theia/monaco-editor-core';
+import monaco from '@theia/monaco-editor-core';
 
 export type AIVariableDropHandler = (event: DragEvent, context: AIVariableContext) => Promise<AIVariableDropResult | undefined>;
 

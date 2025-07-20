@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable, inject, postConstruct } from '@theia/core/shared/inversify';
-import { Message } from '@theia/core/shared/@lumino/messaging';
+import { injectable, inject, postConstruct } from 'inversify';
+import { Message } from '@lumino/messaging';
 import URI from '@theia/core/lib/common/uri';
 import { CommandService } from '@theia/core/lib/common';
 import { Key, TreeModel, ContextMenuRenderer, ExpandableTreeNode, TreeProps, TreeNode } from '@theia/core/lib/browser';
@@ -24,7 +24,7 @@ import { WorkspaceService, WorkspaceCommands } from '@theia/workspace/lib/browse
 import { WorkspaceNode, WorkspaceRootNode } from './navigator-tree';
 import { FileNavigatorModel } from './navigator-model';
 import { isOSX, environment } from '@theia/core';
-import * as React from 'react';
+import React from 'react';
 import { NavigatorContextKeyService } from './navigator-context-key-service';
 import { nls } from '@theia/core/lib/common/nls';
 import { AbstractNavigatorTreeWidget } from './abstract-navigator-tree-widget';

@@ -13,9 +13,9 @@
 //
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
-import { interfaces } from '@theia/core/shared/inversify';
+import { interfaces } from 'inversify';
 import { Disposable, DisposableCollection } from '@theia/core/lib/common/disposable';
-import * as types from '../../plugin/types-impl';
+import types from '../../plugin/types-impl';
 import { StatusBarMessageRegistryMain } from '../../common/plugin-api-rpc';
 import { StatusBar, StatusBarAlignment, StatusBarEntry } from '@theia/core/lib/browser/status-bar/status-bar';
 import { ColorRegistry } from '@theia/core/lib/browser/color-registry';

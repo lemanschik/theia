@@ -13,9 +13,9 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
  ********************************************************************************/
-import { Container } from '@theia/core/shared/inversify';
+import { Container } from 'inversify';
 import { DebugSession } from '@theia/plugin';
-import * as chai from 'chai';
+import chai from 'chai';
 import { ProxyIdentifier, RPCProtocol } from '../../../common/rpc-protocol';
 
 import { DebugExtImpl } from '../../debug/debug-ext';

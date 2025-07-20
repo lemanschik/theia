@@ -19,7 +19,7 @@
  *--------------------------------------------------------------------------------------------*/
 
 import { Disposable, DisposableCollection, Emitter, Event, URI } from '@theia/core';
-import { inject, injectable, interfaces, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, interfaces, postConstruct } from 'inversify';
 import { MonacoEditorModel } from '@theia/monaco/lib/browser/monaco-editor-model';
 import { type MonacoEditor } from '@theia/monaco/lib/browser/monaco-editor';
 import {
@@ -33,7 +33,7 @@ import { PreferenceService } from '@theia/core/lib/browser';
 import { NotebookPreferences } from '../contributions/notebook-preferences';
 import { LanguageService } from '@theia/core/lib/browser/language-service';
 import { NotebookEditorFindMatch, NotebookEditorFindMatchOptions } from '../view/notebook-find-widget';
-import { Range } from '@theia/core/shared/vscode-languageserver-protocol';
+import { Range } from 'vscode-languageserver-protocol';
 
 export const NotebookCellModelFactory = Symbol('NotebookModelFactory');
 export type NotebookCellModelFactory = (props: NotebookCellModelProps) => NotebookCellModel;

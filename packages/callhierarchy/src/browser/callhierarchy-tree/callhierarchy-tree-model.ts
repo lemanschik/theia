@@ -14,11 +14,11 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable, inject } from '@theia/core/shared/inversify';
+import { injectable, inject } from 'inversify';
 import { CompositeTreeNode, TreeModelImpl, TreeNode } from '@theia/core/lib/browser';
 import { CallHierarchyTree, ItemNode } from './callhierarchy-tree';
 import { CallHierarchyServiceProvider, CallHierarchySession } from '../callhierarchy-service';
-import { Position } from '@theia/core/shared/vscode-languageserver-protocol';
+import { Position } from 'vscode-languageserver-protocol';
 import URI from '@theia/core/lib/common/uri';
 import { CancellationTokenSource } from '@theia/core/lib/common/cancellation';
 

@@ -20,7 +20,7 @@ import { CallHierarchyService, CallHierarchyServiceProvider } from './callhierar
 import { WidgetFactory, bindViewContribution } from '@theia/core/lib/browser';
 import { CALLHIERARCHY_ID } from './callhierarchy';
 import { createHierarchyTreeWidget } from './callhierarchy-tree';
-import { ContainerModule } from '@theia/core/shared/inversify';
+import { ContainerModule } from 'inversify';
 
 import '../../src/browser/style/index.css';
 

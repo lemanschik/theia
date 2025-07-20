@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable, inject, optional, named } from '@theia/core/shared/inversify';
+import { injectable, inject, optional, named } from 'inversify';
 import { QuickPickItem, LabelProvider, QuickInputService, QuickInputButton, QuickPickSeparator } from '@theia/core/lib/browser';
 import { EnvVariablesServer } from '@theia/core/lib/common/env-variables';
 import { WorkspaceOpenHandlerContribution, WorkspaceService } from './workspace-service';

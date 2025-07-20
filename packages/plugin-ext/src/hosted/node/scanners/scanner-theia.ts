@@ -16,7 +16,7 @@
 
 /* eslint-disable @theia/localization-check */
 
-import { inject, injectable, unmanaged } from '@theia/core/shared/inversify';
+import { inject, injectable, unmanaged } from 'inversify';
 import {
     AutoClosingPair,
     AutoClosingPairConditional,
@@ -67,12 +67,12 @@ import {
     PluginPackageContribution
 } from '../../../common/plugin-protocol';
 import { promises as fs } from 'fs';
-import * as path from 'path';
+import path from 'path';
 import { isObject, isStringArray, RecursivePartial } from '@theia/core/lib/common/types';
 import { GrammarsReader } from './grammars-reader';
 import { CharacterPair } from '../../../common/plugin-api-rpc';
 import { isENOENT } from '../../../common/errors';
-import * as jsoncparser from 'jsonc-parser';
+import jsoncparser from 'jsonc-parser';
 import { IJSONSchema } from '@theia/core/lib/common/json-schema';
 import { deepClone } from '@theia/core/lib/common/objects';
 import { PreferenceSchema, PreferenceSchemaProperties } from '@theia/core/lib/common/preferences/preference-schema';

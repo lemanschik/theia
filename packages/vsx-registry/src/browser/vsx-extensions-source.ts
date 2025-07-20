@@ -14,10 +14,10 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable, inject, postConstruct } from '@theia/core/shared/inversify';
+import { injectable, inject, postConstruct } from 'inversify';
 import { TreeSource, TreeElement } from '@theia/core/lib/browser/source-tree';
 import { VSXExtensionsModel } from './vsx-extensions-model';
-import debounce from '@theia/core/shared/lodash.debounce';
+import debounce from 'lodash.debounce';
 
 @injectable()
 export class VSXExtensionsSourceOptions {

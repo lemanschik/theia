@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { expect, test } from '@playwright/test';
-import * as path from 'path';
+import path from 'path';
 import { TheiaApp } from '../theia-app';
 import { TheiaAppLoader } from '../theia-app-loader';
 import { DefaultPreferences, PreferenceIds, TheiaPreferenceView } from '../theia-preference-view';

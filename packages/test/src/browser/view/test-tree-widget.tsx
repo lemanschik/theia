@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable, inject, postConstruct } from '@theia/core/shared/inversify';
+import { injectable, inject, postConstruct } from 'inversify';
 import {
     TreeWidget, TreeModel, TreeProps, CompositeTreeNode, ExpandableTreeNode, TreeNode, TreeImpl, NodeProps,
     TREE_NODE_SEGMENT_CLASS, TREE_NODE_TAIL_CLASS, SelectableTreeNode
@@ -24,7 +24,7 @@ import { IconThemeService } from '@theia/core/lib/browser/icon-theme-service';
 import { ThemeService } from '@theia/core/lib/browser/theming';
 import { ContextKeyService } from '@theia/core/lib/browser/context-key-service';
 import { TestController, TestExecutionState, TestItem, TestService } from '../test-service';
-import * as React from 'react';
+import React from 'react';
 import { DeltaKind, TreeDelta } from '../../common/tree-delta';
 import { AcceleratorSource, CommandMenu, CommandRegistry, Disposable, DisposableCollection, Event, MenuModelRegistry, nls } from '@theia/core';
 import { TestExecutionStateManager } from './test-execution-state-manager';

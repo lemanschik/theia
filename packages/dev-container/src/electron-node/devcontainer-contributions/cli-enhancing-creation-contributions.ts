@@ -16,9 +16,9 @@
 
 import { RemoteCliContext, RemoteCliContribution } from '@theia/core/lib/node/remote/remote-cli-contribution';
 import { ContainerCreationContribution } from '../docker-container-service';
-import * as Docker from 'dockerode';
+import Docker from 'dockerode';
 import { DevContainerConfiguration, } from '../devcontainer-file';
-import { injectable, interfaces } from '@theia/core/shared/inversify';
+import { injectable, interfaces } from 'inversify';
 
 export function registerTheiaStartOptionsContributions(bind: interfaces.Bind): void {
     bind(ContainerCreationContribution).toService(ExtensionsContribution);

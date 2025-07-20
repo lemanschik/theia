@@ -16,10 +16,10 @@
 
 import { Endpoint } from '@theia/core/lib/browser';
 import { Disposable, DisposableCollection } from '@theia/core/lib/common/disposable';
-import { inject, injectable } from '@theia/core/shared/inversify';
-import { URI } from '@theia/core/shared/vscode-uri';
+import { inject, injectable } from 'inversify';
+import { URI } from 'vscode-uri';
 import { MonacoIconRegistry } from '@theia/monaco/lib/browser/monaco-icon-registry';
-import * as path from 'path';
+import path from 'path';
 import { IconContribution, DeployedPlugin, IconDefinition } from '../../common/plugin-protocol';
 
 @injectable()

@@ -14,11 +14,11 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as path from 'path';
-import * as filenamify from 'filenamify';
-import * as fs from '@theia/core/shared/fs-extra';
+import path from 'path';
+import filenamify from 'filenamify';
+import fs from 'fs-extra';
 import type { URI } from '@theia/core';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { Deferred } from '@theia/core/lib/common/promise-util';
 import { FileUri } from '@theia/core/lib/node';
 import {

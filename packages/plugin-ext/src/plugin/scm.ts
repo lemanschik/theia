@@ -20,7 +20,7 @@
  *--------------------------------------------------------------------------------------------*/
 // code copied and modified from https://github.com/microsoft/vscode/blob/1.52.1/src/vs/workbench/api/common/extHostSCM.ts
 
-import * as theia from '@theia/plugin';
+import theia from '@theia/plugin';
 import { Emitter, Event } from '@theia/core/lib/common/event';
 import {
     Plugin, PLUGIN_RPC_CONTEXT,

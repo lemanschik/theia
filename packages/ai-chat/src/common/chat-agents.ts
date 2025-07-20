@@ -50,7 +50,7 @@ import {
     LanguageModelStreamResponsePart
 } from '@theia/ai-core/lib/common';
 import { ContributionProvider, ILogger, isArray } from '@theia/core';
-import { inject, injectable, named, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, named, postConstruct } from 'inversify';
 import { ChatAgentService } from './chat-agent-service';
 import {
     ChatModel,

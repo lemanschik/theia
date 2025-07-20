@@ -19,7 +19,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import { injectable, inject, named } from '@theia/core/shared/inversify';
+import { injectable, inject, named } from 'inversify';
 import { deepClone, isWindows, isOSX, ILogger } from '@theia/core';
 import { FileUri } from '@theia/core/lib/node';
 import {
@@ -37,7 +37,7 @@ import { TaskRunner } from '../task-runner-protocol';
 import { Task } from '../task';
 import { TaskConfiguration } from '../../common/task-protocol';
 import { ProcessTaskError, CommandOptions } from '../../common/process/task-protocol';
-import * as fs from 'fs';
+import fs from 'fs';
 import { ShellProcess } from '@theia/terminal/lib/node/shell-process';
 
 export interface OsSpecificCommand {

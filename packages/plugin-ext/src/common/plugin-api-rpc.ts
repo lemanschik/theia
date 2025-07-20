@@ -17,7 +17,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { createProxyIdentifier, ProxyIdentifier, RPCProtocol } from './rpc-protocol';
-import * as theia from '@theia/plugin';
+import theia from '@theia/plugin';
 import { PluginLifecycle, PluginModel, PluginMetadata, PluginPackage, IconUrl, PluginJsonValidationContribution } from './plugin-protocol';
 import { QueryParameters } from './env';
 import { TextEditorCursorStyle } from './editor-options';
@@ -103,8 +103,8 @@ import {
 } from '@theia/plugin';
 import { DebuggerDescription } from '@theia/debug/lib/common/debug-service';
 import { DebugProtocol } from '@vscode/debugprotocol';
-import { SymbolInformation } from '@theia/core/shared/vscode-languageserver-protocol';
-import * as files from '@theia/filesystem/lib/common/files';
+import { SymbolInformation } from 'vscode-languageserver-protocol';
+import files from '@theia/filesystem/lib/common/files';
 import { BinaryBuffer } from '@theia/core/lib/common/buffer';
 import { ResourceLabelFormatter } from '@theia/core/lib/common/label-protocol';
 import type {
@@ -119,7 +119,7 @@ import { Disposable } from '@theia/core/lib/common/disposable';
 import { isString, isObject, QuickInputButtonHandle } from '@theia/core/lib/common';
 import { Severity } from '@theia/core/lib/common/severity';
 import { DebugConfiguration, DebugSessionOptions } from '@theia/debug/lib/common/debug-configuration';
-import * as notebookCommon from '@theia/notebook/lib/common';
+import notebookCommon from '@theia/notebook/lib/common';
 import { CellExecutionUpdateType, CellRange, NotebookCellExecutionState } from '@theia/notebook/lib/common';
 import { LanguagePackBundle } from './language-pack-service';
 import { AccessibilityInformation } from '@theia/core/lib/common/accessibility';

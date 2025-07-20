@@ -14,18 +14,18 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as http from 'http';
-import * as path from 'path';
-import * as url from 'url';
+import http from 'http';
+import path from 'path';
+import url from 'url';
 const vhost = require('vhost');
 import { default as express } from 'express';
 import { BackendApplicationContribution } from '@theia/core/lib/node/backend-application';
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, postConstruct } from 'inversify';
 import { WebviewExternalEndpoint } from '../common/webview-protocol';
-import { environment } from '@theia/core/shared/@theia/application-package/lib/environment';
+import { environment } from '@theia/application-package/lib/environment';
 import { WsRequestValidatorContribution } from '@theia/core/lib/node/ws-request-validators';
 import { MaybePromise } from '@theia/core/lib/common';
-import { ApplicationPackage } from '@theia/core/shared/@theia/application-package';
+import { ApplicationPackage } from '@theia/application-package';
 import { BackendRemoteService } from '@theia/core/lib/node/remote/backend-remote-service';
 
 @injectable()

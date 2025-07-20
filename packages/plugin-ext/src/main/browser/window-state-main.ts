@@ -14,9 +14,9 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { URI } from '@theia/core/shared/vscode-uri';
+import { URI } from 'vscode-uri';
 import CoreURI from '@theia/core/lib/common/uri';
-import { interfaces } from '@theia/core/shared/inversify';
+import { interfaces } from 'inversify';
 import { WindowStateExt, MAIN_RPC_CONTEXT, WindowMain } from '../../common/plugin-api-rpc';
 import { RPCProtocol } from '../../common/rpc-protocol';
 import { UriComponents } from '../../common/uri-components';
@@ -48,9 +48,9 @@ export class WindowStateMain implements WindowMain, Disposable {
         window.addEventListener('blur', fireDidBlur);
         this.toDispose.push(Disposable.create(() => window.removeEventListener('blur', fireDidBlur)));
 
-       const tracker = new WindowActivityTracker(window);
-       this.toDispose.push(tracker.onDidChangeActiveState(isActive => this.onActiveStateChanged(isActive)));
-       this.toDispose.push(tracker);
+        const tracker = new WindowActivityTracker(window);
+        this.toDispose.push(tracker.onDidChangeActiveState(isActive => this.onActiveStateChanged(isActive)));
+        this.toDispose.push(tracker);
     }
 
     dispose(): void {

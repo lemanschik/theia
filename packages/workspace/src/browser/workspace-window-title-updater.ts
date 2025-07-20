@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { WindowTitleUpdater } from '@theia/core/lib/browser/window/window-title-updater';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { Widget } from '@theia/core/lib/browser/widgets/widget';
 import { WorkspaceService } from './workspace-service';
 import { Navigatable } from '@theia/core/lib/browser/navigatable';

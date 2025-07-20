@@ -17,7 +17,7 @@
 import { Agent } from '@theia/ai-core/lib/common';
 import { CommandContribution, MenuContribution } from '@theia/core';
 import { KeybindingContribution } from '@theia/core/lib/browser';
-import { ContainerModule } from '@theia/core/shared/inversify';
+import { ContainerModule } from 'inversify';
 import { AiTerminalAgent } from './ai-terminal-agent';
 import { AiTerminalCommandContribution } from './ai-terminal-contribution';
 

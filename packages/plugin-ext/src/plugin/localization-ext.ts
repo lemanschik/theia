@@ -16,7 +16,7 @@
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, postConstruct } from 'inversify';
 import { nls } from '@theia/core';
 import { Localization } from '@theia/core/lib/common/i18n/localization';
 import { LocalizationExt, LocalizationMain, Plugin, PLUGIN_RPC_CONTEXT, StringDetails } from '../common';

@@ -18,14 +18,14 @@ import {
     QuickOpenExt, PLUGIN_RPC_CONTEXT as Ext, QuickOpenMain, TransferInputBox, Plugin,
     TransferQuickInputButton, TransferQuickInput, TransferQuickPickItem
 } from '../common/plugin-api-rpc';
-import * as theia from '@theia/plugin';
+import theia from '@theia/plugin';
 import { CancellationToken } from '@theia/core/lib/common/cancellation';
 import { RPCProtocol } from '../common/rpc-protocol';
 import { Emitter, Event } from '@theia/core/lib/common/event';
 import { DisposableCollection } from '@theia/core/lib/common/disposable';
 import { InputBoxValidationSeverity, QuickInputButtons, QuickPickItemKind, ThemeIcon } from './types-impl';
-import { URI } from '@theia/core/shared/vscode-uri';
-import * as path from 'path';
+import { URI } from 'vscode-uri';
+import path from 'path';
 import { convertToTransferQuickPickItems } from './type-converters';
 import { PluginPackage } from '../common/plugin-protocol';
 import { QuickInputButtonHandle } from '@theia/core/lib/browser';

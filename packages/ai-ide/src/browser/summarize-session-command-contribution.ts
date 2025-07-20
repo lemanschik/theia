@@ -17,7 +17,7 @@
 import { ChatAgentLocation, ChatService } from '@theia/ai-chat/lib/common';
 import { CommandContribution, CommandRegistry, CommandService } from '@theia/core';
 import { TaskContextStorageService, TaskContextService } from '@theia/ai-chat/lib/browser/task-context-service';
-import { injectable, inject } from '@theia/core/shared/inversify';
+import { injectable, inject } from 'inversify';
 import { AI_SUMMARIZE_SESSION_AS_TASK_FOR_CODER, AI_UPDATE_TASK_CONTEXT_COMMAND } from '../common/summarize-session-commands';
 import { CoderAgent } from './coder-agent';
 import { TASK_CONTEXT_VARIABLE } from '@theia/ai-chat/lib/browser/task-context-variable';

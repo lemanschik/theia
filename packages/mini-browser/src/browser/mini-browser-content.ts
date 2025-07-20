@@ -14,9 +14,9 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as PDFObject from 'pdfobject';
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
-import { Message } from '@theia/core/shared/@lumino/messaging';
+import PDFObject from 'pdfobject';
+import { inject, injectable, postConstruct } from 'inversify';
+import { Message } from '@lumino/messaging';
 import URI from '@theia/core/lib/common/uri';
 import { ILogger } from '@theia/core/lib/common/logger';
 import { Emitter } from '@theia/core/lib/common/event';
@@ -28,7 +28,7 @@ import { BaseWidget, addEventListener, codiconArray } from '@theia/core/lib/brow
 import { LocationMapperService } from './location-mapper-service';
 import { ApplicationShellMouseTracker } from '@theia/core/lib/browser/shell/application-shell-mouse-tracker';
 
-import debounce from '@theia/core/shared/lodash.debounce';
+import debounce from 'lodash.debounce';
 import { MiniBrowserContentStyle } from './mini-browser-content-style';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
 import { FileChangesEvent, FileChangeType } from '@theia/filesystem/lib/common/files';

@@ -30,7 +30,7 @@ import {
 import { NotebookSerializer } from '../service/notebook-service';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
 import { NotebookCellModel, NotebookCellModelFactory, NotebookCodeEditorFindMatch } from './notebook-cell-model';
-import { inject, injectable, interfaces, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, interfaces, postConstruct } from 'inversify';
 import { UndoRedoService } from '@theia/editor/lib/browser/undo-redo-service';
 import { MarkdownString } from '@theia/core/lib/common/markdown-rendering';
 import type { NotebookModelResolverService } from '../service/notebook-model-resolver-service';

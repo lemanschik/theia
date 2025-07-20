@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { nls } from '@theia/core';
-import { inject } from '@theia/core/shared/inversify';
+import { inject } from 'inversify';
 import { AbstractDialog, Dialog, DialogProps, Message } from '@theia/core/lib/browser';
 
 export class UntitledWorkspaceExitDialog extends AbstractDialog<UntitledWorkspaceExitDialog.Options> {

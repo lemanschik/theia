@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { SymbolInformation, WorkspaceSymbolParams } from '@theia/core/shared/vscode-languageserver-protocol';
-import { injectable, inject, postConstruct } from '@theia/core/shared/inversify';
+import { SymbolInformation, WorkspaceSymbolParams } from 'vscode-languageserver-protocol';
+import { injectable, inject, postConstruct } from 'inversify';
 import { ProblemManager } from '@theia/markers/lib/browser/problem/problem-manager';
 import URI from '@theia/core/lib/common/uri';
 import { MaybePromise, Mutable } from '@theia/core/lib/common/types';
@@ -24,7 +24,7 @@ import { CancellationToken } from '@theia/core/lib/common/cancellation';
 import { Language, LanguageService } from '@theia/core/lib/browser/language-service';
 import { MonacoMarkerCollection } from './monaco-marker-collection';
 import { ProtocolToMonacoConverter } from './protocol-to-monaco-converter';
-import * as monaco from '@theia/monaco-editor-core';
+import monaco from '@theia/monaco-editor-core';
 import { FileStat } from '@theia/filesystem/lib/common/files';
 import { FileStatNode } from '@theia/filesystem/lib/browser';
 import { ILanguageService } from '@theia/monaco-editor-core/esm/vs/editor/common/languages/language';

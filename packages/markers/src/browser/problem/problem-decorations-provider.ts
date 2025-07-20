@@ -14,14 +14,14 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, postConstruct } from 'inversify';
 import URI from '@theia/core/lib/common/uri';
 import { Decoration, DecorationsProvider, DecorationsService } from '@theia/core/lib/browser/decorations-service';
 import { ProblemManager } from './problem-manager';
 import { ProblemUtils } from './problem-utils';
 import { FrontendApplicationContribution } from '@theia/core/lib/browser';
 import { CancellationToken, Emitter, Event, nls } from '@theia/core';
-import debounce from '@theia/core/shared/lodash.debounce';
+import debounce from 'lodash.debounce';
 
 @injectable()
 export class ProblemDecorationsProvider implements DecorationsProvider {

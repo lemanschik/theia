@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as temp from 'temp';
+import temp from 'temp';
 import { expect } from 'chai';
 import { FileUri } from '@theia/core/lib/common/file-uri';
 import { GitFileStatus } from '../common';

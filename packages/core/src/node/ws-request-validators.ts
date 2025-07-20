@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { inject, injectable, named } from 'inversify';
-import * as http from 'http';
+import http from 'http';
 import { ContributionProvider, MaybePromise } from '../common';
 
 /**

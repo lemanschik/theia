@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { inject, injectable } from '@theia/core/shared/inversify';
-import * as React from 'react';
+import { inject, injectable } from 'inversify';
+import React from 'react';
 import { MonacoEditorServices } from '@theia/monaco/lib/browser/monaco-editor';
 import { NotebookRendererRegistry } from '../notebook-renderer-registry';
 import { NotebookCellModel } from '../view-model/notebook-cell-model';

@@ -14,9 +14,9 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as fs from '@theia/core/shared/fs-extra';
-import * as Path from 'path';
-import { injectable, inject, postConstruct } from '@theia/core/shared/inversify';
+import fs from 'fs-extra';
+import Path from 'path';
+import { injectable, inject, postConstruct } from 'inversify';
 import { git } from 'dugite-extra/lib/core/git';
 import { push } from 'dugite-extra/lib/command/push';
 import { pull } from 'dugite-extra/lib/command/pull';
@@ -37,7 +37,7 @@ import { Branch as DugiteBranch } from 'dugite-extra/lib/model/branch';
 import { Commit as DugiteCommit, CommitIdentity as DugiteCommitIdentity } from 'dugite-extra/lib/model/commit';
 import { ILogger } from '@theia/core';
 import { Deferred } from '@theia/core/lib/common/promise-util';
-import * as strings from '@theia/core/lib/common/strings';
+import strings from '@theia/core/lib/common/strings';
 import {
     Git, GitUtils, Repository, WorkingDirectoryStatus, GitFileChange, GitFileStatus, Branch, Commit,
     CommitIdentity, GitResult, CommitWithChanges, GitFileBlame, CommitLine, GitError, Remote, StashEntry

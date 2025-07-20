@@ -14,16 +14,16 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable, inject } from '@theia/core/shared/inversify';
+import { injectable, inject } from 'inversify';
 import URI from '@theia/core/lib/common/uri';
 import { OpenerService } from '@theia/core/lib/browser';
 import { isOSX } from '@theia/core/lib/common';
 import { Path } from '@theia/core/lib/common/path';
 
-import * as hljs from 'highlight.js';
-import * as markdownit from '@theia/core/shared/markdown-it';
-import * as anchor from 'markdown-it-anchor';
-import * as DOMPurify from '@theia/core/shared/dompurify';
+import hljs from 'highlight.js';
+import { default as markdownit } from 'markdown-it';;
+import anchor from 'markdown-it-anchor';
+import DOMPurify from 'dompurify';
 import { PreviewUri } from '../preview-uri';
 import { PreviewHandler, RenderContentParams } from '../preview-handler';
 import { PreviewOpenerOptions } from '../preview-contribution';

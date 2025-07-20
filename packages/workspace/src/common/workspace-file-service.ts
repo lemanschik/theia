@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { URI } from '@theia/core';
-import { injectable } from '@theia/core/shared/inversify';
+import { injectable } from 'inversify';
 import { FileStat } from '@theia/filesystem/lib/common/files';
 
 export interface WorkspaceFileType {

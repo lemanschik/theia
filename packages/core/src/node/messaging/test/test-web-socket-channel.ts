@@ -15,8 +15,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as http from 'http';
-import * as https from 'https';
+import http from 'http';
+import https from 'https';
 import { AddressInfo } from 'net';
 import { servicesPath } from '../../../common';
 import { WebSocketConnectionSource } from '../../../browser/messaging/ws-connection-source';

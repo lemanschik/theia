@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as path from 'path';
-import * as fs from '@theia/core/shared/fs-extra';
+import path from 'path';
+import fs from 'fs-extra';
 import { PluginIdentifiers, PluginPackage } from '../../common';
 import { updateActivationEvents } from './plugin-activation-events';
 

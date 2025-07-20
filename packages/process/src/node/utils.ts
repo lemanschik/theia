@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { isWindows } from '@theia/core';
-import * as os from 'os';
+import os from 'os';
 const stringArgv = require('string-argv');
 
 /**

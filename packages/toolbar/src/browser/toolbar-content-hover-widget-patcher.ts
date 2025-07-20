@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { ApplicationShell, FrontendApplication } from '@theia/core/lib/browser';
-import { injectable, interfaces } from '@theia/core/shared/inversify';
+import { injectable, interfaces } from 'inversify';
 import { DefaultContentHoverWidgetPatcher } from '@theia/monaco/lib/browser/default-content-hover-widget-patcher';
 import { ApplicationShellWithToolbarOverride } from './application-shell-with-toolbar-override';
 

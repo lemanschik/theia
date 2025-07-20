@@ -19,7 +19,7 @@ import { RemoteConnection, RemoteExecOptions, RemoteExecResult, RemoteExecTester
 import { Socket } from 'net';
 import { exec, spawn } from 'child_process';
 import { Deferred } from '@theia/core/lib/common/promise-util';
-import * as fs from 'fs';
+import fs from 'fs';
 
 export interface RemoteWslConnectionOptions {
     id: string;

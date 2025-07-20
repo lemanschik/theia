@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 
 import { test } from '@playwright/test';
-import * as path from 'path';
+import path from 'path';
 import { TheiaApp } from '../theia-app';
 import { TheiaAppLoader } from '../theia-app-loader';
 import { TheiaExplorerView } from '../theia-explorer-view';

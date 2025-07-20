@@ -15,7 +15,7 @@
  ********************************************************************************/
 
 import { Key, KeyCode } from '@theia/core/lib/browser';
-import * as React from 'react';
+import React from 'react';
 import { Interfaces } from './memory-widget-utils';
 
 export interface MWLabelProps { id: string; label: string; disabled?: boolean; classNames?: string[] }

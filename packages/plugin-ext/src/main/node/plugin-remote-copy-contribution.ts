@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { RemoteCopyContribution, RemoteCopyRegistry } from '@theia/core/lib/node/remote/remote-copy-contribution';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { PluginCliContribution } from './plugin-cli-contribution';
 import { FileUri } from '@theia/core/lib/common/file-uri';
 

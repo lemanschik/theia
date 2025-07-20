@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { interfaces } from '@theia/core/shared/inversify';
+import { interfaces } from 'inversify';
 import { ApplicationShell, WidgetOpenerOptions, codicon } from '@theia/core/lib/browser';
 import { TerminalEditorLocationOptions } from '@theia/plugin';
 import { TerminalLocation, TerminalWidget } from '@theia/terminal/lib/browser/base/terminal-widget';
@@ -31,7 +31,7 @@ import { CancellationToken, isObject } from '@theia/core';
 import { HostedPluginSupport } from '../../hosted/browser/hosted-plugin';
 import { PluginSharedStyle } from './plugin-shared-style';
 import { ThemeIcon } from '@theia/core/lib/common/theme';
-import debounce from '@theia/core/shared/lodash.debounce';
+import debounce from 'lodash.debounce';
 
 interface TerminalObserverData {
     nrOfLinesToMatch: number;

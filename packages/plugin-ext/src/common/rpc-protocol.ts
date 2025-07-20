@@ -27,7 +27,7 @@ import { Emitter, Event } from '@theia/core/lib/common/event';
 import { MessageProvider } from '@theia/core/lib/common/message-rpc/channel';
 import { Uint8ArrayReadBuffer, Uint8ArrayWriteBuffer } from '@theia/core/lib/common/message-rpc/uint8-array-message-buffer';
 import { MsgPackExtensionManager } from '@theia/core/lib/common/message-rpc/msg-pack-extension-manager';
-import { URI as VSCodeURI } from '@theia/core/shared/vscode-uri';
+import { URI as VSCodeURI } from 'vscode-uri';
 import { BinaryBuffer } from '@theia/core/lib/common/buffer';
 import { Range, Position } from '../plugin/types-impl';
 

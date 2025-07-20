@@ -15,7 +15,7 @@
 // *****************************************************************************
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import * as cp from 'child_process';
+import cp from 'child_process';
 import { Socket } from 'net';
 import { Duplex } from 'stream';
 import { AbstractChannel, Disposable, WriteBuffer } from '../../common';

@@ -21,8 +21,8 @@
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import debounce from '@theia/core/shared/lodash.debounce';
-import { injectable, inject, interfaces, named, postConstruct, unmanaged } from '@theia/core/shared/inversify';
+import debounce from 'lodash.debounce';
+import { injectable, inject, interfaces, named, postConstruct, unmanaged } from 'inversify';
 import { PluginMetadata, HostedPluginServer, DeployedPlugin, PluginServer, PluginIdentifiers } from '../../common/plugin-protocol';
 import { AbstractPluginManagerExt, ConfigStorage } from '../../common/plugin-api-rpc';
 import {
@@ -34,7 +34,7 @@ import { MainPluginApiProvider } from '../../common/plugin-ext-api-contribution'
 import { PluginPathsService } from '../../main/common/plugin-paths-protocol';
 import { Deferred } from '@theia/core/lib/common/promise-util';
 import { EnvVariablesServer } from '@theia/core/lib/common/env-variables';
-import { environment } from '@theia/core/shared/@theia/application-package/lib/environment';
+import { environment } from '@theia/application-package/lib/environment';
 import { Measurement, Stopwatch } from '@theia/core/lib/common';
 
 export type PluginHost = 'frontend' | string;

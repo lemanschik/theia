@@ -17,7 +17,7 @@
 import { Agent, AgentService, AIVariableContribution, bindToolProvider } from '@theia/ai-core/lib/common';
 import { bindContributionProvider, CommandContribution } from '@theia/core';
 import { FrontendApplicationContribution, LabelProviderContribution, PreferenceContribution } from '@theia/core/lib/browser';
-import { ContainerModule } from '@theia/core/shared/inversify';
+import { ContainerModule } from 'inversify';
 import {
     ChatAgent,
     ChatAgentService,

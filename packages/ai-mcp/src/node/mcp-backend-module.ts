@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { ContainerModule } from '@theia/core/shared/inversify';
+import { ContainerModule } from 'inversify';
 import { ConnectionHandler, RpcConnectionHandler } from '@theia/core';
 import { MCPServerManagerImpl } from './mcp-server-manager-impl';
 import { MCPFrontendNotificationService, MCPServerManager, MCPServerManagerPath } from '../common/mcp-server-manager';

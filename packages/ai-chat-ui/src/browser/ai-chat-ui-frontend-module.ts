@@ -18,7 +18,7 @@ import '../../src/browser/style/index.css';
 import { bindContributionProvider, CommandContribution, MenuContribution } from '@theia/core';
 import { bindViewContribution, FrontendApplicationContribution, WidgetFactory } from '@theia/core/lib/browser';
 import { TabBarToolbarContribution } from '@theia/core/lib/browser/shell/tab-bar-toolbar';
-import { ContainerModule, interfaces } from '@theia/core/shared/inversify';
+import { ContainerModule, interfaces } from 'inversify';
 import { EditorSelectionResolver } from '@theia/editor/lib/browser/editor-manager';
 import { AIChatContribution } from './ai-chat-ui-contribution';
 import { AIChatInputConfiguration, AIChatInputWidget } from './chat-input-widget';

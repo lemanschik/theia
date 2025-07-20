@@ -14,11 +14,11 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as temp from 'temp';
-import * as chai from 'chai';
-import * as cp from 'child_process';
-import * as fs from '@theia/core/shared/fs-extra';
-import * as assert from 'assert';
+import temp from 'temp';
+import chai from 'chai';
+import cp from 'child_process';
+import fs from 'fs-extra';
+import assert from 'assert';
 import URI from '@theia/core/lib/common/uri';
 import { FileUri } from '@theia/core/lib/node';
 import { ParcelFileSystemWatcherService } from './parcel-filesystem-service';

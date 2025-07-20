@@ -19,7 +19,7 @@ import {
     RemoteConnectionProvider,
     ServiceConnectionProvider,
 } from '@theia/core/lib/browser/messaging/service-connection-provider';
-import { ContainerModule } from '@theia/core/shared/inversify';
+import { ContainerModule } from 'inversify';
 import {
     AIVariableContribution,
     AIVariableService,

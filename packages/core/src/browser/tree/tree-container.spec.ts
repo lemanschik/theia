@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as assert from 'assert';
+import assert from 'assert';
 import { Container } from 'inversify';
 import { createTreeContainer, isTreeServices } from './tree-container';
 import { TreeSearch } from './tree-search';
@@ -23,12 +23,12 @@ import { defaultTreeProps, TreeProps } from './tree-widget';
 describe('TreeContainer', () => {
     describe('IsTreeServices should accurately distinguish TreeProps from TreeContainerProps', () => {
         it('should assign search:boolean to TreeProps', () => {
-            assert.default(isTreeServices({
+            assert(isTreeServices({
                 ...defaultTreeProps, search: true, multiSelect: true, globalSelection: true, contextMenuPath: ['so-contextual']
             }) === false);
         });
         it('should assign search:not-a-boolean to TreeContainerProps', () => {
-            assert.default(isTreeServices({ search: TreeSearch }) === true);
+            assert(isTreeServices({ search: TreeSearch }) === true);
         });
         const nonDefault = { search: !defaultTreeProps.search, contextMenu: ['no-default-for-this'] };
         it('should use props passed in as just props', () => {

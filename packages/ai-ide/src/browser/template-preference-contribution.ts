@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { FrontendApplicationContribution, PreferenceService } from '@theia/core/lib/browser';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { DefaultPromptFragmentCustomizationService, PromptFragmentCustomizationProperties } from '@theia/ai-core/lib/browser/frontend-prompt-customization-service';
 import {
     PROMPT_TEMPLATE_WORKSPACE_DIRECTORIES_PREF,

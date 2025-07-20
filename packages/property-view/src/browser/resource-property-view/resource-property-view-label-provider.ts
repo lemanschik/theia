@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { codicon, LabelProvider, LabelProviderContribution, TreeNode } from '@theia/core/lib/browser';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { ResourcePropertiesCategoryNode, ResourcePropertiesItemNode } from './resource-property-view-tree-items';
 
 export const DEFAULT_INFO_ICON = codicon('info');

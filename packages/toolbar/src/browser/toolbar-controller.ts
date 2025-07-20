@@ -18,7 +18,7 @@ import { Command, CommandRegistry, ContributionProvider, Emitter, MaybePromise, 
 import { KeybindingRegistry, Widget } from '@theia/core/lib/browser';
 import { FrontendApplicationStateService } from '@theia/core/lib/browser/frontend-application-state';
 import { Deferred } from '@theia/core/lib/common/promise-util';
-import { injectable, inject, postConstruct, named } from '@theia/core/shared/inversify';
+import { injectable, inject, postConstruct, named } from 'inversify';
 import {
     DeflatedToolbarTree,
     ToolbarContribution,

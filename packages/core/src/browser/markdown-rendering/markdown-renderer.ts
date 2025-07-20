@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as DOMPurify from 'dompurify';
+import DOMPurify from 'dompurify';
 import { injectable, inject, postConstruct } from 'inversify';
 import { default as markdownit } from 'markdown-it';
 import { MarkdownString } from '../../common/markdown-rendering/markdown-string.js';

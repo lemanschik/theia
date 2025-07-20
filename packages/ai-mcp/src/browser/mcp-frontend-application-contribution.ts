@@ -15,10 +15,10 @@
 // *****************************************************************************
 
 import { FrontendApplicationContribution, PreferenceProvider, PreferenceService } from '@theia/core/lib/browser';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { MCPServerDescription, MCPServerManager } from '../common';
 import { MCP_SERVERS_PREF } from './mcp-preferences';
-import { JSONObject } from '@theia/core/shared/@lumino/coreutils';
+import { JSONObject } from '@lumino/coreutils';
 import { MCPFrontendService } from '../common/mcp-server-manager';
 
 interface BaseMCPServerPreferenceValue {

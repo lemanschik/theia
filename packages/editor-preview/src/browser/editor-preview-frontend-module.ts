@@ -16,7 +16,7 @@
 
 import '../../src/browser/style/index.css';
 import { FrontendApplicationContribution, KeybindingContribution, WidgetFactory } from '@theia/core/lib/browser';
-import { ContainerModule } from '@theia/core/shared/inversify';
+import { ContainerModule } from 'inversify';
 import { bindEditorPreviewPreferences } from './editor-preview-preferences';
 import { EditorPreviewManager } from './editor-preview-manager';
 import { EditorManager } from '@theia/editor/lib/browser';

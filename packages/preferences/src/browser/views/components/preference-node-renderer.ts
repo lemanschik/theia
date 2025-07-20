@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable, inject, postConstruct } from '@theia/core/shared/inversify';
+import { injectable, inject, postConstruct } from 'inversify';
 import {
     PreferenceService, ContextMenuRenderer, PreferenceInspection,
     PreferenceScope, PreferenceProvider, codicon, OpenerService, open, PreferenceDataProperty
@@ -23,11 +23,11 @@ import { Preference, PreferenceMenus } from '../../util/preference-types';
 import { PreferenceTreeLabelProvider } from '../../util/preference-tree-label-provider';
 import { PreferencesScopeTabBar } from '../preference-scope-tabbar-widget';
 import { Disposable, nls } from '@theia/core/lib/common';
-import { JSONValue } from '@theia/core/shared/@lumino/coreutils';
-import debounce from '@theia/core/shared/lodash.debounce';
+import { JSONValue } from '@lumino/coreutils';
+import debounce from 'lodash.debounce';
 import { PreferenceTreeModel } from '../../preference-tree-model';
 import { PreferencesSearchbarWidget } from '../preference-searchbar-widget';
-import * as DOMPurify from '@theia/core/shared/dompurify';
+import DOMPurify from 'dompurify';
 import URI from '@theia/core/lib/common/uri';
 import { PreferenceMarkdownRenderer } from './preference-markdown-renderer';
 

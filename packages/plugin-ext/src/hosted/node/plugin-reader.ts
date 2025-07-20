@@ -14,12 +14,12 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as path from 'path';
+import path from 'path';
 import { default as express } from 'express';
-import * as escape_html from 'escape-html';
+import escape_html from 'escape-html';
 import { realpath } from 'fs/promises';
 import { ILogger } from '@theia/core';
-import { inject, injectable, optional, multiInject } from '@theia/core/shared/inversify';
+import { inject, injectable, optional, multiInject } from 'inversify';
 import { BackendApplicationContribution } from '@theia/core/lib/node/backend-application';
 import { PluginMetadata, getPluginId, MetadataProcessor, PluginPackage, PluginContribution } from '../../common/plugin-protocol';
 import { MetadataScanner } from './metadata-scanner';

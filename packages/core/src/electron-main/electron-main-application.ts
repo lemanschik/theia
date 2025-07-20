@@ -22,7 +22,7 @@ import {
     screen, app, BrowserWindow, WebContents, Event as ElectronEvent, BrowserWindowConstructorOptions, nativeImage,
     nativeTheme, shell, dialog,
 } from 'electron';
-import * as path from 'path';
+import path from 'path';
 import { Argv } from 'yargs';
 import { AddressInfo } from 'net';
 import { promises as fs } from 'fs';

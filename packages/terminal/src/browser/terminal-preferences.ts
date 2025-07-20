@@ -16,7 +16,7 @@
 
 /* eslint-disable max-len */
 
-import { interfaces } from '@theia/core/shared/inversify';
+import { interfaces } from 'inversify';
 import { IJSONSchema } from '@theia/core/lib/common/json-schema';
 import { createPreferenceProxy, PreferenceProxy, PreferenceService, PreferenceContribution, PreferenceSchema, PreferenceSchemaProperties } from '@theia/core/lib/browser';
 import { nls } from '@theia/core/lib/common/nls';

@@ -18,7 +18,7 @@ import { ChatRequest, MutableChatModel } from '@theia/ai-chat';
 import { AIChatInputConfiguration, AIChatInputWidget } from '@theia/ai-chat-ui/lib/browser/chat-input-widget';
 import { CHAT_VIEW_LANGUAGE_EXTENSION } from '@theia/ai-chat-ui/lib/browser/chat-view-language-contribution';
 import { generateUuid, URI } from '@theia/core';
-import { inject, injectable, optional, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, optional, postConstruct } from 'inversify';
 
 export const AskAIInputConfiguration = Symbol('AskAIInputConfiguration');
 export interface AskAIInputConfiguration extends AIChatInputConfiguration { }

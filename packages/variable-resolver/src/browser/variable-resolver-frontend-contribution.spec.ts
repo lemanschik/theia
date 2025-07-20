@@ -21,8 +21,8 @@ let disableJSDOM = enableJSDOM();
 import { FrontendApplicationConfigProvider } from '@theia/core/lib/browser/frontend-application-config-provider';
 FrontendApplicationConfigProvider.set({});
 
-import * as chai from 'chai';
-import { Container, ContainerModule } from '@theia/core/shared/inversify';
+import chai from 'chai';
+import { Container, ContainerModule } from 'inversify';
 import { ILogger, bindContributionProvider } from '@theia/core/lib/common';
 import { MockLogger } from '@theia/core/lib/common/test/mock-logger';
 import { VariableContribution, VariableRegistry } from './variable';

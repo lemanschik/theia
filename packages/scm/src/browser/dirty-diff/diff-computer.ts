@@ -14,9 +14,9 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as jsdiff from 'diff';
+import jsdiff from 'diff';
 import { ContentLinesArrayLike } from './content-lines';
-import { Position, Range, uinteger } from '@theia/core/shared/vscode-languageserver-protocol';
+import { Position, Range, uinteger } from 'vscode-languageserver-protocol';
 
 export class DiffComputer {
 

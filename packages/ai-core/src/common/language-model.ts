@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { ContributionProvider, ILogger, isFunction, isObject, Event, Emitter, CancellationToken } from '@theia/core';
-import { inject, injectable, named, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, named, postConstruct } from 'inversify';
 
 export type MessageActor = 'user' | 'ai' | 'system';
 

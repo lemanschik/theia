@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { Position, Range, Location } from '@theia/core/shared/vscode-languageserver-protocol';
-import * as lsp from '@theia/core/shared/vscode-languageserver-protocol';
+import { Position, Range, Location } from 'vscode-languageserver-protocol';
+import lsp from 'vscode-languageserver-protocol';
 import URI from '@theia/core/lib/common/uri';
 import { Event, Disposable, TextDocumentContentChangeDelta, Reference, isObject } from '@theia/core/lib/common';
 import { Saveable, Navigatable, Widget } from '@theia/core/lib/browser';

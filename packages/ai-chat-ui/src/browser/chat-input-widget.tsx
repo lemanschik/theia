@@ -24,8 +24,8 @@ import { AgentCompletionNotificationService, FrontendVariableService, AIActivati
 import { DisposableCollection, Emitter, InMemoryResources, URI, nls } from '@theia/core';
 import { ContextMenuRenderer, LabelProvider, Message, OpenerService, ReactWidget } from '@theia/core/lib/browser';
 import { Deferred } from '@theia/core/lib/common/promise-util';
-import { inject, injectable, optional, postConstruct } from '@theia/core/shared/inversify';
-import * as React from 'react';
+import { inject, injectable, optional, postConstruct } from 'inversify';
+import React from 'react';
 import { IMouseEvent, Range } from '@theia/monaco-editor-core';
 import { MonacoEditorProvider } from '@theia/monaco/lib/browser/monaco-editor-provider';
 import { SimpleMonacoEditor } from '@theia/monaco/lib/browser/simple-monaco-editor';

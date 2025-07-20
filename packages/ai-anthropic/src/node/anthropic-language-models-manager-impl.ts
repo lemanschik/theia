@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { LanguageModelRegistry, TokenUsageService } from '@theia/ai-core';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { AnthropicModel, DEFAULT_MAX_TOKENS } from './anthropic-language-model';
 import { AnthropicLanguageModelsManager, AnthropicModelDescription } from '../common';
 

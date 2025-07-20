@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable, inject, postConstruct } from '@theia/core/shared/inversify';
+import { injectable, inject, postConstruct } from 'inversify';
 import {
     TreeWidget,
     TreeNode,
@@ -28,10 +28,10 @@ import {
     codicon
 } from '@theia/core/lib/browser';
 import { OutlineViewTreeModel } from './outline-view-tree-model';
-import { Message } from '@theia/core/shared/@lumino/messaging';
+import { Message } from '@lumino/messaging';
 import { Emitter, Event, isObject, Mutable, UriSelection } from '@theia/core';
-import * as React from 'react';
-import { Range } from '@theia/core/shared/vscode-languageserver-protocol';
+import React from 'react';
+import { Range } from 'vscode-languageserver-protocol';
 import URI from '@theia/core/lib/common/uri';
 import { nls } from '@theia/core/lib/common/nls';
 

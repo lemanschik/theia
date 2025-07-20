@@ -16,15 +16,15 @@
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, postConstruct } from 'inversify';
 import { Emitter, Event } from '@theia/core/lib/common/event';
 import { isOSX, isWindows } from '@theia/core/lib/common/os';
-import { URI } from '@theia/core/shared/vscode-uri';
+import { URI } from 'vscode-uri';
 import { ResourceMap } from '@theia/monaco-editor-core/esm/vs/base/common/map';
 import { IConfigurationOverrides } from '@theia/monaco-editor-core/esm/vs/platform/configuration/common/configuration';
 import { Configuration, ConfigurationModel, ConfigurationModelParser } from '@theia/monaco-editor-core/esm/vs/platform/configuration/common/configurationModels';
 import { Workspace, WorkspaceFolder } from '@theia/monaco-editor-core/esm/vs/platform/workspace/common/workspace';
-import * as theia from '@theia/plugin';
+import theia from '@theia/plugin';
 import { generateUuid } from '@theia/core/lib/common/uuid';
 import {
     PLUGIN_RPC_CONTEXT, PreferenceChangeExt, PreferenceData, PreferenceRegistryExt,

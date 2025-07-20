@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { LanguageModelRegistry } from '@theia/ai-core';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { HuggingFaceModel } from './huggingface-language-model';
 import { HuggingFaceLanguageModelsManager, HuggingFaceModelDescription } from '../common';
 

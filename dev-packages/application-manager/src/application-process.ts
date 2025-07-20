@@ -14,9 +14,9 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as path from 'path';
-import * as fs from 'fs-extra';
-import * as cp from 'child_process';
+import path from 'path';
+import fs from 'fs-extra';
+import cp from 'child_process';
 import { ApplicationPackage } from '@theia/application-package';
 
 export class ApplicationProcess {

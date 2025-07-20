@@ -32,11 +32,11 @@ import { ScmProvider, ScmResource, ScmResourceDecorations, ScmResourceGroup, Scm
 import { ScmRepository } from '@theia/scm/lib/browser/scm-repository';
 import { ScmService } from '@theia/scm/lib/browser/scm-service';
 import { RPCProtocol } from '../../common/rpc-protocol';
-import { interfaces } from '@theia/core/shared/inversify';
+import { interfaces } from 'inversify';
 import { Emitter, Event } from '@theia/core/lib/common/event';
 import { DisposableCollection } from '@theia/core/lib/common/disposable';
 import URI from '@theia/core/lib/common/uri';
-import { URI as vscodeURI } from '@theia/core/shared/vscode-uri';
+import { URI as vscodeURI } from 'vscode-uri';
 import { Splice } from '../../common/arrays';
 import { UriComponents } from '../../common/uri-components';
 import { ColorRegistry } from '@theia/core/lib/browser/color-registry';

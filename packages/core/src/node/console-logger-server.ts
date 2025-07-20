@@ -20,7 +20,7 @@ import { LogLevelCliContribution } from './logger-cli-contribution';
 import { ILoggerServer, ILoggerClient, ConsoleLogger, rootLoggerName } from '../common/logger-protocol';
 import { format } from 'util';
 import { EOL } from 'os';
-import * as fs from 'fs';
+import fs from 'fs';
 
 @injectable()
 export class ConsoleLoggerServer implements ILoggerServer {

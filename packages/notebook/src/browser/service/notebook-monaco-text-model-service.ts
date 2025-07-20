@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { URI, Reference, Event, Emitter } from '@theia/core';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { MonacoTextModelService, MonacoEditorModelFilter } from '@theia/monaco/lib/browser/monaco-text-model-service';
 import { MonacoEditorModel } from '@theia/monaco/lib/browser/monaco-editor-model';
 import { NotebookModel } from '../view-model/notebook-model';

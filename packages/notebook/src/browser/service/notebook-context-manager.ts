@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { ContextKeyChangeEvent, ContextKeyService, ContextMatcher, ScopedValueStore } from '@theia/core/lib/browser/context-key-service';
 import { DisposableCollection } from '@theia/core';
 import { NotebookKernelService } from './notebook-kernel-service';

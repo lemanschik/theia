@@ -15,9 +15,9 @@
 // *****************************************************************************
 
 import { Key, KeyCode } from '@theia/core/lib/browser';
-import * as React from 'react';
+import React from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
-import debounce from '@theia/core/shared/lodash.debounce';
+import debounce from 'lodash.debounce';
 
 interface HistoryState {
     history: string[];

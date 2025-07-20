@@ -16,7 +16,7 @@
 
 import { Terminal } from 'xterm';
 import { FitAddon } from 'xterm-addon-fit';
-import { inject, injectable, named, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, named, postConstruct } from 'inversify';
 import { ContributionProvider, Disposable, Event, Emitter, ILogger, DisposableCollection, Channel, OS, generateUuid } from '@theia/core';
 import {
     Widget, Message, StatefulWidget, isFirefox, MessageLoop, KeyCode, ExtractableWidget, ContextMenuRenderer,

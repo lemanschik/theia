@@ -15,7 +15,7 @@
 // *****************************************************************************
 import '../../src/browser/style/index.css';
 
-import { ContainerModule } from '@theia/core/shared/inversify';
+import { ContainerModule } from 'inversify';
 import {
     FrontendApplicationContribution, KeybindingContribution, LabelProviderContribution, OpenHandler, UndoRedoHandler, WidgetFactory, WidgetStatusBarContribution
 } from '@theia/core/lib/browser';

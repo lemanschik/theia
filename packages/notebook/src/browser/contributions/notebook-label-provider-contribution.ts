@@ -15,12 +15,12 @@
 // *****************************************************************************
 
 import { codicon, LabelProvider, LabelProviderContribution } from '@theia/core/lib/browser';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { CellKind, CellUri } from '../../common';
 import { NotebookService } from '../service/notebook-service';
 import { NotebookCellOutlineNode } from './notebook-outline-contribution';
 import type Token = require('markdown-it/lib/token');
-import markdownit from '@theia/core/shared/markdown-it';
+import markdownit from 'markdown-it';
 import { NotebookCellModel } from '../view-model/notebook-cell-model';
 import { URI } from '@theia/core';
 

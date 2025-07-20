@@ -17,7 +17,7 @@
 import { ColorContribution } from '@theia/core/lib/browser/color-application-contribution';
 import { ColorRegistry } from '@theia/core/lib/browser/color-registry';
 import { Color } from '@theia/core/lib/common/color';
-import { injectable } from '@theia/core/shared/inversify';
+import { injectable } from 'inversify';
 
 @injectable()
 export class NotebookColorContribution implements ColorContribution {

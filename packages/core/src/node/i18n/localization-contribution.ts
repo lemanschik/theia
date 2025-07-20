@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as fs from 'fs-extra';
+import fs from 'fs-extra';
 import { inject, injectable, named } from 'inversify';
 import { ContributionProvider, isObject } from '../../common';
 import { LanguageInfo, Localization } from '../../common/i18n/localization';

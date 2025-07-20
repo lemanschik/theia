@@ -14,11 +14,11 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { URI } from '@theia/core/shared/vscode-uri';
-import * as theia from '@theia/plugin';
+import { URI } from 'vscode-uri';
+import theia from '@theia/plugin';
 import { DocumentsExtImpl } from '../documents';
 import { CodeLensSymbol } from '../../common/plugin-api-rpc-model';
-import * as Converter from '../type-converters';
+import Converter from '../type-converters';
 import { ObjectIdentifier } from '../../common/object-identifier';
 import { CommandRegistryImpl } from '../command-registry';
 import { DisposableCollection } from '@theia/core/lib/common/disposable';

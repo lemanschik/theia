@@ -20,15 +20,15 @@
 
 // copied and modified from https://github.com/microsoft/vscode/blob/1.65.0/src/vs/workbench/api/common/extHostLanguageFeatures.ts#L1178-L1288
 
-import * as theia from '@theia/plugin';
-import * as Converter from '../type-converters';
+import theia from '@theia/plugin';
+import Converter from '../type-converters';
 import { Cache } from '../../common/cache';
 import { ChainedCacheId, InlayHint, InlayHintLabelPart, Range } from '../../common/plugin-api-rpc-model';
 import { CommandRegistryImpl } from '../command-registry';
 import { DisposableCollection } from '@theia/core/lib/common/disposable';
 import { DocumentsExtImpl } from '../documents';
 import { InlayHintDto, InlayHintsDto } from '../../common';
-import { URI } from '@theia/core/shared/vscode-uri';
+import { URI } from 'vscode-uri';
 import { isLocationArray } from './util';
 
 export class InlayHintsAdapter {

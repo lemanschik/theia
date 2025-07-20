@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as crypto from 'crypto';
-import * as fs from 'fs-extra';
+import crypto from 'crypto';
+import fs from 'fs-extra';
 
 export async function hashFile(filePath: string): Promise<Buffer> {
     return new Promise((resolve, reject) => {

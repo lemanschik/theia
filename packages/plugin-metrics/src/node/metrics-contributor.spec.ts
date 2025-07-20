@@ -16,10 +16,10 @@
 
 import { AnalyticsFromRequests } from '../common/plugin-metrics-types';
 import { PluginMetricsContributor } from './metrics-contributor';
-import { Container, ContainerModule } from '@theia/core/shared/inversify';
+import { Container, ContainerModule } from 'inversify';
 import { PluginMetricsImpl } from './plugin-metrics-impl';
 import { PluginMetrics } from '../common/metrics-protocol';
-import * as assert from 'assert';
+import assert from 'assert';
 
 describe('Metrics contributor:', () => {
     let testContainer: Container;

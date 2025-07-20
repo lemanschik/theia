@@ -16,7 +16,7 @@
 
 import { nls, CommandRegistry, deepClone } from '@theia/core/lib/common';
 import { JsonSchemaContribution, JsonSchemaDataStore, JsonSchemaRegisterContext } from '@theia/core/lib/browser/json-schema-store';
-import { injectable, inject, postConstruct } from '@theia/core/shared/inversify';
+import { injectable, inject, postConstruct } from 'inversify';
 import URI from '@theia/core/lib/common/uri';
 import { IJSONSchema } from '@theia/core/lib/common/json-schema';
 

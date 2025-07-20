@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import '@theia/core/shared/reflect-metadata';
-import { ContainerModule } from '@theia/core/shared/inversify';
+import 'reflect-metadata';
+import { ContainerModule } from 'inversify';
 import { RPCProtocol, RPCProtocolImpl } from '../../common/rpc-protocol';
 import { AbstractPluginHostRPC, PluginHostRPC, PluginContainerModuleLoader } from './plugin-host-rpc';
 import { AbstractPluginManagerExtImpl, MinimalTerminalServiceExt, PluginManagerExtImpl } from '../../plugin/plugin-manager';

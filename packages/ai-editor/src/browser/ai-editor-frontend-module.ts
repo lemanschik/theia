@@ -17,7 +17,7 @@
 import { AIVariableContribution } from '@theia/ai-core';
 import { FrontendApplicationContribution, KeybindingContribution } from '@theia/core/lib/browser';
 import { CommandContribution, MenuContribution } from '@theia/core/lib/common';
-import { ContainerModule } from '@theia/core/shared/inversify';
+import { ContainerModule } from 'inversify';
 import '../../style/ask-ai-input.css';
 import { AICodeActionProvider } from './ai-code-action-provider';
 import { AiEditorCommandContribution } from './ai-editor-command-contribution';

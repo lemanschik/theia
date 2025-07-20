@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable, inject, postConstruct } from '@theia/core/shared/inversify';
+import { injectable, inject, postConstruct } from 'inversify';
 import {
     PLUGIN_RPC_CONTEXT,
     AbstractPluginManagerExt,
@@ -33,8 +33,8 @@ import {
     ExtensionKind
 } from '../common/plugin-api-rpc';
 import { PluginMetadata, PluginJsonValidationContribution } from '../common/plugin-protocol';
-import * as theia from '@theia/plugin';
-import * as types from './types-impl';
+import theia from '@theia/plugin';
+import types from './types-impl';
 import { join } from './path';
 import { EnvExtImpl } from './env';
 import { PreferenceRegistryExtImpl } from './preference-registry';

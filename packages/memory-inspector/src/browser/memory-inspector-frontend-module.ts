@@ -21,7 +21,7 @@ import { bindContributionProvider } from '@theia/core';
 import { bindViewContribution, FrontendApplicationContribution, WidgetFactory } from '@theia/core/lib/browser';
 import { ColorContribution } from '@theia/core/lib/browser/color-application-contribution';
 import { TabBarToolbarContribution } from '@theia/core/lib/browser/shell/tab-bar-toolbar';
-import { ContainerModule } from '@theia/core/shared/inversify';
+import { ContainerModule } from 'inversify';
 import { DebugFrontendContribution } from './memory-inspector-frontend-contribution';
 import { MemoryDiffOptionsWidget } from './diff-widget/memory-diff-options-widget';
 import { MemoryDiffSelectWidget } from './diff-widget/memory-diff-select-widget';

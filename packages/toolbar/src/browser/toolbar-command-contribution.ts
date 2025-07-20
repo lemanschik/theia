@@ -31,7 +31,7 @@ import {
     PreferenceService,
     Widget,
 } from '@theia/core/lib/browser';
-import { injectable, inject, interfaces, Container } from '@theia/core/shared/inversify';
+import { injectable, inject, interfaces, Container } from 'inversify';
 import { ToolbarImpl } from './toolbar';
 import { bindToolbarIconDialog } from './toolbar-icon-selector-dialog';
 import {

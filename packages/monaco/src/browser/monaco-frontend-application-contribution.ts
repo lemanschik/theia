@@ -14,10 +14,10 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable, inject, postConstruct } from '@theia/core/shared/inversify';
+import { injectable, inject, postConstruct } from 'inversify';
 import { ColorTheme, CssStyleCollector, FrontendApplicationContribution, PreferenceSchemaProvider, QuickAccessRegistry, StylingParticipant } from '@theia/core/lib/browser';
 import { MonacoSnippetSuggestProvider } from './monaco-snippet-suggest-provider';
-import * as monaco from '@theia/monaco-editor-core';
+import monaco from '@theia/monaco-editor-core';
 import { setSnippetSuggestSupport } from '@theia/monaco-editor-core/esm/vs/editor/contrib/suggest/browser/suggest';
 import { CompletionItemProvider } from '@theia/monaco-editor-core/esm/vs/editor/common/languages';
 import { MonacoTextModelService } from './monaco-text-model-service';

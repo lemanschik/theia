@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as React from 'react';
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
+import React from 'react';
+import { inject, injectable, postConstruct } from 'inversify';
 import { ReactWidget, Message, Widget, codicon } from '@theia/core/lib/browser';
 import { VSXExtension, VSXExtensionEditorComponent } from './vsx-extension';
 import { VSXExtensionsModel } from './vsx-extensions-model';

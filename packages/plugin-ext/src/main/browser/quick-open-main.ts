@@ -16,7 +16,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { InputBoxOptions } from '@theia/plugin';
-import { interfaces } from '@theia/core/shared/inversify';
+import { interfaces } from 'inversify';
 import { RPCProtocol } from '../../common/rpc-protocol';
 import {
     QuickOpenExt,

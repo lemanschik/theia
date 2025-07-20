@@ -15,8 +15,8 @@
 // *****************************************************************************
 
 import debounce from 'p-debounce';
-import { injectable, inject, postConstruct, interfaces, Container } from '@theia/core/shared/inversify';
-import * as monaco from '@theia/monaco-editor-core';
+import { injectable, inject, postConstruct, interfaces, Container } from 'inversify';
+import monaco from '@theia/monaco-editor-core';
 import { StandaloneCodeEditor } from '@theia/monaco-editor-core/esm/vs/editor/standalone/browser/standaloneCodeEditor';
 import { IDecorationOptions } from '@theia/monaco-editor-core/esm/vs/editor/common/editorCommon';
 import URI from '@theia/core/lib/common/uri';

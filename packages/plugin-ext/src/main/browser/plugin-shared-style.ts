@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, postConstruct } from 'inversify';
 import { Disposable, DisposableCollection } from '@theia/core/lib/common/disposable';
 import { ThemeService } from '@theia/core/lib/browser/theming';
 import { Theme } from '@theia/core/lib/common/theme';

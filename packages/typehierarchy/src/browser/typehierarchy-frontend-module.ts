@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 import { bindContributionProvider } from '@theia/core/lib/common';
-import { ContainerModule } from '@theia/core/shared/inversify';
+import { ContainerModule } from 'inversify';
 import { WidgetFactory } from '@theia/core/lib/browser/widget-manager';
 import { bindViewContribution } from '@theia/core/lib/browser/shell/view-contribution';
 import { TypeHierarchyRegistry } from './typehierarchy-provider';

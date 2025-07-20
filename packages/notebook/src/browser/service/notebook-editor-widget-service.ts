@@ -20,7 +20,7 @@
  *--------------------------------------------------------------------------------------------*/
 
 import { Emitter } from '@theia/core';
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, postConstruct } from 'inversify';
 import { ApplicationShell } from '@theia/core/lib/browser';
 import { NotebookEditorWidget } from '../notebook-editor-widget';
 import { ContextKeyService } from '@theia/core/lib/browser/context-key-service';

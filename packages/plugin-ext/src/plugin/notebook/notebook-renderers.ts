@@ -21,7 +21,7 @@
 import { NotebookRenderersExt, NotebookRenderersMain, PLUGIN_RPC_CONTEXT } from '../../common';
 import { RPCProtocol } from '../../common/rpc-protocol';
 import { NotebooksExtImpl } from './notebooks';
-import * as theia from '@theia/plugin';
+import theia from '@theia/plugin';
 import { NotebookEditor } from './notebook-editor';
 import { Emitter } from '@theia/core';
 

@@ -14,10 +14,10 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as React from 'react';
+import React from 'react';
 import { createRoot, Root } from 'react-dom/client';
-import { injectable, interfaces, inject, postConstruct } from '@theia/core/shared/inversify';
-import debounce from '@theia/core/shared/lodash.debounce';
+import { injectable, interfaces, inject, postConstruct } from 'inversify';
+import debounce from 'lodash.debounce';
 import { ReactDialog } from '@theia/core/lib/browser/dialogs/react-dialog';
 import { DEFAULT_SCROLL_OPTIONS, Dialog, DialogProps, Message } from '@theia/core/lib/browser';
 import { Command, Disposable, nls } from '@theia/core';

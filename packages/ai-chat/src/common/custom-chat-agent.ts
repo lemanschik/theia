@@ -16,7 +16,7 @@
 
 import { LanguageModelRequirement } from '@theia/ai-core';
 import { AbstractStreamParsingChatAgent } from './chat-agents';
-import { injectable } from '@theia/core/shared/inversify';
+import { injectable } from 'inversify';
 
 @injectable()
 export class CustomChatAgent extends AbstractStreamParsingChatAgent {

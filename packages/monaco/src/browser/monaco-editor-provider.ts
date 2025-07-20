@@ -18,7 +18,7 @@
 import URI from '@theia/core/lib/common/uri';
 import { EditorPreferenceChange, EditorPreferences, TextEditor, DiffNavigator } from '@theia/editor/lib/browser';
 import { DiffUris } from '@theia/core/lib/browser/diff-uris';
-import { inject, injectable, named, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, named, postConstruct } from 'inversify';
 import { DisposableCollection, deepClone, Disposable, CancellationToken } from '@theia/core/lib/common';
 import { MonacoDiffEditor } from './monaco-diff-editor';
 import { MonacoDiffNavigatorFactory } from './monaco-diff-navigator-factory';
@@ -31,7 +31,7 @@ import { MonacoResolvedKeybinding } from './monaco-resolved-keybinding';
 import { HttpOpenHandlerOptions } from '@theia/core/lib/browser/http-open-handler';
 import { MonacoToProtocolConverter } from './monaco-to-protocol-converter';
 import { ProtocolToMonacoConverter } from './protocol-to-monaco-converter';
-import * as monaco from '@theia/monaco-editor-core';
+import monaco from '@theia/monaco-editor-core';
 import { StandaloneServices } from '@theia/monaco-editor-core/esm/vs/editor/standalone/browser/standaloneServices';
 import { IOpenerService, OpenExternalOptions, OpenInternalOptions } from '@theia/monaco-editor-core/esm/vs/platform/opener/common/opener';
 import { IKeybindingService } from '@theia/monaco-editor-core/esm/vs/platform/keybinding/common/keybinding';

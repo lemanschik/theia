@@ -14,9 +14,9 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable, inject, postConstruct } from '@theia/core/shared/inversify';
+import { injectable, inject, postConstruct } from 'inversify';
 import { ReactWidget } from '@theia/core/lib/browser/widgets/react-widget';
-import * as React from 'react';
+import React from 'react';
 import '../../../src/browser/style/terminal-search.css';
 import { Terminal } from 'xterm';
 import { SearchAddon, ISearchOptions } from 'xterm-addon-search';

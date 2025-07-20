@@ -29,8 +29,8 @@ import {
 } from '@theia/ai-core/lib/common';
 import { codicon, QuickInputService, ReactWidget } from '@theia/core/lib/browser';
 import { URI } from '@theia/core/lib/common';
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
-import * as React from 'react';
+import { inject, injectable, postConstruct } from 'inversify';
+import React from 'react';
 import { AIConfigurationSelectionService } from './ai-configuration-service';
 import { LanguageModelRenderer } from './language-model-renderer';
 import { AIVariableConfigurationWidget } from './variable-configuration-widget';

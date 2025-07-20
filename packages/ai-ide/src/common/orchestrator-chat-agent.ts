@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { getJsonOfText, getTextOfResponse, LanguageModel, LanguageModelMessage, LanguageModelRequirement, LanguageModelResponse } from '@theia/ai-core';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { ChatAgentService } from '@theia/ai-chat/lib/common/chat-agent-service';
 import { ChatToolRequest } from '@theia/ai-chat/lib/common/chat-tool-request-service';
 import { AbstractStreamParsingChatAgent } from '@theia/ai-chat/lib/common/chat-agents';

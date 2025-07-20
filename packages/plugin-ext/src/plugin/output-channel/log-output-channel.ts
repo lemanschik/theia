@@ -15,8 +15,8 @@
 // *****************************************************************************
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { Emitter } from '@theia/core/shared/vscode-languageserver-protocol';
-import * as theia from '@theia/plugin';
+import { Emitter } from 'vscode-languageserver-protocol';
+import theia from '@theia/plugin';
 
 import { OutputChannelRegistryMain, PluginInfo } from '../../common/plugin-api-rpc';
 import { OutputChannelImpl } from './output-channel-item';

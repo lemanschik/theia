@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { CommandContribution } from '@theia/core';
-import { ContainerModule } from '@theia/core/shared/inversify';
+import { ContainerModule } from 'inversify';
 import { MCPCommandContribution } from './mcp-command-contribution';
 import { FrontendApplicationContribution, PreferenceContribution, RemoteConnectionProvider, ServiceConnectionProvider } from '@theia/core/lib/browser';
 import { MCPFrontendService, MCPServerManager, MCPServerManagerPath, MCPFrontendNotificationService } from '../common/mcp-server-manager';

@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { FrontendApplicationContribution, PreferenceService } from '@theia/core/lib/browser';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { OpenAiLanguageModelsManager, OpenAiModelDescription, OPENAI_PROVIDER_ID } from '../common';
 import { API_KEY_PREF, CUSTOM_ENDPOINTS_PREF, MODELS_PREF } from './openai-preferences';
 import { AICorePreferences, PREFERENCE_NAME_MAX_RETRIES } from '@theia/ai-core/lib/browser/ai-core-preferences';

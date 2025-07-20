@@ -17,7 +17,7 @@
 import { MenuPath } from '@theia/core';
 import { SHELL_TABBAR_CONTEXT_MENU } from '@theia/core/lib/browser';
 import { Navigatable } from '@theia/core/lib/browser/navigatable';
-import { URI as CodeUri } from '@theia/core/shared/vscode-uri';
+import { URI as CodeUri } from 'vscode-uri';
 import { DebugStackFramesWidget } from '@theia/debug/lib/browser/view/debug-stack-frames-widget';
 import { DebugThreadsWidget } from '@theia/debug/lib/browser/view/debug-threads-widget';
 import { DebugToolBar } from '@theia/debug/lib/browser/view/debug-toolbar-widget';

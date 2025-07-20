@@ -13,8 +13,8 @@
 //
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
-import '@theia/core/shared/reflect-metadata';
-import { Container } from '@theia/core/shared/inversify';
+import 'reflect-metadata';
+import { Container } from 'inversify';
 import { ConnectionClosedError, RPCProtocol } from '../../common/rpc-protocol';
 import { ProcessTerminatedMessage, ProcessTerminateMessage } from './hosted-plugin-protocol';
 import { PluginHostRPC } from './plugin-host-rpc';

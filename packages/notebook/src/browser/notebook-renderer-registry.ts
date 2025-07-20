@@ -19,7 +19,7 @@
  *--------------------------------------------------------------------------------------------*/
 
 import { Disposable, Path } from '@theia/core';
-import { injectable } from '@theia/core/shared/inversify';
+import { injectable } from 'inversify';
 import { NotebookRendererDescriptor } from '../common/notebook-protocol';
 
 export interface NotebookRendererInfo {

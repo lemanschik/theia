@@ -16,7 +16,7 @@
 
 import { Command, CommandRegistry, CommandService, nls } from '@theia/core';
 import { QuickCommandService, QuickInputService, QuickPickItem } from '@theia/core/lib/browser';
-import { injectable, inject } from '@theia/core/shared/inversify';
+import { injectable, inject } from 'inversify';
 import { ToolbarIconDialogFactory } from './toolbar-icon-selector-dialog';
 import { ToolbarAlignment, ToolbarAlignmentString } from './toolbar-interfaces';
 import { ToolbarController } from './toolbar-controller';

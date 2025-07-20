@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable, inject, optional } from '@theia/core/shared/inversify';
-import { Position, Location } from '@theia/core/shared/vscode-languageserver-protocol';
+import { injectable, inject, optional } from 'inversify';
+import { Position, Location } from 'vscode-languageserver-protocol';
 import { CommandContribution, CommandRegistry, CommandHandler } from '@theia/core/lib/common/command';
 import { CommonCommands, QuickInputService, ApplicationShell } from '@theia/core/lib/browser';
 import { EditorCommands, EditorManager, EditorWidget } from '@theia/editor/lib/browser';
@@ -25,7 +25,7 @@ import { ProtocolToMonacoConverter } from './protocol-to-monaco-converter';
 import { nls } from '@theia/core/lib/common/nls';
 import { EditorExtensionsRegistry } from '@theia/monaco-editor-core/esm/vs/editor/browser/editorExtensions';
 import { CommandsRegistry, ICommandService } from '@theia/monaco-editor-core/esm/vs/platform/commands/common/commands';
-import * as monaco from '@theia/monaco-editor-core';
+import monaco from '@theia/monaco-editor-core';
 import { EndOfLineSequence } from '@theia/monaco-editor-core/esm/vs/editor/common/model';
 import { StandaloneServices } from '@theia/monaco-editor-core/esm/vs/editor/standalone/browser/standaloneServices';
 import { IInstantiationService } from '@theia/monaco-editor-core/esm/vs/platform/instantiation/common/instantiation';

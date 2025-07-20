@@ -20,7 +20,7 @@
  *--------------------------------------------------------------------------------------------*/
 // code copied and modified from https://github.com/microsoft/vscode/blob/1.47.3/src/vs/workbench/api/browser/mainThreadAuthentication.ts
 
-import { interfaces } from '@theia/core/shared/inversify';
+import { interfaces } from 'inversify';
 import { AuthenticationExt, AuthenticationMain, MAIN_RPC_CONTEXT } from '../../common/plugin-api-rpc';
 import { RPCProtocol } from '../../common/rpc-protocol';
 import { MessageService } from '@theia/core/lib/common/message-service';
@@ -34,7 +34,7 @@ import {
     readAllowedExtensions
 } from '@theia/core/lib/browser/authentication-service';
 import { QuickPickService } from '@theia/core/lib/common/quick-pick-service';
-import * as theia from '@theia/plugin';
+import theia from '@theia/plugin';
 import { QuickPickValue } from '@theia/core/lib/browser/quick-input/quick-input-service';
 import { nls } from '@theia/core/lib/common/nls';
 import { isObject } from '@theia/core';

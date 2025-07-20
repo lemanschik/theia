@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as paths from 'path';
+import paths from 'path';
 import { readJsonFile, writeJsonFile } from './json-file';
 import { NpmRegistry, NodePackage, PublishedNodePackage, sortByKey } from './npm-registry';
 import { Extension, ExtensionPackage, ExtensionPackageOptions, RawExtensionPackage } from './extension-package';

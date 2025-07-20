@@ -14,12 +14,12 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, postConstruct } from 'inversify';
 import { ILanguageService } from '@theia/monaco-editor-core/esm/vs/editor/common/languages/language';
 import { MarkdownRenderer as CodeMarkdownRenderer, IMarkdownRendererOptions }
     from '@theia/monaco-editor-core/esm/vs/editor/browser/widget/markdownRenderer/browser/markdownRenderer';
 import { StandaloneServices } from '@theia/monaco-editor-core/esm/vs/editor/standalone/browser/standaloneServices';
-import * as monaco from '@theia/monaco-editor-core';
+import monaco from '@theia/monaco-editor-core';
 import { OpenerService, PreferenceService, WidgetOpenerOptions, open } from '@theia/core/lib/browser';
 import { IOpenerService, OpenExternalOptions, OpenInternalOptions } from '@theia/monaco-editor-core/esm/vs/platform/opener/common/opener';
 import { HttpOpenHandlerOptions } from '@theia/core/lib/browser/http-open-handler';

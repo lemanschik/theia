@@ -18,8 +18,8 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import * as React from 'react';
-import { inject, injectable, interfaces } from '@theia/core/shared/inversify';
+import React from 'react';
+import { inject, injectable, interfaces } from 'inversify';
 import { generateUuid } from '@theia/core/lib/common/uuid';
 import {
     NotebookRendererMessagingService, CellOutputWebview, NotebookRendererRegistry,

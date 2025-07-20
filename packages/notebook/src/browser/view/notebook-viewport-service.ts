@@ -15,8 +15,8 @@
 // *****************************************************************************
 
 import { Disposable } from '@theia/core';
-import { injectable } from '@theia/core/shared/inversify';
-import { Emitter } from '@theia/core/shared/vscode-languageserver-protocol';
+import { injectable } from 'inversify';
+import { Emitter } from 'vscode-languageserver-protocol';
 
 /**
  * this service is for managing the viewport and scroll state of a notebook editor.

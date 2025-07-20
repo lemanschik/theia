@@ -13,10 +13,10 @@
 //
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { ChatRequestInvocation, ChatResponseContent, ChatResponseModel } from '@theia/ai-chat';
 import { ChatResponsePartRenderer } from '../chat-response-part-renderer';
-import * as React from 'react';
+import React from 'react';
 import { DelegationResponseContent, isDelegationResponseContent } from '@theia/ai-chat/lib/browser/delegation-response-content';
 import { ResponseNode } from '../chat-tree-view';
 import { CompositeTreeNode } from '@theia/core/lib/browser';

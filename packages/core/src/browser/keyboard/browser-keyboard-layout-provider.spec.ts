@@ -20,9 +20,9 @@ let disableJSDOM = enableJSDOM();
 
 import { Container, injectable } from 'inversify';
 import type { IMacKeyboardLayoutInfo } from 'native-keymap';
-import * as chai from 'chai';
-import * as sinon from 'sinon';
-import * as os from '../../common/os';
+import chai from 'chai';
+import sinon from 'sinon';
+import os from '../../common/os';
 import { ILogger, Loggable } from '../../common/logger';
 import { LocalStorageService } from '../storage-service';
 import { MessageService } from '../../common/message-service';

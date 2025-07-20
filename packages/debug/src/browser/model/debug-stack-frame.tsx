@@ -20,7 +20,7 @@
  *--------------------------------------------------------------------------------------------*/
 // Based on https://github.com/theia-ide/vscode/blob/standalone/0.19.x/src/vs/workbench/contrib/debug/common/debugModel.ts
 
-import * as React from 'react';
+import React from 'react';
 import { WidgetOpenerOptions, DISABLED_CLASS } from '@theia/core/lib/browser';
 import { EditorWidget, Range, Position } from '@theia/editor/lib/browser';
 import { DebugProtocol } from '@vscode/debugprotocol/lib/debugProtocol';
@@ -30,7 +30,7 @@ import { DebugSource } from './debug-source';
 import { RecursivePartial } from '@theia/core';
 import { DebugSession } from '../debug-session';
 import { DebugThread } from './debug-thread';
-import * as monaco from '@theia/monaco-editor-core';
+import monaco from '@theia/monaco-editor-core';
 
 export class DebugStackFrameData {
     readonly raw: DebugProtocol.StackFrame;

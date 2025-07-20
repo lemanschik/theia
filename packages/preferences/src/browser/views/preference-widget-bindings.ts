@@ -15,7 +15,7 @@
 // *****************************************************************************
 import { createTreeContainer, LabelProviderContribution, WidgetFactory } from '@theia/core/lib/browser';
 import { bindContributionProvider } from '@theia/core/lib/common/contribution-provider';
-import { Container, interfaces } from '@theia/core/shared/inversify';
+import { Container, interfaces } from 'inversify';
 import { PreferenceTreeModel } from '../preference-tree-model';
 import { PreferenceTreeLabelProvider } from '../util/preference-tree-label-provider';
 import { Preference } from '../util/preference-types';

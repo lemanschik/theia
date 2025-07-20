@@ -16,8 +16,8 @@
 
 /* eslint-disable no-null/no-null */
 
-import { URI as Uri } from '@theia/core/shared/vscode-uri';
-import { injectable, inject, postConstruct } from '@theia/core/shared/inversify';
+import { URI as Uri } from 'vscode-uri';
+import { injectable, inject, postConstruct } from 'inversify';
 import URI from '@theia/core/lib/common/uri';
 import { Emitter } from '@theia/core/lib/common/event';
 import { FileSystemPreferences } from '@theia/filesystem/lib/browser';
@@ -29,7 +29,7 @@ import { ProblemManager } from '@theia/markers/lib/browser';
 import { ArrayUtils } from '@theia/core/lib/common/types';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
 import { FileSystemProviderCapabilities } from '@theia/filesystem/lib/common/files';
-import * as monaco from '@theia/monaco-editor-core';
+import monaco from '@theia/monaco-editor-core';
 import {
     IBulkEditOptions,
     IBulkEditResult, ResourceEdit, ResourceFileEdit as MonacoResourceFileEdit,

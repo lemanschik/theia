@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { FrontendApplicationContribution } from '@theia/core/lib/browser';
-import { inject, injectable, named } from '@theia/core/shared/inversify';
+import { inject, injectable, named } from 'inversify';
 import { Agent } from '../common';
 import { AgentService } from '../common/agent-service';
 import { ContributionProvider } from '@theia/core/lib/common/contribution-provider';

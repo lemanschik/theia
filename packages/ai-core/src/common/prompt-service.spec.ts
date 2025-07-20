@@ -24,7 +24,7 @@ import { ToolInvocationRegistry } from './tool-invocation-registry';
 import { ToolRequest } from './language-model';
 import { MockLogger } from '@theia/core/lib/common/test/mock-logger';
 import { ILogger, Logger } from '@theia/core';
-import * as sinon from 'sinon';
+import sinon from 'sinon';
 
 describe('PromptService', () => {
     let promptService: PromptService;

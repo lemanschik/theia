@@ -17,7 +17,7 @@ import { CommandService, deepClone, Emitter, Event, MessageService, URI } from '
 import { ChatRequest, ChatRequestModel, ChatService, ChatSession, isActiveSessionChangedEvent, MutableChatModel } from '@theia/ai-chat';
 import { BaseWidget, codicon, ExtractableWidget, Message, PanelLayout, PreferenceService, StatefulWidget } from '@theia/core/lib/browser';
 import { nls } from '@theia/core/lib/common/nls';
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, postConstruct } from 'inversify';
 import { AIChatInputWidget } from './chat-input-widget';
 import { ChatViewTreeWidget } from './chat-tree-view/chat-view-tree-widget';
 import { AIActivationService } from '@theia/ai-core/lib/browser/ai-activation-service';

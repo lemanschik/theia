@@ -21,7 +21,7 @@
 
 /* eslint-disable no-null/no-null */
 
-import * as iconv from 'iconv-lite';
+import iconv from 'iconv-lite';
 import { Buffer } from 'safer-buffer';
 import { injectable } from 'inversify';
 import { BinaryBuffer, BinaryBufferReadableStream, BinaryBufferReadable } from './buffer';

@@ -17,8 +17,8 @@
 import { FrontendApplicationContribution } from '@theia/core/lib/browser';
 import { CommandService } from '@theia/core/lib/common/command';
 import { DisposableCollection } from '@theia/core/lib/common/disposable';
-import { inject, injectable } from '@theia/core/shared/inversify';
-import * as monaco from '@theia/monaco-editor-core';
+import { inject, injectable } from 'inversify';
+import monaco from '@theia/monaco-editor-core';
 import { MonacoEditorService } from '@theia/monaco/lib/browser/monaco-editor-service';
 import { AIActivationService } from '@theia/ai-core/lib/browser/ai-activation-service';
 

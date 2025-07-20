@@ -16,11 +16,11 @@
 
 import { TextEditorsExt, EditorChangedPropertiesData, TextEditorPositionData, TextEditorsMain, PLUGIN_RPC_CONTEXT } from '../common/plugin-api-rpc';
 import { RPCProtocol } from '../common/rpc-protocol';
-import * as theia from '@theia/plugin';
+import theia from '@theia/plugin';
 import { Emitter, Event } from '@theia/core/lib/common/event';
 import { EditorsAndDocumentsExtImpl } from './editors-and-documents';
 import { TextEditorExt } from './text-editor';
-import * as Converters from './type-converters';
+import Converters from './type-converters';
 import { TextEditorSelectionChangeKind, URI } from './types-impl';
 import { IdGenerator } from '../common/id-generator';
 

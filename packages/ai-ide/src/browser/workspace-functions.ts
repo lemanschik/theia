@@ -15,7 +15,7 @@
 // *****************************************************************************
 import { ToolProvider, ToolRequest } from '@theia/ai-core';
 import { Disposable, URI } from '@theia/core';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
 import { FileStat } from '@theia/filesystem/lib/common/files';
 import { WorkspaceService } from '@theia/workspace/lib/browser';
@@ -31,7 +31,7 @@ import { CONSIDER_GITIGNORE_PREF, USER_EXCLUDE_PATTERN_PREF } from './workspace-
 import { MonacoWorkspace } from '@theia/monaco/lib/browser/monaco-workspace';
 import { MonacoTextModelService } from '@theia/monaco/lib/browser/monaco-text-model-service';
 import { ProblemManager } from '@theia/markers/lib/browser';
-import { DiagnosticSeverity, Range } from '@theia/core/shared/vscode-languageserver-protocol';
+import { DiagnosticSeverity, Range } from 'vscode-languageserver-protocol';
 
 @injectable()
 export class WorkspaceFunctionScope {

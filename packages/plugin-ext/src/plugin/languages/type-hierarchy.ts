@@ -14,14 +14,14 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { URI } from '@theia/core/shared/vscode-uri';
-import * as theia from '@theia/plugin';
+import { URI } from 'vscode-uri';
+import theia from '@theia/plugin';
 import { IdGenerator } from '../../common/id-generator';
-import * as rpc from '../../common/plugin-api-rpc';
-import * as model from '../../common/plugin-api-rpc-model';
+import rpc from '../../common/plugin-api-rpc';
+import model from '../../common/plugin-api-rpc-model';
 import { DocumentsExtImpl } from '../documents';
 import { fromRange, SymbolKind } from '../type-converters';
-import * as types from '../types-impl';
+import types from '../types-impl';
 
 export class TypeHierarchyAdapter {
 

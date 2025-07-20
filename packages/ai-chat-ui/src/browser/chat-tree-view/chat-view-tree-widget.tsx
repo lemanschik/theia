@@ -53,8 +53,8 @@ import {
     named,
     optional,
     postConstruct
-} from '@theia/core/shared/inversify';
-import * as React from 'react';
+} from 'inversify';
+import React from 'react';
 import { ChatNodeToolbarActionContribution } from '../chat-node-toolbar-action-contribution';
 import { ChatResponsePartRenderer } from '../chat-response-part-renderer';
 import { useMarkdownRendering } from '../chat-response-renderer/markdown-part-renderer';

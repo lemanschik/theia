@@ -15,11 +15,11 @@
 // *****************************************************************************
 
 import { PluginDebugAdapterCreator } from '../../debug/plugin-debug-adapter-creator';
-import * as path from 'path';
-import * as theia from '@theia/plugin';
+import path from 'path';
+import theia from '@theia/plugin';
 import { PlatformSpecificAdapterContribution, PluginPackageDebuggersContribution } from '../../../common';
 import { isWindows, isOSX } from '@theia/core/lib/common/os';
-import * as net from 'net';
+import net from 'net';
 import { ChildProcess, spawn, fork, ForkOptions } from 'child_process';
 import { DebugAdapter } from '@theia/debug/lib/common/debug-model';
 import { DebugAdapterExecutable, DebugAdapterInlineImplementation, DebugAdapterNamedPipeServer, DebugAdapterServer } from '../../types-impl';

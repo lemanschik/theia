@@ -23,8 +23,8 @@
 /* eslint-disable @typescript-eslint/tslint/config */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { URI } from '@theia/core/shared/vscode-uri';
-import { interfaces } from '@theia/core/shared/inversify';
+import { URI } from 'vscode-uri';
+import { interfaces } from 'inversify';
 import CoreURI from '@theia/core/lib/common/uri';
 import { BinaryBuffer } from '@theia/core/lib/common/buffer';
 import { Disposable, DisposableCollection } from '@theia/core/lib/common/disposable';

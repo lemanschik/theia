@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { nls } from '@theia/core';
-import { interfaces } from '@theia/core/shared/inversify';
+import { interfaces } from 'inversify';
 import { LocalizationMain } from '../../common/plugin-api-rpc';
 import { LanguagePackBundle, LanguagePackService } from '../../common/language-pack-service';
 

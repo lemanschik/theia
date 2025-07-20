@@ -16,8 +16,8 @@
 
 import { Agent, AgentService, AIVariable, AIVariableService } from '@theia/ai-core/lib/common';
 import { codicon, ReactWidget } from '@theia/core/lib/browser';
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
-import * as React from 'react';
+import { inject, injectable, postConstruct } from 'inversify';
+import React from 'react';
 import { AIAgentConfigurationWidget } from './agent-configuration-widget';
 import { AIConfigurationSelectionService } from './ai-configuration-service';
 

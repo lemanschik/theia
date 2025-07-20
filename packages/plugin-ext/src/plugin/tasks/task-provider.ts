@@ -14,9 +14,9 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as theia from '@theia/plugin';
+import theia from '@theia/plugin';
 import { TaskDto } from '../../common';
-import * as Converter from '../type-converters';
+import Converter from '../type-converters';
 
 export class TaskProviderAdapter {
 

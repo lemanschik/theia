@@ -19,7 +19,7 @@
  *--------------------------------------------------------------------------------------------*/
 
 import { Disposable, DisposableCollection, Emitter, URI, generateUuid } from '@theia/core';
-import { inject, injectable } from '@theia/core/shared/inversify';
+import { inject, injectable } from 'inversify';
 import { NotebookService } from './notebook-service';
 import {
     CellEditType, CellExecuteOutputEdit, CellExecuteOutputItemEdit, CellExecutionUpdateType,

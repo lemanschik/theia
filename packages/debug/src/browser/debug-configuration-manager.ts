@@ -21,7 +21,7 @@
 
 import debounce from 'p-debounce';
 import { visit, parse } from 'jsonc-parser';
-import { inject, injectable, postConstruct } from '@theia/core/shared/inversify';
+import { inject, injectable, postConstruct } from 'inversify';
 import URI from '@theia/core/lib/common/uri';
 import { Emitter, Event, WaitUntilEvent } from '@theia/core/lib/common/event';
 import { EditorManager, EditorWidget } from '@theia/editor/lib/browser';
@@ -37,7 +37,7 @@ import { DebugConfiguration } from '../common/debug-common';
 import { WorkspaceVariableContribution } from '@theia/workspace/lib/browser/workspace-variable-contribution';
 import { PreferenceConfigurations } from '@theia/core/lib/browser/preferences/preference-configurations';
 import { MonacoTextModelService } from '@theia/monaco/lib/browser/monaco-text-model-service';
-import * as monaco from '@theia/monaco-editor-core';
+import monaco from '@theia/monaco-editor-core';
 import { ICommandService } from '@theia/monaco-editor-core/esm/vs/platform/commands/common/commands';
 import { StandaloneServices } from '@theia/monaco-editor-core/esm/vs/editor/standalone/browser/standaloneServices';
 import { nls } from '@theia/core';

@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { createTreeContainer, LabelProviderContribution, TreeProps } from '@theia/core/lib/browser';
-import { interfaces } from '@theia/core/shared/inversify';
+import { interfaces } from 'inversify';
 import { PropertyDataService } from '../property-data-service';
 import { PropertyViewWidgetProvider } from '../property-view-widget-provider';
 import { ResourcePropertyDataService } from './resource-property-data-service';

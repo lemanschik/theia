@@ -23,7 +23,7 @@
 
 import { URI } from '@theia/core';
 import { Severity } from '@theia/core/lib/common/severity';
-import { Diagnostic } from '@theia/core/shared/vscode-languageserver-protocol';
+import { Diagnostic } from 'vscode-languageserver-protocol';
 
 export enum ApplyToKind {
     allDocuments,

@@ -16,7 +16,7 @@
 
 import { EditorManager } from './editor-manager';
 import { EditorMouseEvent, MouseTargetType, Position, TextEditor } from './editor';
-import { injectable, inject } from '@theia/core/shared/inversify';
+import { injectable, inject } from 'inversify';
 import { FrontendApplicationContribution, ContextMenuRenderer } from '@theia/core/lib/browser';
 import { ContextKeyService } from '@theia/core/lib/browser/context-key-service';
 import { Disposable, DisposableCollection, MenuPath } from '@theia/core';

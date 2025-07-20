@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { injectable, inject, postConstruct } from '@theia/core/shared/inversify';
+import { injectable, inject, postConstruct } from 'inversify';
 import { LabelProvider, BreadcrumbsService, Widget, TreeNode, OpenerService, open, SelectableTreeNode, BreadcrumbsContribution, Breadcrumb } from '@theia/core/lib/browser';
 import URI from '@theia/core/lib/common/uri';
 import { OutlineViewService } from './outline-view-service';

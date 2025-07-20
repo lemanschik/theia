@@ -14,9 +14,9 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as os from 'os';
-import * as path from 'path';
-import * as chai from 'chai';
+import os from 'os';
+import path from 'path';
+import chai from 'chai';
 import { FileUri } from '../common/file-uri';
 import { isWindows } from '../common/os';
 
