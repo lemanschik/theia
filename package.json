@@ -38,7 +38,6 @@
     "eslint-plugin-no-unsanitized": "latest",
     "eslint-plugin-react": "^7.31.10",
     "glob": "^7.1.7",
-    "if-env": "^1.0.4",
     "ignore-styles": "^5.0.1",
     "jsdom": "^22.1.0",
     "lerna": "^7.1.1",
