@@ -16,8 +16,11 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 // @ts-check
-const path = require('path');
-const cp = require('child_process');
+import path from 'path';
+
+import cp from 'child_process';
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
 
 const patchPackage = require.resolve('patch-package');
 console.log(`patch-package = ${patchPackage}`);
@@ -33,5 +36,5 @@ const scriptProcess = cp.exec(`node "${patchPackage}" --patch-dir "${patchesDir}
     env
 });
 
-scriptProcess.stdout.pipe(process.stdout);
-scriptProcess.stderr.pipe(process.stderr);
+scriptProcess?.stdout?.pipe(process.stdout);
+scriptProcess?.stderr?.pipe(process.stderr);

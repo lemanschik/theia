@@ -23,6 +23,8 @@ import { WebpackGenerator, FrontendGenerator, BackendGenerator } from './generat
 import { ApplicationProcess } from './application-process.js';
 import { GeneratorOptions } from './generator/abstract-generator.js';
 import yargs from 'yargs';
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
 
 // Declare missing exports from `@types/semver@7`
 declare module 'semver' {

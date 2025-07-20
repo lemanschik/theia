@@ -18,6 +18,8 @@ import cp from 'child_process';
 import fs from 'fs-extra';
 import path from 'path';
 import os from 'os';
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
 
 export type RebuildTarget = 'electron' | 'browser' | 'browser-only';
 
@@ -342,7 +344,7 @@ async function throwIfSignal(token: ExitToken, cleanup?: () => Promise<void>): P
         try {
             await cleanup?.();
         } finally {
-             
+
             throw token.getLastSignal()!;
         }
     }
