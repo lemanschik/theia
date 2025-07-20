@@ -25,6 +25,7 @@ import { GeneratorOptions } from './generator/abstract-generator.js';
 import yargs from 'yargs';
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
+const __dirname = import.meta.dirname;
 
 // Declare missing exports from `@types/semver@7`
 declare module 'semver' {
