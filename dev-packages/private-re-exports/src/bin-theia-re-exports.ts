@@ -41,12 +41,12 @@ yargs
             const writer = new FileWriter(findEol(await readFile(packageReExports.resolvePath('package.json'))));
             await Promise.all(packageReExports.all.map(async reExport => {
                 const reExportPath = packageReExports.resolvePath(reExport.reExportDir, reExport.moduleName, 'index');
-                await writer.write(`${reExportPath}.js`, `module.exports = require('${reExport.internalImport}');\n`);
+                await writer.write(`${reExportPath}.js`, `export * from '${reExport.internalImport}';\n`);
                 if (reExport.reExportStyle === '*') {
                     const content = `export * from '${reExport.internalImport}';\n`;
                     await writer.write(`${reExportPath}.d.ts`, content);
                 } else if (reExport.reExportStyle === '=') {
-                    const content = `import ${reExport.exportNamespace} = require('${reExport.internalImport}');\nexport = ${reExport.exportNamespace};\n`;
+                    const content = `export * as ${reExport.exportNamespace} from '${reExport.internalImport}';`;
                     await writer.write(`${reExportPath}.d.ts`, content);
                 } else {
                     console.warn('unexpected re-export');

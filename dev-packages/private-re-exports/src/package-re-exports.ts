@@ -18,13 +18,14 @@ import * as cp from 'child_process';
 import * as fs from 'fs';
 import * as path from 'path';
 import { PackageJson, parseModule, ReExportJson } from './utility.js';
+import { createRequire } from 'module';
 
 export async function readJson<T = unknown>(jsonPath: string): Promise<T> {
     return JSON.parse(await fs.promises.readFile(jsonPath, 'utf8')) as T;
 }
-
+// TODO Find better method
 export async function readPackageJson(packageName: string, options?: { paths?: string[] }): Promise<[string, PackageJson]> {
-    const packageJsonPath = require.resolve(`${packageName}/package.json`, options);
+    const packageJsonPath = createRequire(import.meta.url).resolve(`${packageName}/package.json`, options);
     const packageJson = await readJson<PackageJson>(packageJsonPath);
     return [packageJsonPath, packageJson];
 }
