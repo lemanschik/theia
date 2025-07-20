@@ -20,8 +20,8 @@ import * as os from 'os';
 import * as path from 'path';
 import { glob } from 'glob';
 import { promisify } from 'util';
-import * as deepmerge from 'deepmerge';
-import { Localization, sortLocalization } from './common';
+import { default as deepmerge } from 'deepmerge';
+import { Localization, sortLocalization } from './common.js';
 
 const globPromise = promisify(glob);
 
