@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-
+// @ts-expect-error bad
 import puppeteer from 'puppeteer-core';
 const collectFiles: (options: TestFileOptions) => { files: string[] } = require('mocha/lib/cli/collect-files');
 
