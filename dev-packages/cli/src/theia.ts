@@ -29,7 +29,7 @@ import { LocalizationManager, extract } from '@theia/localization-manager';
 import { NodeRequestService } from '@theia/request/lib/node-request-service.js';
 import { ExtensionIdMatchesFilterFactory, OVSX_RATE_LIMIT, OVSXClient, OVSXHttpClient, OVSXRouterClient, RequestContainsFilterFactory } from '@theia/ovsx-client';
 
-const { executablePath } = require('puppeteer');
+import { executablePath } from 'puppeteer-core';
 
 process.on('unhandledRejection', (reason, promise) => {
     throw reason;
