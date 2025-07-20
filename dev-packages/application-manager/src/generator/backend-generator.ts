@@ -123,7 +123,7 @@ if ('ELECTRON_RUN_AS_NODE' in process.env) {
 
 const path = require('path');
 process.env.THEIA_APP_PROJECT_PATH = path.resolve(__dirname, '..', '..')
-const express = require('@theia/core/sharedexpress');
+const express = require('@theia/core/shared/express');
 const { Container } = require('@theia/core/shared/inversify');
 const { BackendApplication, BackendApplicationServer, CliManager } = require('@theia/core/lib/node');
 const { backendApplicationModule } = require('@theia/core/lib/node/backend-application-module');
