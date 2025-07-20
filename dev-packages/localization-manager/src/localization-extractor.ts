@@ -18,12 +18,9 @@ import fs from 'fs-extra';
 import ts from 'typescript';
 import os from 'os';
 import path from 'path';
-import { glob } from 'glob';
-import { promisify } from 'util';
+import { glob as globPromise } from 'glob11';
 import { default as deepmerge } from 'deepmerge';
 import { Localization, sortLocalization } from './common.js';
-
-const globPromise = promisify(glob);
 
 export interface ExtractionOptions {
     root?: string
@@ -374,7 +371,7 @@ function followReference(node: ts.Identifier): ts.Expression | undefined {
 }
 
 function collectScope(node: ts.Node, map: Map<string, ts.Expression> = new Map()): Map<string, ts.Expression> {
-     
+
     const locals = (node as any)['locals'] as Map<string, ts.Symbol>;
     if (locals) {
         for (const [key, value] of locals.entries()) {
