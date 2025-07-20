@@ -19,7 +19,7 @@ import fs from 'fs-extra';
 import os from 'os';
 import path from 'path';
 import unzipper from 'unzipper';
-import * as ffmpeg from './ffmpeg';
+import * as ffmpeg from './ffmpeg.js';
 import { hashFile } from './hash';
 
 export async function replaceFfmpeg(options: ffmpeg.FfmpegOptions = {}): Promise<void> {

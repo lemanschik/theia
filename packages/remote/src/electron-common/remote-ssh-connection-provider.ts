@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import SshConfig from 'ssh-config';
+import type * as SshConfig from 'ssh-config';
 
 export const RemoteSSHConnectionProviderPath = '/remote/ssh';
 

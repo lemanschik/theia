@@ -85,7 +85,7 @@ export class RemoteSSHContribution extends AbstractRemoteRegistryContribution {
                 const rec: Record<string, string | string[]> = ((record.config)
                     .filter((entry): entry is Directive => entry.type === SSHConfig.DIRECTIVE))
                     .reduce(
-                        (pv, item) => ({ ...pv, [item.param.toLowerCase()]: item.value }), { 'host': record.value }
+                        (pv, item: Directive) => ({ ...pv, [item.param.toLowerCase()]: item.value }), { 'host': record.value }
                     );
                 const host = (rec.hostname || rec.host) + ':' + (rec.port || '22');
                 const user = rec.user || 'root';

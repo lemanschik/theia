@@ -18,8 +18,8 @@ import { CallHierarchyIncomingCall, CallHierarchyItem, CallHierarchyOutgoingCall
 import languageProtocol from 'vscode-languageserver-protocol';
 import { URI } from 'vscode-uri';
 import { TypeHierarchyItem } from '@theia/typehierarchy/lib/browser';
-import rpc from '../../../common/plugin-api-rpc';
-import model from '../../../common/plugin-api-rpc-model';
+import * as rpc from '../../../common/plugin-api-rpc';
+import * as model from '../../../common/plugin-api-rpc-model';
 import { UriComponents } from '../../../common/uri-components';
 
 export function toUriComponents(uri: string): UriComponents {

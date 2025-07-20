@@ -31,7 +31,7 @@ import { ApplicationShell } from './shell/application-shell';
 import { SHELL_TABBAR_CONTEXT_CLOSE, SHELL_TABBAR_CONTEXT_COPY, SHELL_TABBAR_CONTEXT_PIN, SHELL_TABBAR_CONTEXT_SPLIT } from './shell/tab-bars';
 import { AboutDialog } from './about-dialog';
 import * as browser from './browser';
-import * as URI from '../common/uri';
+import URI from '../common/uri.js';
 import { ContextKey, ContextKeyService } from './context-key-service';
 import { OS, isOSX, isWindows, EOL } from '../common/os';
 import { ResourceContextKey } from './resource-context-key';

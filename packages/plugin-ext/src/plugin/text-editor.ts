@@ -21,7 +21,7 @@ import { DocumentDataExt } from './document-data';
 import { readonly, illegalArgument } from '../common/errors';
 import { TextEditorCursorStyle } from '../common/editor-options';
 import { ok } from '../common/assert';
-import Converter from './type-converters';
+import * as Converter from './type-converters';
 
 export class TextEditorExt implements theia.TextEditor {
     private _viewColumn: theia.ViewColumn | undefined;
