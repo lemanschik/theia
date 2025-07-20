@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable no-null/no-null, @typescript-eslint/no-explicit-any */
+/* eslint-disable no-null/no-null */
 
 import React from 'react';
 import { injectable, inject, postConstruct } from 'inversify';
@@ -22,11 +22,11 @@ import URI from '@theia/core/lib/common/uri';
 import { isOSX } from '@theia/core/lib/common/os';
 import { DisposableCollection, Disposable } from '@theia/core/lib/common/disposable';
 import { TreeWidget, TreeNode, SelectableTreeNode, TreeModel, TreeProps, NodeProps, TREE_NODE_SEGMENT_CLASS, TREE_NODE_SEGMENT_GROW_CLASS } from '@theia/core/lib/browser/tree';
-import { ScmTreeModel, ScmFileChangeRootNode, ScmFileChangeGroupNode, ScmFileChangeFolderNode, ScmFileChangeNode } from './scm-tree-model';
+import { ScmTreeModel, ScmFileChangeRootNode, ScmFileChangeGroupNode, ScmFileChangeFolderNode, ScmFileChangeNode } from './scm-tree-model.js';
 import { MenuModelRegistry, CompoundMenuNode, MenuPath, CommandMenu } from '@theia/core/lib/common/menu';
-import { ScmResource } from './scm-provider';
+import { ScmResource } from './scm-provider.js';
 import { ContextMenuRenderer, LabelProvider, CorePreferences, DiffUris, ACTION_ITEM } from '@theia/core/lib/browser';
-import { ScmContextKeyService } from './scm-context-key-service';
+import { ScmContextKeyService } from './scm-context-key-service.js';
 import { EditorWidget, EditorManager, DiffNavigatorProvider } from '@theia/editor/lib/browser';
 import { IconThemeService } from '@theia/core/lib/browser/icon-theme-service';
 import { ColorRegistry } from '@theia/core/lib/browser/color-registry';

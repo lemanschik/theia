@@ -16,36 +16,36 @@
 
 import { injectable, inject, postConstruct } from 'inversify';
 import { Message } from '@lumino/messaging';
-import { Disposable, MenuPath, SelectionService, Event as TheiaEvent, Emitter } from '../../common';
-import { Key, KeyCode, KeyModifier } from '../keyboard/keys';
-import { ContextMenuRenderer } from '../context-menu-renderer';
-import { StatefulWidget } from '../shell';
+import { Disposable, MenuPath, SelectionService, Event as TheiaEvent, Emitter } from '../../common/index.js';
+import { Key, KeyCode, KeyModifier } from '../keyboard/keys.js';
+import { ContextMenuRenderer } from '../context-menu-renderer.js';
+import { StatefulWidget } from '../shell/index.js';
 import {
     EXPANSION_TOGGLE_CLASS, SELECTED_CLASS, COLLAPSED_CLASS, FOCUS_CLASS, BUSY_CLASS, CODICON_TREE_ITEM_CLASSES, CODICON_LOADING_CLASSES, Widget, UnsafeWidgetUtilities,
     addEventListener
-} from '../widgets';
-import { TreeNode, CompositeTreeNode } from './tree';
-import { TreeModel } from './tree-model';
-import { ExpandableTreeNode } from './tree-expansion';
-import { SelectableTreeNode, TreeSelection } from './tree-selection';
-import { TreeDecoratorService, TreeDecoration, DecoratedTreeNode } from './tree-decorator';
-import { notEmpty } from '../../common/objects';
-import { isOSX } from '../../common/os';
-import { ReactWidget } from '../widgets/react-widget';
+} from '../widgets/index.js';
+import { TreeNode, CompositeTreeNode } from './tree.js';
+import { TreeModel } from './tree-model.js';
+import { ExpandableTreeNode } from './tree-expansion.js';
+import { SelectableTreeNode, TreeSelection } from './tree-selection.js';
+import { TreeDecoratorService, TreeDecoration, DecoratedTreeNode } from './tree-decorator.js';
+import { notEmpty } from '../../common/objects.js';
+import { isOSX } from '../../common/os.js';
+import { ReactWidget } from '../widgets/react-widget.js';
 import React from 'react';
 import { Virtuoso, VirtuosoHandle, VirtuosoProps } from 'react-virtuoso';
-import { TopDownTreeIterator } from './tree-iterator';
-import { SearchBox, SearchBoxFactory, SearchBoxProps } from './search-box';
-import { TreeSearch } from './tree-search';
+import { TopDownTreeIterator } from './tree-iterator.js';
+import { SearchBox, SearchBoxFactory, SearchBoxProps } from './search-box.js';
+import { TreeSearch } from './tree-search.js';
 import { ElementExt } from '@lumino/domutils';
-import { TreeWidgetSelection } from './tree-widget-selection';
-import { MaybePromise } from '../../common/types';
-import { LabelProvider } from '../label-provider';
-import { CorePreferences } from '../core-preferences';
-import { TreeFocusService } from './tree-focus-service';
+import { TreeWidgetSelection } from './tree-widget-selection.js';
+import { MaybePromise } from '../../common/types.js';
+import { LabelProvider } from '../label-provider.js';
+import { CorePreferences } from '../core-preferences.js';
+import { TreeFocusService } from './tree-focus-service.js';
 import { useEffect } from 'react';
-import { PreferenceService, PreferenceChange } from '../preferences';
-import { PREFERENCE_NAME_TREE_INDENT } from './tree-preference';
+import { PreferenceService, PreferenceChange } from '../preferences/index.js';
+import { PREFERENCE_NAME_TREE_INDENT } from './tree-preference.js';
 
 const debounce = require('lodash.debounce');
 
@@ -1260,7 +1260,7 @@ export class TreeWidget extends ReactWidget implements StatefulWidget {
         this.addKeyListener(this.node, Key.ENTER, event => this.handleEnter(event));
         this.addKeyListener(this.node, Key.SPACE, event => this.handleSpace(event));
         this.addKeyListener(this.node, Key.ESCAPE, event => this.handleEscape(event));
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         this.addEventListener<any>(this.node, 'ps-scroll-y', (e: Event & { target: { scrollTop: number } }) => {
             if (this.view && this.view.list) {
                 const { scrollTop } = e.target;
@@ -1474,7 +1474,7 @@ export class TreeWidget extends ReactWidget implements StatefulWidget {
      * Convert the tree node to context menu arguments.
      * @param node the selectable tree node.
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     protected toContextMenuArgs(node: SelectableTreeNode): any[] | undefined {
         return undefined;
     }
@@ -1508,7 +1508,7 @@ export class TreeWidget extends ReactWidget implements StatefulWidget {
      * @param node the tree node.
      */
     protected deflateForStorage(node: TreeNode): object {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         const copy = Object.assign({}, node) as any;
         if (copy.parent) {
             delete copy.parent;
@@ -1536,7 +1536,7 @@ export class TreeWidget extends ReactWidget implements StatefulWidget {
      * @param node the tree node.
      * @param parent the optional tree node.
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     protected inflateFromStorage(node: any, parent?: TreeNode): TreeNode {
         if (node.selected) {
             node.selected = false;
@@ -1577,7 +1577,7 @@ export class TreeWidget extends ReactWidget implements StatefulWidget {
      * @param oldState the old state object.
      */
     restoreState(oldState: object): void {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         const { root, decorations, model, focusedNodeId } = (oldState as any);
         if (root) {
             this.model.root = this.inflateFromStorage(root);
@@ -1675,7 +1675,7 @@ export namespace TreeWidget {
                         });
                     }
                 }}
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                 
                 onScroll={(e: any) => {
                     const scrollTop = e.target.scrollTop;
                     const scrollHeight = e.target.scrollHeight;

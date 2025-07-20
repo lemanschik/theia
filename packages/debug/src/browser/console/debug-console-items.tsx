@@ -18,7 +18,7 @@ import React from 'react';
 import { DebugProtocol } from '@vscode/debugprotocol/lib/debugProtocol';
 import { SingleTextInputDialog } from '@theia/core/lib/browser';
 import { ConsoleItem, CompositeConsoleItem } from '@theia/console/lib/browser/console-session';
-import { DebugSession } from '../debug-session';
+import { DebugSession } from '../debug-session.js';
 import { Severity } from '@theia/core/lib/common/severity';
 import monaco from '@theia/monaco-editor-core';
 import { nls } from '@theia/core';

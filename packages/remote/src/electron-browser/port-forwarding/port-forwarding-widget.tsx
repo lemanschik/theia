@@ -19,7 +19,7 @@ import { ReactNode } from 'react';
 import { OpenerService, ReactWidget } from '@theia/core/lib/browser';
 import { nls, URI } from '@theia/core';
 import { inject, injectable, postConstruct } from 'inversify';
-import { ForwardedPort, PortForwardingService } from './port-forwarding-service';
+import { ForwardedPort, PortForwardingService } from './port-forwarding-service.js';
 import { ClipboardService } from '@theia/core/lib/browser/clipboard-service';
 
 export const PORT_FORWARDING_WIDGET_ID = 'port-forwarding-widget';

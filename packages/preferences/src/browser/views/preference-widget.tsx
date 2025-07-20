@@ -16,11 +16,11 @@
 
 import { postConstruct, injectable, inject } from 'inversify';
 import { Panel, Widget, Message, StatefulWidget, PreferenceScope, codicon } from '@theia/core/lib/browser';
-import { PreferencesEditorState, PreferencesEditorWidget } from './preference-editor-widget';
-import { PreferencesTreeWidget } from './preference-tree-widget';
-import { PreferencesSearchbarState, PreferencesSearchbarWidget } from './preference-searchbar-widget';
-import { PreferencesScopeTabBar, PreferencesScopeTabBarState } from './preference-scope-tabbar-widget';
-import { Preference } from '../util/preference-types';
+import { PreferencesEditorState, PreferencesEditorWidget } from './preference-editor-widget.js';
+import { PreferencesTreeWidget } from './preference-tree-widget.js';
+import { PreferencesSearchbarState, PreferencesSearchbarWidget } from './preference-searchbar-widget.js';
+import { PreferencesScopeTabBar, PreferencesScopeTabBarState } from './preference-scope-tabbar-widget.js';
+import { Preference } from '../util/preference-types.js';
 import URI from '@theia/core/lib/common/uri';
 import { nls } from '@theia/core/lib/common/nls';
 

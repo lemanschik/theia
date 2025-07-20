@@ -15,8 +15,8 @@
 // *****************************************************************************
 
 import { injectable, inject, postConstruct } from 'inversify';
-import { TreeViewsExt, TreeViewItemCollapsibleState, TreeViewItem, TreeViewItemReference, ThemeIcon, DataTransferFileDTO } from '../../../common/plugin-api-rpc';
-import { Command } from '../../../common/plugin-api-rpc-model';
+import { TreeViewsExt, TreeViewItemCollapsibleState, TreeViewItem, TreeViewItemReference, ThemeIcon, DataTransferFileDTO } from '../../../common/plugin-api-rpc.js';
+import { Command } from '../../../common/plugin-api-rpc-model.js';
 import {
     TreeNode,
     NodeProps,
@@ -37,11 +37,11 @@ import {
 } from '@theia/core/lib/browser';
 import { MenuPath, MenuModelRegistry, CommandMenu, AcceleratorSource } from '@theia/core/lib/common/menu';
 import React from 'react';
-import { PluginSharedStyle } from '../plugin-shared-style';
+import { PluginSharedStyle } from '../plugin-shared-style.js';
 import { ACTION_ITEM, Widget } from '@theia/core/lib/browser/widgets/widget';
 import { Emitter, Event } from '@theia/core/lib/common/event';
 import { MessageService } from '@theia/core/lib/common/message-service';
-import { View } from '../../../common/plugin-protocol';
+import { View } from '../../../common/plugin-protocol.js';
 import { URI } from '@theia/core/lib/common/uri';
 import { ContextKeyService } from '@theia/core/lib/browser/context-key-service';
 import { MarkdownString } from '@theia/core/lib/common/markdown-rendering';
@@ -50,9 +50,9 @@ import { ColorRegistry } from '@theia/core/lib/browser/color-registry';
 import { DecoratedTreeNode } from '@theia/core/lib/browser/tree/tree-decorator';
 import { WidgetDecoration } from '@theia/core/lib/browser/widget-decoration';
 import { CancellationTokenSource, CancellationToken, Mutable } from '@theia/core/lib/common';
-import { mixin } from '../../../common/types';
+import { mixin } from '../../../common/types.js';
 import { Deferred } from '@theia/core/lib/common/promise-util';
-import { DnDFileContentStore } from './dnd-file-content-store';
+import { DnDFileContentStore } from './dnd-file-content-store.js';
 
 export const TREE_NODE_HYPERLINK = 'theia-TreeNodeHyperlink';
 export const VIEW_ITEM_CONTEXT_MENU: MenuPath = ['view-item-context-menu'];
@@ -69,7 +69,7 @@ export interface TreeViewNode extends SelectableTreeNode, DecoratedTreeNode {
     resourceUri?: string;
     themeIcon?: ThemeIcon;
     tooltip?: string | MarkdownString;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     description?: string | boolean | any;
     accessibilityInformation?: AccessibilityInformation;
 }
@@ -85,7 +85,7 @@ export class ResolvableTreeViewNode implements TreeViewNode {
     resourceUri?: string;
     themeIcon?: ThemeIcon;
     tooltip?: string | MarkdownString;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     description?: string | boolean | any;
     accessibilityInformation?: AccessibilityInformation;
     selected: boolean;
@@ -152,7 +152,7 @@ export class ResolvableCompositeTreeViewNode extends ResolvableTreeViewNode impl
 }
 
 export interface CompositeTreeViewNode extends TreeViewNode, ExpandableTreeNode, CompositeTreeNode {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     description?: string | boolean | any;
 }
 export namespace CompositeTreeViewNode {
@@ -798,7 +798,7 @@ export class TreeViewWidget extends TreeViewWelcomeWidget {
         return result;
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     protected renderInlineCommand(actionMenuNode: CommandMenu, index: number, tabbable: boolean, args: any[]): React.ReactNode {
         const nodePath = [...VIEW_ITEM_INLINE_MENU, actionMenuNode.id];
         if (!actionMenuNode.icon || !actionMenuNode.isVisible(nodePath, this.contextKeys, undefined)) {

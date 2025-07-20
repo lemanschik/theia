@@ -21,16 +21,16 @@ import { CancellationTokenSource } from '@theia/core/lib/common/cancellation';
 import { Message } from '@lumino/messaging';
 import { Virtuoso, VirtuosoHandle } from 'react-virtuoso';
 import URI from '@theia/core/lib/common/uri';
-import { ScmFileChange, ScmFileChangeNode } from '../scm-file-change-node';
+import { ScmFileChange, ScmFileChangeNode } from '../scm-file-change-node.js';
 import { ScmAvatarService } from '@theia/scm/lib/browser/scm-avatar-service';
-import { ScmItemComponent, ScmNavigableListWidget } from '../scm-navigable-list-widget';
+import { ScmItemComponent, ScmNavigableListWidget } from '../scm-navigable-list-widget.js';
 import React from 'react';
 import { AlertMessage } from '@theia/core/lib/browser/widgets/alert-message';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
 import { nls } from '@theia/core/lib/common/nls';
-import { ScmHistoryProvider } from './scm-history-provider';
+import { ScmHistoryProvider } from './scm-history-provider.js';
 import throttle from 'lodash.throttle';
-import { HistoryWidgetOptions, ScmCommitNode, ScmHistoryListNode, ScmHistorySupport, SCM_HISTORY_ID, SCM_HISTORY_LABEL, SCM_HISTORY_MAX_COUNT } from './scm-history-constants';
+import { HistoryWidgetOptions, ScmCommitNode, ScmHistoryListNode, ScmHistorySupport, SCM_HISTORY_ID, SCM_HISTORY_LABEL, SCM_HISTORY_MAX_COUNT } from './scm-history-constants.js';
 export { HistoryWidgetOptions, ScmCommitNode, ScmHistoryListNode, ScmHistorySupport };
 
 @injectable()
@@ -142,7 +142,7 @@ export class ScmHistoryWidget extends ScmNavigableListWidget<ScmHistoryListNode>
     protected override onAfterAttach(msg: Message): void {
         super.onAfterAttach(msg);
         this.addListNavigationKeyListeners(this.node);
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         this.addEventListener<any>(this.node, 'ps-scroll-y', (e: Event & { target: { scrollTop: number } }) => {
             if (this.listView?.list) {
                 const { scrollTop } = e.target;
@@ -275,7 +275,7 @@ export class ScmHistoryWidget extends ScmNavigableListWidget<ScmHistoryListNode>
         };
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     restoreState(oldState: any): void {
         this.options = oldState['options'];
         this.options.maxCount = SCM_HISTORY_MAX_COUNT;

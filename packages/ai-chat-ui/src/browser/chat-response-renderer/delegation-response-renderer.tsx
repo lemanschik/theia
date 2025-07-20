@@ -15,12 +15,12 @@
 // *****************************************************************************
 import { inject, injectable } from 'inversify';
 import { ChatRequestInvocation, ChatResponseContent, ChatResponseModel } from '@theia/ai-chat';
-import { ChatResponsePartRenderer } from '../chat-response-part-renderer';
+import { ChatResponsePartRenderer } from '../chat-response-part-renderer.js';
 import React from 'react';
 import { DelegationResponseContent, isDelegationResponseContent } from '@theia/ai-chat/lib/browser/delegation-response-content';
-import { ResponseNode } from '../chat-tree-view';
+import { ResponseNode } from '../chat-tree-view/index.js';
 import { CompositeTreeNode } from '@theia/core/lib/browser';
-import { SubChatWidgetFactory } from '../chat-tree-view/sub-chat-widget';
+import { SubChatWidgetFactory } from '../chat-tree-view/sub-chat-widget.js';
 import { DisposableCollection } from '@theia/core';
 
 @injectable()

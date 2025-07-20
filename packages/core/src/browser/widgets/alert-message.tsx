@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import React from 'react';
-import { codicon } from './widget';
+import { codicon } from './widget.js';
 
 export type MessageType = keyof AlertMessageIcon;
 

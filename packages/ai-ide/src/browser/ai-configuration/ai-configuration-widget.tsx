@@ -17,14 +17,14 @@
 import { BaseWidget, BoxLayout, codicon, DockPanel, WidgetManager } from '@theia/core/lib/browser';
 import { TheiaDockPanel } from '@theia/core/lib/browser/shell/theia-dock-panel';
 import { inject, injectable, postConstruct } from 'inversify';
-import { AIAgentConfigurationWidget } from './agent-configuration-widget';
-import { AIVariableConfigurationWidget } from './variable-configuration-widget';
-import { AIToolsConfigurationWidget } from './tools-configuration-widget';
-import { AIConfigurationSelectionService } from './ai-configuration-service';
+import { AIAgentConfigurationWidget } from './agent-configuration-widget.js';
+import { AIVariableConfigurationWidget } from './variable-configuration-widget.js';
+import { AIToolsConfigurationWidget } from './tools-configuration-widget.js';
+import { AIConfigurationSelectionService } from './ai-configuration-service.js';
 import { nls } from '@theia/core';
-import { AIMCPConfigurationWidget } from './mcp-configuration-widget';
-import { AITokenUsageConfigurationWidget } from './token-usage-configuration-widget';
-import { AIPromptFragmentsConfigurationWidget } from './prompt-fragments-configuration-widget';
+import { AIMCPConfigurationWidget } from './mcp-configuration-widget.js';
+import { AITokenUsageConfigurationWidget } from './token-usage-configuration-widget.js';
+import { AIPromptFragmentsConfigurationWidget } from './prompt-fragments-configuration-widget.js';
 
 @injectable()
 export class AIConfigurationContainerWidget extends BaseWidget {

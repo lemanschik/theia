@@ -18,7 +18,7 @@ import { LanguageModelExchange } from '@theia/ai-core/lib/common/language-model-
 import { codicon, ReactWidget, StatefulWidget } from '@theia/core/lib/browser';
 import { inject, injectable, postConstruct } from 'inversify';
 import React from 'react';
-import { ExchangeCard } from './ai-history-exchange-card';
+import { ExchangeCard } from './ai-history-exchange-card.js';
 import { SelectComponent, SelectOption } from '@theia/core/lib/browser/widgets/select-component';
 import { deepClone, nls } from '@theia/core';
 

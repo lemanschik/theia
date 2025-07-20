@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable no-null/no-null, @typescript-eslint/no-explicit-any */
+/* eslint-disable no-null/no-null */
 
 import { Message } from '@lumino/messaging';
 import { injectable, inject, postConstruct } from 'inversify';
@@ -22,12 +22,12 @@ import { DisposableCollection } from '@theia/core/lib/common/disposable';
 import {
     BaseWidget, Widget, StatefulWidget, Panel, PanelLayout, MessageLoop, CompositeTreeNode, SelectableTreeNode, ApplicationShell, NavigatableWidget,
 } from '@theia/core/lib/browser';
-import { ScmCommitWidget } from './scm-commit-widget';
-import { ScmAmendWidget } from './scm-amend-widget';
-import { ScmNoRepositoryWidget } from './scm-no-repository-widget';
-import { ScmService } from './scm-service';
-import { ScmTreeWidget } from './scm-tree-widget';
-import { ScmPreferences } from './scm-preferences';
+import { ScmCommitWidget } from './scm-commit-widget.js';
+import { ScmAmendWidget } from './scm-amend-widget.js';
+import { ScmNoRepositoryWidget } from './scm-no-repository-widget.js';
+import { ScmService } from './scm-service.js';
+import { ScmTreeWidget } from './scm-tree-widget.js';
+import { ScmPreferences } from './scm-preferences.js';
 import { nls } from '@theia/core/lib/common/nls';
 
 @injectable()

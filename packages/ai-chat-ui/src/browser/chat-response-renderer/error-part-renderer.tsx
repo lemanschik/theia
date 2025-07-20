@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { ChatResponsePartRenderer } from '../chat-response-part-renderer';
+import { ChatResponsePartRenderer } from '../chat-response-part-renderer.js';
 import { injectable } from 'inversify';
 import { ChatResponseContent, ErrorChatResponseContent } from '@theia/ai-chat/lib/common';
 import { ReactNode } from 'react';

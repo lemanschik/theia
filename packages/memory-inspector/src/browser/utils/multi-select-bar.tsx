@@ -15,7 +15,7 @@
  ********************************************************************************/
 
 import React from 'react';
-import { MWLabel, MWLabelProps } from './memory-widget-components';
+import { MWLabel, MWLabelProps } from './memory-widget-components.js';
 
 export interface SingleSelectItemProps {
     id: string;

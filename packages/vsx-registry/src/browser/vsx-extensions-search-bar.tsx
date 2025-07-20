@@ -18,8 +18,8 @@ import React from 'react';
 import { injectable, postConstruct, inject } from 'inversify';
 import { ReactWidget, Message, codicon } from '@theia/core/lib/browser/widgets';
 import { PreferenceService } from '@theia/core/lib/browser';
-import { VSXExtensionsSearchModel } from './vsx-extensions-search-model';
-import { VSXExtensionsModel } from './vsx-extensions-model';
+import { VSXExtensionsSearchModel } from './vsx-extensions-search-model.js';
+import { VSXExtensionsModel } from './vsx-extensions-model.js';
 import { nls } from '@theia/core/lib/common/nls';
 
 @injectable()

@@ -20,12 +20,12 @@ import {
     CommentThread,
     CommentThreadState,
     CommentThreadCollapsibleState
-} from '../../../common/plugin-api-rpc-model';
-import { CommentGlyphWidget } from './comment-glyph-widget';
+} from '../../../common/plugin-api-rpc-model.js';
+import { CommentGlyphWidget } from './comment-glyph-widget.js';
 import { BaseWidget, DISABLED_CLASS } from '@theia/core/lib/browser';
 import React from 'react';
 import { MouseTargetType } from '@theia/editor/lib/browser';
-import { CommentsService } from './comments-service';
+import { CommentsService } from './comments-service.js';
 import {
     CommandMenu,
     CommandRegistry,
@@ -35,7 +35,7 @@ import {
     MenuModelRegistry,
     MenuPath
 } from '@theia/core/lib/common';
-import { CommentsContext } from './comments-context';
+import { CommentsContext } from './comments-context.js';
 import { RefObject } from 'react';
 import monaco from '@theia/monaco-editor-core';
 import { createRoot, Root } from 'react-dom/client';
@@ -376,7 +376,7 @@ export class CommentForm<P extends CommentForm.Props = CommentForm.Props> extend
     }
 
     private readonly onInput: (event: React.FormEvent) => void = (event: React.FormEvent) => {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         const value = (event.target as any).value;
         if (this.inputValue.length === 0 || value.length === 0) {
             this.props.commentsContext.commentIsEmpty.set(value.length === 0);
@@ -417,7 +417,7 @@ export class CommentForm<P extends CommentForm.Props = CommentForm.Props> extend
                         spellCheck={false}
                         placeholder={hasExistingComments ? 'Reply...' : 'Type a new comment'}
                         onInput={this.onInput}
-                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                         
                         onBlur={(event: any) => {
                             if (event.target.value.length > 0) {
                                 return;

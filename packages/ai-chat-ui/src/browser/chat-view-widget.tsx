@@ -18,8 +18,8 @@ import { ChatRequest, ChatRequestModel, ChatService, ChatSession, isActiveSessio
 import { BaseWidget, codicon, ExtractableWidget, Message, PanelLayout, PreferenceService, StatefulWidget } from '@theia/core/lib/browser';
 import { nls } from '@theia/core/lib/common/nls';
 import { inject, injectable, postConstruct } from 'inversify';
-import { AIChatInputWidget } from './chat-input-widget';
-import { ChatViewTreeWidget } from './chat-tree-view/chat-view-tree-widget';
+import { AIChatInputWidget } from './chat-input-widget.js';
+import { ChatViewTreeWidget } from './chat-tree-view/chat-view-tree-widget.js';
 import { AIActivationService } from '@theia/ai-core/lib/browser/ai-activation-service';
 import { AIVariableResolutionRequest } from '@theia/ai-core';
 import { ProgressBarFactory } from '@theia/core/lib/browser/progress-bar-factory';

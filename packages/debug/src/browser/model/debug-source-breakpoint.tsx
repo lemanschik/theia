@@ -21,9 +21,9 @@ import URI from '@theia/core/lib/common/uri';
 import { EditorWidget, Range } from '@theia/editor/lib/browser';
 import { TREE_NODE_INFO_CLASS, WidgetOpenerOptions } from '@theia/core/lib/browser';
 import { TreeElement } from '@theia/core/lib/browser/source-tree';
-import { SourceBreakpoint } from '../breakpoint/breakpoint-marker';
-import { DebugSource } from './debug-source';
-import { DebugBreakpoint, DebugBreakpointOptions, DebugBreakpointData, DebugBreakpointDecoration } from './debug-breakpoint';
+import { SourceBreakpoint } from '../breakpoint/breakpoint-marker.js';
+import { DebugSource } from './debug-source.js';
+import { DebugBreakpoint, DebugBreakpointOptions, DebugBreakpointData, DebugBreakpointDecoration } from './debug-breakpoint.js';
 
 export class DebugSourceBreakpointData extends DebugBreakpointData {
     readonly origins: SourceBreakpoint[];

@@ -26,9 +26,9 @@ import { Severity } from '@theia/core/lib/common/severity';
 import { inject, injectable, interfaces, postConstruct } from 'inversify';
 import React from 'react';
 import { SelectComponent, SelectOption } from '@theia/core/lib/browser/widgets/select-component';
-import { DebugSession } from '../debug-session';
-import { DebugSessionManager, DidChangeActiveDebugSession } from '../debug-session-manager';
-import { DebugConsoleSession, DebugConsoleSessionFactory } from './debug-console-session';
+import { DebugSession } from '../debug-session.js';
+import { DebugSessionManager, DidChangeActiveDebugSession } from '../debug-session-manager.js';
+import { DebugConsoleSession, DebugConsoleSessionFactory } from './debug-console-session.js';
 import { InMemoryResources } from '@theia/core';
 
 export type InDebugReplContextKey = ContextKey<boolean>;

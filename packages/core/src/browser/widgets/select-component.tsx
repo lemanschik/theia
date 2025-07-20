@@ -17,8 +17,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import DOMPurify from 'dompurify';
-import { codicon } from './widget';
-import { measureTextHeight, measureTextWidth } from '../browser';
+import { codicon } from './widget.js';
+import { measureTextHeight, measureTextWidth } from '../browser.js';
 
 import '../../../src/browser/style/select-component.css';
 
@@ -329,7 +329,7 @@ export class SelectComponent extends React.Component<SelectComponentProps, Selec
             const className = 'theia-select-component-description';
             if (markdown) {
                 descriptionNode = <div key="description" className={className}
-                    dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(description) }} />; // eslint-disable-line react/no-danger
+                    dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(description) }} />;  
             } else {
                 descriptionNode = <div key="description" className={className}>
                     {description}

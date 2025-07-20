@@ -55,11 +55,11 @@ import {
     postConstruct
 } from 'inversify';
 import React from 'react';
-import { ChatNodeToolbarActionContribution } from '../chat-node-toolbar-action-contribution';
-import { ChatResponsePartRenderer } from '../chat-response-part-renderer';
-import { useMarkdownRendering } from '../chat-response-renderer/markdown-part-renderer';
-import { ProgressMessage } from '../chat-progress-message';
-import { AIChatTreeInputFactory, type AIChatTreeInputWidget } from './chat-view-tree-input-widget';
+import { ChatNodeToolbarActionContribution } from '../chat-node-toolbar-action-contribution.js';
+import { ChatResponsePartRenderer } from '../chat-response-part-renderer.js';
+import { useMarkdownRendering } from '../chat-response-renderer/markdown-part-renderer.js';
+import { ProgressMessage } from '../chat-progress-message.js';
+import { AIChatTreeInputFactory, type AIChatTreeInputWidget } from './chat-view-tree-input-widget.js';
 
 // TODO Instead of directly operating on the ChatRequestModel we could use an intermediate view model
 export interface RequestNode extends TreeNode {

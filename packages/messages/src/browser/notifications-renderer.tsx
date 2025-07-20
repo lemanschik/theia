@@ -18,9 +18,9 @@ import React from 'react';
 import { createRoot, Root } from 'react-dom/client';
 import { injectable, inject, postConstruct } from 'inversify';
 import { ApplicationShell, CorePreferences } from '@theia/core/lib/browser';
-import { NotificationManager } from './notifications-manager';
-import { NotificationCenterComponent } from './notification-center-component';
-import { NotificationToastsComponent } from './notification-toasts-component';
+import { NotificationManager } from './notifications-manager.js';
+import { NotificationCenterComponent } from './notification-center-component.js';
+import { NotificationToastsComponent } from './notification-toasts-component.js';
 
 @injectable()
 export class NotificationsRenderer {

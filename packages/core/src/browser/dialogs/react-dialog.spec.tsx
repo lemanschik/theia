@@ -16,11 +16,11 @@
 
 import assert from 'assert';
 import React from 'react';
-import { enableJSDOM } from '../test/jsdom';
+import { enableJSDOM } from '../test/jsdom.js';
 
 let disableJSDOM = enableJSDOM();
 
-import { ReactDialog } from './react-dialog';
+import { ReactDialog } from './react-dialog.js';
 
 class MyDialog extends ReactDialog<void> {
     constructor() {

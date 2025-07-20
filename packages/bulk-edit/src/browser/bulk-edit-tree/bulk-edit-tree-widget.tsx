@@ -20,8 +20,8 @@ import {
     CompositeTreeNode, NodeProps, QuickViewService
 } from '@theia/core/lib/browser';
 import React from 'react';
-import { BulkEditInfoNode, BulkEditNode } from './bulk-edit-tree';
-import { BulkEditTreeModel } from './bulk-edit-tree-model';
+import { BulkEditInfoNode, BulkEditNode } from './bulk-edit-tree.js';
+import { BulkEditTreeModel } from './bulk-edit-tree-model.js';
 import { FileResourceResolver } from '@theia/filesystem/lib/browser';
 import URI from '@theia/core/lib/common/uri';
 import { EditorWidget, EditorManager, EditorOpenerOptions } from '@theia/editor/lib/browser';

@@ -29,10 +29,10 @@ import React from 'react';
 import { IMouseEvent, Range } from '@theia/monaco-editor-core';
 import { MonacoEditorProvider } from '@theia/monaco/lib/browser/monaco-editor-provider';
 import { SimpleMonacoEditor } from '@theia/monaco/lib/browser/simple-monaco-editor';
-import { ChangeSetActionRenderer, ChangeSetActionService } from './change-set-actions/change-set-action-service';
-import { ChatInputAgentSuggestions } from './chat-input-agent-suggestions';
-import { CHAT_VIEW_LANGUAGE_EXTENSION } from './chat-view-language-contribution';
-import { ContextVariablePicker } from './context-variable-picker';
+import { ChangeSetActionRenderer, ChangeSetActionService } from './change-set-actions/change-set-action-service.js';
+import { ChatInputAgentSuggestions } from './chat-input-agent-suggestions.js';
+import { CHAT_VIEW_LANGUAGE_EXTENSION } from './chat-view-language-contribution.js';
+import { ContextVariablePicker } from './context-variable-picker.js';
 import { TASK_CONTEXT_VARIABLE } from '@theia/ai-chat/lib/browser/task-context-variable';
 import { IModelDeltaDecoration } from '@theia/monaco-editor-core/esm/vs/editor/common/model';
 

@@ -21,7 +21,7 @@ import { ContributionProvider } from '../../common/contribution-provider.js';
 import { FrontendApplicationContribution, OnWillStopAction } from '../frontend-application-contribution.js';
 import { WindowService } from './window-service.js';
 import { DEFAULT_WINDOW_HASH } from '../../common/window.js';
-import { confirmExit } from '../dialogs/index.js';
+import { confirmExit } from '@theia/core/src/browser/dialogs';
 import { StopReason } from '../../common/frontend-application-state.js';
 import { FrontendApplication } from '../frontend-application.js';
 

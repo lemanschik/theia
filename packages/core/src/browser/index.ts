@@ -23,7 +23,8 @@ export * from './open-with-service.js';
 export * from './browser.js';
 export * from './context-menu-renderer.js';
 export * from './widgets/index.js';
-export * from './dialogs/index.js';
+export * from './dialogs/react-dialog.js';
+export * from '@theia/core/src/browser/dialogs'
 export * from './tree/index.js';
 export * from './messaging/index.js';
 export * from './endpoint.js';

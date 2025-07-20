@@ -17,13 +17,13 @@
 import { inject, injectable } from 'inversify';
 import React from 'react';
 import Long from 'long';
-import { MemoryTable, MemoryTableWidget } from '../memory-widget/memory-table-widget';
-import { MemoryWidget } from '../memory-widget/memory-widget';
-import { EasilyMappedObject } from '../utils/memory-hover-renderer';
-import { Interfaces, MemoryDiffWidgetData } from '../utils/memory-widget-utils';
-import { VariableDecoration, VariableFinder } from '../utils/memory-widget-variable-utils';
-import { DiffMemoryOptions, MemoryDiffOptionsWidget } from './memory-diff-options-widget';
-import { DiffExtraColumnOptions, DiffLabels, DiffRowOptions, RowData } from './memory-diff-widget-types';
+import { MemoryTable, MemoryTableWidget } from '../memory-widget/memory-table-widget.js';
+import { MemoryWidget } from '../memory-widget/memory-widget.js';
+import { EasilyMappedObject } from '../utils/memory-hover-renderer.js';
+import { Interfaces, MemoryDiffWidgetData } from '../utils/memory-widget-utils.js';
+import { VariableDecoration, VariableFinder } from '../utils/memory-widget-variable-utils.js';
+import { DiffMemoryOptions, MemoryDiffOptionsWidget } from './memory-diff-options-widget.js';
+import { DiffExtraColumnOptions, DiffLabels, DiffRowOptions, RowData } from './memory-diff-widget-types.js';
 
 export type MemoryDiffWidget = MemoryWidget<MemoryDiffOptionsWidget, MemoryDiffTableWidget>;
 export namespace MemoryDiffWidget {
@@ -97,7 +97,7 @@ export class MemoryDiffTableWidget extends MemoryTableWidget {
             offsetData.after.trailing = realDifference;
         }
     }
-    /* eslint-enable no-param-reassign */
+     
 
     protected override getWrapperClass(): string {
         return `${super.getWrapperClass()} diff-table`;

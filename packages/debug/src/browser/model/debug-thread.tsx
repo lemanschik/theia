@@ -18,8 +18,8 @@ import React from 'react';
 import { CancellationTokenSource, Emitter, Event, MessageType, nls } from '@theia/core';
 import { DebugProtocol } from '@vscode/debugprotocol/lib/debugProtocol';
 import { TreeElement } from '@theia/core/lib/browser/source-tree';
-import { DebugStackFrame } from './debug-stack-frame';
-import { DebugSession } from '../debug-session';
+import { DebugStackFrame } from './debug-stack-frame.js';
+import { DebugSession } from '../debug-session.js';
 import monaco from '@theia/monaco-editor-core';
 import URI from '@theia/core/lib/common/uri';
 

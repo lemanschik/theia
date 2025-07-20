@@ -20,12 +20,12 @@ import { injectable } from 'inversify';
 import React from 'react';
 import Long from 'long';
 import { DebugProtocol } from '@vscode/debugprotocol';
-import { hexStrToUnsignedLong } from '../../common/util';
-import { MemoryOptionsWidget } from '../memory-widget/memory-options-widget';
-import { MemoryTable, MemoryTableWidget } from '../memory-widget/memory-table-widget';
-import { MemoryWidget } from '../memory-widget/memory-widget';
-import { EasilyMappedObject } from '../utils/memory-hover-renderer';
-import { Constants, Interfaces } from '../utils/memory-widget-utils';
+import { hexStrToUnsignedLong } from '../../common/util.js';
+import { MemoryOptionsWidget } from '../memory-widget/memory-options-widget.js';
+import { MemoryTable, MemoryTableWidget } from '../memory-widget/memory-table-widget.js';
+import { MemoryWidget } from '../memory-widget/memory-widget.js';
+import { EasilyMappedObject } from '../utils/memory-hover-renderer.js';
+import { Constants, Interfaces } from '../utils/memory-widget-utils.js';
 import { nls } from '@theia/core/lib/common/nls';
 
 export type EditableMemoryWidget = MemoryWidget<MemoryOptionsWidget, MemoryEditableTableWidget>;

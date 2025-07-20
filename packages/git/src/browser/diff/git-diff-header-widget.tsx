@@ -20,7 +20,7 @@ import { ScmService } from '@theia/scm/lib/browser/scm-service';
 import { LabelProvider } from '@theia/core/lib/browser/label-provider';
 import { ScmFileChangeLabelProvider } from '@theia/scm-extra/lib/browser/scm-file-change-label-provider';
 import { ReactWidget, StatefulWidget, KeybindingRegistry, codicon } from '@theia/core/lib/browser';
-import { Git } from '../../common';
+import { Git } from '../../common/index.js';
 import React from 'react';
 
 /* eslint-disable no-null/no-null */
@@ -150,7 +150,7 @@ export class GitDiffHeaderWidget extends ReactWidget implements StatefulWidget {
         };
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     restoreState(oldState: any): void {
         const options = oldState['options'];
         this.setContent(options);

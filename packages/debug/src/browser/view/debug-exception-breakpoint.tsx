@@ -16,8 +16,8 @@
 
 import React from 'react';
 import { TreeElement } from '@theia/core/lib/browser/source-tree';
-import { BreakpointManager } from '../breakpoint/breakpoint-manager';
-import { ExceptionBreakpoint } from '../breakpoint/breakpoint-marker';
+import { BreakpointManager } from '../breakpoint/breakpoint-manager.js';
+import { ExceptionBreakpoint } from '../breakpoint/breakpoint-marker.js';
 import { SingleTextInputDialog } from '@theia/core/lib/browser/dialogs';
 import { TREE_NODE_INFO_CLASS } from '@theia/core/lib/browser';
 import { nls } from '@theia/core';

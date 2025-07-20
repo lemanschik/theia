@@ -18,9 +18,9 @@ import URI from '@theia/core/lib/common/uri';
 import {
     ApplicationShell, DiffUris, OpenHandler, OpenerOptions, PreferenceService, SplitWidget, Widget, WidgetManager, WidgetOpenerOptions, getDefaultHandler, defaultHandlerPriority
 } from '@theia/core/lib/browser';
-import { CustomEditor, CustomEditorPriority, CustomEditorSelector } from '../../../common';
-import { CustomEditorWidget } from './custom-editor-widget';
-import { PluginCustomEditorRegistry } from './plugin-custom-editor-registry';
+import { CustomEditor, CustomEditorPriority, CustomEditorSelector } from '../../../common/index.js';
+import { CustomEditorWidget } from './custom-editor-widget.js';
+import { PluginCustomEditorRegistry } from './plugin-custom-editor-registry.js';
 import { generateUuid } from '@theia/core/lib/common/uuid';
 import { DisposableCollection, Emitter } from '@theia/core';
 import { match } from '@theia/core/lib/common/glob';

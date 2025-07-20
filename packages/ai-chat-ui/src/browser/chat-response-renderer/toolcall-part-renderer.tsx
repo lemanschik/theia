@@ -14,17 +14,17 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { ChatResponsePartRenderer } from '../chat-response-part-renderer';
+import { ChatResponsePartRenderer } from '../chat-response-part-renderer.js';
 import { inject, injectable } from 'inversify';
 import { ChatResponseContent, ToolCallChatResponseContent } from '@theia/ai-chat/lib/common';
 import { ReactNode } from 'react';
 import { nls } from '@theia/core/lib/common/nls';
 import { codicon, OpenerService } from '@theia/core/lib/browser';
 import React from 'react';
-import { ToolConfirmation, ToolConfirmationState } from './tool-confirmation';
+import { ToolConfirmation, ToolConfirmationState } from './tool-confirmation.js';
 import { ToolConfirmationManager, ToolConfirmationMode } from '@theia/ai-chat/lib/browser/chat-tool-preferences';
-import { ResponseNode } from '../chat-tree-view';
-import { useMarkdownRendering } from './markdown-part-renderer';
+import { ResponseNode } from '../chat-tree-view/index.js';
+import { useMarkdownRendering } from './markdown-part-renderer.js';
 import { ToolCallResult } from '@theia/ai-core';
 
 @injectable()

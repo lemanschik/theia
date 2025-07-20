@@ -16,8 +16,8 @@
 
 import React from 'react';
 import { DisposableCollection } from '@theia/core';
-import { NotificationManager, NotificationUpdateEvent } from './notifications-manager';
-import { NotificationComponent } from './notification-component';
+import { NotificationManager, NotificationUpdateEvent } from './notifications-manager.js';
+import { NotificationComponent } from './notification-component.js';
 import { codicon } from '@theia/core/lib/browser';
 import { nls } from '@theia/core/lib/common/nls';
 

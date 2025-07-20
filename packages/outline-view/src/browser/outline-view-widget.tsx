@@ -27,7 +27,7 @@ import {
     ExpandableTreeNode,
     codicon
 } from '@theia/core/lib/browser';
-import { OutlineViewTreeModel } from './outline-view-tree-model';
+import { OutlineViewTreeModel } from './outline-view-tree-model.js';
 import { Message } from '@lumino/messaging';
 import { Emitter, Event, isObject, Mutable, UriSelection } from '@theia/core';
 import React from 'react';
@@ -202,7 +202,7 @@ export class OutlineViewWidget extends TreeWidget {
         return deflated;
     }
 
-    protected override inflateFromStorage(node: any, parent?: TreeNode): TreeNode { /* eslint-disable-line @typescript-eslint/no-explicit-any */
+    protected override inflateFromStorage(node: any, parent?: TreeNode): TreeNode {  
         const inflated = super.inflateFromStorage(node, parent) as Mutable<TreeNode & UriSelection>;
         if (node && 'uri' in node && typeof node.uri === 'string') {
             inflated.uri = new URI(node.uri);

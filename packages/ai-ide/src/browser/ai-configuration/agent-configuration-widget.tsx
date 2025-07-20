@@ -31,11 +31,11 @@ import { codicon, QuickInputService, ReactWidget } from '@theia/core/lib/browser
 import { URI } from '@theia/core/lib/common';
 import { inject, injectable, postConstruct } from 'inversify';
 import React from 'react';
-import { AIConfigurationSelectionService } from './ai-configuration-service';
-import { LanguageModelRenderer } from './language-model-renderer';
-import { AIVariableConfigurationWidget } from './variable-configuration-widget';
+import { AIConfigurationSelectionService } from './ai-configuration-service.js';
+import { LanguageModelRenderer } from './language-model-renderer.js';
+import { AIVariableConfigurationWidget } from './variable-configuration-widget.js';
 import { nls } from '@theia/core';
-import { PromptVariantRenderer } from './template-settings-renderer';
+import { PromptVariantRenderer } from './template-settings-renderer.js';
 
 interface ParsedPrompt {
     functions: string[];

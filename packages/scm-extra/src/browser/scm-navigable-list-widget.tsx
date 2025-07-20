@@ -23,8 +23,8 @@ import { ElementExt } from '@lumino/domutils';
 import { inject, injectable } from 'inversify';
 import { ReactWidget } from '@theia/core/lib/browser/widgets/react-widget';
 import React from 'react';
-import { ScmFileChangeLabelProvider } from './scm-file-change-label-provider';
-import { ScmFileChangeNode } from './scm-file-change-node';
+import { ScmFileChangeLabelProvider } from './scm-file-change-label-provider.js';
+import { ScmFileChangeNode } from './scm-file-change-node.js';
 
 @injectable()
 export abstract class ScmNavigableListWidget<T extends { selected?: boolean }> extends ReactWidget {

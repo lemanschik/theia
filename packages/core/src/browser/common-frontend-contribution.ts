@@ -57,7 +57,7 @@ import { QuickInputService, QuickPickItem, QuickPickItemOrSeparator, QuickPickSe
 import { AsyncLocalizationProvider } from '../common/i18n/localization.js';
 import { nls } from '../common/nls.js';
 import { CurrentWidgetCommandAdapter } from './shell/current-widget-command-adapter.js';
-import { ConfirmDialog, confirmExit, ConfirmSaveDialog, Dialog } from './dialogs/index.js';
+import { ConfirmDialog, confirmExit, ConfirmSaveDialog, Dialog } from '@theia/core/src/browser/dialogs';
 import { WindowService } from './window/window-service.js';
 import { FrontendApplicationConfigProvider } from './frontend-application-config-provider.js';
 import { DecorationStyle } from './decoration-style.js';

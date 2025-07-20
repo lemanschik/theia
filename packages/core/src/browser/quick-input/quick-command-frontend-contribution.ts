@@ -19,7 +19,7 @@ import { KeybindingRegistry, KeybindingContribution } from '../keybinding.js';
 import { CommonMenus } from '../common-frontend-contribution.js';
 import { CLOSE_QUICK_OPEN, CLEAR_COMMAND_HISTORY, quickCommand, QuickCommandService } from './quick-command-service.js';
 import { QuickInputService } from './quick-input-service.js';
-import { ConfirmDialog, Dialog } from '../dialogs/index.js';
+import { ConfirmDialog, Dialog } from '@theia/core/src/browser/dialogs';
 
 @injectable()
 export class QuickCommandFrontendContribution implements CommandContribution, KeybindingContribution, MenuContribution {

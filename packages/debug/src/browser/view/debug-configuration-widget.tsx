@@ -19,16 +19,16 @@ import { CommandRegistry, Disposable, DisposableCollection, MessageService } fro
 import { inject, injectable, postConstruct } from 'inversify';
 import React from 'react';
 import { WorkspaceService } from '@theia/workspace/lib/browser';
-import { DebugConsoleContribution } from '../console/debug-console-contribution';
-import { DebugConfigurationManager } from '../debug-configuration-manager';
-import { DebugCommands } from '../debug-frontend-application-contribution';
-import { DebugSessionManager } from '../debug-session-manager';
-import { DebugAction } from './debug-action';
-import { DebugConfigurationSelect } from './debug-configuration-select';
-import { DebugViewModel } from './debug-view-model';
+import { DebugConsoleContribution } from '../console/debug-console-contribution.js';
+import { DebugConfigurationManager } from '../debug-configuration-manager.js';
+import { DebugCommands } from '../debug-frontend-application-contribution.js';
+import { DebugSessionManager } from '../debug-session-manager.js';
+import { DebugAction } from './debug-action.js';
+import { DebugConfigurationSelect } from './debug-configuration-select.js';
+import { DebugViewModel } from './debug-view-model.js';
 import { nls } from '@theia/core/lib/common/nls';
-import { DebugSessionOptions } from '../debug-session-options';
-import { DebugSessionConfigurationLabelProvider } from '../debug-session-configuration-label-provider';
+import { DebugSessionOptions } from '../debug-session-options.js';
+import { DebugSessionConfigurationLabelProvider } from '../debug-session-configuration-label-provider.js';
 
 @injectable()
 export class DebugConfigurationWidget extends ReactWidget {

@@ -17,15 +17,15 @@
 import React from 'react';
 import { injectable, inject } from 'inversify';
 import debounce from 'lodash.debounce';
-import { CommandService } from '../../common';
-import { ReactWidget } from '../widgets/react-widget';
-import { FrontendApplicationStateService } from '../frontend-application-state';
-import { LabelParser, LabelIcon } from '../label-parser';
-import { PreferenceService } from '../preferences';
-import { StatusBar, StatusBarEntry, StatusBarAlignment, StatusBarViewEntry } from './status-bar-types';
-import { StatusBarViewModel } from './status-bar-view-model';
-import { HoverService } from '../hover-service';
-import { codicon } from '../widgets';
+import { CommandService } from '../../common/index.js';
+import { ReactWidget } from '../widgets/react-widget.js';
+import { FrontendApplicationStateService } from '../frontend-application-state.js';
+import { LabelParser, LabelIcon } from '../label-parser.js';
+import { PreferenceService } from '../preferences/index.js';
+import { StatusBar, StatusBarEntry, StatusBarAlignment, StatusBarViewEntry } from './status-bar-types.js';
+import { StatusBarViewModel } from './status-bar-view-model.js';
+import { HoverService } from '../hover-service.js';
+import { codicon } from '../widgets/index.js';
 export { StatusBar, StatusBarAlignment, StatusBarEntry };
 
 @injectable()

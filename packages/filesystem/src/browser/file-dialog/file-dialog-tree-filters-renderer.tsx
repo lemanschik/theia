@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { ReactRenderer } from '@theia/core/lib/browser/widgets/react-renderer';
-import { FileDialogTree } from './file-dialog-tree';
+import { FileDialogTree } from './file-dialog-tree.js';
 import React from 'react';
 import { inject, injectable } from 'inversify';
 

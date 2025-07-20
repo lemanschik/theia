@@ -21,12 +21,12 @@ import URI from '@theia/core/lib/common/uri';
 import { UriSelection } from '@theia/core/lib/common/selection';
 import { isCancelled } from '@theia/core/lib/common/cancellation';
 import { ContextMenuRenderer, NodeProps, TreeProps, TreeNode, CompositeTreeNode, CompressedTreeWidget, CompressedNodeProps } from '@theia/core/lib/browser';
-import { FileUploadService } from '../file-upload-service';
-import { DirNode, FileStatNode, FileStatNodeData } from './file-tree';
-import { FileTreeModel } from './file-tree-model';
+import { FileUploadService } from '../file-upload-service.js';
+import { DirNode, FileStatNode, FileStatNodeData } from './file-tree.js';
+import { FileTreeModel } from './file-tree-model.js';
 import { IconThemeService } from '@theia/core/lib/browser/icon-theme-service';
 import { ApplicationShell } from '@theia/core/lib/browser/shell';
-import { FileStat, FileType } from '../../common/files';
+import { FileStat, FileType } from '../../common/files.js';
 import { isOSX } from '@theia/core';
 
 export const FILE_TREE_CLASS = 'theia-FileTree';
@@ -284,10 +284,10 @@ export class FileTreeWidget extends CompressedTreeWidget {
         return deflated;
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     protected override inflateFromStorage(node: any, parent?: TreeNode): TreeNode {
         if (FileStatNodeData.is(node)) {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+             
             const fileStatNode: FileStatNode = node as any;
             const resource = new URI(node.uri);
             fileStatNode.uri = resource;

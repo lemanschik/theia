@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
- 
+
 /* tslint:disable:typedef */
 
 import type * as theia from '@theia/plugin';
@@ -251,7 +251,7 @@ import { TextEditorCursorStyle } from '../common/editor-options.js';
 import { PreferenceRegistryExtImpl } from './preference-registry.js';
 import { OutputChannelRegistryExtImpl } from './output-channel-registry.js';
 import { TerminalServiceExtImpl, TerminalExtImpl } from './terminal-ext.js';
-import { LanguagesExtImpl } from './languages/index.js';
+import { LanguagesExtImpl } from './languages.js';
 import { fromDocumentSelector, pluginToPluginInfo, fromGlobPattern } from './type-converters.js';
 import { DialogsExtImpl } from './dialogs.js';
 import { NotificationExtImpl } from './notification.js';
@@ -380,7 +380,7 @@ export function createAPIFactory(
             return Array.isArray(rawCommands) ? rawCommands.some(candidate => candidate.command === id) : rawCommands.command === id;
         }
         const commands: typeof theia.commands = {
-             
+
             registerCommand(command: theia.CommandDescription | string, handler?: <T>(...args: any[]) => T | Thenable<T | undefined>, thisArg?: any): Disposable {
                 // use of the ID when registering commands
                 if (typeof command === 'string') {
@@ -391,7 +391,7 @@ export function createAPIFactory(
                 }
                 return commandRegistry.registerCommand(command, handler, thisArg);
             },
-             
+
             executeCommand<T>(commandId: string, ...args: any[]): PromiseLike<T | undefined> {
                 return commandRegistry.executeCommand<T>(commandId, ...args);
             },
@@ -418,7 +418,7 @@ export function createAPIFactory(
                     ? commandRegistry.registerHandler(command, internalHandler)
                     : commandRegistry.registerCommand({ id: command }, internalHandler);
             },
-             
+
             registerHandler(commandId: string, handler: (...args: any[]) => any, thisArg?: any): Disposable {
                 return commandRegistry.registerHandler(commandId, handler, thisArg);
             },
@@ -536,7 +536,7 @@ export function createAPIFactory(
             showNotebookDocument(document: theia.NotebookDocument, options?: theia.NotebookDocumentShowOptions) {
                 return notebooksExt.showNotebookDocument(document, options);
             },
-             
+
             showQuickPick(items: any, options?: theia.QuickPickOptions, token?: theia.CancellationToken): any {
                 return quickOpenExt.showQuickPick(plugin, items, options, token);
             },
@@ -559,7 +559,7 @@ export function createAPIFactory(
             showUploadDialog(options: theia.UploadDialogOptions): PromiseLike<URI[] | undefined> {
                 return dialogsExt.showUploadDialog(options);
             },
-             
+
             setStatusBarMessage(text: string, arg?: number | PromiseLike<any>): Disposable {
                 return statusBarMessageRegistryExt.setStatusBarMessage(text, arg);
             },
@@ -959,7 +959,7 @@ export function createAPIFactory(
         });
 
         const extensions: typeof theia.extensions = Object.freeze({
-             
+
             getExtension<T = any>(extensionId: string, includeFromDifferentExtensionHosts: boolean = false): theia.Extension<T | undefined> | undefined {
                 includeFromDifferentExtensionHosts = false;
                 const plg = pluginManager.getPluginById(extensionId.toLowerCase());
@@ -968,7 +968,7 @@ export function createAPIFactory(
                 }
                 return undefined;
             },
-             
+
             get all(): readonly theia.Extension<any>[] {
                 return pluginManager.getAllPlugins().map(plg => new PluginExt(pluginManager, plg));
             },
@@ -995,7 +995,7 @@ export function createAPIFactory(
                 return languagesExt.onDidChangeDiagnostics;
             },
             getDiagnostics(resource?: URI) {
-                 
+
                 return <any>languagesExt.getDiagnostics(resource);
             },
             createDiagnosticCollection(name?: string): theia.DiagnosticCollection {
@@ -1142,11 +1142,11 @@ export function createAPIFactory(
         /* End of Tests API */
 
         const plugins: typeof theia.plugins = {
-             
+
             get all(): theia.Plugin<any>[] {
                 return pluginManager.getAllPlugins().map(plg => new PluginExt(pluginManager, plg));
             },
-             
+
             getPlugin(pluginId: string): theia.Plugin<any> | undefined {
                 const plg = pluginManager.getPluginById(pluginId.toLowerCase());
                 if (plg) {
@@ -1286,7 +1286,7 @@ export function createAPIFactory(
         };
 
         const l10n: typeof theia.l10n = {
-             
+
             t(...params: [message: string, ...args: Array<string | number | boolean>] | [message: string, args: Record<string, any>] | [{ message: string; args?: Array<string | number | boolean> | Record<string, any>; comment: string | string[] }]): string {
                 if (typeof params[0] === 'string') {
                     const key = params.shift() as string;
@@ -1649,7 +1649,7 @@ export class Plugin<T> implements theia.Plugin<T> {
     id: string;
     pluginPath: string;
     pluginUri: theia.Uri;
-     
+
     packageJSON: any;
     pluginType: theia.PluginType;
 

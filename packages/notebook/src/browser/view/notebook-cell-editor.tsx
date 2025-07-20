@@ -15,22 +15,22 @@
 // *****************************************************************************
 
 import React from 'react';
-import { NotebookModel } from '../view-model/notebook-model';
-import { NotebookCellModel, NotebookCodeEditorFindMatch } from '../view-model/notebook-cell-model';
+import { NotebookModel } from '../view-model/notebook-model.js';
+import { NotebookCellModel, NotebookCodeEditorFindMatch } from '../view-model/notebook-cell-model.js';
 import { SimpleMonacoEditor } from '@theia/monaco/lib/browser/simple-monaco-editor';
 import { MonacoEditor, MonacoEditorServices } from '@theia/monaco/lib/browser/monaco-editor';
 import { MonacoEditorProvider } from '@theia/monaco/lib/browser/monaco-editor-provider';
 import { IContextKeyService } from '@theia/monaco-editor-core/esm/vs/platform/contextkey/common/contextkey';
-import { NotebookContextManager } from '../service/notebook-context-manager';
+import { NotebookContextManager } from '../service/notebook-context-manager.js';
 import { DisposableCollection, OS } from '@theia/core';
-import { NotebookViewportService } from './notebook-viewport-service';
+import { NotebookViewportService } from './notebook-viewport-service.js';
 import { BareFontInfo } from '@theia/monaco-editor-core/esm/vs/editor/common/config/fontInfo';
-import { NOTEBOOK_CELL_CURSOR_FIRST_LINE, NOTEBOOK_CELL_CURSOR_LAST_LINE } from '../contributions/notebook-context-keys';
+import { NOTEBOOK_CELL_CURSOR_FIRST_LINE, NOTEBOOK_CELL_CURSOR_LAST_LINE } from '../contributions/notebook-context-keys.js';
 import { EditorExtensionsRegistry } from '@theia/monaco-editor-core/esm/vs/editor/browser/editorExtensions';
 import { ModelDecorationOptions } from '@theia/monaco-editor-core/esm/vs/editor/common/model/textModel';
 import { IModelDeltaDecoration, OverviewRulerLane, TrackedRangeStickiness } from '@theia/monaco-editor-core/esm/vs/editor/common/model';
 import { animationFrame } from '@theia/core/lib/browser';
-import { NotebookCellEditorService } from '../service/notebook-cell-editor-service';
+import { NotebookCellEditorService } from '../service/notebook-cell-editor-service.js';
 
 interface CellEditorProps {
     notebookModel: NotebookModel;

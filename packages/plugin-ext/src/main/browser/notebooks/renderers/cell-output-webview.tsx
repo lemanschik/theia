@@ -28,14 +28,14 @@ import {
     NotebookCellOutputsSplice,
     NotebookContentChangedEvent
 } from '@theia/notebook/lib/browser';
-import { WebviewWidget } from '../../webview/webview';
+import { WebviewWidget } from '../../webview/webview.js';
 import { Message, WidgetManager } from '@theia/core/lib/browser';
-import { outputWebviewPreload, PreloadContext } from './output-webview-internal';
+import { outputWebviewPreload, PreloadContext } from './output-webview-internal.js';
 import { WorkspaceTrustService } from '@theia/workspace/lib/browser';
 import {
     CellOutputChange, CellsChangedMessage, CellsMoved, CellsSpliced,
     ChangePreferredMimetypeMessage, FromWebviewMessage, Output, OutputChangedMessage
-} from './webview-communication';
+} from './webview-communication.js';
 import { Disposable, DisposableCollection, Emitter, QuickPickService, nls } from '@theia/core';
 import { NotebookModel } from '@theia/notebook/lib/browser/view-model/notebook-model';
 import { NotebookOptionsService, NotebookOutputOptions } from '@theia/notebook/lib/browser/service/notebook-options';
@@ -270,7 +270,7 @@ export class CellOutputWebviewImpl implements CellOutputWebview, Disposable {
         // this.webviewWidget.parent = this.editor ?? null;
         this.webviewWidget.setContentOptions({
             allowScripts: true,
-            // eslint-disable-next-line max-len
+             
             // list taken from https://github.com/microsoft/vscode/blob/a27099233b956dddc2536d4a0d714ab36266d897/src/vs/workbench/contrib/notebook/browser/view/renderers/backLayerWebView.ts#L762-L774
             enableCommandUris: [
                 'github-issues.authNow',

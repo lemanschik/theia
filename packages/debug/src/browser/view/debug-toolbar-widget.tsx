@@ -19,9 +19,9 @@ import { inject, postConstruct, injectable } from 'inversify';
 import { CommandMenu, CommandRegistry, CompoundMenuNode, Disposable, DisposableCollection, MenuModelRegistry, MenuPath } from '@theia/core';
 import { ContextKeyService } from '@theia/core/lib/browser/context-key-service';
 import { ReactWidget } from '@theia/core/lib/browser/widgets';
-import { DebugViewModel } from './debug-view-model';
-import { DebugState } from '../debug-session';
-import { DebugAction } from './debug-action';
+import { DebugViewModel } from './debug-view-model.js';
+import { DebugState } from '../debug-session.js';
+import { DebugAction } from './debug-action.js';
 import { nls } from '@theia/core/lib/common/nls';
 
 @injectable()

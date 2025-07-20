@@ -17,8 +17,8 @@
 import React from 'react';
 import { injectable, inject, postConstruct } from 'inversify';
 import { TreeSource, TreeElement } from '@theia/core/lib/browser/source-tree';
-import { DebugThread } from '../model/debug-thread';
-import { DebugViewModel } from './debug-view-model';
+import { DebugThread } from '../model/debug-thread.js';
+import { DebugViewModel } from './debug-view-model.js';
 import debounce from 'p-debounce';
 
 @injectable()

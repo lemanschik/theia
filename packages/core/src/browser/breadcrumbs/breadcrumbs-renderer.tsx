@@ -16,16 +16,16 @@
 
 import React from 'react';
 import { injectable, inject, postConstruct } from 'inversify';
-import { ReactRenderer } from '../widgets';
-import { BreadcrumbsService } from './breadcrumbs-service';
-import { BreadcrumbRenderer } from './breadcrumb-renderer';
+import { ReactRenderer } from '../widgets/index.js';
+import { BreadcrumbsService } from './breadcrumbs-service.js';
+import { BreadcrumbRenderer } from './breadcrumb-renderer.js';
 import PerfectScrollbar from 'perfect-scrollbar';
-import URI from '../../common/uri';
-import { Emitter, Event } from '../../common';
-import { BreadcrumbPopupContainer } from './breadcrumb-popup-container';
-import { CorePreferences } from '../core-preferences';
-import { Breadcrumb, Styles } from './breadcrumbs-constants';
-import { LabelProvider } from '../label-provider';
+import URI from '../../common/uri.js';
+import { Emitter, Event } from '../../common/index.js';
+import { BreadcrumbPopupContainer } from './breadcrumb-popup-container.js';
+import { CorePreferences } from '../core-preferences.js';
+import { Breadcrumb, Styles } from './breadcrumbs-constants.js';
+import { LabelProvider } from '../label-provider.js';
 
 interface Cancelable {
     canceled: boolean;

@@ -23,13 +23,13 @@ import { ACTION_ITEM, ContextMenuRenderer, KeybindingRegistry, codicon } from '@
 import { IconThemeService } from '@theia/core/lib/browser/icon-theme-service';
 import { ThemeService } from '@theia/core/lib/browser/theming';
 import { ContextKeyService } from '@theia/core/lib/browser/context-key-service';
-import { TestController, TestExecutionState, TestItem, TestService } from '../test-service';
+import { TestController, TestExecutionState, TestItem, TestService } from '../test-service.js';
 import React from 'react';
-import { DeltaKind, TreeDelta } from '../../common/tree-delta';
+import { DeltaKind, TreeDelta } from '../../common/tree-delta.js';
 import { AcceleratorSource, CommandMenu, CommandRegistry, Disposable, DisposableCollection, Event, MenuModelRegistry, nls } from '@theia/core';
-import { TestExecutionStateManager } from './test-execution-state-manager';
-import { TestOutputUIModel } from './test-output-ui-model';
-import { TEST_VIEW_INLINE_MENU } from './test-view-contribution';
+import { TestExecutionStateManager } from './test-execution-state-manager.js';
+import { TestOutputUIModel } from './test-output-ui-model.js';
+import { TEST_VIEW_INLINE_MENU } from './test-view-contribution.js';
 
 const ROOT_ID = 'TestTree';
 
@@ -178,7 +178,7 @@ export class TestTree extends TreeImpl {
 
     createTestNode(controller: TestController, parent: CompositeTreeNode, test: TestItem): TestItemNode {
         const previous = this.getNode(test.id);
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         const result: any = {
             id: this.computeId(this.computePath(controller, test)),
             name: test.label,
@@ -315,7 +315,7 @@ export class TestTreeWidget extends TreeWidget {
         }
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     protected renderInlineCommand(actionMenuNode: CommandMenu, index: number, tabbable: boolean, args: any[]): React.ReactNode {
         if (!actionMenuNode.icon || !actionMenuNode.isVisible(TEST_VIEW_INLINE_MENU, this.contextKeys, this.node, ...args)) {
             return false;

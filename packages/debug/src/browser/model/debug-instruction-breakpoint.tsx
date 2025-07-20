@@ -16,9 +16,9 @@
 
 import { nls } from '@theia/core';
 import React from 'react';
-import { BreakpointManager } from '../breakpoint/breakpoint-manager';
-import { InstructionBreakpoint } from '../breakpoint/breakpoint-marker';
-import { DebugBreakpoint, DebugBreakpointDecoration, DebugBreakpointOptions } from './debug-breakpoint';
+import { BreakpointManager } from '../breakpoint/breakpoint-manager.js';
+import { InstructionBreakpoint } from '../breakpoint/breakpoint-marker.js';
+import { DebugBreakpoint, DebugBreakpointDecoration, DebugBreakpointOptions } from './debug-breakpoint.js';
 
 export class DebugInstructionBreakpoint extends DebugBreakpoint<InstructionBreakpoint> {
     constructor(readonly origin: InstructionBreakpoint, options: DebugBreakpointOptions) {

@@ -16,9 +16,9 @@
 
 import { injectable, inject, postConstruct } from 'inversify';
 import { TreeSource, TreeElement } from '@theia/core/lib/browser/source-tree';
-import { DebugViewModel } from './debug-view-model';
-import { BreakpointManager } from '../breakpoint/breakpoint-manager';
-import { DebugExceptionBreakpoint } from './debug-exception-breakpoint';
+import { DebugViewModel } from './debug-view-model.js';
+import { BreakpointManager } from '../breakpoint/breakpoint-manager.js';
+import { DebugExceptionBreakpoint } from './debug-exception-breakpoint.js';
 
 @injectable()
 export class DebugBreakpointsSource extends TreeSource {

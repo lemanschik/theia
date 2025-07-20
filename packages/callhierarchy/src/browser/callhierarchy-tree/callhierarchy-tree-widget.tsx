@@ -20,9 +20,9 @@ import {
     TreeModel, DockPanel, codicon
 } from '@theia/core/lib/browser';
 import { LabelProvider } from '@theia/core/lib/browser/label-provider';
-import { ItemNode, CallerNode } from './callhierarchy-tree';
-import { CallHierarchyTreeModel } from './callhierarchy-tree-model';
-import { CALLHIERARCHY_ID, CallHierarchyItem, CallHierarchyIncomingCall, CALL_HIERARCHY_LABEL } from '../callhierarchy';
+import { ItemNode, CallerNode } from './callhierarchy-tree.js';
+import { CallHierarchyTreeModel } from './callhierarchy-tree-model.js';
+import { CALLHIERARCHY_ID, CallHierarchyItem, CallHierarchyIncomingCall, CALL_HIERARCHY_LABEL } from '../callhierarchy.js';
 import URI from '@theia/core/lib/common/uri';
 import { Location, Range, SymbolKind, DocumentUri, SymbolTag } from 'vscode-languageserver-protocol';
 import { EditorManager } from '@theia/editor/lib/browser';
@@ -212,11 +212,11 @@ export class CallHierarchyTreeWidget extends TreeWidget {
     }
 
     override restoreState(oldState: object): void {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         if ((oldState as any).root && (oldState as any).languageId) {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+             
             const root = this.inflateFromStorage((oldState as any).root) as ItemNode;
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+             
             this.model.initializeCallHierarchy((oldState as any).languageId, URI.fromComponents(root.definition.uri).toString(), root.definition.range.start);
         }
     }

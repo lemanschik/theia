@@ -17,9 +17,9 @@
 import { injectable, inject, optional, postConstruct } from 'inversify';
 import React from 'react';
 import ReactTooltip from 'react-tooltip';
-import { ReactRenderer, RendererHost } from './widgets/react-renderer';
-import { CorePreferences } from './core-preferences';
-import { generateUuid } from '../common/uuid';
+import { ReactRenderer, RendererHost } from './widgets/react-renderer.js';
+import { CorePreferences } from './core-preferences.js';
+import { generateUuid } from '../common/uuid.js';
 
 export const TooltipService = Symbol('TooltipService');
 

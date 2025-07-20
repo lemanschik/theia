@@ -26,7 +26,7 @@ import {
     KeybindingRegistry, SingleTextInputDialog, KeySequence, ConfirmDialog, Message, KeybindingScope,
     SingleTextInputDialogProps, Key, ScopedKeybinding, codicon, StatefulWidget, Widget, ContextMenuRenderer, SELECTED_CLASS
 } from '@theia/core/lib/browser';
-import { KeymapsService } from './keymaps-service';
+import { KeymapsService } from './keymaps-service.js';
 import { AlertMessage } from '@theia/core/lib/browser/widgets/alert-message';
 import { DisposableCollection, isOSX, isObject } from '@theia/core';
 import { nls } from '@theia/core/lib/common/nls';

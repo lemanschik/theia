@@ -71,7 +71,7 @@ import { MimeService } from './mime-service.js';
 import { ApplicationShellMouseTracker } from './shell/application-shell-mouse-tracker.js';
 import { ViewContainer, ViewContainerIdentifier } from './view-container.js';
 import { QuickViewService } from './quick-input/quick-view-service.js';
-import { DialogOverlayService } from './dialogs/index.js';
+import { DialogOverlayService } from '@theia/core/src/browser/dialogs';
 import { ProgressLocationService } from './progress-location-service.js';
 import { ProgressClient } from '../common/progress-service-protocol.js';
 import { ProgressService } from '../common/progress-service.js';

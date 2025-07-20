@@ -18,11 +18,11 @@ import { injectable, inject } from 'inversify';
 import { CommandRegistry, MenuModelRegistry, MenuPath } from '@theia/core/lib/common';
 import { TreeWidget, TreeProps, NodeProps, TREE_NODE_SEGMENT_GROW_CLASS } from '@theia/core/lib/browser/tree';
 import { ContextMenuRenderer } from '@theia/core/lib/browser';
-import { TimelineNode, TimelineTreeModel } from './timeline-tree-model';
-import { TimelineService } from './timeline-service';
-import { TimelineContextKeyService } from './timeline-context-key-service';
+import { TimelineNode, TimelineTreeModel } from './timeline-tree-model.js';
+import { TimelineService } from './timeline-service.js';
+import { TimelineContextKeyService } from './timeline-context-key-service.js';
 import React from 'react';
-import { TimelineItem } from '../common/timeline-model';
+import { TimelineItem } from '../common/timeline-model.js';
 
 export const TIMELINE_ITEM_CONTEXT_MENU: MenuPath = ['timeline-item-context-menu'];
 
@@ -94,7 +94,7 @@ export class TimelineItemNode extends React.Component<TimelineItemNode.Props> {
     }
 
     protected open = () => {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         const command: any = this.props.timelineItem.command;
         if (command) {
             this.props.commandRegistry.executeCommand(command.id, ...command.arguments ? command.arguments : []);

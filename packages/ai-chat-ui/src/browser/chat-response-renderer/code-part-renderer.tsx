@@ -29,8 +29,8 @@ import { EditorManager, EditorWidget } from '@theia/editor/lib/browser';
 import { SimpleMonacoEditor } from '@theia/monaco/lib/browser/simple-monaco-editor';
 import { MonacoEditorProvider } from '@theia/monaco/lib/browser/monaco-editor-provider';
 import { MonacoLanguages } from '@theia/monaco/lib/browser/monaco-languages';
-import { ChatResponsePartRenderer } from '../chat-response-part-renderer';
-import { ChatViewTreeWidget, ResponseNode } from '../chat-tree-view/chat-view-tree-widget';
+import { ChatResponsePartRenderer } from '../chat-response-part-renderer.js';
+import { ChatViewTreeWidget, ResponseNode } from '../chat-tree-view/chat-view-tree-widget.js';
 import { IMouseEvent } from '@theia/monaco-editor-core';
 
 export const CodePartRendererAction = Symbol('CodePartRendererAction');

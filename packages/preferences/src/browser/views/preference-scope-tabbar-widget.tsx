@@ -20,8 +20,8 @@ import { PreferenceScope, Message, ContextMenuRenderer, LabelProvider, StatefulW
 import { WorkspaceService } from '@theia/workspace/lib/browser/workspace-service';
 import URI from '@theia/core/lib/common/uri';
 import { FileStat } from '@theia/filesystem/lib/common/files';
-import { PreferenceScopeCommandManager } from '../util/preference-scope-command-manager';
-import { Preference, PreferenceMenus } from '../util/preference-types';
+import { PreferenceScopeCommandManager } from '../util/preference-scope-command-manager.js';
+import { Preference, PreferenceMenus } from '../util/preference-types.js';
 import { CommandRegistry, DisposableCollection, Emitter, MenuModelRegistry } from '@theia/core/lib/common';
 import { nls } from '@theia/core/lib/common/nls';
 

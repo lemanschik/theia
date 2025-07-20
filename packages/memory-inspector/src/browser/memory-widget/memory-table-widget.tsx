@@ -20,18 +20,18 @@ import { Deferred } from '@theia/core/lib/common/promise-util';
 import { ThemeChangeEvent } from '@theia/core/lib/common/theme';
 import { inject, injectable, postConstruct } from 'inversify';
 import React from 'react';
-import { hexStrToUnsignedLong } from '../../common/util';
-import { MemoryProviderService } from '../memory-provider/memory-provider-service';
-import { EasilyMappedObject, MemoryHoverRendererService } from '../utils/memory-hover-renderer';
-import { MWMoreMemorySelect } from '../utils/memory-widget-components';
+import { hexStrToUnsignedLong } from '../../common/util.js';
+import { MemoryProviderService } from '../memory-provider/memory-provider-service.js';
+import { EasilyMappedObject, MemoryHoverRendererService } from '../utils/memory-hover-renderer.js';
+import { MWMoreMemorySelect } from '../utils/memory-widget-components.js';
 import {
     Constants, Interfaces, Utils
-} from '../utils/memory-widget-utils';
-import { VariableDecoration, VariableFinder } from '../utils/memory-widget-variable-utils';
-import { MemoryOptionsWidget } from './memory-options-widget';
+} from '../utils/memory-widget-utils.js';
+import { VariableDecoration, VariableFinder } from '../utils/memory-widget-variable-utils.js';
+import { MemoryOptionsWidget } from './memory-options-widget.js';
 import debounce from 'lodash.debounce';
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 export namespace MemoryTable {
     export interface WrapperHandlers {
         onKeyDown?: React.KeyboardEventHandler;
@@ -41,7 +41,7 @@ export namespace MemoryTable {
         onFocus?(e: React.FocusEvent<HTMLDivElement>): any;
         onBlur?(e: React.FocusEvent<HTMLDivElement>): any;
     }
-    /* eslint-enable @typescript-eslint/no-explicit-any */
+     
 
     export interface StylableNodeAttributes {
         className?: string;

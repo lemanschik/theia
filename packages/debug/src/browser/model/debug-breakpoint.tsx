@@ -20,9 +20,9 @@ import URI from '@theia/core/lib/common/uri';
 import { EditorManager } from '@theia/editor/lib/browser';
 import { LabelProvider, DISABLED_CLASS } from '@theia/core/lib/browser';
 import { TreeElement } from '@theia/core/lib/browser/source-tree';
-import { DebugSession } from '../debug-session';
-import { BaseBreakpoint } from '../breakpoint/breakpoint-marker';
-import { BreakpointManager } from '../breakpoint/breakpoint-manager';
+import { DebugSession } from '../debug-session.js';
+import { BaseBreakpoint } from '../breakpoint/breakpoint-marker.js';
+import { BreakpointManager } from '../breakpoint/breakpoint-manager.js';
 
 export class DebugBreakpointData {
     readonly raw?: DebugProtocol.Breakpoint;

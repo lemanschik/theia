@@ -15,17 +15,17 @@
 // *****************************************************************************
 
 import { injectable, inject, postConstruct } from 'inversify';
-import { ProblemManager } from './problem-manager';
-import { ProblemMarker } from '../../common/problem-marker';
-import { ProblemTreeModel } from './problem-tree-model';
-import { MarkerInfoNode, MarkerNode, MarkerRootNode } from '../marker-tree';
+import { ProblemManager } from './problem-manager.js';
+import { ProblemMarker } from '../../common/problem-marker.js';
+import { ProblemTreeModel } from './problem-tree-model.js';
+import { MarkerInfoNode, MarkerNode, MarkerRootNode } from '../marker-tree.js';
 import {
     TreeWidget, TreeProps, ContextMenuRenderer, TreeNode, NodeProps, TreeModel,
     ApplicationShell, Navigatable, ExpandableTreeNode, SelectableTreeNode, TREE_NODE_INFO_CLASS, codicon, Message
 } from '@theia/core/lib/browser';
 import { DiagnosticSeverity } from 'vscode-languageserver-protocol';
 import React from 'react';
-import { ProblemPreferences } from './problem-preferences';
+import { ProblemPreferences } from './problem-preferences.js';
 import { DisposableCollection } from '@theia/core/lib/common/disposable';
 import { nls } from '@theia/core/lib/common/nls';
 

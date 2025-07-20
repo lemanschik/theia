@@ -17,8 +17,8 @@ import { ChatResponseContent, QuestionResponseContent } from '@theia/ai-chat';
 import { injectable } from 'inversify';
 import React from 'react';
 import { ReactNode } from 'react';
-import { ChatResponsePartRenderer } from '../chat-response-part-renderer';
-import { ResponseNode } from '../chat-tree-view';
+import { ChatResponsePartRenderer } from '../chat-response-part-renderer.js';
+import { ResponseNode } from '../chat-tree-view/index.js';
 
 @injectable()
 export class QuestionPartRenderer

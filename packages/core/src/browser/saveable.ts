@@ -19,7 +19,7 @@ import { Message } from '@lumino/messaging';
 import { Emitter, Event } from '../common/event.js';
 import { MaybePromise } from '../common/types.js';
 import { Key } from './keyboard/keys.js';
-import { AbstractDialog } from './dialogs/index.js';
+import { AbstractDialog } from '@theia/core/src/browser/dialogs';
 import { nls } from '../common/nls.js';
 import { Disposable, DisposableCollection, isObject, URI } from '../common/index.js';
 import { BinaryBuffer } from '../common/buffer.js';

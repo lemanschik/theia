@@ -41,12 +41,12 @@ import {
 import { WorkspaceService } from '@theia/workspace/lib/browser';
 import { FileResourceResolver, FileSystemPreferences } from '@theia/filesystem/lib/browser';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
-import { SearchInWorkspaceResult, SearchInWorkspaceOptions, SearchMatch } from '../common/search-in-workspace-interface';
-import { SearchInWorkspaceService } from './search-in-workspace-service';
+import { SearchInWorkspaceResult, SearchInWorkspaceOptions, SearchMatch } from '../common/search-in-workspace-interface.js';
+import { SearchInWorkspaceService } from './search-in-workspace-service.js';
 import { MEMORY_TEXT } from '@theia/core/lib/common';
 import URI from '@theia/core/lib/common/uri';
 import React from 'react';
-import { SearchInWorkspacePreferences } from './search-in-workspace-preferences';
+import { SearchInWorkspacePreferences } from './search-in-workspace-preferences.js';
 import { ColorRegistry } from '@theia/core/lib/browser/color-registry';
 import minimatch from 'minimatch';
 import { DisposableCollection } from '@theia/core/lib/common/disposable';
@@ -133,7 +133,7 @@ export class SearchInWorkspaceResultTreeWidget extends TreeWidget {
     protected onExpansionChangedEmitter = new Emitter();
     readonly onExpansionChanged: Event<void> = this.onExpansionChangedEmitter.event;
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     protected focusInputEmitter = new Emitter<any>();
 
     @inject(SearchInWorkspaceService) protected readonly searchService: SearchInWorkspaceService;
@@ -645,7 +645,7 @@ export class SearchInWorkspaceResultTreeWidget extends TreeWidget {
             searchOptions.maxResults -= numberOfResults;
         }
 
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         let pendingRefreshTimeout: any;
         const searchId = await this.searchService.search(searchTerm, {
             onResult: (aSearchId: number, result: SearchInWorkspaceResult) => {

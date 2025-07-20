@@ -16,16 +16,16 @@
 
 import { inject, injectable, postConstruct } from 'inversify';
 import React from 'react';
-import { ContextKeyService } from '../../context-key-service';
-import { CommandRegistry, Disposable, DisposableCollection, nls } from '../../../common';
-import { Anchor, ContextMenuAccess, ContextMenuRenderer } from '../../context-menu-renderer';
-import { LabelParser } from '../../label-parser';
-import { codicon, ReactWidget, Widget } from '../../widgets';
-import { TabBarToolbarRegistry } from './tab-bar-toolbar-registry';
-import { TabBarDelegator, TabBarToolbarAction } from './tab-bar-toolbar-types';
-import { KeybindingRegistry } from '../..//keybinding';
-import { TabBarToolbarItem } from './tab-toolbar-item';
-import { GroupImpl, MenuModelRegistry } from '../../../common/menu';
+import { ContextKeyService } from '../../context-key-service.js';
+import { CommandRegistry, Disposable, DisposableCollection, nls } from '../../../common/index.js';
+import { Anchor, ContextMenuAccess, ContextMenuRenderer } from '../../context-menu-renderer.js';
+import { LabelParser } from '../../label-parser.js';
+import { codicon, ReactWidget, Widget } from '../../widgets/index.js';
+import { TabBarToolbarRegistry } from './tab-bar-toolbar-registry.js';
+import { TabBarDelegator, TabBarToolbarAction } from './tab-bar-toolbar-types.js';
+import { KeybindingRegistry } from '../..//keybinding.js';
+import { TabBarToolbarItem } from './tab-toolbar-item.js';
+import { GroupImpl, MenuModelRegistry } from '../../../common/menu/index.js';
 
 /**
  * Factory for instantiating tab-bar toolbars.

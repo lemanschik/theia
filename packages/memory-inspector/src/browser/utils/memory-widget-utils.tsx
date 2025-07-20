@@ -15,7 +15,7 @@
  ********************************************************************************/
 
 import Long from 'long';
-import { VariableRange, VariableDecoration } from './memory-widget-variable-utils';
+import { VariableRange, VariableDecoration } from './memory-widget-variable-utils.js';
 
 export namespace Constants {
     export const DEBOUNCE_TIME = 200;
@@ -79,11 +79,11 @@ export namespace Interfaces {
     }
 
     export interface BitDecorator {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         (...args: any[]): Partial<FullNodeAttributes>;
     }
     export interface RowDecorator {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         (...args: any[]): Partial<StylableNodeAttributes>;
     }
     export interface ByteFromChunkData {

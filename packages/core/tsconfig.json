@@ -6,7 +6,12 @@
     "outDir": "lib"
   },
   "include": [
-    "src"
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/lib",
+    "**/lib/**"
   ],
   "references": [
     {

@@ -16,7 +16,7 @@
 
 import React from 'react';
 import DOMPurify from 'dompurify';
-import { ConsoleItem } from './console-session';
+import { ConsoleItem } from './console-session.js';
 import { Severity } from '@theia/core/lib/common/severity';
 import Anser from 'anser';
 
@@ -41,7 +41,7 @@ export class AnsiConsoleItem implements ConsoleItem {
     render(): React.ReactNode {
         return <div
             className='theia-console-ansi-console-item'
-            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(this.htmlContent) }} // eslint-disable-line react/no-danger
+            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(this.htmlContent) }}  
         />;
     }
 

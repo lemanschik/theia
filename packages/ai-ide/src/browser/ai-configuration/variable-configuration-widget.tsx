@@ -18,8 +18,8 @@ import { Agent, AgentService, AIVariable, AIVariableService } from '@theia/ai-co
 import { codicon, ReactWidget } from '@theia/core/lib/browser';
 import { inject, injectable, postConstruct } from 'inversify';
 import React from 'react';
-import { AIAgentConfigurationWidget } from './agent-configuration-widget';
-import { AIConfigurationSelectionService } from './ai-configuration-service';
+import { AIAgentConfigurationWidget } from './agent-configuration-widget.js';
+import { AIConfigurationSelectionService } from './ai-configuration-service.js';
 
 @injectable()
 export class AIVariableConfigurationWidget extends ReactWidget {

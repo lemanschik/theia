@@ -18,12 +18,12 @@ import { inject, injectable } from 'inversify';
 import { DisposableCollection } from '@theia/core/lib/common';
 import URI from '@theia/core/lib/common/uri';
 import { ScmTreeModel } from '@theia/scm/lib/browser/scm-tree-model';
-import { Git, GitFileStatus } from '../../common';
+import { Git, GitFileStatus } from '../../common/index.js';
 import { ScmService } from '@theia/scm/lib/browser/scm-service';
-import { GitScmProvider, GitScmFileChange } from '../git-scm-provider';
+import { GitScmProvider, GitScmFileChange } from '../git-scm-provider.js';
 import { ScmResourceGroup, ScmResource } from '@theia/scm/lib/browser/scm-provider';
 import { ScmFileChange } from '@theia/scm-extra/lib/browser/scm-file-change-node';
-import { GitResourceOpener } from './git-resource-opener';
+import { GitResourceOpener } from './git-resource-opener.js';
 
 @injectable()
 export class GitDiffTreeModel extends ScmTreeModel {

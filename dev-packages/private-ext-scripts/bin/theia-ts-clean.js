@@ -81,6 +81,7 @@ async function tsClean() {
                             debug(`"${root}" is not a TypeScript package, skipping...`);
                             return;
                         }
+                        console.log({ tsconfigPath });
                         const {
                             compilerOptions: {
                                 outDir = undefined,

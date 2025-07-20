@@ -25,10 +25,10 @@ import { FileService } from '@theia/filesystem/lib/browser/file-service';
 import { Deferred } from '@theia/core/lib/common/promise-util';
 import PerfectScrollbar from 'perfect-scrollbar';
 import { FuzzySearch } from '@theia/core/lib/browser/tree/fuzzy-search';
-import { codicons } from './codicons';
-import { fontAwesomeIcons } from './font-awesome-icons';
-import { IconSet } from './toolbar-interfaces';
-import { ReactInteraction, ReactKeyboardEvent } from './toolbar-constants';
+import { codicons } from './codicons.js';
+import { fontAwesomeIcons } from './font-awesome-icons.js';
+import { IconSet } from './toolbar-interfaces.js';
+import { ReactInteraction, ReactKeyboardEvent } from './toolbar-constants.js';
 
 export interface ToolbarIconDialogFactory {
     (command: Command): ToolbarIconSelectorDialog;

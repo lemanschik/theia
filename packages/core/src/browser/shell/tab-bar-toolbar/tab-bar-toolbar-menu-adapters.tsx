@@ -16,14 +16,14 @@
 
 import { Widget } from '@lumino/widgets';
 import React from 'react';
-import { CommandRegistry, Event } from '../../../common';
-import { NAVIGATION, RenderedToolbarAction } from './tab-bar-toolbar-types';
-import { TabBarToolbar, toAnchor } from './tab-bar-toolbar';
-import { ACTION_ITEM, codicon } from '../../widgets';
-import { ContextMenuRenderer } from '../../context-menu-renderer';
-import { TabBarToolbarItem } from './tab-toolbar-item';
-import { ContextKeyService, ContextMatcher } from '../../context-key-service';
-import { CommandMenu, CompoundMenuNode, MenuModelRegistry, MenuNode, MenuPath, RenderedMenuNode } from '../../../common/menu';
+import { CommandRegistry, Event } from '../../../common/index.js';
+import { NAVIGATION, RenderedToolbarAction } from './tab-bar-toolbar-types.js';
+import { TabBarToolbar, toAnchor } from './tab-bar-toolbar.js';
+import { ACTION_ITEM, codicon } from '../../widgets/index.js';
+import { ContextMenuRenderer } from '../../context-menu-renderer.js';
+import { TabBarToolbarItem } from './tab-toolbar-item.js';
+import { ContextKeyService, ContextMatcher } from '../../context-key-service.js';
+import { CommandMenu, CompoundMenuNode, MenuModelRegistry, MenuNode, MenuPath, RenderedMenuNode } from '../../../common/menu/index.js';
 
 export const TOOLBAR_WRAPPER_ID_SUFFIX = '-as-tabbar-toolbar-item';
 
