@@ -68,6 +68,7 @@
     "build:electron": "cd examples/electron && npm run build",
     "build:tools": "lerna run compile --scope \"@theia/{re-exports,eslint-plugin}\"",
     "clean": "npm run -s rebuild:clean && npm run -s lint:clean && lerna run clean",
+    "clean:ts": "npm run clean --workspaces --if-present",
     "compile": "lerna run compile",
     "compute-references": "node scripts/compile-references.js",
     "docs": "npm run -s update-typedoc-refs && rimraf gh-pages/docs/next && typedoc --tsconfig typedoc.tsconfig.json --plugin typedoc-plugin-external-module-map --options configs/typedoc.json .",
