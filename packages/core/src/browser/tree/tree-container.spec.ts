@@ -23,12 +23,12 @@ import { defaultTreeProps, TreeProps } from './tree-widget';
 describe('TreeContainer', () => {
     describe('IsTreeServices should accurately distinguish TreeProps from TreeContainerProps', () => {
         it('should assign search:boolean to TreeProps', () => {
-            assert(isTreeServices({
+            assert.default(isTreeServices({
                 ...defaultTreeProps, search: true, multiSelect: true, globalSelection: true, contextMenuPath: ['so-contextual']
             }) === false);
         });
         it('should assign search:not-a-boolean to TreeContainerProps', () => {
-            assert(isTreeServices({ search: TreeSearch }) === true);
+            assert.default(isTreeServices({ search: TreeSearch }) === true);
         });
         const nonDefault = { search: !defaultTreeProps.search, contextMenu: ['no-default-for-this'] };
         it('should use props passed in as just props', () => {

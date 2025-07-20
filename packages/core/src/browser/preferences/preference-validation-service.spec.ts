@@ -295,7 +295,7 @@ describe('Preference Validation Service', () => {
         const arraySchema: PreferenceItem = { type: 'array', items: { type: 'string' } };
         it('maintains triple equality for arrays', () => {
             const input = ['one-string', 'two-string'];
-            assert(validateBySchema(input, arraySchema) === input);
+            assert.default(validateBySchema(input, arraySchema) === input);
         });
         it('does not maintain triple equality if the array is only partially correct', () => {
             const input = ['one-string', 'two-string', 3];
@@ -310,7 +310,7 @@ describe('Preference Validation Service', () => {
                 }
             };
             const input = { primitive: 'is a string', complex: { nested: 3 } };
-            assert(validateBySchema(input, schema) === input);
+            assert.default(validateBySchema(input, schema) === input);
         });
     });
     it('should return the value if any error occurs', () => {
@@ -322,13 +322,13 @@ describe('Preference Validation Service', () => {
         };
         const input = { shouldBeValid: false };
         const output = validateBySchema(input, { type: 'string' });
-        assert(wasCalled);
-        assert(input === output);
+        assert.default(wasCalled);
+        assert.default(input === output);
         validator['validateString'] = originalValidator;
     });
     it('should return the same object if no validation possible', () => {
         for (const input of ['whatever', { valid: 'hard to say' }, 234, ["no one knows if I'm not", 'so I am']]) {
-            assert(validateBySchema(input, {}) === input);
+            assert.default(validateBySchema(input, {}) === input);
         }
     });
 });
