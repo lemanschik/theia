@@ -17,7 +17,7 @@
 
 import { default as nano } from 'nano';
 import { RequestContext } from '@theia/request';
-import { NodeRequestService } from '@theia/request/src/node-request-service';
+import { NodeRequestService } from '@theia/request/src/node-request-service.js';
 import { NpmRegistryProps } from './application-props.js';
 
 export interface IChangeStream {
