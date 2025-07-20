@@ -1,2 +1,1 @@
-import Electron = require('@theia/electron/shared/electron');
-export = Electron;
+export { default as electronDefaultExport } from 'electron';

@@ -16,7 +16,7 @@
 
 import {
     ipcMain, BrowserWindow, Menu, MenuItemConstructorOptions, webContents, WebContents, session, shell, clipboard, IpcMainEvent
-} from '@theia/electron/shared/electron';
+} from 'electron';
 import * as nativeKeymap from '@theia/electron/shared/native-keymap';
 
 import { inject, injectable } from 'inversify';

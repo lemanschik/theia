@@ -1,2 +1,2 @@
-import ElectronStore = require('@theia/electron/shared/electron-store');
+import ElectronStore = require('electron-store');
 export = ElectronStore;

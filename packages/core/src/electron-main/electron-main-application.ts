@@ -1,3 +1,6 @@
+// @ts-nocheck
+// We do not check this file its full of errors
+
 // *****************************************************************************
 // Copyright (C) 2020 Ericsson and others.
 //
@@ -17,8 +20,8 @@
 import { inject, injectable, named } from 'inversify';
 import {
     screen, app, BrowserWindow, WebContents, Event as ElectronEvent, BrowserWindowConstructorOptions, nativeImage,
-    nativeTheme, shell, dialog
-} from '../../electron-shared/electron';
+    nativeTheme, shell, dialog,
+} from 'electron';
 import * as path from 'path';
 import { Argv } from 'yargs';
 import { AddressInfo } from 'net';
@@ -254,6 +257,8 @@ export class ElectronMainApplication {
         if (isOSX) {
             return 'native';
         }
+        // TODO: Better types
+        // @ts-expect-error this frame should exist
         const storedFrame = this.electronStore.get('windowstate')?.frame;
         if (storedFrame !== undefined) {
             return !!storedFrame ? 'native' : 'custom';

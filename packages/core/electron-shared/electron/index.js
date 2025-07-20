@@ -1,1 +1,2 @@
-module.exports = require('@theia/electron/shared/electron');
+// export { default as Electron } from 'electron';
+export { default as electronDefaultExport } from 'electron';

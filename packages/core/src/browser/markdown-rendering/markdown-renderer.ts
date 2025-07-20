@@ -16,11 +16,11 @@
 
 import * as DOMPurify from 'dompurify';
 import { injectable, inject, postConstruct } from 'inversify';
-import * as markdownit from 'markdown-it';
-import { MarkdownString } from '../../common/markdown-rendering/markdown-string';
-import { Disposable, DisposableGroup } from '../../common';
-import { LabelParser } from '../label-parser';
-import { codicon } from '../widgets';
+import { default as markdownit } from 'markdown-it';
+import { MarkdownString } from '../../common/markdown-rendering/markdown-string.js';
+import { Disposable, DisposableGroup } from '../../common/index.js';
+import { LabelParser } from '../label-parser.js';
+import { codicon } from '../widgets/index.js';
 
 // #region Copied from Copied from https://github.com/microsoft/vscode/blob/7d9b1c37f8e5ae3772782ba3b09d827eb3fdd833/src/vs/base/browser/formattedTextRenderer.ts
 export interface ContentActionHandler {
