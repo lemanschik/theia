@@ -14,10 +14,10 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
- 
+
 import { default as nano } from 'nano';
 import { RequestContext } from '@theia/request';
-import { NodeRequestService } from '@theia/request/lib/node-request-service';
+import { NodeRequestService } from '@theia/request/src/node-request-service';
 import { NpmRegistryProps } from './application-props.js';
 
 export interface IChangeStream {
