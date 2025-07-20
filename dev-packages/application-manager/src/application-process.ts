@@ -19,18 +19,26 @@ import fs from 'fs-extra';
 import cp from 'child_process';
 import { ApplicationPackage } from '@theia/application-package';
 
+
+
 export class ApplicationProcess {
 
     protected readonly defaultOptions = {
-        // @ts-ignore
-        cwd: this.pck.projectPath,
+        cwd: process.cwd(),
         env: process.env
     };
 
     constructor(
         protected readonly pck: ApplicationPackage,
         protected readonly binProjectPath: string
-    ) { }
+    ) {
+        this.pck = pck;
+        this.binProjectPath = binProjectPath;
+        this.defaultOptions = {
+            cwd: this.pck.projectPath || process.cwd(),
+            env: process.env
+        };
+    }
 
     spawn(command: string, args?: string[], options?: cp.SpawnOptions): cp.ChildProcess {
         return cp.spawn(command, args || [], Object.assign({}, this.defaultOptions, {
