@@ -14,20 +14,20 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import * as Ajv from 'ajv';
+import { default as Ajv } from 'ajv';
 import { inject, injectable, interfaces, named, postConstruct } from 'inversify';
-import { ContributionProvider, bindContributionProvider, Emitter, Event, Disposable } from '../../common';
+import { ContributionProvider, bindContributionProvider, Emitter, Event, Disposable } from '../../common/index.js';
 import { PreferenceScope } from './preference-scope';
-import { PreferenceProvider, PreferenceProviderDataChange } from './preference-provider';
+import { PreferenceProvider, PreferenceProviderDataChange } from './preference-provider.js';
 import {
     PreferenceSchema, PreferenceSchemaProperties, PreferenceDataSchema, PreferenceItem, PreferenceSchemaProperty, PreferenceDataProperty
-} from '../../common/preferences/preference-schema';
-import { FrontendApplicationConfigProvider } from '../frontend-application-config-provider';
-import { FrontendApplicationConfig } from '@theia/application-package/lib/application-props';
-import { bindPreferenceConfigurations, PreferenceConfigurations } from './preference-configurations';
+} from '../../common/preferences/preference-schema.js';
+import { FrontendApplicationConfigProvider } from '../frontend-application-config-provider.js';
+import { FrontendApplicationConfig } from '@theia/application-package/lib/application-props.js';
+import { bindPreferenceConfigurations, PreferenceConfigurations } from './preference-configurations.js';
 export { PreferenceSchema, PreferenceSchemaProperties, PreferenceDataSchema, PreferenceItem, PreferenceSchemaProperty, PreferenceDataProperty };
 import { isObject, Mutable } from '../../common/types';
-import { PreferenceLanguageOverrideService } from './preference-language-override-service';
+import { PreferenceLanguageOverrideService } from './preference-language-override-service.js';
 import { JSONValue } from '@lumino/coreutils';
 
 /* eslint-disable guard-for-in, @typescript-eslint/no-explicit-any */
