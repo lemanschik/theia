@@ -28,8 +28,9 @@ import { RateLimiter } from 'limiter';
 import { LocalizationManager, extract } from '@theia/localization-manager';
 import { NodeRequestService } from '@theia/request/lib/node-request-service.js';
 import { ExtensionIdMatchesFilterFactory, OVSX_RATE_LIMIT, OVSXClient, OVSXHttpClient, OVSXRouterClient, RequestContainsFilterFactory } from '@theia/ovsx-client';
-
 import { executablePath } from 'puppeteer-core';
+
+const __dirname = import.meta.dirname;
 
 process.on('unhandledRejection', (reason, promise) => {
     throw reason;
