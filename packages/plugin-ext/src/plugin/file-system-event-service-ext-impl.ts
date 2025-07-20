@@ -34,7 +34,7 @@ import { UriComponents } from 'vscode-uri';
 import { Disposable, URI, WorkspaceEdit } from './types-impl';
 import { EditorsAndDocumentsExtImpl as ExtHostDocumentsAndEditors } from './editors-and-documents';
 import type * as vscode from '@theia/plugin';
-import typeConverter from './type-converters';
+import * as typeConverter from './type-converters';
 import { FileOperation } from '@theia/filesystem/lib/common/files';
 import { flatten } from '../common/arrays';
 import { CancellationToken } from '@theia/core/lib/common/cancellation';

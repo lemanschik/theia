@@ -17,7 +17,7 @@ import theia from '@theia/plugin';
 import { DataTransferDTO, DocumentDropEdit } from '../../common/plugin-api-rpc-model';
 import { CancellationToken } from 'vscode-languageserver-protocol';
 import { Position } from '../../common/plugin-api-rpc';
-import Converter from '../type-converters';
+import * as Converter from '../type-converters';
 import { DocumentsExtImpl } from '../documents';
 import { URI } from 'vscode-uri';
 import { FileSystemExtImpl } from '../file-system-ext-impl';

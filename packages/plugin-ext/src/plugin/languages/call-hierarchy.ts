@@ -17,9 +17,9 @@
 import { URI } from 'vscode-uri';
 import theia from '@theia/plugin';
 import { DocumentsExtImpl } from '../documents';
-import dto from '../../common/plugin-api-rpc-model';
-import rpc from '../../common/plugin-api-rpc';
-import types from '../types-impl';
+import * as dto from '../../common/plugin-api-rpc-model';
+import * as rpc from '../../common/plugin-api-rpc';
+import * as types from '../types-impl';
 import { fromRange, SymbolKind } from '../type-converters';
 
 export class CallHierarchyAdapter {

@@ -17,9 +17,9 @@
 import { URI } from 'vscode-uri';
 import theia from '@theia/plugin';
 import { DocumentsExtImpl } from '../documents';
-import Converter from '../type-converters';
+import * as Converter from '../type-converters';
 import { DocumentSymbol, Range } from '../../common/plugin-api-rpc-model';
-import types from '../types-impl';
+import * as types from '../types-impl';
 
 /** Adapts the calls from main to extension thread for providing the document symbols. */
 export class OutlineAdapter {

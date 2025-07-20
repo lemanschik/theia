@@ -35,7 +35,7 @@ import { TestingExt, PLUGIN_RPC_CONTEXT, TestingMain } from '../common/plugin-ap
 import { CommandRegistryImpl } from './command-registry';
 import { RPCProtocol } from '../common/rpc-protocol';
 import { generateUuid } from '@theia/core/lib/common/uuid';
-import Convert from './type-converters';
+import * as Convert from './type-converters';
 import { TestItemImpl, TestItemCollection } from './test-item';
 import { AccumulatingTreeDeltaEmitter, TreeDelta } from '@theia/test/lib/common/tree-delta';
 import {

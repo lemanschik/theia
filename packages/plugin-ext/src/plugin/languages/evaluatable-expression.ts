@@ -19,7 +19,7 @@ import theia from '@theia/plugin';
 import { Position } from '../../common/plugin-api-rpc';
 import { EvaluatableExpression } from '../../common/plugin-api-rpc-model';
 import { DocumentsExtImpl } from '../documents';
-import Converter from '../type-converters';
+import * as Converter from '../type-converters';
 
 export class EvaluatableExpressionAdapter {
 

@@ -17,18 +17,18 @@
 import theia from '@theia/plugin';
 import lstypes from 'vscode-languageserver-protocol';
 import { InlineValueEvaluatableExpression, InlineValueText, InlineValueVariableLookup, QuickPickItemKind, ThemeIcon, URI } from './types-impl';
-import rpc from '../common/plugin-api-rpc';
+import * as rpc from '../common/plugin-api-rpc';
 import {
     DecorationOptions, EditorPosition, Plugin, Position, WorkspaceTextEditDto, WorkspaceFileEditDto, Selection, TaskDto, WorkspaceEditDto
 } from '../common/plugin-api-rpc';
-import model from '../common/plugin-api-rpc-model';
+import * as model from '../common/plugin-api-rpc-model';
 import { LanguageFilter, LanguageSelector, RelativePattern } from '@theia/editor/lib/common/language-selector';
 import { MarkdownString as PluginMarkdownStringImpl } from './markdown-string';
-import types from './types-impl';
+import * as types from './types-impl';
 import { UriComponents } from '../common/uri-components';
 import { isReadonlyArray } from '../common/arrays';
 import { DisposableCollection, Mutable, isEmptyObject, isObject } from '@theia/core/lib/common';
-import notebooks from '@theia/notebook/lib/common';
+import * as notebooks from '@theia/notebook/lib/common';
 import { CommandsConverter } from './command-registry';
 import { BinaryBuffer } from '@theia/core/lib/common/buffer';
 import { CellRange, isTextStreamMime } from '@theia/notebook/lib/common';

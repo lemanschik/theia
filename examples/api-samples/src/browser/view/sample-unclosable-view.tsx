@@ -16,7 +16,7 @@
 
 import { ReactWidget } from '@theia/core/lib/browser';
 import { injectable, postConstruct } from '@theia/core/shared/inversify';
-import React from '@theia/core/shared/react';
+import React from 'react';
 
 /**
  * This sample view is used to demo the behavior of "Widget.title.closable".

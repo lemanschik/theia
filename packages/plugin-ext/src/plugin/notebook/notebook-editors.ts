@@ -20,7 +20,7 @@
 
 import { Emitter } from '@theia/core';
 import { NotebookEditorPropertiesChangeData, NotebookEditorsExt, NotebookEditorViewColumnInfo } from '../../common';
-import typeConverters from '../type-converters';
+import * as typeConverters from '../type-converters';
 import theia from '@theia/plugin';
 import { NotebooksExtImpl } from './notebooks';
 

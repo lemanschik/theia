@@ -13,7 +13,7 @@ fix.
 
 import express = require('@theia/core/shared/express');
 import fs = require('@theia/core/shared/fs-extra');
-import React from '@theia/core/shared/react';
+import React from 'react';
 
 needs fixing
 

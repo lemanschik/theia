@@ -18,7 +18,7 @@ import { URI } from 'vscode-uri';
 import theia from '@theia/plugin';
 import { CompletionItemTag, CompletionList, Range, SnippetString } from '../types-impl';
 import { DocumentsExtImpl } from '../documents';
-import Converter from '../type-converters';
+import * as Converter from '../type-converters';
 import { Position } from '../../common/plugin-api-rpc';
 import { CompletionContext, CompletionResultDto, Completion, CompletionDto, CompletionItemInsertTextRule, ChainedCacheId } from '../../common/plugin-api-rpc-model';
 import { CommandRegistryImpl } from '../command-registry';

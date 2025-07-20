@@ -21,7 +21,7 @@ import { RPCProtocol } from '../common/rpc-protocol';
 import { Emitter, Event } from '@theia/core/lib/common/event';
 import { DocumentDataExt } from './document-data';
 import { ok } from '../common/assert';
-import Converter from './type-converters';
+import * as Converter from './type-converters';
 import { dispose } from '../common/disposable-util';
 import { URI } from './types-impl';
 

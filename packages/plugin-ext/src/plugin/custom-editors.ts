@@ -29,7 +29,7 @@ import { WebviewsExtImpl } from './webviews';
 import { CancellationToken, CancellationTokenSource } from '@theia/core/lib/common/cancellation';
 import { DisposableCollection } from '@theia/core/lib/common/disposable';
 import { Cache } from '../common/cache';
-import Converters from './type-converters';
+import * as Converters from './type-converters';
 
 export class CustomEditorsExtImpl implements CustomEditorsExt {
     private readonly proxy: CustomEditorsMain;

@@ -19,7 +19,7 @@ import { URI } from 'vscode-uri';
 import theia from '@theia/plugin';
 import { DocumentsExtImpl } from '../documents';
 import { Hover } from '../../common/plugin-api-rpc-model';
-import Converter from '../type-converters';
+import * as Converter from '../type-converters';
 import { Range } from '../types-impl';
 import { Position } from '../../common/plugin-api-rpc';
 

@@ -17,8 +17,8 @@
 import { URI } from 'vscode-uri';
 import theia from '@theia/plugin';
 import { DocumentsExtImpl } from '../documents';
-import types from '../types-impl';
-import Converter from '../type-converters';
+import * as types from '../types-impl';
+import * as Converter from '../type-converters';
 import { Position } from '../../common/plugin-api-rpc';
 import { DocumentHighlight } from '../../common/plugin-api-rpc-model';
 

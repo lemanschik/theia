@@ -18,7 +18,7 @@ import theia from '@theia/plugin';
 import { URI } from 'vscode-uri';
 import { Selection, WorkspaceEditDto } from '../../common/plugin-api-rpc';
 import { Range, CodeActionContext, CodeAction } from '../../common/plugin-api-rpc-model';
-import Converter from '../type-converters';
+import * as Converter from '../type-converters';
 import { DocumentsExtImpl } from '../documents';
 import { Diagnostics } from './diagnostics';
 import { CodeActionKind } from '../types-impl';

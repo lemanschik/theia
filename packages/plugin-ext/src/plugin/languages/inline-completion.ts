@@ -17,7 +17,7 @@
 // copied from https://github.com/microsoft/vscode/blob/6261075646f055b99068d3688932416f2346dd3b/src/vs/workbench/api/common/extHostLanguageFeatures.ts#L1069-L1185.
 
 import theia from '@theia/plugin';
-import Converter from '../type-converters';
+import * as Converter from '../type-converters';
 import { DocumentsExtImpl } from '../documents';
 import { URI } from 'vscode-uri';
 import { CommandRegistryImpl } from '../command-registry';

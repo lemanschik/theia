@@ -18,7 +18,7 @@ import { URI } from 'vscode-uri';
 import theia from '@theia/plugin';
 import { InlineValue, InlineValueContext, Range } from '../../common/plugin-api-rpc-model';
 import { DocumentsExtImpl } from '../documents';
-import Converter from '../type-converters';
+import * as Converter from '../type-converters';
 
 export class InlineValuesAdapter {
 

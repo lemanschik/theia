@@ -41,7 +41,7 @@ import { relative } from '../common/paths-util';
 import { Schemes, UriComponents } from '../common/uri-components';
 import { toWorkspaceFolder } from './type-converters';
 import { MessageRegistryExt } from './message-registry';
-import Converter from './type-converters';
+import * as Converter from './type-converters';
 import { FileStat } from '@theia/filesystem/lib/common/files';
 import { isUndefinedOrNull, isUndefined } from '../common/types';
 import { PluginLogger } from './logger';

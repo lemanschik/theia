@@ -23,9 +23,9 @@
 import theia from '@theia/plugin';
 import { DocumentsExtImpl } from '../documents';
 import { URI } from 'vscode-uri';
-import model from '../../common/plugin-api-rpc-model';
-import Converter from '../type-converters';
-import types from '../types-impl';
+import * as model from '../../common/plugin-api-rpc-model';
+import * as Converter from '../type-converters';
+import * as types from '../types-impl';
 import { Position } from '../../common/plugin-api-rpc';
 
 export class SelectionRangeProviderAdapter {

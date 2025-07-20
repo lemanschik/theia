@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import theia from '@theia/plugin';
-import rpc from '../../common/plugin-api-rpc';
+import * as rpc from '../../common/plugin-api-rpc';
 import { DocumentsExtImpl } from '../documents';
 import { LinkedEditingRanges } from '../../common/plugin-api-rpc-model';
 import { URI } from 'vscode-uri';

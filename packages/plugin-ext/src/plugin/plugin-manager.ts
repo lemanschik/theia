@@ -34,7 +34,7 @@ import {
 } from '../common/plugin-api-rpc';
 import { PluginMetadata, PluginJsonValidationContribution } from '../common/plugin-protocol';
 import theia from '@theia/plugin';
-import types from './types-impl';
+import * as types from './types-impl';
 import { join } from './path';
 import { EnvExtImpl } from './env';
 import { PreferenceRegistryExtImpl } from './preference-registry';

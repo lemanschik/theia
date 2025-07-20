@@ -16,8 +16,8 @@
 
 import { URI } from 'vscode-uri';
 import theia from '@theia/plugin';
-import Converter from '../type-converters';
-import model from '../../common/plugin-api-rpc-model';
+import * as Converter from '../type-converters';
+import * as model from '../../common/plugin-api-rpc-model';
 import { DocumentsExtImpl } from '../documents';
 import { Position, WorkspaceEditDto } from '../../common/plugin-api-rpc';
 import { Range } from '../types-impl';

@@ -22,7 +22,7 @@ import { Event, Emitter } from '@theia/core/lib/common/event';
 import { MultiKeyMap } from '@theia/core/lib/common/collections';
 import { Deferred } from '@theia/core/lib/common/promise-util';
 import theia from '@theia/plugin';
-import Converter from './type-converters';
+import * as Converter from './type-converters';
 import { Disposable, EnvironmentVariableMutatorType, TerminalExitReason, ThemeIcon } from './types-impl';
 import { NO_ROOT_URI, SerializableEnvironmentVariableCollection } from '@theia/terminal/lib/common/shell-terminal-protocol';
 import { ProvidedTerminalLink } from '../common/plugin-api-rpc-model';

@@ -19,11 +19,11 @@
  *--------------------------------------------------------------------------------------------*/
 
 import theia from '@theia/plugin';
-import rpc from '../../common';
+import * as rpc from '../../common';
 import { EditorsAndDocumentsExtImpl } from '../editors-and-documents';
-import notebookCommon from '@theia/notebook/lib/common';
+import * as notebookCommon from '@theia/notebook/lib/common';
 import { Disposable, URI } from '@theia/core';
-import typeConverters from '../type-converters';
+import * as typeConverters from '../type-converters';
 import { ModelAddedData, NotebookCellDto, NotebookCellsChangedEventDto, NotebookModelAddedData, NotebookOutputDto } from '../../common';
 import { NotebookRange } from '../types-impl';
 import { DocumentsExtImpl } from '../documents';

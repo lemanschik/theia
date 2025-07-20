@@ -17,11 +17,11 @@
 import { URI } from 'vscode-uri';
 import theia from '@theia/plugin';
 import { IdGenerator } from '../../common/id-generator';
-import rpc from '../../common/plugin-api-rpc';
-import model from '../../common/plugin-api-rpc-model';
+import * as rpc from '../../common/plugin-api-rpc';
+import * as model from '../../common/plugin-api-rpc-model';
 import { DocumentsExtImpl } from '../documents';
 import { fromRange, SymbolKind } from '../type-converters';
-import types from '../types-impl';
+import * as types from '../types-impl';
 
 export class TypeHierarchyAdapter {
 

@@ -15,7 +15,7 @@
 // *****************************************************************************
 import { interfaces } from 'inversify';
 import { Disposable, DisposableCollection } from '@theia/core/lib/common/disposable';
-import types from '../../plugin/types-impl';
+import * as types from '../../plugin/types-impl';
 import { StatusBarMessageRegistryMain } from '../../common/plugin-api-rpc';
 import { StatusBar, StatusBarAlignment, StatusBarEntry } from '@theia/core/lib/browser/status-bar/status-bar';
 import { ColorRegistry } from '@theia/core/lib/browser/color-registry';

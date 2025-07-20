@@ -28,7 +28,7 @@ import { Emitter, Event } from '@theia/core/lib/common/event';
 import theia from '@theia/plugin';
 import { DocumentDataExt, setWordDefinitionFor } from './document-data';
 import { EditorsAndDocumentsExtImpl } from './editors-and-documents';
-import Converter from './type-converters';
+import * as Converter from './type-converters';
 import { DisposableCollection } from '@theia/core/lib/common/disposable';
 import { Range, TextDocumentShowOptions } from '../common/plugin-api-rpc-model';
 

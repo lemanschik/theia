@@ -23,7 +23,7 @@
 import { URI } from 'vscode-uri';
 import theia from '@theia/plugin';
 import { DocumentsExtImpl } from '../documents';
-import Converter from '../type-converters';
+import * as Converter from '../type-converters';
 import { Position } from '../../common/plugin-api-rpc';
 import { SignatureHelp, SignatureHelpContext } from '../../common/plugin-api-rpc-model';
 

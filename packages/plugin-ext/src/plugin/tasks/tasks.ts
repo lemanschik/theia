@@ -22,7 +22,7 @@ import {
     TaskExecutionDto
 } from '../../common/plugin-api-rpc';
 import theia from '@theia/plugin';
-import converter from '../type-converters';
+import * as converter from '../type-converters';
 import { CustomExecution, Disposable } from '../types-impl';
 import { RPCProtocol } from '../../common/rpc-protocol';
 import { TaskProviderAdapter } from './task-provider';
