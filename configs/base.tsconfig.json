@@ -1,6 +1,8 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "skipLibCheck": true,
     "declaration": true,
     "declarationMap": true,
@@ -15,11 +17,12 @@
     "importHelpers": true,
     "downlevelIteration": true,
     "resolveJsonModule": true,
-    "module": "CommonJS",
+    "module": "esnext",
     "moduleResolution": "Node",
-    "target": "ES2019",
+    "target": "esnext",
     "jsx": "react",
     "lib": [
+      "ESNext",
       "ES2019",
       "ES2020.Promise",
       "DOM",
