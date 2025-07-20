@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import * as fs from 'fs';
-import * as mustache from 'mustache';
+import { default as mustache } from 'mustache';
 import * as os from 'os';
 import * as path from 'path';
 import * as semver from 'semver';
