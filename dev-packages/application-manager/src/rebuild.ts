@@ -342,7 +342,7 @@ async function throwIfSignal(token: ExitToken, cleanup?: () => Promise<void>): P
         try {
             await cleanup?.();
         } finally {
-            // eslint-disable-next-line no-throw-literal
+             
             throw token.getLastSignal()!;
         }
     }

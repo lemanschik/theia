@@ -33,14 +33,14 @@ import os from 'os';
 import path from 'path';
 import { rimraf } from 'rimraf';
 import sinon from 'sinon';
-import { Git, GitFileStatus, Repository } from '../common';
-import { DugiteGit } from '../node/dugite-git';
-import { DefaultGitEnvProvider, GitEnvProvider } from '../node/env/git-env-provider';
-import { bindGit } from '../node/git-backend-module';
-import { GitRepositoryWatcher, GitRepositoryWatcherFactory } from '../node/git-repository-watcher';
-import { GitErrorHandler } from './git-error-handler';
-import { GitPreferences } from './git-preferences';
-import { GitScmProvider, GitScmProviderOptions } from './git-scm-provider';
+import { Git, GitFileStatus, Repository } from '../common/index.js';
+import { DugiteGit } from '../node/dugite-git.js';
+import { DefaultGitEnvProvider, GitEnvProvider } from '../node/env/git-env-provider.js';
+import { bindGit } from '../node/git-backend-module.js';
+import { GitRepositoryWatcher, GitRepositoryWatcherFactory } from '../node/git-repository-watcher.js';
+import { GitErrorHandler } from './git-error-handler.js';
+import { GitPreferences } from './git-preferences.js';
+import { GitScmProvider, GitScmProviderOptions } from './git-scm-provider.js';
 
 disableJSDOM();
 

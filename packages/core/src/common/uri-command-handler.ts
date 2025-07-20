@@ -14,13 +14,13 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
-import { SelectionService } from '../common/selection-service';
-import { UriSelection } from '../common/selection';
-import { CommandHandler } from './command';
-import URI from './uri';
-import { isArray, MaybeArray } from './types';
+import { SelectionService } from '../common/selection-service.js';
+import { UriSelection } from '../common/selection.js';
+import { CommandHandler } from './command.js';
+import URI from './uri.js';
+import { isArray, MaybeArray } from './types.js';
 
 export interface UriCommandHandler<T extends MaybeArray<URI>> extends CommandHandler {
 

@@ -22,7 +22,7 @@ FrontendApplicationConfigProvider.set({});
 import { expect } from 'chai';
 import { URI } from '@theia/core';
 import { SearchInWorkspaceResult, LinePreview } from '@theia/search-in-workspace/lib/common/search-in-workspace-interface';
-import { optimizeSearchResults } from '../common/workspace-search-provider-util';
+import { optimizeSearchResults } from '../common/workspace-search-provider-util.js';
 
 disableJSDOM();
 

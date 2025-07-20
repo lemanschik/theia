@@ -14,24 +14,24 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
-import { enableJSDOM } from '../test/jsdom';
+import { enableJSDOM } from '../test/jsdom.js';
 
 let disableJSDOM = enableJSDOM();
 
 import assert from 'assert';
 import { Container } from 'inversify';
-import { bindPreferenceService } from '../frontend-application-bindings';
-import { bindMockPreferenceProviders, MockPreferenceProvider } from './test';
-import { PreferenceService, PreferenceServiceImpl } from './preference-service';
-import { PreferenceSchemaProvider, PreferenceSchema } from './preference-contribution';
-import { PreferenceScope } from './preference-scope';
-import { PreferenceProvider } from './preference-provider';
-import { FrontendApplicationConfigProvider } from '../frontend-application-config-provider';
-import { PreferenceProxyOptions, PreferenceProxy, PreferenceChangeEvent, createPreferenceProxy } from './preference-proxy';
-import { PreferenceProxyFactory } from './injectable-preference-proxy';
-import { waitForEvent } from '../../common/promise-util';
+import { bindPreferenceService } from '../frontend-application-bindings.js';
+import { bindMockPreferenceProviders, MockPreferenceProvider } from './test/index.js';
+import { PreferenceService, PreferenceServiceImpl } from './preference-service.js';
+import { PreferenceSchemaProvider, PreferenceSchema } from './preference-contribution.js';
+import { PreferenceScope } from './preference-scope.js';
+import { PreferenceProvider } from './preference-provider.js';
+import { FrontendApplicationConfigProvider } from '../frontend-application-config-provider.js';
+import { PreferenceProxyOptions, PreferenceProxy, PreferenceChangeEvent, createPreferenceProxy } from './preference-proxy.js';
+import { PreferenceProxyFactory } from './injectable-preference-proxy.js';
+import { waitForEvent } from '../../common/promise-util.js';
 
 disableJSDOM();
 

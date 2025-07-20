@@ -14,9 +14,9 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { CompositeTreeNode } from '../tree';
-import { SelectableTreeNode } from '../tree-selection';
-import { ExpandableTreeNode } from '../tree-expansion';
+import { CompositeTreeNode } from '../tree.js';
+import { SelectableTreeNode } from '../tree-selection.js';
+import { ExpandableTreeNode } from '../tree-expansion.js';
 
 export namespace MockSelectableTreeModel {
 
@@ -47,7 +47,7 @@ export namespace MockSelectableTreeModel {
                 return node;
             } else {
                 node.children = children;
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                 
                 (node as any).expanded = expanded;
                 return node as CompositeTreeNode & SelectableTreeNode & ExpandableTreeNode;
             }

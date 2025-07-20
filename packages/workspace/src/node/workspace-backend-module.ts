@@ -16,8 +16,8 @@
 
 import { ContainerModule } from 'inversify';
 import { ConnectionHandler, RpcConnectionHandler, bindContributionProvider } from '@theia/core/lib/common';
-import { WorkspaceServer, workspacePath, UntitledWorkspaceService, WorkspaceFileService } from '../common';
-import { DefaultWorkspaceServer, FileWorkspaceHandlerContribution, WorkspaceCliContribution, WorkspaceHandlerContribution } from './default-workspace-server';
+import { WorkspaceServer, workspacePath, UntitledWorkspaceService, WorkspaceFileService } from '../common/index.js';
+import { DefaultWorkspaceServer, FileWorkspaceHandlerContribution, WorkspaceCliContribution, WorkspaceHandlerContribution } from './default-workspace-server.js';
 import { CliContribution } from '@theia/core/lib/node/cli';
 import { BackendApplicationContribution } from '@theia/core/lib/node';
 

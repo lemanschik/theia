@@ -16,9 +16,9 @@
 
 /* eslint-disable no-null/no-null */
 
-import { OVSXRouterClient } from './ovsx-router-client';
-import { testClientProvider, registries, filterFactories } from './ovsx-router-client.spec-data';
-import { ExtensionLike } from './ovsx-types';
+import { OVSXRouterClient } from './ovsx-router-client.js';
+import { testClientProvider, registries, filterFactories } from './ovsx-router-client.spec-data.js';
+import { ExtensionLike } from './ovsx-types.js';
 import assert from 'assert';
 
 describe('OVSXRouterClient', async () => {

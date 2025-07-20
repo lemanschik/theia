@@ -26,10 +26,10 @@ import {
     PREF_AI_INLINE_COMPLETION_DEBOUNCE_DELAY,
     PREF_AI_INLINE_COMPLETION_EXCLUDED_EXTENSIONS,
     PREF_AI_INLINE_COMPLETION_CACHE_CAPACITY
-} from './ai-code-completion-preference';
-import { AICodeInlineCompletionsProvider } from './ai-code-inline-completion-provider';
-import { InlineCompletionDebouncer } from './code-completion-debouncer';
-import { CodeCompletionCache } from './code-completion-cache';
+} from './ai-code-completion-preference.js';
+import { AICodeInlineCompletionsProvider } from './ai-code-inline-completion-provider.js';
+import { InlineCompletionDebouncer } from './code-completion-debouncer.js';
+import { CodeCompletionCache } from './code-completion-cache.js';
 
 @injectable()
 export class AIFrontendApplicationContribution implements FrontendApplicationContribution, KeybindingContribution {

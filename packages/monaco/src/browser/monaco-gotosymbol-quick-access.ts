@@ -25,7 +25,7 @@ import { IQuickAccessRegistry, Extensions } from '@theia/monaco-editor-core/esm/
 import { Registry } from '@theia/monaco-editor-core/esm/vs/platform/registry/common/platform';
 
 export class GotoSymbolQuickAccess extends StandaloneGotoSymbolQuickAccessProvider {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     constructor(...services: any[]);
     constructor(
         @ICodeEditorService protected readonly codeEditorService: ICodeEditorService,

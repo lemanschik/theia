@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { injectable, inject } from 'inversify';
-import { BulkEditNode, BulkEditTree } from './bulk-edit-tree';
+import { BulkEditNode, BulkEditTree } from './bulk-edit-tree.js';
 import { TreeModelImpl, OpenerService, open, TreeNode } from '@theia/core/lib/browser';
 import { ResourceEdit } from '@theia/monaco-editor-core/esm/vs/editor/browser/services/bulkEditService';
 

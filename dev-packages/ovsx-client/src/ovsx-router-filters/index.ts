@@ -14,5 +14,5 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-export { ExtensionIdMatchesFilterFactory } from './extension-id-matches-filter';
-export { RequestContainsFilterFactory } from './request-contains-filter';
+export { ExtensionIdMatchesFilterFactory } from './extension-id-matches-filter.js';
+export { RequestContainsFilterFactory } from './request-contains-filter.js';

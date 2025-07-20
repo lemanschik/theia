@@ -14,11 +14,11 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { GettingStartedContribution } from './getting-started-contribution';
+import { GettingStartedContribution } from './getting-started-contribution.js';
 import { ContainerModule, interfaces } from 'inversify';
-import { GettingStartedWidget } from './getting-started-widget';
+import { GettingStartedWidget } from './getting-started-widget.js';
 import { WidgetFactory, FrontendApplicationContribution, bindViewContribution, noopWidgetStatusBarContribution, WidgetStatusBarContribution } from '@theia/core/lib/browser';
-import { bindGettingStartedPreferences } from './getting-started-preferences';
+import { bindGettingStartedPreferences } from './getting-started-preferences.js';
 import '../../src/browser/style/index.css';
 
 export default new ContainerModule((bind: interfaces.Bind) => {

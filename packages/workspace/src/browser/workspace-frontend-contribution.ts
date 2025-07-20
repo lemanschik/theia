@@ -23,10 +23,10 @@ import {
 } from '@theia/core/lib/browser';
 import { FileDialogService, OpenFileDialogProps, FileDialogTreeFilters } from '@theia/filesystem/lib/browser';
 import { ContextKeyService } from '@theia/core/lib/browser/context-key-service';
-import { WorkspaceService } from './workspace-service';
-import { WorkspaceFileService, THEIA_EXT, VSCODE_EXT } from '../common';
-import { WorkspaceCommands } from './workspace-commands';
-import { QuickOpenWorkspace } from './quick-open-workspace';
+import { WorkspaceService } from './workspace-service.js';
+import { WorkspaceFileService, THEIA_EXT, VSCODE_EXT } from '../common/index.js';
+import { WorkspaceCommands } from './workspace-commands.js';
+import { QuickOpenWorkspace } from './quick-open-workspace.js';
 import URI from '@theia/core/lib/common/uri';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
 import { EncodingRegistry } from '@theia/core/lib/browser/encoding-registry';
@@ -36,7 +36,7 @@ import { PreferenceConfigurations } from '@theia/core/lib/browser/preferences/pr
 import { nls } from '@theia/core/lib/common/nls';
 import { BinaryBuffer } from '@theia/core/lib/common/buffer';
 import { FileStat } from '@theia/filesystem/lib/common/files';
-import { UntitledWorkspaceExitDialog } from './untitled-workspace-exit-dialog';
+import { UntitledWorkspaceExitDialog } from './untitled-workspace-exit-dialog.js';
 import { FilesystemSaveableService } from '@theia/filesystem/lib/browser/filesystem-saveable-service';
 import { StopReason } from '@theia/core/lib/common/frontend-application-state';
 

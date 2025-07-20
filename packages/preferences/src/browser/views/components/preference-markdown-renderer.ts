@@ -15,8 +15,8 @@
 // *****************************************************************************
 
 import { inject, injectable } from 'inversify';
-import { PreferenceTreeModel } from '../../preference-tree-model';
-import { PreferenceTreeLabelProvider } from '../../util/preference-tree-label-provider';
+import { PreferenceTreeModel } from '../../preference-tree-model.js';
+import { PreferenceTreeLabelProvider } from '../../util/preference-tree-label-provider.js';
 import { default as markdownit } from 'markdown-it';;
 import { CommandRegistry } from '@theia/core';
 

@@ -18,7 +18,7 @@ import type * as theia from '@theia/plugin';
 
 import { TreeCollection, observableProperty } from '@theia/test/lib/common/collections';
 import { TreeDeltaBuilder } from '@theia/test/lib/common/tree-delta';
-import { TestControllerImpl } from './tests';
+import { TestControllerImpl } from './tests.js';
 
 export class TestTagImpl {
     constructor(readonly id: string) { }
@@ -29,9 +29,9 @@ export class TestItemImpl implements theia.TestItem {
         this.label = label;
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     protected notifyPropertyChange(property: keyof TestItemImpl, value: any): void {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         const val: any = {};
         val[property] = value;
         if (this.path) {

@@ -19,10 +19,10 @@ import { Registry } from 'vscode-textmate';
 import { ILogger, ContributionProvider, DisposableCollection, Disposable } from '@theia/core';
 import { FrontendApplicationContribution, isBasicWasmSupported } from '@theia/core/lib/browser';
 import { ThemeService } from '@theia/core/lib/browser/theming';
-import { LanguageGrammarDefinitionContribution, getEncodedLanguageId } from './textmate-contribution';
-import { createTextmateTokenizer, TokenizerOption } from './textmate-tokenizer';
-import { TextmateRegistry } from './textmate-registry';
-import { MonacoThemeRegistry } from './monaco-theme-registry';
+import { LanguageGrammarDefinitionContribution, getEncodedLanguageId } from './textmate-contribution.js';
+import { createTextmateTokenizer, TokenizerOption } from './textmate-tokenizer.js';
+import { TextmateRegistry } from './textmate-registry.js';
+import { MonacoThemeRegistry } from './monaco-theme-registry.js';
 import { EditorPreferences } from '@theia/editor/lib/browser/editor-preferences';
 import monaco from '@theia/monaco-editor-core';
 import { TokenizationRegistry } from '@theia/monaco-editor-core/esm/vs/editor/common/languages';
@@ -31,7 +31,7 @@ import { StandaloneServices } from '@theia/monaco-editor-core/esm/vs/editor/stan
 import { ILanguageService } from '@theia/monaco-editor-core/esm/vs/editor/common/languages/language';
 import { TokenizationSupportAdapter } from '@theia/monaco-editor-core/esm/vs/editor/standalone/browser/standaloneLanguages';
 import { LanguageService } from '@theia/monaco-editor-core/esm/vs/editor/common/services/languageService';
-import { OnigasmProvider, TextmateRegistryFactory } from './monaco-theme-types';
+import { OnigasmProvider, TextmateRegistryFactory } from './monaco-theme-types.js';
 
 @injectable()
 export class MonacoTextmateService implements FrontendApplicationContribution {

@@ -43,7 +43,7 @@ export const searchInWorkspacePreferencesSchema: PreferenceSchema = {
             type: 'boolean',
         },
         'search.searchOnTypeDebouncePeriod': {
-            // eslint-disable-next-line max-len
+             
             markdownDescription: nls.localizeByDefault('When {0} is enabled, controls the timeout in milliseconds between a character being typed and the search starting. Has no effect when {0} is disabled.', '`#search.searchOnType#`'),
             default: 300,
             type: 'number',
@@ -54,7 +54,7 @@ export const searchInWorkspacePreferencesSchema: PreferenceSchema = {
             type: 'boolean',
         },
         'search.smartCase': {
-            // eslint-disable-next-line max-len
+             
             description: nls.localizeByDefault('Search case-insensitively if the pattern is all lowercase, otherwise, search case-sensitively.'),
             default: false,
             type: 'boolean',

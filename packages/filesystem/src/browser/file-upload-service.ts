@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
 import { injectable, inject, postConstruct } from 'inversify';
 import URI from '@theia/core/lib/common/uri';
@@ -24,10 +24,10 @@ import { MessageService } from '@theia/core/lib/common/message-service';
 import { Progress } from '@theia/core/lib/common/message-service-protocol';
 import { Endpoint } from '@theia/core/lib/browser/endpoint';
 import throttle from 'lodash.throttle';
-import { HTTP_FILE_UPLOAD_PATH } from '../common/file-upload';
+import { HTTP_FILE_UPLOAD_PATH } from '../common/file-upload.js';
 import { Semaphore } from 'async-mutex';
-import { FileSystemPreferences } from './filesystem-preferences';
-import { FileService } from './file-service';
+import { FileSystemPreferences } from './filesystem-preferences.js';
+import { FileService } from './file-service.js';
 import { ConfirmDialog, Dialog } from '@theia/core/lib/browser';
 import { nls } from '@theia/core/lib/common/nls';
 import { Emitter, Event } from '@theia/core/lib/common/event';

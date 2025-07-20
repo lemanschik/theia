@@ -17,7 +17,7 @@
 import { AIContextVariable, AIVariableService } from '@theia/ai-core';
 import { Command, CommandContribution, CommandRegistry } from '@theia/core';
 import { inject, injectable } from 'inversify';
-import { ChatService } from '../common';
+import { ChatService } from '../common/index.js';
 
 export const VARIABLE_ADD_CONTEXT_COMMAND: Command = Command.toLocalizedCommand({
     id: 'add-context-variable',

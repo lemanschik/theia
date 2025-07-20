@@ -14,6 +14,6 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-export * from './messaging-service';
-export * from './ipc-connection-provider';
-export * from './ipc-channel';
+export * from './messaging-service.js';
+export * from './ipc-connection-provider.js';
+export * from './ipc-channel.js';

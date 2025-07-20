@@ -14,11 +14,11 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
 import theia from '@theia/plugin';
 import { BackendInitializationFn, PluginAPIFactory, Plugin, emptyPlugin } from '@theia/plugin-ext';
-import { VSCODE_DEFAULT_API_VERSION } from '../common/plugin-vscode-types';
+import { VSCODE_DEFAULT_API_VERSION } from '../common/plugin-vscode-types.js';
 
 process.env['VSCODE_PID'] = process.env['THEIA_PARENT_PID'];
 
@@ -54,7 +54,7 @@ function overrideInternalLoad(): void {
     const internalLoad = module._load;
 
     // if we try to resolve theia module, return the filename entry to use cache.
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     module._load = function (request: string, parent: any, isMain: {}): any {
         if (request !== vscodeModuleName) {
             return internalLoad.apply(this, arguments);

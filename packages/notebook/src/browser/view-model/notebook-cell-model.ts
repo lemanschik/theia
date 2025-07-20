@@ -25,14 +25,14 @@ import { type MonacoEditor } from '@theia/monaco/lib/browser/monaco-editor';
 import {
     CellKind, NotebookCellCollapseState, NotebookCellInternalMetadata,
     NotebookCellMetadata, CellOutput, CellData, CellOutputItem
-} from '../../common';
-import { NotebookCellOutputsSplice } from '../notebook-types';
-import { NotebookMonacoTextModelService } from '../service/notebook-monaco-text-model-service';
-import { NotebookCellOutputModel } from './notebook-cell-output-model';
+} from '../../common/index.js';
+import { NotebookCellOutputsSplice } from '../notebook-types.js';
+import { NotebookMonacoTextModelService } from '../service/notebook-monaco-text-model-service.js';
+import { NotebookCellOutputModel } from './notebook-cell-output-model.js';
 import { PreferenceService } from '@theia/core/lib/browser';
-import { NotebookPreferences } from '../contributions/notebook-preferences';
+import { NotebookPreferences } from '../contributions/notebook-preferences.js';
 import { LanguageService } from '@theia/core/lib/browser/language-service';
-import { NotebookEditorFindMatch, NotebookEditorFindMatchOptions } from '../view/notebook-find-widget';
+import { NotebookEditorFindMatch, NotebookEditorFindMatchOptions } from '../view/notebook-find-widget.js';
 import { Range } from 'vscode-languageserver-protocol';
 
 export const NotebookCellModelFactory = Symbol('NotebookModelFactory');

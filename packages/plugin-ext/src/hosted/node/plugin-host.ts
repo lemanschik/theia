@@ -15,10 +15,10 @@
 // *****************************************************************************
 import 'reflect-metadata';
 import { Container } from 'inversify';
-import { ConnectionClosedError, RPCProtocol } from '../../common/rpc-protocol';
-import { ProcessTerminatedMessage, ProcessTerminateMessage } from './hosted-plugin-protocol';
-import { PluginHostRPC } from './plugin-host-rpc';
-import pluginHostModule from './plugin-host-module';
+import { ConnectionClosedError, RPCProtocol } from '../../common/rpc-protocol.js';
+import { ProcessTerminatedMessage, ProcessTerminateMessage } from './hosted-plugin-protocol.js';
+import { PluginHostRPC } from './plugin-host-rpc.js';
+import pluginHostModule from './plugin-host-module.js';
 
 console.log('PLUGIN_HOST(' + process.pid + ') starting instance');
 
@@ -29,7 +29,7 @@ process.exit = function (code?: number): void {
 } as (code?: number) => never;
 
 // same for 'crash'(works only in electron)
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 const proc = process as any;
 if (proc.crash) {
     proc.crash = function (): void {
@@ -42,10 +42,10 @@ process.on('uncaughtException', (err: Error) => {
     console.error(err);
 });
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 const unhandledPromises: Promise<any>[] = [];
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 process.on('unhandledRejection', (reason: any, promise: Promise<any>) => {
     unhandledPromises.push(promise);
     setTimeout(() => {
@@ -66,7 +66,7 @@ process.on('unhandledRejection', (reason: any, promise: Promise<any>) => {
     }, 1000);
 });
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 process.on('rejectionHandled', (promise: Promise<any>) => {
     const index = unhandledPromises.indexOf(promise);
     if (index >= 0) {

@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
 import url from 'url';
 import { injectable, inject, named } from 'inversify';
@@ -22,7 +22,7 @@ import { json } from 'body-parser';
 import { Application, Router } from 'express';
 import { BackendApplicationContribution } from '@theia/core/lib/node/backend-application';
 import { FileUri } from '@theia/core/lib/common/file-uri';
-import { FileDownloadHandler } from './file-download-handler';
+import { FileDownloadHandler } from './file-download-handler.js';
 
 @injectable()
 export class FileDownloadEndpoint implements BackendApplicationContribution {

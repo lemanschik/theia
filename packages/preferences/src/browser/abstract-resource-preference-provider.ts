@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 /* eslint-disable no-null/no-null */
 
 import jsoncparser from 'jsonc-parser';
@@ -25,7 +25,7 @@ import URI from '@theia/core/lib/common/uri';
 import { PreferenceConfigurations } from '@theia/core/lib/browser/preferences/preference-configurations';
 import { Deferred } from '@theia/core/lib/common/promise-util';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
-import { PreferenceContext, PreferenceTransaction, PreferenceTransactionFactory } from './preference-transaction-manager';
+import { PreferenceContext, PreferenceTransaction, PreferenceTransactionFactory } from './preference-transaction-manager.js';
 import { Emitter, Event } from '@theia/core';
 
 @injectable()

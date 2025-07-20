@@ -16,7 +16,7 @@
 
 import { interfaces } from 'inversify';
 import { PreferenceContribution, PreferenceSchema } from '@theia/core/lib/browser/preferences/preference-contribution';
-import { launchSchemaId } from '../debug-schema-updater';
+import { launchSchemaId } from '../debug-schema-updater.js';
 import { PreferenceConfiguration } from '@theia/core/lib/browser/preferences/preference-configurations';
 import { nls } from '@theia/core/lib/common/nls';
 

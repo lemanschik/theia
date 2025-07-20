@@ -90,19 +90,19 @@ export interface ShellQuotingFunctions {
     /**
      * Should add escape-characters in front of forbidden characters.
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     escape?(this: any, arg: string): string
 
     /**
      * Should quote the argument in such a way that variables CANNOT be expanded.
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     strong?(this: any, arg: string): string;
 
     /**
      * Should quote the argument in such a way that variables CAN be expanded.
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     weak?(this: any, arg: string): string;
 }
 

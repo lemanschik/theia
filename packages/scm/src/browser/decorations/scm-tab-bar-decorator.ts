@@ -16,12 +16,12 @@
 
 import { injectable, inject, postConstruct } from 'inversify';
 import { Event, Emitter } from '@theia/core/lib/common/event';
-import { ScmService } from '../scm-service';
+import { ScmService } from '../scm-service.js';
 import { TabBarDecorator } from '@theia/core/lib/browser/shell/tab-bar-decorator';
 import { Title, ViewContainer, Widget } from '@theia/core/lib/browser';
 import { WidgetDecoration } from '@theia/core/lib/browser/widget-decoration';
 import { DisposableCollection } from '@theia/core/lib/common/disposable';
-import { ScmWidget } from '../scm-widget';
+import { ScmWidget } from '../scm-widget.js';
 
 @injectable()
 export class ScmTabBarDecorator implements TabBarDecorator {

@@ -15,9 +15,9 @@
 // *****************************************************************************
 
 import { ContainerModule } from 'inversify';
-import { OLLAMA_LANGUAGE_MODELS_MANAGER_PATH, OllamaLanguageModelsManager } from '../common/ollama-language-models-manager';
+import { OLLAMA_LANGUAGE_MODELS_MANAGER_PATH, OllamaLanguageModelsManager } from '../common/ollama-language-models-manager.js';
 import { ConnectionHandler, RpcConnectionHandler } from '@theia/core';
-import { OllamaLanguageModelsManagerImpl } from './ollama-language-models-manager-impl';
+import { OllamaLanguageModelsManagerImpl } from './ollama-language-models-manager-impl.js';
 import { ConnectionContainerModule } from '@theia/core/lib/node/messaging/connection-container-module';
 
 export const OllamaModelFactory = Symbol('OllamaModelFactory');

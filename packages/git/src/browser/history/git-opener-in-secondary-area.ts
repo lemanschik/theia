@@ -17,7 +17,7 @@
 import { inject, injectable } from 'inversify';
 import { Widget } from '@lumino/widgets';
 import { EditorManager } from '@theia/editor/lib/browser/editor-manager';
-import { GitResourceOpener } from '../diff/git-resource-opener';
+import { GitResourceOpener } from '../diff/git-resource-opener.js';
 import URI from '@theia/core/lib/common/uri';
 
 @injectable()

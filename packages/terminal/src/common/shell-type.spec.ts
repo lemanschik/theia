@@ -16,7 +16,7 @@
 
 import { expect } from 'chai';
 import { OS } from '@theia/core';
-import { GeneralShellType, guessShellTypeFromExecutable, WindowsShellType } from './shell-type';
+import { GeneralShellType, guessShellTypeFromExecutable, WindowsShellType } from './shell-type.js';
 
 // Save original environment state
 const originalIsWindows = OS.backend.isWindows;

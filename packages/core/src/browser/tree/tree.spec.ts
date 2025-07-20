@@ -15,11 +15,11 @@
 // *****************************************************************************
 
 import assert from 'assert';
-import { TreeNode, CompositeTreeNode } from './tree';
-import { TreeModel } from './tree-model';
-import { MockTreeModel } from './test/mock-tree-model';
+import { TreeNode, CompositeTreeNode } from './tree.js';
+import { TreeModel } from './tree-model.js';
+import { MockTreeModel } from './test/mock-tree-model.js';
 import { expect } from 'chai';
-import { createTreeTestContainer } from './test/tree-test-container';
+import { createTreeTestContainer } from './test/tree-test-container.js';
 
 describe('Tree', () => {
 
@@ -220,7 +220,7 @@ describe('Tree', () => {
     }
 
     function assertTreeNode(expectation: string, node: TreeNode): void {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         assert.deepStrictEqual(expectation, JSON.stringify(node, (key: keyof CompositeTreeNode, value: any) => {
             if (key === 'parent' || key === 'previousSibling' || key === 'nextSibling') {
                 return value && value.id;

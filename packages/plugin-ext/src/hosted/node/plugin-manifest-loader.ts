@@ -16,8 +16,8 @@
 
 import path from 'path';
 import fs from 'fs-extra';
-import { PluginIdentifiers, PluginPackage } from '../../common';
-import { updateActivationEvents } from './plugin-activation-events';
+import { PluginIdentifiers, PluginPackage } from '../../common/index.js';
+import { updateActivationEvents } from './plugin-activation-events.js';
 
 export async function loadManifest(pluginPath: string): Promise<PluginPackage> {
     const manifest = await fs.readJson(path.join(pluginPath, 'package.json'));

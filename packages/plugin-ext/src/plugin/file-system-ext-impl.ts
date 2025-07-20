@@ -23,26 +23,26 @@
  * One should be able to diff them to see differences.
  */
 
-/* eslint-disable arrow-body-style */
+ 
 /* eslint-disable @typescript-eslint/quotes */
 /* eslint-disable @typescript-eslint/tslint/config */
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
 import { UriComponents } from 'vscode-uri';
-import { FileChangeType, FileSystemError, URI } from './types-impl';
-import { RPCProtocol } from '../common/rpc-protocol';
-import { PLUGIN_RPC_CONTEXT, FileSystemExt, FileSystemMain, IFileChangeDto } from '../common/plugin-api-rpc';
+import { FileChangeType, FileSystemError, URI } from './types-impl.js';
+import { RPCProtocol } from '../common/rpc-protocol.js';
+import { PLUGIN_RPC_CONTEXT, FileSystemExt, FileSystemMain, IFileChangeDto } from '../common/plugin-api-rpc.js';
 import vscode from '@theia/plugin';
 import * as files from '@theia/filesystem/lib/common/files';
-import * as typeConverter from './type-converters';
-import { Schemes as Schemas } from '../common/uri-components';
-import { State, StateMachine, LinkComputer, Edge } from '../common/link-computer';
+import * as typeConverter from './type-converters.js';
+import { Schemes as Schemas } from '../common/uri-components.js';
+import { State, StateMachine, LinkComputer, Edge } from '../common/link-computer.js';
 import { commonPrefixLength } from '@theia/core/lib/common/strings';
 import { CharCode } from '@theia/core/lib/common/char-code';
 import { BinaryBuffer } from '@theia/core/lib/common/buffer';
-import { MarkdownString } from '../common/plugin-api-rpc-model';
+import { MarkdownString } from '../common/plugin-api-rpc-model.js';
 import { Emitter } from '@theia/core/lib/common';
-import { createAPIObject } from './plugin-context';
+import { createAPIObject } from './plugin-context.js';
 
 type IDisposable = vscode.Disposable;
 

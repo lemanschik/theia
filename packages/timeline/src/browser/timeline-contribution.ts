@@ -24,12 +24,12 @@ import {
     codicon
 } from '@theia/core/lib/browser';
 import { EXPLORER_VIEW_CONTAINER_ID } from '@theia/navigator/lib/browser';
-import { TimelineWidget } from './timeline-widget';
-import { TimelineService } from './timeline-service';
+import { TimelineWidget } from './timeline-widget.js';
+import { TimelineService } from './timeline-service.js';
 import { CommandContribution, CommandRegistry } from '@theia/core/lib/common';
 import { TabBarToolbarContribution, TabBarToolbarRegistry } from '@theia/core/lib/browser/shell/tab-bar-toolbar';
 import { toArray } from '@lumino/algorithm';
-import { LOAD_MORE_COMMAND } from './timeline-tree-model';
+import { LOAD_MORE_COMMAND } from './timeline-tree-model.js';
 
 @injectable()
 export class TimelineContribution implements CommandContribution, TabBarToolbarContribution {

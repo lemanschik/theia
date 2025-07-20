@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { Widget } from './widget';
+import { Widget } from './widget.js';
 
 /**
  * A contract for widgets that are extractable to a secondary window.

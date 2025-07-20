@@ -21,18 +21,18 @@ import { ApplicationShell } from '@theia/core/lib/browser/shell/application-shel
 import { nls } from '@theia/core/lib/common/nls';
 import {
     PREFERENCE_NAME_DEFAULT_NOTIFICATION_TYPE,
-} from './ai-core-preferences';
-import { AgentService } from '../common/agent-service';
-import { AISettingsService } from '../common/settings-service';
-import { OSNotificationService } from './os-notification-service';
-import { WindowBlinkService } from './window-blink-service';
+} from './ai-core-preferences.js';
+import { AgentService } from '../common/agent-service.js';
+import { AISettingsService } from '../common/settings-service.js';
+import { OSNotificationService } from './os-notification-service.js';
+import { WindowBlinkService } from './window-blink-service.js';
 import {
     NotificationType,
     NOTIFICATION_TYPE_OFF,
     NOTIFICATION_TYPE_OS_NOTIFICATION,
     NOTIFICATION_TYPE_MESSAGE,
     NOTIFICATION_TYPE_BLINK,
-} from '../common/notification-types';
+} from '../common/notification-types.js';
 
 @injectable()
 export class AgentCompletionNotificationService {

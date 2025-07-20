@@ -14,9 +14,9 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
-import { PluginIdentifiers, PluginModel, PluginPackage } from '../../../common/plugin-protocol';
+import { PluginIdentifiers, PluginModel, PluginPackage } from '../../../common/plugin-protocol.js';
 import { Endpoint } from '@theia/core/lib/browser/endpoint';
 import URI from '@theia/core/lib/common/uri';
 
@@ -104,7 +104,7 @@ function localize(value: any, translations: {
     }
     if (typeof value === 'object') {
         const result: { [key: string]: any } = {};
-        // eslint-disable-next-line guard-for-in
+         
         for (const propertyName in value) {
             result[propertyName] = localize(value[propertyName], translations);
         }

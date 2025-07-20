@@ -22,7 +22,7 @@ import { UriComponents } from '@theia/core/lib/common/uri';
 export interface NotebookCommand extends Command {
     title?: string;
     tooltip?: string;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     arguments?: any[];
 }
 

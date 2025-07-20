@@ -16,13 +16,13 @@
 
 import { Container, interfaces } from 'inversify';
 import { PreferenceProvider, PreferenceScope } from '@theia/core/lib/browser/preferences';
-import { UserPreferenceProvider, UserPreferenceProviderFactory } from './user-preference-provider';
-import { WorkspacePreferenceProvider } from './workspace-preference-provider';
-import { WorkspaceFilePreferenceProvider, WorkspaceFilePreferenceProviderFactory, WorkspaceFilePreferenceProviderOptions } from './workspace-file-preference-provider';
-import { FoldersPreferencesProvider } from './folders-preferences-provider';
-import { FolderPreferenceProvider, FolderPreferenceProviderFactory, FolderPreferenceProviderFolder } from './folder-preference-provider';
-import { UserConfigsPreferenceProvider } from './user-configs-preference-provider';
-import { SectionPreferenceProviderUri, SectionPreferenceProviderSection } from './section-preference-provider';
+import { UserPreferenceProvider, UserPreferenceProviderFactory } from './user-preference-provider.js';
+import { WorkspacePreferenceProvider } from './workspace-preference-provider.js';
+import { WorkspaceFilePreferenceProvider, WorkspaceFilePreferenceProviderFactory, WorkspaceFilePreferenceProviderOptions } from './workspace-file-preference-provider.js';
+import { FoldersPreferencesProvider } from './folders-preferences-provider.js';
+import { FolderPreferenceProvider, FolderPreferenceProviderFactory, FolderPreferenceProviderFolder } from './folder-preference-provider.js';
+import { UserConfigsPreferenceProvider } from './user-configs-preference-provider.js';
+import { SectionPreferenceProviderUri, SectionPreferenceProviderSection } from './section-preference-provider.js';
 
 export function bindWorkspaceFilePreferenceProvider(bind: interfaces.Bind): void {
     bind(WorkspaceFilePreferenceProviderFactory).toFactory(ctx => (options: WorkspaceFilePreferenceProviderOptions) => {
@@ -37,10 +37,10 @@ export function bindWorkspaceFilePreferenceProvider(bind: interfaces.Bind): void
 export function bindFactory<F, C>(bind: interfaces.Bind,
     factoryId: interfaces.ServiceIdentifier<F>,
     constructor: interfaces.Newable<C>,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     ...parameterBindings: interfaces.ServiceIdentifier<any>[]): void {
     bind(factoryId).toFactory(ctx =>
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         (...args: any[]) => {
             const child = new Container({ defaultScope: 'Singleton' });
             child.parent = ctx.container;

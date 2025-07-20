@@ -19,7 +19,7 @@ import fs from 'fs-extra';
 import { injectable } from 'inversify';
 import { OS } from '@theia/core/lib/common/os';
 import { FileUri } from '@theia/core/lib/common/file-uri';
-import { ExternalTerminalService, ExternalTerminalConfiguration } from '../common/external-terminal';
+import { ExternalTerminalService, ExternalTerminalConfiguration } from '../common/external-terminal.js';
 
 /*---------------------------------------------------------------------------------------------
  *  Copyright (c) Microsoft Corporation. All rights reserved.

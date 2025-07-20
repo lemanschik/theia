@@ -26,8 +26,8 @@ import { ILogger } from '@theia/core/lib/common/logger';
 import { MaybePromise } from '@theia/core/lib/common/types';
 import { ContributionProvider } from '@theia/core/lib/common/contribution-provider';
 import { BackendApplicationContribution } from '@theia/core/lib/node/backend-application';
-import { MiniBrowserService } from '../common/mini-browser-service';
-import { MiniBrowserEndpoint as MiniBrowserEndpointNS } from '../common/mini-browser-endpoint';
+import { MiniBrowserService } from '../common/mini-browser-service.js';
+import { MiniBrowserEndpoint as MiniBrowserEndpointNS } from '../common/mini-browser-endpoint.js';
 
 /**
  * The return type of the `FileSystem#resolveContent` method.
@@ -150,9 +150,9 @@ export class MiniBrowserEndpoint implements BackendApplicationContribution, Mini
         return { stat: Object.assign(stat, { uri }), content };
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     protected errorHandler(): (error: any, uri: string, response: Response) => MaybePromise<Response> {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         return async (error: any, uri: string, response: Response) => {
             const details = error.toString ? error.toString() : error;
             this.logger.error(`Error occurred while handling request for ${uri}. Details: ${details}`);

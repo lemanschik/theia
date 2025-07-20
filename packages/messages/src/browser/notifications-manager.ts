@@ -21,11 +21,11 @@ import { Emitter } from '@theia/core';
 import { Deferred } from '@theia/core/lib/common/promise-util';
 import { Md5 } from 'ts-md5';
 import throttle from 'lodash.throttle';
-import { NotificationPreferences } from './notification-preferences';
+import { NotificationPreferences } from './notification-preferences.js';
 import { ContextKeyService, ContextKey } from '@theia/core/lib/browser/context-key-service';
 import { OpenerService } from '@theia/core/lib/browser';
 import URI from '@theia/core/lib/common/uri';
-import { NotificationContentRenderer } from './notification-content-renderer';
+import { NotificationContentRenderer } from './notification-content-renderer.js';
 
 export interface NotificationUpdateEvent {
     readonly notifications: Notification[];

@@ -15,8 +15,8 @@
 // *****************************************************************************
 
 import { ContainerModule } from 'inversify';
-import { WsRequestValidatorContribution } from '../../node/ws-request-validators';
-import { ElectronWsOriginValidator } from './electron-ws-origin-validator';
+import { WsRequestValidatorContribution } from '../../node/ws-request-validators.js';
+import { ElectronWsOriginValidator } from './electron-ws-origin-validator.js';
 
 export default new ContainerModule(bind => {
     bind(ElectronWsOriginValidator).toSelf().inSingletonScope();

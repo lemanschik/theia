@@ -14,14 +14,14 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
 import { inject, injectable, postConstruct } from 'inversify';
 import URI from '@theia/core/lib/common/uri';
 import { PreferenceProvider, PreferenceResolveResult } from '@theia/core/lib/browser/preferences/preference-provider';
 import { PreferenceConfigurations } from '@theia/core/lib/browser/preferences/preference-configurations';
 import { UserStorageUri } from '@theia/userstorage/lib/browser';
-import { UserPreferenceProvider, UserPreferenceProviderFactory } from './user-preference-provider';
+import { UserPreferenceProvider, UserPreferenceProviderFactory } from './user-preference-provider.js';
 
 /**
  * Binds together preference section prefs providers for user-level preferences.

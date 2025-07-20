@@ -17,7 +17,7 @@ import { StdioClientTransport } from '@modelcontextprotocol/sdk/client/stdio';
 import { SSEClientTransport } from '@modelcontextprotocol/sdk/client/sse';
 import { StreamableHTTPClientTransport } from '@modelcontextprotocol/sdk/client/streamableHttp';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
-import { isLocalMCPServerDescription, isRemoteMCPServerDescription, MCPServerDescription, MCPServerStatus, ToolInformation } from '../common';
+import { isLocalMCPServerDescription, isRemoteMCPServerDescription, MCPServerDescription, MCPServerStatus, ToolInformation } from '../common/index.js';
 import { Emitter } from '@theia/core/lib/common/event';
 import { CallToolResult, CallToolResultSchema, ListResourcesResult, ReadResourceResult } from '@modelcontextprotocol/sdk/types';
 import { Transport } from '@modelcontextprotocol/sdk/shared/transport';

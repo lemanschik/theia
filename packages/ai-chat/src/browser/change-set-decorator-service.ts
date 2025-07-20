@@ -18,7 +18,7 @@ import { ContributionProvider, Emitter, type Event } from '@theia/core';
 import { type FrontendApplicationContribution } from '@theia/core/lib/browser';
 import { inject, injectable, named } from 'inversify';
 import debounce from 'lodash.debounce';
-import type { ChangeSetDecoration, ChangeSetElement } from '../common';
+import type { ChangeSetDecoration, ChangeSetElement } from '../common/index.js';
 
 /**
  * A decorator for a change set element.

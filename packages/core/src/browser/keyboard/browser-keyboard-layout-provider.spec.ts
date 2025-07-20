@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { enableJSDOM } from '../test/jsdom';
+import { enableJSDOM } from '../test/jsdom.js';
 
 let disableJSDOM = enableJSDOM();
 
@@ -22,13 +22,13 @@ import { Container, injectable } from 'inversify';
 import type { IMacKeyboardLayoutInfo } from 'native-keymap';
 import chai from 'chai';
 import sinon from 'sinon';
-import * as os from '../../common/os';
-import { ILogger, Loggable } from '../../common/logger';
-import { LocalStorageService } from '../storage-service';
-import { MessageService } from '../../common/message-service';
-import { WindowService } from '../window/window-service';
-import { BrowserKeyboardLayoutProvider } from './browser-keyboard-layout-provider';
-import { Key } from './keys';
+import * as os from '../../common/os.js';
+import { ILogger, Loggable } from '../../common/logger.js';
+import { LocalStorageService } from '../storage-service.js';
+import { MessageService } from '../../common/message-service.js';
+import { WindowService } from '../window/window-service.js';
+import { BrowserKeyboardLayoutProvider } from './browser-keyboard-layout-provider.js';
+import { Key } from './keys.js';
 
 disableJSDOM();
 
@@ -54,7 +54,7 @@ describe('browser keyboard layout provider', function (): void {
                 stubOSX = sinon.stub(os, 'isOSX').value(false);
                 stubWindows = sinon.stub(os, 'isWindows').value(false);
         }
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         const container = new Container();
         container.bind(BrowserKeyboardLayoutProvider).toSelf();
         container.bind(ILogger).to(MockLogger);

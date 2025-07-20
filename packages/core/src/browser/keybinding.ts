@@ -15,19 +15,19 @@
 // *****************************************************************************
 
 import { injectable, inject, named } from 'inversify';
-import { isOSX } from '../common/os';
-import { Emitter, Event } from '../common/event';
-import { CommandRegistry, Command } from '../common/command';
-import { Disposable, DisposableCollection } from '../common/disposable';
-import { KeyCode, KeySequence, Key } from './keyboard/keys';
-import { KeyboardLayoutService } from './keyboard/keyboard-layout-service';
-import { ContributionProvider } from '../common/contribution-provider';
-import { ILogger } from '../common/logger';
-import { StatusBarAlignment, StatusBar } from './status-bar/status-bar';
-import { ContextKeyService } from './context-key-service';
-import { CorePreferences } from './core-preferences';
-import { Keybinding } from '../common/keybinding';
-import { nls } from '../common/nls';
+import { isOSX } from '../common/os.js';
+import { Emitter, Event } from '../common/event.js';
+import { CommandRegistry, Command } from '../common/command.js';
+import { Disposable, DisposableCollection } from '../common/disposable.js';
+import { KeyCode, KeySequence, Key } from './keyboard/keys.js';
+import { KeyboardLayoutService } from './keyboard/keyboard-layout-service.js';
+import { ContributionProvider } from '../common/contribution-provider.js';
+import { ILogger } from '../common/logger.js';
+import { StatusBarAlignment, StatusBar } from './status-bar/status-bar.js';
+import { ContextKeyService } from './context-key-service.js';
+import { CorePreferences } from './core-preferences.js';
+import { Keybinding } from '../common/keybinding.js';
+import { nls } from '../common/nls.js';
 
 export { Keybinding };
 

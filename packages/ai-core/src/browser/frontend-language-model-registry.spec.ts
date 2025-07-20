@@ -23,7 +23,7 @@ import { expect } from 'chai';
 import {
     LanguageModelRequest,
     ToolRequest
-} from '../common';
+} from '../common/index.js';
 
 disableJSDOM();
 
@@ -202,7 +202,7 @@ describe('FrontendLanguageModelRegistryImpl toolCall functionality', () => {
                     properties: {}
                 },
                 handler: () => {
-                    // eslint-disable-next-line no-throw-literal
+                     
                     throw errorMessage;
                 }
             };

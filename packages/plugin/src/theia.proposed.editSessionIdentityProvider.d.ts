@@ -83,7 +83,7 @@ export module '@theia/plugin' {
          *
          * @param thenable A thenable that delays saving.
          */
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         waitUntil(thenable: Thenable<any>): void;
     }
 }

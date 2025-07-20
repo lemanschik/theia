@@ -15,12 +15,12 @@
 // *****************************************************************************
 
 import { injectable, inject, named } from 'inversify';
-import { Event, Emitter, WaitUntilEvent } from './event';
-import { Disposable, DisposableCollection } from './disposable';
-import { ContributionProvider } from './contribution-provider';
-import { nls } from './nls';
+import { Event, Emitter, WaitUntilEvent } from './event.js';
+import { Disposable, DisposableCollection } from './disposable.js';
+import { ContributionProvider } from './contribution-provider.js';
+import { nls } from './nls.js';
 import debounce from 'p-debounce';
-import { isObject } from './types';
+import { isObject } from './types.js';
 
 /**
  * A command is a unique identifier of a function
@@ -119,23 +119,23 @@ export interface CommandHandler {
      *
      * Don't call it directly, use `CommandService.executeCommand` instead.
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     execute(...args: any[]): any;
     /**
      * Test whether this handler is enabled (active).
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     isEnabled?(...args: any[]): boolean;
     onDidChangeEnabled?: Event<void>;
     /**
      * Test whether menu items for this handler should be visible.
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     isVisible?(...args: any[]): boolean;
     /**
      * Test whether menu items for this handler should be toggled.
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     isToggled?(...args: any[]): boolean;
 }
 
@@ -152,7 +152,7 @@ export interface CommandContribution {
 
 export interface CommandEvent {
     commandId: string;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     args: any[]
 }
 
@@ -170,7 +170,7 @@ export interface CommandService {
      *
      * Reject if a command cannot be executed.
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     executeCommand<T>(command: string, ...args: any[]): Promise<T | undefined>;
     /**
      * An event is emitted when a command is about to be executed.
@@ -307,7 +307,7 @@ export class CommandRegistry implements CommandService {
     /**
      * Test whether there is an active handler for the given command.
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     isEnabled(command: string, ...args: any[]): boolean {
         return typeof this.getActiveHandler(command, ...args) !== 'undefined';
     }
@@ -315,7 +315,7 @@ export class CommandRegistry implements CommandService {
     /**
      * Test whether there is a visible handler for the given command.
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     isVisible(command: string, ...args: any[]): boolean {
         return typeof this.getVisibleHandler(command, ...args) !== 'undefined';
     }
@@ -323,7 +323,7 @@ export class CommandRegistry implements CommandService {
     /**
      * Test whether there is a toggled handler for the given command.
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     isToggled(command: string, ...args: any[]): boolean {
         return typeof this.getToggledHandler(command, ...args) !== 'undefined';
     }
@@ -333,7 +333,7 @@ export class CommandRegistry implements CommandService {
      *
      * Reject if a command cannot be executed.
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     async executeCommand<T>(commandId: string, ...args: any[]): Promise<T | undefined> {
         const handler = this.getActiveHandler(commandId, ...args);
         if (handler) {
@@ -345,7 +345,7 @@ export class CommandRegistry implements CommandService {
         throw Object.assign(new Error(`The command '${commandId}' cannot be executed. There are no active handlers available for the command.`), { code: 'NO_ACTIVE_HANDLER' });
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     protected async fireWillExecuteCommand(commandId: string, args: any[] = []): Promise<void> {
         await WaitUntilEvent.fire(this.onWillExecuteCommandEmitter, { commandId, args }, 30000);
     }
@@ -353,7 +353,7 @@ export class CommandRegistry implements CommandService {
     /**
      * Get a visible handler for the given command or `undefined`.
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     getVisibleHandler(commandId: string, ...args: any[]): CommandHandler | undefined {
         const handlers = this._handlers[commandId];
         if (handlers) {
@@ -373,7 +373,7 @@ export class CommandRegistry implements CommandService {
     /**
      * Get an active handler for the given command or `undefined`.
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     getActiveHandler(commandId: string, ...args: any[]): CommandHandler | undefined {
         const handlers = this._handlers[commandId];
         if (handlers) {
@@ -393,7 +393,7 @@ export class CommandRegistry implements CommandService {
     /**
      * Get a toggled handler for the given command or `undefined`.
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     getToggledHandler(commandId: string, ...args: any[]): CommandHandler | undefined {
         const handlers = this._handlers[commandId];
         if (handlers) {

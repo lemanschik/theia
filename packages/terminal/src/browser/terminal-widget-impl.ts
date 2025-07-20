@@ -24,33 +24,33 @@ import {
 } from '@theia/core/lib/browser';
 import { isOSX } from '@theia/core/lib/common';
 import { WorkspaceService } from '@theia/workspace/lib/browser';
-import { ShellTerminalServerProxy, IShellTerminalPreferences } from '../common/shell-terminal-protocol';
-import { terminalsPath } from '../common/terminal-protocol';
-import { IBaseTerminalServer, TerminalProcessInfo, TerminalExitReason } from '../common/base-terminal-protocol';
-import { TerminalWatcher } from '../common/terminal-watcher';
+import { ShellTerminalServerProxy, IShellTerminalPreferences } from '../common/shell-terminal-protocol.js';
+import { terminalsPath } from '../common/terminal-protocol.js';
+import { IBaseTerminalServer, TerminalProcessInfo, TerminalExitReason } from '../common/base-terminal-protocol.js';
+import { TerminalWatcher } from '../common/terminal-watcher.js';
 import {
     TerminalWidgetOptions, TerminalWidget, TerminalDimensions, TerminalExitStatus, TerminalLocationOptions,
     TerminalLocation,
     TerminalBuffer
-} from './base/terminal-widget';
+} from './base/terminal-widget.js';
 import { Deferred } from '@theia/core/lib/common/promise-util';
-import { TerminalPreferences } from './terminal-preferences';
+import { TerminalPreferences } from './terminal-preferences.js';
 import URI from '@theia/core/lib/common/uri';
-import { TerminalService } from './base/terminal-service';
-import { TerminalSearchWidgetFactory, TerminalSearchWidget } from './search/terminal-search-widget';
-import { TerminalCopyOnSelectionHandler } from './terminal-copy-on-selection-handler';
-import { TerminalThemeService } from './terminal-theme-service';
+import { TerminalService } from './base/terminal-service.js';
+import { TerminalSearchWidgetFactory, TerminalSearchWidget } from './search/terminal-search-widget.js';
+import { TerminalCopyOnSelectionHandler } from './terminal-copy-on-selection-handler.js';
+import { TerminalThemeService } from './terminal-theme-service.js';
 import { CommandLineOptions, ShellCommandBuilder } from '@theia/process/lib/common/shell-command-builder';
 import { Key } from '@theia/core/lib/browser/keys';
 import { nls } from '@theia/core/lib/common/nls';
-import { TerminalMenus } from './terminal-frontend-contribution';
+import { TerminalMenus } from './terminal-frontend-contribution.js';
 import debounce from 'p-debounce';
 import { MarkdownString, MarkdownStringImpl } from '@theia/core/lib/common/markdown-rendering/markdown-string';
 import { EnhancedPreviewWidget } from '@theia/core/lib/browser/widgets/enhanced-preview-widget';
 import { MarkdownRenderer, MarkdownRendererFactory } from '@theia/core/lib/browser/markdown-rendering/markdown-renderer';
 import { RemoteConnectionProvider, ServiceConnectionProvider } from '@theia/core/lib/browser/messaging/service-connection-provider';
 import { ColorRegistry } from '@theia/core/lib/browser/color-registry';
-import { guessShellTypeFromExecutable } from '../common/shell-type';
+import { guessShellTypeFromExecutable } from '../common/shell-type.js';
 
 export const TERMINAL_WIDGET_FACTORY_ID = 'terminal';
 
@@ -733,7 +733,7 @@ export class TerminalWidgetImpl extends TerminalWidget implements StatefulWidget
         }
 
         // Workaround for https://github.com/xtermjs/xterm.js/issues/4775. Can be removed for releases > 5.3.0
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         const viewPort: ViewportType = (this.term as any)._core.viewport;
         viewPort.register(Disposable.create(() => {
             if (typeof viewPort._refreshAnimationFrame === 'number') {
@@ -743,7 +743,7 @@ export class TerminalWidgetImpl extends TerminalWidget implements StatefulWidget
 
         if (isFirefox) {
             // monkey patching intersection observer handling for secondary window support
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+             
             const renderService: any = (this.term as any)._core._renderService;
 
             const originalFunc: (entry: IntersectionObserverEntry) => void = renderService._handleIntersectionChange.bind(renderService);

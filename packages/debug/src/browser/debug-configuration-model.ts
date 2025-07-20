@@ -17,9 +17,9 @@
 import URI from '@theia/core/lib/common/uri';
 import { Emitter, Event } from '@theia/core/lib/common/event';
 import { Disposable, DisposableCollection } from '@theia/core/lib/common/disposable';
-import { DebugConfiguration } from '../common/debug-common';
+import { DebugConfiguration } from '../common/debug-common.js';
 import { PreferenceService } from '@theia/core/lib/browser/preferences/preference-service';
-import { DebugCompound } from '../common/debug-compound';
+import { DebugCompound } from '../common/debug-compound.js';
 import { isObject } from '@theia/core/lib/common';
 
 export class DebugConfigurationModel implements Disposable {
@@ -70,7 +70,7 @@ export class DebugConfigurationModel implements Disposable {
     }
     protected parseConfigurations(): DebugConfigurationModel.JsonContent {
         const configurations: DebugConfiguration[] = [];
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         const { configUri, value } = this.preferences.resolve<any>('launch', undefined, this.workspaceFolderUri);
         if (isObject(value) && Array.isArray(value.configurations)) {
             for (const configuration of value.configurations) {

@@ -23,15 +23,15 @@ import { EditorManager, EditorWidget } from '@theia/editor/lib/browser';
 import { PreferenceScope, PreferenceProvider, PreferenceService } from '@theia/core/lib/browser';
 import { QuickPickService } from '@theia/core/lib/common/quick-pick-service';
 import { WorkspaceService } from '@theia/workspace/lib/browser/workspace-service';
-import { TaskConfigurationModel } from './task-configuration-model';
-import { TaskTemplateSelector } from './task-templates';
-import { TaskCustomization, TaskConfiguration, TaskConfigurationScope, TaskScope } from '../common/task-protocol';
+import { TaskConfigurationModel } from './task-configuration-model.js';
+import { TaskTemplateSelector } from './task-templates.js';
+import { TaskCustomization, TaskConfiguration, TaskConfigurationScope, TaskScope } from '../common/task-protocol.js';
 import { WorkspaceVariableContribution } from '@theia/workspace/lib/browser/workspace-variable-contribution';
 import { FileChangeType } from '@theia/filesystem/lib/common/filesystem-watcher-protocol';
 import { PreferenceConfigurations } from '@theia/core/lib/browser/preferences/preference-configurations';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
 import { DisposableCollection } from '@theia/core/lib/common';
-import { TaskSchemaUpdater } from './task-schema-updater';
+import { TaskSchemaUpdater } from './task-schema-updater.js';
 
 export interface TasksChange {
     scope: TaskConfigurationScope;

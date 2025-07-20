@@ -14,10 +14,10 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { Disposable } from './disposable';
-import { Event } from './event';
-import { CancellationToken, CancellationError, cancelled } from './cancellation';
-import { isFunction, isObject } from './types';
+import { Disposable } from './disposable.js';
+import { Event } from './event.js';
+import { CancellationToken, CancellationError, cancelled } from './cancellation.js';
+import { isFunction, isObject } from './types.js';
 
 /**
  * Simple implementation of the deferred pattern.
@@ -109,7 +109,7 @@ export async function wait(ms: number): Promise<void> {
     await delay(ms)(undefined);
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 export function waitForEvent<T>(event: Event<T>, ms: number, thisArg?: any, disposables?: Disposable[]): Promise<T> {
     return new Promise<T>((resolve, reject) => {
         const registration = setTimeout(() => {

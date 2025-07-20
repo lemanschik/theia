@@ -32,8 +32,8 @@ import { OpenAI, AzureOpenAI } from 'openai';
 import { ChatCompletionStream } from 'openai/lib/ChatCompletionStream';
 import { RunnableToolFunctionWithoutParse } from 'openai/lib/RunnableFunction';
 import { ChatCompletionMessageParam } from 'openai/resources';
-import { StreamingAsyncIterator } from './openai-streaming-iterator';
-import { OPENAI_PROVIDER_ID } from '../common';
+import { StreamingAsyncIterator } from './openai-streaming-iterator.js';
+import { OPENAI_PROVIDER_ID } from '../common/index.js';
 import type { FinalRequestOptions } from 'openai/internal/request-options';
 import type { RunnerOptions } from 'openai/lib/AbstractChatCompletionRunner';
 

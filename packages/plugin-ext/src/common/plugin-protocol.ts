@@ -14,18 +14,18 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 import { RpcServer } from '@theia/core/lib/common/messaging/proxy-factory';
-import { RPCProtocol } from './rpc-protocol';
+import { RPCProtocol } from './rpc-protocol.js';
 import { Disposable } from '@theia/core/lib/common/disposable';
-import { LogPart, KeysToAnyValues, KeysToKeysToAnyValue } from './types';
-import { CharacterPair, CommentRule, PluginAPIFactory, Plugin, ThemeIcon } from './plugin-api-rpc';
-import { ExtPluginApi } from './plugin-ext-api-contribution';
+import { LogPart, KeysToAnyValues, KeysToKeysToAnyValue } from './types.js';
+import { CharacterPair, CommentRule, PluginAPIFactory, Plugin, ThemeIcon } from './plugin-api-rpc.js';
+import { ExtPluginApi } from './plugin-ext-api-contribution.js';
 import { IJSONSchema, IJSONSchemaSnippet } from '@theia/core/lib/common/json-schema';
 import { RecursivePartial } from '@theia/core/lib/common/types';
 import { PreferenceSchema, PreferenceSchemaProperties } from '@theia/core/lib/common/preferences/preference-schema';
 import { ProblemMatcherContribution, ProblemPatternContribution, TaskDefinition } from '@theia/task/lib/common';
 import { ColorDefinition } from '@theia/core/lib/common/color';
 import { ResourceLabelFormatter } from '@theia/core/lib/common/label-protocol';
-import { PluginIdentifiers } from './plugin-identifiers';
+import { PluginIdentifiers } from './plugin-identifiers.js';
 
 export { PluginIdentifiers };
 export const hostedServicePath = '/services/hostedPlugin';
@@ -234,7 +234,7 @@ export interface PluginPackageKeybinding {
     mac?: string;
     linux?: string;
     win?: string;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     args?: any;
 }
 
@@ -905,7 +905,7 @@ export interface Keybinding {
     mac?: string;
     linux?: string;
     win?: string;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     args?: any;
 }
 
@@ -1096,9 +1096,9 @@ export interface PluginServer {
 
 export const ServerPluginRunner = Symbol('ServerPluginRunner');
 export interface ServerPluginRunner {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     acceptMessage(pluginHostId: string, jsonMessage: Uint8Array): boolean;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     onMessage(pluginHostId: string, jsonMessage: Uint8Array): void;
     setClient(client: HostedPluginClient): void;
     setDefault(defaultRunner: ServerPluginRunner): void;

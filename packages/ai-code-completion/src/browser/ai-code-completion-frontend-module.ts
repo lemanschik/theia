@@ -17,12 +17,12 @@
 import { Agent, AIVariableContribution } from '@theia/ai-core';
 import { FrontendApplicationContribution, KeybindingContribution, PreferenceContribution } from '@theia/core/lib/browser';
 import { ContainerModule } from 'inversify';
-import { AICodeCompletionPreferencesSchema } from './ai-code-completion-preference';
-import { AIFrontendApplicationContribution } from './ai-code-frontend-application-contribution';
-import { AICodeInlineCompletionsProvider } from './ai-code-inline-completion-provider';
-import { CodeCompletionAgent, CodeCompletionAgentImpl } from './code-completion-agent';
-import { CodeCompletionPostProcessor, DefaultCodeCompletionPostProcessor } from './code-completion-postprocessor';
-import { CodeCompletionVariableContribution } from './code-completion-variable-contribution';
+import { AICodeCompletionPreferencesSchema } from './ai-code-completion-preference.js';
+import { AIFrontendApplicationContribution } from './ai-code-frontend-application-contribution.js';
+import { AICodeInlineCompletionsProvider } from './ai-code-inline-completion-provider.js';
+import { CodeCompletionAgent, CodeCompletionAgentImpl } from './code-completion-agent.js';
+import { CodeCompletionPostProcessor, DefaultCodeCompletionPostProcessor } from './code-completion-postprocessor.js';
+import { CodeCompletionVariableContribution } from './code-completion-variable-contribution.js';
 
 export default new ContainerModule(bind => {
     bind(CodeCompletionAgentImpl).toSelf().inSingletonScope();

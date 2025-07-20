@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-export * from './hash';
-export * from './ffmpeg';
-export * from './check-ffmpeg';
-export * from './replace-ffmpeg';
+export * from './hash.js';
+export * from './ffmpeg.js';
+export * from './check-ffmpeg.js';
+export * from './replace-ffmpeg.js';

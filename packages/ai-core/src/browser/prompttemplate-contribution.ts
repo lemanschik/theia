@@ -22,9 +22,9 @@ import { TabBarToolbarContribution, TabBarToolbarRegistry } from '@theia/core/li
 
 import { codicon, Widget } from '@theia/core/lib/browser';
 import { EditorWidget, ReplaceOperation } from '@theia/editor/lib/browser';
-import { PromptService, PromptText, ToolInvocationRegistry } from '../common';
+import { PromptService, PromptText, ToolInvocationRegistry } from '../common/index.js';
 import { ProviderResult } from '@theia/monaco-editor-core/esm/vs/editor/common/languages';
-import { AIVariableService } from '../common/variable-service';
+import { AIVariableService } from '../common/variable-service.js';
 
 const PROMPT_TEMPLATE_LANGUAGE_ID = 'theia-ai-prompt-template';
 const PROMPT_TEMPLATE_TEXTMATE_SCOPE = 'source.prompttemplate';

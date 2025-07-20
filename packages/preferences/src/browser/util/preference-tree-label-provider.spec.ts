@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
 import { enableJSDOM } from '@theia/core/lib/browser/test/jsdom';
 const disableJSDOM = enableJSDOM();
@@ -24,11 +24,11 @@ FrontendApplicationConfigProvider.set({});
 
 import { expect } from 'chai';
 import { Container } from 'inversify';
-import { PreferenceTreeGenerator } from './preference-tree-generator';
-import { PreferenceTreeLabelProvider } from './preference-tree-label-provider';
-import { Preference } from './preference-types';
+import { PreferenceTreeGenerator } from './preference-tree-generator.js';
+import { PreferenceTreeLabelProvider } from './preference-tree-label-provider.js';
+import { Preference } from './preference-types.js';
 import { SelectableTreeNode } from '@theia/core/lib/browser';
-import { PreferenceLayoutProvider } from './preference-layout';
+import { PreferenceLayoutProvider } from './preference-layout.js';
 
 disableJSDOM();
 

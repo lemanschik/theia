@@ -15,14 +15,14 @@
 // *****************************************************************************
 
 import { injectable, postConstruct, inject } from 'inversify';
-import { isOSX } from '../../common/os';
-import { Emitter, Event } from '../../common/event';
-import { ILogger } from '../../common/logger';
-import { Deferred } from '../../common/promise-util';
+import { isOSX } from '../../common/os.js';
+import { Emitter, Event } from '../../common/event.js';
+import { ILogger } from '../../common/logger.js';
+import { Deferred } from '../../common/promise-util.js';
 import {
     NativeKeyboardLayout, KeyboardLayoutProvider, KeyboardLayoutChangeNotifier, KeyValidator, KeyValidationInput
-} from '../../common/keyboard/keyboard-layout-provider';
-import { LocalStorageService } from '../storage-service';
+} from '../../common/keyboard/keyboard-layout-provider.js';
+import { LocalStorageService } from '../storage-service.js';
 
 export type KeyboardLayoutSource = 'navigator.keyboard' | 'user-choice' | 'pressed-keys';
 
@@ -241,7 +241,7 @@ export const DEFAULT_LAYOUT_DATA: KeyboardLayoutData = {
     hardware: isOSX ? 'mac' : 'pc',
     language: 'en',
     raw: {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         info: {} as any,
         mapping: {}
     }

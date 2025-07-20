@@ -15,11 +15,11 @@
 // *****************************************************************************
 
 import theia from '@theia/plugin';
-import { DocumentsExtImpl } from '../documents';
-import * as Converter from '../type-converters';
+import { DocumentsExtImpl } from '../documents.js';
+import * as Converter from '../type-converters.js';
 import { URI } from 'vscode-uri';
-import { FormattingOptions, TextEdit } from '../../common/plugin-api-rpc-model';
-import { Position } from '../../common/plugin-api-rpc';
+import { FormattingOptions, TextEdit } from '../../common/plugin-api-rpc-model.js';
+import { Position } from '../../common/plugin-api-rpc.js';
 
 export class OnTypeFormattingAdapter {
 
@@ -38,7 +38,7 @@ export class OnTypeFormattingAdapter {
         const doc = document.document;
         const pos = Converter.toPosition(position);
 
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         return Promise.resolve(this.provider.provideOnTypeFormattingEdits(doc, pos, ch, <any>options, token)).then(value => {
             if (Array.isArray(value)) {
                 return value.map(Converter.fromTextEdit);

@@ -15,11 +15,11 @@
 // *****************************************************************************
 
 import { injectable, inject } from 'inversify';
-import { isFirefox } from './browser';
-import { ClipboardService } from './clipboard-service';
-import { ILogger } from '../common/logger';
-import { MessageService } from '../common/message-service';
-import { nls } from '../common/nls';
+import { isFirefox } from './browser.js';
+import { ClipboardService } from './clipboard-service.js';
+import { ILogger } from '../common/logger.js';
+import { MessageService } from '../common/message-service.js';
+import { nls } from '../common/nls.js';
 
 export interface NavigatorClipboard {
     readText(): Promise<string>;
@@ -55,7 +55,7 @@ export class BrowserClipboardService implements ClipboardService {
                 if (isFirefox) {
                     this.messageService.warn(nls.localize(
                         'theia/navigator/clipboardWarnFirefox',
-                        // eslint-disable-next-line max-len
+                         
                         "Clipboard API is not available. It can be enabled by '{0}' preference on '{1}' page. Then reload Theia. Note, it will allow FireFox getting full access to the system clipboard.", 'dom.events.testing.asyncClipboard', 'about:config'
                     ));
                 }
@@ -88,7 +88,7 @@ export class BrowserClipboardService implements ClipboardService {
                 if (isFirefox) {
                     this.messageService.warn(nls.localize(
                         'theia/core/navigator/clipboardWarnFirefox',
-                        // eslint-disable-next-line max-len
+                         
                         "Clipboard API is not available. It can be enabled by '{0}' preference on '{1}' page. Then reload Theia. Note, it will allow FireFox getting full access to the system clipboard.", 'dom.events.testing.asyncClipboard', 'about:config'
                     ));
                 }

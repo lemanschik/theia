@@ -20,8 +20,8 @@ import { IMinimatch, Minimatch } from 'minimatch';
 import { FileUri } from '@theia/core/lib/common/file-uri';
 import {
     FileChangeType, FileSystemWatcherService, FileSystemWatcherServiceClient, WatchOptions
-} from '../../common/filesystem-watcher-protocol';
-import { FileChangeCollection } from '../file-change-collection';
+} from '../../common/filesystem-watcher-protocol.js';
+import { FileChangeCollection } from '../file-change-collection.js';
 import { Deferred, timeout } from '@theia/core/lib/common/promise-util';
 import { subscribe, Options, AsyncSubscription, Event } from '@parcel/watcher';
 
@@ -32,9 +32,9 @@ export interface ParcelWatcherOptions {
 export const ParcelFileSystemWatcherServerOptions = Symbol('ParcelFileSystemWatcherServerOptions');
 export interface ParcelFileSystemWatcherServerOptions {
     verbose: boolean;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     info: (message: string, ...args: any[]) => void;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     error: (message: string, ...args: any[]) => void;
     parcelOptions: Options;
 }
@@ -348,12 +348,12 @@ export class ParcelWatcher {
         }
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     protected info(prefix: string, ...params: any[]): void {
         this.parcelFileSystemWatchServerOptions.info(`${prefix} ParcelWatcher(${this.debugId} at "${this.fsPath}"):`, ...params);
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     protected debug(prefix: string, ...params: any[]): void {
         if (this.parcelFileSystemWatchServerOptions.verbose) {
             this.info(prefix, ...params);
@@ -464,7 +464,7 @@ export class ParcelFileSystemWatcherService implements FileSystemWatcherService 
         };
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     protected debug(message: string, ...params: any[]): void {
         if (this.options.verbose) {
             this.options.info(message, ...params);

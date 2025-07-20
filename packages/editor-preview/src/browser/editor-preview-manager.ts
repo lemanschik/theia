@@ -16,11 +16,11 @@
 
 import { EditorManager, EditorOpenerOptions, EditorWidget } from '@theia/editor/lib/browser';
 import { inject, injectable, postConstruct } from 'inversify';
-import { EditorPreviewPreferences } from './editor-preview-preferences';
+import { EditorPreviewPreferences } from './editor-preview-preferences.js';
 import { MaybePromise } from '@theia/core/lib/common';
 import URI from '@theia/core/lib/common/uri';
-import { EditorPreviewWidgetFactory, EditorPreviewOptions } from './editor-preview-widget-factory';
-import { EditorPreviewWidget } from './editor-preview-widget';
+import { EditorPreviewWidgetFactory, EditorPreviewOptions } from './editor-preview-widget-factory.js';
+import { EditorPreviewWidget } from './editor-preview-widget.js';
 import { FrontendApplicationStateService } from '@theia/core/lib/browser/frontend-application-state';
 import { WidgetOpenerOptions } from '@theia/core/lib/browser';
 

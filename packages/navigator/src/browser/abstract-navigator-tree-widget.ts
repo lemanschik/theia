@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { injectable, inject, postConstruct } from 'inversify';
-import { FileNavigatorPreferences } from './navigator-preferences';
+import { FileNavigatorPreferences } from './navigator-preferences.js';
 import { FileTreeWidget } from '@theia/filesystem/lib/browser';
 import { Attributes, HTMLAttributes } from 'react';
 import { TreeNode } from '@theia/core/lib/browser';

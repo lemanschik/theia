@@ -20,7 +20,7 @@ import { MaybePromise } from '@theia/core/lib/common/types';
 import { Event, Emitter } from '@theia/core/lib/common/event';
 import { PreferenceChangeEvent } from '@theia/core/lib/browser/preferences';
 import { FileSystemPreferences, FileSystemConfiguration } from '@theia/filesystem/lib/browser/filesystem-preferences';
-import { FileNavigatorPreferences, FileNavigatorConfiguration } from './navigator-preferences';
+import { FileNavigatorPreferences, FileNavigatorConfiguration } from './navigator-preferences.js';
 
 /**
  * Filter for omitting elements from the navigator. For more details on the exclusion patterns,

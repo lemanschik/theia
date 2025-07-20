@@ -15,12 +15,12 @@
 // *****************************************************************************
 
 import { Container } from 'inversify';
-import { PreferenceValidationService } from './preference-validation-service';
-import { PreferenceItem, PreferenceSchemaProvider } from './preference-contribution';
-import { PreferenceLanguageOverrideService } from './preference-language-override-service';
+import { PreferenceValidationService } from './preference-validation-service.js';
+import { PreferenceItem, PreferenceSchemaProvider } from './preference-contribution.js';
+import { PreferenceLanguageOverrideService } from './preference-language-override-service.js';
 import assert from 'assert';
 import { JSONValue } from '@lumino/coreutils';
-import { IJSONSchema, JsonType } from '../../common/json-schema';
+import { IJSONSchema, JsonType } from '../../common/json-schema.js';
 
 /* eslint-disable no-null/no-null */
 

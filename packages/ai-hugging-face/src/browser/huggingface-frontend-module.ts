@@ -15,10 +15,10 @@
 // *****************************************************************************
 
 import { ContainerModule } from 'inversify';
-import { HuggingFacePreferencesSchema } from './huggingface-preferences';
+import { HuggingFacePreferencesSchema } from './huggingface-preferences.js';
 import { FrontendApplicationContribution, PreferenceContribution, RemoteConnectionProvider, ServiceConnectionProvider } from '@theia/core/lib/browser';
-import { HuggingFaceFrontendApplicationContribution } from './huggingface-frontend-application-contribution';
-import { HUGGINGFACE_LANGUAGE_MODELS_MANAGER_PATH, HuggingFaceLanguageModelsManager } from '../common';
+import { HuggingFaceFrontendApplicationContribution } from './huggingface-frontend-application-contribution.js';
+import { HUGGINGFACE_LANGUAGE_MODELS_MANAGER_PATH, HuggingFaceLanguageModelsManager } from '../common/index.js';
 
 export default new ContainerModule(bind => {
     bind(PreferenceContribution).toConstantValue({ schema: HuggingFacePreferencesSchema });

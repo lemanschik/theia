@@ -21,7 +21,7 @@
 import { Emitter } from '@theia/core';
 import { inject, injectable } from 'inversify';
 import { Disposable } from 'vscode-languageserver-protocol';
-import { NotebookEditorWidgetService } from './notebook-editor-widget-service';
+import { NotebookEditorWidgetService } from './notebook-editor-widget-service.js';
 
 interface RendererMessage {
     editorId: string;

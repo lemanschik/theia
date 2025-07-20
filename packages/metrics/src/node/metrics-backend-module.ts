@@ -17,12 +17,12 @@
 import { ContainerModule } from 'inversify';
 import { BackendApplicationContribution } from '@theia/core/lib/node';
 import { ConnectionHandler, RpcConnectionHandler, bindContributionProvider } from '@theia/core/lib/common';
-import { MetricsContribution } from './metrics-contribution';
-import { NodeMetricsContribution } from './node-metrics-contribution';
-import { ExtensionMetricsContribution } from './extensions-metrics-contribution';
-import { MetricsBackendApplicationContribution } from './metrics-backend-application-contribution';
-import { measurementNotificationServicePath } from '../common';
-import { MeasurementMetricsBackendContribution } from './measurement-metrics-contribution';
+import { MetricsContribution } from './metrics-contribution.js';
+import { NodeMetricsContribution } from './node-metrics-contribution.js';
+import { ExtensionMetricsContribution } from './extensions-metrics-contribution.js';
+import { MetricsBackendApplicationContribution } from './metrics-backend-application-contribution.js';
+import { measurementNotificationServicePath } from '../common/index.js';
+import { MeasurementMetricsBackendContribution } from './measurement-metrics-contribution.js';
 
 export default new ContainerModule(bind => {
     bindContributionProvider(bind, MetricsContribution);

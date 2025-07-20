@@ -14,13 +14,13 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
-import { createProxyIdentifier, ProxyIdentifier, RPCProtocol } from './rpc-protocol';
+import { createProxyIdentifier, ProxyIdentifier, RPCProtocol } from './rpc-protocol.js';
 import theia from '@theia/plugin';
-import { PluginLifecycle, PluginModel, PluginMetadata, PluginPackage, IconUrl, PluginJsonValidationContribution } from './plugin-protocol';
-import { QueryParameters } from './env';
-import { TextEditorCursorStyle } from './editor-options';
+import { PluginLifecycle, PluginModel, PluginMetadata, PluginPackage, IconUrl, PluginJsonValidationContribution } from './plugin-protocol.js';
+import { QueryParameters } from './env.js';
+import { TextEditorCursorStyle } from './editor-options.js';
 import {
     ConfigurationTarget,
     TextEditorLineNumbersStyle,
@@ -30,8 +30,8 @@ import {
     TextDocumentChangeReason,
     IndentAction,
     NotebookRendererScript,
-} from '../plugin/types-impl';
-import { UriComponents } from './uri-components';
+} from '../plugin/types-impl.js';
+import { UriComponents } from './uri-components.js';
 import {
     SerializedDocumentFilter,
     CompletionContext,
@@ -92,9 +92,9 @@ import {
     DocumentDropEditProviderMetadata,
     DebugStackFrameDTO,
     DebugThreadDTO
-} from './plugin-api-rpc-model';
-import { ExtPluginApi } from './plugin-ext-api-contribution';
-import { KeysToAnyValues, KeysToKeysToAnyValue } from './types';
+} from './plugin-api-rpc-model.js';
+import { ExtPluginApi } from './plugin-ext-api-contribution.js';
+import { KeysToAnyValues, KeysToKeysToAnyValue } from './types.js';
 import {
     AuthenticationProviderAuthenticationSessionsChangeEvent,
     CancellationToken,
@@ -121,13 +121,13 @@ import { Severity } from '@theia/core/lib/common/severity';
 import { DebugConfiguration, DebugSessionOptions } from '@theia/debug/lib/common/debug-configuration';
 import notebookCommon from '@theia/notebook/lib/common';
 import { CellExecutionUpdateType, CellRange, NotebookCellExecutionState } from '@theia/notebook/lib/common';
-import { LanguagePackBundle } from './language-pack-service';
+import { LanguagePackBundle } from './language-pack-service.js';
 import { AccessibilityInformation } from '@theia/core/lib/common/accessibility';
 
 import { TreeDelta } from '@theia/test/lib/common/tree-delta';
-import { TestItemDTO, TestOutputDTO, TestRunDTO, TestRunProfileDTO, TestRunRequestDTO, TestStateChangeDTO } from './test-types';
-import { ArgumentProcessor } from './commands';
-import { McpServerDefinitionRegistryMain, McpServerDefinitionRegistryExt } from './lm-protocol';
+import { TestItemDTO, TestOutputDTO, TestRunDTO, TestRunProfileDTO, TestRunRequestDTO, TestStateChangeDTO } from './test-types.js';
+import { ArgumentProcessor } from './commands.js';
+import { McpServerDefinitionRegistryMain, McpServerDefinitionRegistryExt } from './lm-protocol.js';
 
 export interface PreferenceData {
     [scope: number]: any;
@@ -532,7 +532,7 @@ export interface QuickOpenExt {
     $onDidChangeActive(sessionId: number, handles: number[]): void;
     $onDidChangeSelection(sessionId: number, handles: number[]): void;
 
-    /* eslint-disable max-len */
+     
     showQuickPick(plugin: Plugin, itemsOrItemsPromise: Array<theia.QuickPickItem> | Promise<Array<theia.QuickPickItem>>, options: theia.QuickPickOptions & { canPickMany: true; },
         token?: theia.CancellationToken): Promise<Array<theia.QuickPickItem> | undefined>;
     showQuickPick(plugin: Plugin, itemsOrItemsPromise: string[] | Promise<string[]>, options?: theia.QuickPickOptions, token?: theia.CancellationToken): Promise<string | undefined>;
@@ -1634,7 +1634,7 @@ export interface TaskDto {
     source?: string;
     scope: string | number;
     // Provide a more specific type when necessary (see ProblemMatcherContribution)
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     problemMatcher?: any;
     group?: {
         kind: TaskGroupKind;
@@ -1643,7 +1643,7 @@ export interface TaskDto {
     detail?: string;
     presentation?: TaskPresentationOptionsDTO;
     runOptions?: RunOptionsDTO;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     [key: string]: any;
 }
 

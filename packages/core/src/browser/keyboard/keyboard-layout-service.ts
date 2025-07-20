@@ -16,12 +16,12 @@
 
 import { injectable, inject, optional } from 'inversify';
 import type { IWindowsKeyMapping } from 'native-keymap';
-import { isWindows } from '../../common/os';
+import { isWindows } from '../../common/os.js';
 import {
     NativeKeyboardLayout, KeyboardLayoutProvider, KeyboardLayoutChangeNotifier, KeyValidator
-} from '../../common/keyboard/keyboard-layout-provider';
-import { Emitter, Event } from '../../common/event';
-import { KeyCode, Key } from './keys';
+} from '../../common/keyboard/keyboard-layout-provider.js';
+import { Emitter, Event } from '../../common/event.js';
+import { KeyCode, Key } from './keys.js';
 
 export interface KeyboardLayout {
     /**

@@ -21,7 +21,7 @@ import { inject, injectable } from 'inversify';
 import { TerminalService } from '@theia/terminal/lib/browser/base/terminal-service';
 import { TerminalMenus } from '@theia/terminal/lib/browser/terminal-frontend-contribution';
 import { TerminalWidgetImpl } from '@theia/terminal/lib/browser/terminal-widget-impl';
-import { AiTerminalAgent } from './ai-terminal-agent';
+import { AiTerminalAgent } from './ai-terminal-agent.js';
 import { AICommandHandlerFactory } from '@theia/ai-core/lib/browser/ai-command-handler-factory';
 import { AgentService } from '@theia/ai-core';
 import { nls } from '@theia/core/lib/common/nls';

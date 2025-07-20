@@ -19,7 +19,7 @@ import theia from '@theia/plugin';
 import { DebugAdapter } from '@theia/debug/lib/common/debug-model';
 import { DebugChannel } from '@theia/debug/lib/common/debug-service';
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
 /**
  * Server debug adapter session.

@@ -20,7 +20,7 @@
 // based on https://github.com/microsoft/vscode/blob/04c36be045a94fee58e5f8992d3e3fd980294a84/src/vs/platform/files/node/diskFileSystemProvider.ts
 
 /* eslint-disable no-null/no-null */
-/* eslint-disable @typescript-eslint/no-shadow */
+ 
 
 import { injectable, inject, postConstruct } from 'inversify';
 import { basename, dirname, normalize, join } from 'path';
@@ -55,8 +55,8 @@ import {
     FileChange,
     WatchOptions,
     FileUpdateOptions, FileUpdateResult, FileReadStreamOptions, FilePermission
-} from '../common/files';
-import { FileSystemWatcherServer } from '../common/filesystem-watcher-protocol';
+} from '../common/files.js';
+import { FileSystemWatcherServer } from '../common/filesystem-watcher-protocol.js';
 import trash from 'trash';
 import { TextDocumentContentChangeEvent } from 'vscode-languageserver-protocol';
 import { TextDocument } from 'vscode-languageserver-textdocument';
@@ -64,7 +64,7 @@ import { EncodingService } from '@theia/core/lib/common/encoding-service';
 import { BinaryBuffer } from '@theia/core/lib/common/buffer';
 import { ReadableStreamEvents, newWriteableStream } from '@theia/core/lib/common/stream';
 import { CancellationToken } from '@theia/core/lib/common/cancellation';
-import { readFileIntoStream } from '../common/io';
+import { readFileIntoStream } from '../common/io.js';
 import { Mode } from 'stat-mode';
 
 export namespace DiskFileSystemProvider {

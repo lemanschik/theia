@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { injectable } from 'inversify';
-import { EnvExtImpl } from '../../../plugin/env';
+import { EnvExtImpl } from '../../../plugin/env.js';
 
 /**
  * Worker specific implementation not returning any FileSystem details

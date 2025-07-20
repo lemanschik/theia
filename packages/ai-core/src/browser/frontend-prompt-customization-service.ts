@@ -17,14 +17,14 @@
 import { DisposableCollection, URI, Event, Emitter } from '@theia/core';
 import { OpenerService } from '@theia/core/lib/browser';
 import { inject, injectable, postConstruct } from 'inversify';
-import { PromptFragmentCustomizationService, CustomAgentDescription, CustomizedPromptFragment } from '../common';
+import { PromptFragmentCustomizationService, CustomAgentDescription, CustomizedPromptFragment } from '../common/index.js';
 import { BinaryBuffer } from '@theia/core/lib/common/buffer';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
 import { FileChangesEvent } from '@theia/filesystem/lib/common/files';
-import { AICorePreferences, PREFERENCE_NAME_PROMPT_TEMPLATES } from './ai-core-preferences';
+import { AICorePreferences, PREFERENCE_NAME_PROMPT_TEMPLATES } from './ai-core-preferences.js';
 import { EnvVariablesServer } from '@theia/core/lib/common/env-variables';
 import { load, dump } from 'js-yaml';
-import { PROMPT_TEMPLATE_EXTENSION } from './prompttemplate-contribution';
+import { PROMPT_TEMPLATE_EXTENSION } from './prompttemplate-contribution.js';
 
 /**
  * Default template entry for creating custom agents

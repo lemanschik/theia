@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { inject, injectable, interfaces, LazyServiceIdentifier } from 'inversify';
-import { DockerContainerService } from '../docker-container-service';
+import { DockerContainerService } from '../docker-container-service.js';
 
 export const VariableResolverContribution = Symbol('VariableResolverContribution');
 export interface VariableResolverContribution {

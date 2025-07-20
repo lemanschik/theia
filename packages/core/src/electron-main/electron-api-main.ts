@@ -20,8 +20,8 @@ import {
 import nativeKeymap from '@theia/electron/shared/native-keymap';
 
 import { inject, injectable } from 'inversify';
-import { FrontendApplicationState, StopReason } from '../common/frontend-application-state';
-import { ElectronSecurityToken } from '../electron-common/electron-token';
+import { FrontendApplicationState, StopReason } from '../common/frontend-application-state.js';
+import { ElectronSecurityToken } from '../electron-common/electron-token.js';
 import {
     CHANNEL_GET_SECURITY_TOKEN, CHANNEL_SET_MENU, MenuDto, CHANNEL_INVOKE_MENU, CHANNEL_FOCUS_WINDOW,
     CHANNEL_ATTACH_SECURITY_TOKEN, CHANNEL_OPEN_POPUP, CHANNEL_ON_CLOSE_POPUP, CHANNEL_CLOSE_POPUP,
@@ -57,10 +57,10 @@ import {
     CHANNEL_OPEN_WITH_SYSTEM_APP,
     CHANNEL_OPEN_URL,
     CHANNEL_SET_THEME
-} from '../electron-common/electron-api';
-import { ElectronMainApplication, ElectronMainApplicationContribution } from './electron-main-application';
-import { Disposable, DisposableCollection, isOSX, MaybePromise } from '../common';
-import { createDisposableListener } from './event-utils';
+} from '../electron-common/electron-api.js';
+import { ElectronMainApplication, ElectronMainApplicationContribution } from './electron-main-application.js';
+import { Disposable, DisposableCollection, isOSX, MaybePromise } from '../common/index.js';
+import { createDisposableListener } from './event-utils.js';
 
 @injectable()
 export class TheiaMainApi implements ElectronMainApplicationContribution {
@@ -293,7 +293,7 @@ export namespace TheiaRendererAPI {
         return new Promise<boolean>(resolve => {
             const channelNr = nextReplyChannel++;
             const replyChannel = `openUrl${channelNr}`;
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+             
             const l = createDisposableListener(ipcMain, replyChannel, (e, args: any[]) => {
                 l.dispose();
                 resolve(args[0]);

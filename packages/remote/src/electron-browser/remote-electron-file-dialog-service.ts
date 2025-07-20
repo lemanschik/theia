@@ -20,7 +20,7 @@ import { OpenFileDialogProps, SaveFileDialogProps } from '@theia/filesystem/lib/
 import { FileStat } from '@theia/filesystem/lib/common/files';
 import { DefaultFileDialogService } from '@theia/filesystem/lib/browser/file-dialog/file-dialog-service';
 import { ElectronFileDialogService } from '@theia/filesystem/lib/electron-browser/file-dialog/electron-file-dialog-service';
-import { RemoteService } from './remote-service';
+import { RemoteService } from './remote-service.js';
 
 @injectable()
 export class RemoteElectronFileDialogService extends ElectronFileDialogService {

@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { Event, Emitter } from '../../common/event';
-import { Disposable, DisposableCollection } from '../../common/disposable';
+import { Event, Emitter } from '../../common/event.js';
+import { Disposable, DisposableCollection } from '../../common/disposable.js';
 
 import debounce from 'lodash.debounce';
 

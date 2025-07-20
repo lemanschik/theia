@@ -16,9 +16,9 @@
 
 import { Command, MessageService, nls, QuickInputService, QuickPickInput } from '@theia/core';
 import { inject, injectable } from 'inversify';
-import { RemoteSSHConnectionProvider } from '../electron-common/remote-ssh-connection-provider';
-import { AbstractRemoteRegistryContribution, RemoteRegistry } from './remote-registry-contribution';
-import { RemotePreferences } from './remote-preferences';
+import { RemoteSSHConnectionProvider } from '../electron-common/remote-ssh-connection-provider.js';
+import { AbstractRemoteRegistryContribution, RemoteRegistry } from './remote-registry-contribution.js';
+import { RemotePreferences } from './remote-preferences.js';
 import SSHConfig, { Directive } from 'ssh-config';
 
 export namespace RemoteSSHCommands {

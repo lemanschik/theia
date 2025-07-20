@@ -17,12 +17,12 @@
 import debounce from 'lodash.debounce';
 import { Title, Widget } from '@lumino/widgets';
 import { inject, injectable, named } from 'inversify';
-import { ContributionProvider, Emitter, Event } from '../../common';
-import { ColorRegistry } from '../color-registry';
-import { Decoration, DecorationsService, DecorationsServiceImpl } from '../decorations-service';
-import { FrontendApplicationContribution } from '../frontend-application-contribution';
-import { Navigatable } from '../navigatable-types';
-import { WidgetDecoration } from '../widget-decoration';
+import { ContributionProvider, Emitter, Event } from '../../common/index.js';
+import { ColorRegistry } from '../color-registry.js';
+import { Decoration, DecorationsService, DecorationsServiceImpl } from '../decorations-service.js';
+import { FrontendApplicationContribution } from '../frontend-application-contribution.js';
+import { Navigatable } from '../navigatable-types.js';
+import { WidgetDecoration } from '../widget-decoration.js';
 
 export const TabBarDecorator = Symbol('TabBarDecorator');
 

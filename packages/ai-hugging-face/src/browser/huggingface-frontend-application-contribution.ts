@@ -16,8 +16,8 @@
 
 import { FrontendApplicationContribution, PreferenceService } from '@theia/core/lib/browser';
 import { inject, injectable } from 'inversify';
-import { HuggingFaceLanguageModelsManager, HuggingFaceModelDescription } from '../common';
-import { API_KEY_PREF, MODELS_PREF } from './huggingface-preferences';
+import { HuggingFaceLanguageModelsManager, HuggingFaceModelDescription } from '../common/index.js';
+import { API_KEY_PREF, MODELS_PREF } from './huggingface-preferences.js';
 
 const HUGGINGFACE_PROVIDER_ID = 'huggingface';
 @injectable()

@@ -26,7 +26,7 @@ export interface ProcessTerminateMessage {
 
 export namespace ProcessTerminateMessage {
     export const TYPE = 0;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     export function is(object: any): object is ProcessTerminateMessage {
         return typeof object === 'object' && object.type === TYPE;
     }
@@ -41,7 +41,7 @@ export interface ProcessTerminatedMessage {
 
 export namespace ProcessTerminatedMessage {
     export const TYPE = 1;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     export function is(object: any): object is ProcessTerminateMessage {
         return typeof object === 'object' && object.type === TYPE;
     }

@@ -17,39 +17,39 @@
 import { injectable, inject, named } from 'inversify';
 import { ITokenTypeMap, IEmbeddedLanguagesMap } from 'vscode-textmate';
 import { TextmateRegistry, getEncodedLanguageId, MonacoTextmateService, GrammarDefinition } from '@theia/monaco/lib/browser/textmate';
-import { MenusContributionPointHandler } from './menus/menus-contribution-handler';
-import { PluginViewRegistry } from './view/plugin-view-registry';
-import { PluginCustomEditorRegistry } from './custom-editors/plugin-custom-editor-registry';
+import { MenusContributionPointHandler } from './menus/menus-contribution-handler.js';
+import { PluginViewRegistry } from './view/plugin-view-registry.js';
+import { PluginCustomEditorRegistry } from './custom-editors/plugin-custom-editor-registry.js';
 import {
     PluginContribution, IndentationRules, FoldingRules, ScopeMap, DeployedPlugin,
     GrammarsContribution, EnterAction, OnEnterRule, RegExpOptions, IconContribution, PluginPackage
-} from '../../common';
+} from '../../common/index.js';
 import {
     DefaultUriLabelProviderContribution,
     LabelProviderContribution,
     PreferenceSchemaProvider
 } from '@theia/core/lib/browser';
 import { DefaultOverridesPreferenceSchemaId, PreferenceLanguageOverrideService, PreferenceSchema, PreferenceSchemaProperties } from '@theia/core/lib/browser/preferences';
-import { KeybindingsContributionPointHandler } from './keybindings/keybindings-contribution-handler';
+import { KeybindingsContributionPointHandler } from './keybindings/keybindings-contribution-handler.js';
 import { MonacoSnippetSuggestProvider } from '@theia/monaco/lib/browser/monaco-snippet-suggest-provider';
-import { PluginSharedStyle } from './plugin-shared-style';
+import { PluginSharedStyle } from './plugin-shared-style.js';
 import { CommandRegistry, Command, CommandHandler } from '@theia/core/lib/common/command';
 import { Disposable, DisposableCollection } from '@theia/core/lib/common/disposable';
 import { Emitter } from '@theia/core/lib/common/event';
 import { TaskDefinitionRegistry, ProblemMatcherRegistry, ProblemPatternRegistry } from '@theia/task/lib/browser';
 import { NotebookRendererRegistry, NotebookTypeRegistry } from '@theia/notebook/lib/browser';
-import { PluginDebugService } from './debug/plugin-debug-service';
+import { PluginDebugService } from './debug/plugin-debug-service.js';
 import { DebugSchemaUpdater } from '@theia/debug/lib/browser/debug-schema-updater';
 import { MonacoThemingService } from '@theia/monaco/lib/browser/monaco-theming-service';
 import { ColorRegistry } from '@theia/core/lib/browser/color-registry';
-import { PluginIconService } from './plugin-icon-service';
-import { PluginIconThemeService } from './plugin-icon-theme-service';
+import { PluginIconService } from './plugin-icon-service.js';
+import { PluginIconThemeService } from './plugin-icon-theme-service.js';
 import { ContributionProvider } from '@theia/core/lib/common';
 import monaco from '@theia/monaco-editor-core';
 import { ContributedTerminalProfileStore, TerminalProfileStore } from '@theia/terminal/lib/browser/terminal-profile-service';
 import { TerminalWidget } from '@theia/terminal/lib/browser/base/terminal-widget';
 import { TerminalService } from '@theia/terminal/lib/browser/base/terminal-service';
-import { PluginTerminalRegistry } from './plugin-terminal-registry';
+import { PluginTerminalRegistry } from './plugin-terminal-registry.js';
 import { ContextKeyService } from '@theia/core/lib/browser/context-key-service';
 import { LanguageService } from '@theia/core/lib/browser/language-service';
 import { ThemeIcon } from '@theia/monaco-editor-core/esm/vs/base/common/themables';
@@ -167,7 +167,7 @@ export class PluginContributionHandler {
             return Disposable.NULL;
         }
         const toDispose = new DisposableCollection(Disposable.create(() => { /* mark as not disposed */ }));
-        /* eslint-disable @typescript-eslint/no-explicit-any */
+         
         const logError = (message: string, ...args: any[]) => console.error(`[${clientId}][${plugin.metadata.model.id}]: ${message}`, ...args);
         const logWarning = (message: string, ...args: any[]) => console.warn(`[${clientId}][${plugin.metadata.model.id}]: ${message}`, ...args);
         const pushContribution = (id: string, contribute: () => Disposable) => {
@@ -312,7 +312,7 @@ export class PluginContributionHandler {
             }
         }
         if (contributions.views) {
-            // eslint-disable-next-line guard-for-in
+             
             for (const location in contributions.views) {
                 for (const view of contributions.views[location]) {
                     pushContribution(`views.${view.id}`,
@@ -558,7 +558,7 @@ export class PluginContributionHandler {
             title: 'Default Configuration Overrides',
             properties: {}
         };
-        // eslint-disable-next-line guard-for-in
+         
         for (const key in configurationDefaults) {
             const defaultValue = configurationDefaults[key];
             if (this.preferenceOverrideService.testOverrideValue(key, defaultValue)) {

@@ -15,12 +15,12 @@
 // *****************************************************************************
 
 import { inject, injectable, optional, postConstruct } from 'inversify';
-import { ILogger } from '../common/logger';
-import { Event, Emitter } from '../common/event';
-import { DefaultFrontendApplicationContribution } from './frontend-application-contribution';
-import { StatusBar, StatusBarAlignment } from './status-bar/status-bar';
-import { Disposable, DisposableCollection, nls } from '../common';
-import { WebSocketConnectionSource } from './messaging/ws-connection-source';
+import { ILogger } from '../common/logger.js';
+import { Event, Emitter } from '../common/event.js';
+import { DefaultFrontendApplicationContribution } from './frontend-application-contribution.js';
+import { StatusBar, StatusBarAlignment } from './status-bar/status-bar.js';
+import { Disposable, DisposableCollection, nls } from '../common/index.js';
+import { WebSocketConnectionSource } from './messaging/ws-connection-source.js';
 
 /**
  * Service for listening on backend connection changes.
@@ -157,7 +157,7 @@ export class FrontendConnectionStatusService extends AbstractConnectionStatusSer
         }
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     protected setTimeout(handler: (...args: any[]) => void, timeout: number): number {
         return window.setTimeout(handler, timeout);
     }

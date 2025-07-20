@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { isObject } from './types';
+import { isObject } from './types.js';
 
 /**
  * A Keybinding binds a specific key sequence ({@link Keybinding#keybinding}) to trigger a command ({@link Keybinding#command}). A Keybinding optionally may
@@ -48,7 +48,7 @@ export interface Keybinding {
      * Optional arguments that will be passed to the command when it gets triggered via this keybinding.
      * Needs to be specified when the triggered command expects arguments to be passed to the command handler.
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     args?: any;
 }
 export namespace Keybinding {

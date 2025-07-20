@@ -20,15 +20,15 @@ import path from 'path';
 import temp from 'temp';
 import fs from 'fs-extra';
 import { expect } from 'chai';
-import { Git } from '../common/git';
+import { Git } from '../common/git.js';
 import { git as gitExec } from 'dugite-extra/lib/core/git';
 import { FileUri } from '@theia/core/lib/common/file-uri';
-import { WorkingDirectoryStatus, Repository, GitUtils, GitFileStatus, GitFileChange } from '../common';
+import { WorkingDirectoryStatus, Repository, GitUtils, GitFileStatus, GitFileChange } from '../common/index.js';
 import { initRepository, createTestRepository } from 'dugite-extra/lib/command/test-helper';
-import { createGit } from './test/binding-helper';
+import { createGit } from './test/binding-helper.js';
 import { isWindows } from '@theia/core/lib/common/os';
 
-/* eslint-disable max-len */
+ 
 
 const track = temp.track();
 

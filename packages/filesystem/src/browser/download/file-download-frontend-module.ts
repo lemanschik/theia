@@ -16,8 +16,8 @@
 
 import { ContainerModule } from 'inversify';
 import { CommandContribution } from '@theia/core/lib/common/command';
-import { FileDownloadService } from './file-download-service';
-import { FileDownloadCommandContribution } from './file-download-command-contribution';
+import { FileDownloadService } from './file-download-service.js';
+import { FileDownloadCommandContribution } from './file-download-command-contribution.js';
 
 export default new ContainerModule(bind => {
     bind(FileDownloadService).toSelf().inSingletonScope();

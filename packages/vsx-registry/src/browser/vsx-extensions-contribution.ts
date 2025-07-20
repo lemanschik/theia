@@ -32,13 +32,13 @@ import { NAVIGATOR_CONTEXT_MENU } from '@theia/navigator/lib/browser/navigator-c
 import { OVSXApiFilterProvider, VSXExtensionRaw } from '@theia/ovsx-client';
 import { VscodeCommands } from '@theia/plugin-ext-vscode/lib/browser/plugin-vscode-commands-contribution';
 import { DateTime } from 'luxon';
-import { OVSXClientProvider } from '../common/ovsx-client-provider';
-import { IGNORE_RECOMMENDATIONS_ID } from './recommended-extensions/recommended-extensions-preference-contribution';
-import { VSXExtension, VSXExtensionsContextMenu } from './vsx-extension';
-import { VSXExtensionsCommands } from './vsx-extension-commands';
-import { VSXExtensionsModel } from './vsx-extensions-model';
-import { BUILTIN_QUERY, INSTALLED_QUERY, RECOMMENDED_QUERY } from './vsx-extensions-search-model';
-import { VSXExtensionsViewContainer } from './vsx-extensions-view-container';
+import { OVSXClientProvider } from '../common/ovsx-client-provider.js';
+import { IGNORE_RECOMMENDATIONS_ID } from './recommended-extensions/recommended-extensions-preference-contribution.js';
+import { VSXExtension, VSXExtensionsContextMenu } from './vsx-extension.js';
+import { VSXExtensionsCommands } from './vsx-extension-commands.js';
+import { VSXExtensionsModel } from './vsx-extensions-model.js';
+import { BUILTIN_QUERY, INSTALLED_QUERY, RECOMMENDED_QUERY } from './vsx-extensions-search-model.js';
+import { VSXExtensionsViewContainer } from './vsx-extensions-view-container.js';
 import { ApplicationServer } from '@theia/core/lib/common/application-protocol';
 import debounce from 'lodash.debounce';
 

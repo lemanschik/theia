@@ -14,10 +14,10 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
 import { injectable } from 'inversify';
-import { ILogger, Loggable } from '../logger';
+import { ILogger, Loggable } from '../logger.js';
 
 @injectable()
 export class MockLogger implements ILogger {

@@ -20,9 +20,9 @@ import { Event, Emitter } from '@theia/core/lib/common/event';
 import { Title, Widget } from '@lumino/widgets';
 import { WidgetDecoration } from '@theia/core/lib/browser/widget-decoration';
 import { TabBarDecorator } from '@theia/core/lib/browser/shell/tab-bar-decorator';
-import { Marker } from '../../common/marker';
-import { ProblemManager } from './problem-manager';
-import { ProblemPreferences, ProblemConfiguration } from './problem-preferences';
+import { Marker } from '../../common/marker.js';
+import { ProblemManager } from './problem-manager.js';
+import { ProblemPreferences, ProblemConfiguration } from './problem-preferences.js';
 import { PreferenceChangeEvent, Navigatable } from '@theia/core/lib/browser';
 
 @injectable()

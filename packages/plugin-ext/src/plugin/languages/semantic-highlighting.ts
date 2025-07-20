@@ -20,16 +20,16 @@
 
 // copied and modified from https://github.com/microsoft/vscode/blob/0eb3a02ca2bcfab5faa3dc6e52d7c079efafcab0/src/vs/workbench/api/common/extHostLanguageFeatures.ts#L692-L869
 
-/* eslint-disable @typescript-eslint/consistent-type-definitions */
+ 
 
 import { BinaryBuffer } from '@theia/core/lib/common/buffer';
 import theia from '@theia/plugin';
 import { URI } from 'vscode-uri';
-import { SemanticTokens, SemanticTokensEdit, SemanticTokensEdits } from '../types-impl';
-import { DocumentsExtImpl } from '../documents';
-import { toRange } from '../type-converters';
-import { encodeSemanticTokensDto } from '../../common/semantic-tokens-dto';
-import { Range } from '../../common/plugin-api-rpc-model';
+import { SemanticTokens, SemanticTokensEdit, SemanticTokensEdits } from '../types-impl.js';
+import { DocumentsExtImpl } from '../documents.js';
+import { toRange } from '../type-converters.js';
+import { encodeSemanticTokensDto } from '../../common/semantic-tokens-dto.js';
+import { Range } from '../../common/plugin-api-rpc-model.js';
 
 class SemanticTokensPreviousResult {
     constructor(

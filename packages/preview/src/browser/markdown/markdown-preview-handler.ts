@@ -24,10 +24,10 @@ import hljs from 'highlight.js';
 import { default as markdownit } from 'markdown-it';;
 import anchor from 'markdown-it-anchor';
 import DOMPurify from 'dompurify';
-import { PreviewUri } from '../preview-uri';
-import { PreviewHandler, RenderContentParams } from '../preview-handler';
-import { PreviewOpenerOptions } from '../preview-contribution';
-import { PreviewLinkNormalizer } from '../preview-link-normalizer';
+import { PreviewUri } from '../preview-uri.js';
+import { PreviewHandler, RenderContentParams } from '../preview-handler.js';
+import { PreviewOpenerOptions } from '../preview-contribution.js';
+import { PreviewLinkNormalizer } from '../preview-link-normalizer.js';
 
 @injectable()
 export class MarkdownPreviewHandler implements PreviewHandler {

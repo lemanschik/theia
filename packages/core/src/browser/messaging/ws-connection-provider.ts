@@ -15,8 +15,8 @@
 // *****************************************************************************
 
 import { injectable, interfaces, decorate, unmanaged, inject } from 'inversify';
-import { RpcProxyFactory, RpcProxy } from '../../common';
-import { RemoteConnectionProvider, ServiceConnectionProvider } from './service-connection-provider';
+import { RpcProxyFactory, RpcProxy } from '../../common/index.js';
+import { RemoteConnectionProvider, ServiceConnectionProvider } from './service-connection-provider.js';
 
 decorate(injectable(), RpcProxyFactory);
 decorate(unmanaged(), RpcProxyFactory, 0);

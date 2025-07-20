@@ -38,9 +38,9 @@ import {
     EditorDecorationOptions,
     MouseTargetType
 } from '@theia/editor/lib/browser';
-import { MonacoEditorModel } from './monaco-editor-model';
-import { MonacoToProtocolConverter } from './monaco-to-protocol-converter';
-import { ProtocolToMonacoConverter } from './protocol-to-monaco-converter';
+import { MonacoEditorModel } from './monaco-editor-model.js';
+import { MonacoToProtocolConverter } from './monaco-to-protocol-converter.js';
+import { ProtocolToMonacoConverter } from './protocol-to-monaco-converter.js';
 import { TextEdit } from 'vscode-languageserver-protocol';
 import { UTF8 } from '@theia/core/lib/common/encodings';
 import monaco from '@theia/monaco-editor-core';
@@ -65,7 +65,7 @@ import objects from '@theia/monaco-editor-core/esm/vs/base/common/objects';
 import { Selection } from '@theia/editor/lib/browser/editor';
 import { IHoverService, WorkbenchHoverDelegate } from '@theia/monaco-editor-core/esm/vs/platform/hover/browser/hover';
 import { setHoverDelegateFactory } from '@theia/monaco-editor-core/esm/vs/base/browser/ui/hover/hoverDelegateFactory';
-import { MonacoTextModelService } from './monaco-text-model-service';
+import { MonacoTextModelService } from './monaco-text-model-service.js';
 
 export type ServicePair<T> = [ServiceIdentifier<T>, T];
 
@@ -429,7 +429,7 @@ export class MonacoEditor extends MonacoEditorServices implements TextEditor {
         this.toDispose.dispose();
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     trigger(source: string, handlerId: string, payload: any): void {
         this.editor.trigger(source, handlerId, payload);
     }

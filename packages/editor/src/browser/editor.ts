@@ -19,7 +19,7 @@ import lsp from 'vscode-languageserver-protocol';
 import URI from '@theia/core/lib/common/uri';
 import { Event, Disposable, TextDocumentContentChangeDelta, Reference, isObject } from '@theia/core/lib/common';
 import { Saveable, Navigatable, Widget } from '@theia/core/lib/browser';
-import { EditorDecoration } from './decorations/editor-decoration';
+import { EditorDecoration } from './decorations/editor-decoration.js';
 import { MarkdownString } from '@theia/core/lib/common/markdown-rendering';
 
 export { Position, Range, Location };
@@ -142,7 +142,7 @@ export interface MouseTarget {
     /**
      * Some extra detail.
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     readonly detail: any;
 }
 
@@ -363,6 +363,6 @@ export namespace CustomEditorWidget {
 }
 
 export interface CustomEditorWidget extends Widget {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     readonly modelRef: Reference<any>;
 }

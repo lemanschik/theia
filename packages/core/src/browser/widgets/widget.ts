@@ -14,16 +14,16 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
 import { injectable, decorate, unmanaged } from 'inversify';
 import { Title, Widget } from '@lumino/widgets';
 import { Message, MessageLoop } from '@lumino/messaging';
-import { Emitter, Event, Disposable, DisposableCollection, MaybePromise, isObject } from '../../common';
-import { KeyCode, KeysOrKeyCodes } from '../keyboard/keys';
+import { Emitter, Event, Disposable, DisposableCollection, MaybePromise, isObject } from '../../common/index.js';
+import { KeyCode, KeysOrKeyCodes } from '../keyboard/keys.js';
 
 import PerfectScrollbar from 'perfect-scrollbar';
-import { PreviewableWidget } from '../widgets/previewable-widget';
+import { PreviewableWidget } from '../widgets/previewable-widget.js';
 import { Slot } from '@lumino/signaling';
 
 decorate(injectable(), Widget);
@@ -258,9 +258,9 @@ export function createIconButton(...classNames: string[]): HTMLSpanElement {
     return button;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 export type EventListener<K extends keyof HTMLElementEventMap> = (this: HTMLElement, event: HTMLElementEventMap[K]) => any;
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 export type EventHandler<K extends keyof HTMLElementEventMap> = (event: HTMLElementEventMap[K]) => any;
 export interface EventListenerObject<K extends keyof HTMLElementEventMap> {
     handleEvent(evt: HTMLElementEventMap[K]): void;

@@ -16,8 +16,8 @@
 
 import { assert, expect, spy, use } from 'chai';
 import { default as spies } from 'chai-spies';
-import { Uint8ArrayReadBuffer, Uint8ArrayWriteBuffer } from './uint8-array-message-buffer';
-import { ChannelMultiplexer, ForwardingChannel, MessageProvider } from './channel';
+import { Uint8ArrayReadBuffer, Uint8ArrayWriteBuffer } from './uint8-array-message-buffer.js';
+import { ChannelMultiplexer, ForwardingChannel, MessageProvider } from './channel.js';
 
 use(spies);
 

@@ -15,8 +15,8 @@
 // *****************************************************************************
 
 import assert from 'assert';
-import { DeeplParameters, DeeplResponse } from './deepl-api';
-import { LocalizationManager, LocalizationOptions } from './localization-manager';
+import { DeeplParameters, DeeplResponse } from './deepl-api.js';
+import { LocalizationManager, LocalizationOptions } from './localization-manager.js';
 
 describe('localization-manager#translateLanguage', () => {
 

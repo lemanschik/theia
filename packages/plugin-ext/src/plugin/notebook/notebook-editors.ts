@@ -19,10 +19,10 @@
  *--------------------------------------------------------------------------------------------*/
 
 import { Emitter } from '@theia/core';
-import { NotebookEditorPropertiesChangeData, NotebookEditorsExt, NotebookEditorViewColumnInfo } from '../../common';
-import * as typeConverters from '../type-converters';
+import { NotebookEditorPropertiesChangeData, NotebookEditorsExt, NotebookEditorViewColumnInfo } from '../../common/index.js';
+import * as typeConverters from '../type-converters.js';
 import theia from '@theia/plugin';
-import { NotebooksExtImpl } from './notebooks';
+import { NotebooksExtImpl } from './notebooks.js';
 
 export class NotebookEditorsExtImpl implements NotebookEditorsExt {
 
@@ -62,7 +62,7 @@ export class NotebookEditorsExtImpl implements NotebookEditorsExt {
     }
 
     $acceptEditorViewColumns(data: NotebookEditorViewColumnInfo): void {
-        // eslint-disable-next-line guard-for-in
+         
         for (const id in data) {
             const editor = this.notebooksAndEditors.getEditorById(id);
             editor.acceptViewColumn(typeConverters.ViewColumn.to(data[id]));

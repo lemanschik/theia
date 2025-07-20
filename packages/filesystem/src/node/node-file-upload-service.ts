@@ -21,7 +21,7 @@ import express from 'express';
 import fs from 'fs-extra';
 import { BackendApplicationContribution, FileUri } from '@theia/core/lib/node';
 import { injectable } from 'inversify';
-import { HTTP_FILE_UPLOAD_PATH } from '../common/file-upload';
+import { HTTP_FILE_UPLOAD_PATH } from '../common/file-upload.js';
 
 @injectable()
 export class NodeFileUploadService implements BackendApplicationContribution {

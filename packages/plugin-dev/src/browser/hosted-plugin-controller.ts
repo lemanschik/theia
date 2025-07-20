@@ -22,10 +22,10 @@ import { CommandRegistry } from '@lumino/commands';
 import { Menu } from '@lumino/widgets';
 import { FrontendApplicationStateService } from '@theia/core/lib/browser/frontend-application-state';
 import { ConnectionStatusService, ConnectionStatus } from '@theia/core/lib/browser/connection-status-service';
-import { PluginDevServer } from '../common/plugin-dev-protocol';
-import { HostedPluginManagerClient, HostedInstanceState, HostedPluginCommands, HostedInstanceData } from './hosted-plugin-manager-client';
-import { HostedPluginLogViewer } from './hosted-plugin-log-viewer';
-import { HostedPluginPreferences } from './hosted-plugin-preferences';
+import { PluginDevServer } from '../common/plugin-dev-protocol.js';
+import { HostedPluginManagerClient, HostedInstanceState, HostedPluginCommands, HostedInstanceData } from './hosted-plugin-manager-client.js';
+import { HostedPluginLogViewer } from './hosted-plugin-log-viewer.js';
+import { HostedPluginPreferences } from './hosted-plugin-preferences.js';
 import { nls } from '@theia/core/lib/common/nls';
 
 /**
@@ -246,7 +246,7 @@ export class HostedPluginController implements FrontendApplicationContribution {
         }
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     private getErrorMessage(error: any): string {
         return error?.message?.substring(error.message.indexOf(':') + 1) || '';
     }

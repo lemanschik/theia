@@ -18,7 +18,7 @@ import { inject, injectable, postConstruct } from 'inversify';
 import { Disposable, DisposableCollection } from '@theia/core/lib/common/disposable';
 import { ThemeService } from '@theia/core/lib/browser/theming';
 import { Theme } from '@theia/core/lib/common/theme';
-import { IconUrl } from '../../common/plugin-protocol';
+import { IconUrl } from '../../common/plugin-protocol.js';
 import { Reference, SyncReferenceCollection } from '@theia/core/lib/common/reference';
 import { Endpoint } from '@theia/core/lib/browser/endpoint';
 
@@ -95,7 +95,7 @@ export class PluginSharedStyle {
         const rules = sheet.rules || sheet.cssRules || [];
         for (let i = rules.length - 1; i >= 0; i--) {
             const rule = rules[i];
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+             
             if ((<any>rule).selectorText.indexOf(selector) !== -1) {
                 sheet.deleteRule(i);
             }

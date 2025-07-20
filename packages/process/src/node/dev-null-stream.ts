@@ -35,7 +35,7 @@ export class DevNullStream extends stream.Duplex {
         }
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     override _write(chunk: any, encoding: string, callback: (err?: Error) => void): void {
         callback();
     }

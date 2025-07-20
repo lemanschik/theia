@@ -21,7 +21,7 @@ import { RawProcess, RawProcessFactory, RawProcessOptions } from '@theia/process
 import { FileUri } from '@theia/core/lib/common/file-uri';
 import URI from '@theia/core/lib/common/uri';
 import { inject, injectable } from 'inversify';
-import { SearchInWorkspaceServer, SearchInWorkspaceOptions, SearchInWorkspaceResult, SearchInWorkspaceClient, LinePreview } from '../common/search-in-workspace-interface';
+import { SearchInWorkspaceServer, SearchInWorkspaceOptions, SearchInWorkspaceResult, SearchInWorkspaceClient, LinePreview } from '../common/search-in-workspace-interface.js';
 
 export const RgPath = Symbol('RgPath');
 
@@ -247,7 +247,7 @@ export class RipgrepSearchInWorkspaceServer implements SearchInWorkspaceServer {
         this.ongoingSearches.set(searchId, rgProcess);
 
         rgProcess.onError(error => {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+             
             let errorCode = (error as any).code;
 
             // Try to provide somewhat clearer error messages, if possible.

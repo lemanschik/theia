@@ -16,8 +16,8 @@
 
 import { ContributionProvider, MaybePromise, Prioritizeable } from '@theia/core';
 import { inject, injectable, named, postConstruct } from 'inversify';
-import { PropertyDataService } from './property-data-service';
-import { PropertyViewContentWidget } from './property-view-content-widget';
+import { PropertyDataService } from './property-data-service.js';
+import { PropertyViewContentWidget } from './property-view-content-widget.js';
 
 export const PropertyViewWidgetProvider = Symbol('PropertyViewWidgetProvider');
 /**

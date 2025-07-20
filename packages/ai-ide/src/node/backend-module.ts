@@ -16,8 +16,8 @@
 
 import { ConnectionHandler, RpcConnectionHandler } from '@theia/core';
 import { ContainerModule } from 'inversify';
-import { BrowserAutomation, browserAutomationPath, type BrowserAutomationClient } from '../common/browser-automation-protocol';
-import { BrowserAutomationImpl } from './app-tester-agent/browser-automation-impl';
+import { BrowserAutomation, browserAutomationPath, type BrowserAutomationClient } from '../common/browser-automation-protocol.js';
+import { BrowserAutomationImpl } from './app-tester-agent/browser-automation-impl.js';
 import { ConnectionContainerModule } from '@theia/core/lib/node/messaging/connection-container-module';
 
 const browserAutomationModule = ConnectionContainerModule.create(({ bind, bindBackendService, bindFrontendService }) => {

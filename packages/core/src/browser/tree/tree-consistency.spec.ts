@@ -16,11 +16,11 @@
 
 import assert from 'assert';
 import { injectable } from 'inversify';
-import { createTreeTestContainer } from './test/tree-test-container';
-import { TreeImpl, CompositeTreeNode, TreeNode } from './tree';
-import { TreeModel } from './tree-model';
-import { ExpandableTreeNode } from './tree-expansion';
-import { TreeLabelProvider } from './tree-label-provider';
+import { createTreeTestContainer } from './test/tree-test-container.js';
+import { TreeImpl, CompositeTreeNode, TreeNode } from './tree.js';
+import { TreeModel } from './tree-model.js';
+import { ExpandableTreeNode } from './tree-expansion.js';
+import { TreeLabelProvider } from './tree-label-provider.js';
 
 @injectable()
 class ConsistencyTestTree extends TreeImpl {

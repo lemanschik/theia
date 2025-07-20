@@ -16,7 +16,7 @@
 
 import { injectable } from 'inversify';
 import { IGrammarConfiguration } from 'vscode-textmate';
-import { TokenizerOption } from './textmate-tokenizer';
+import { TokenizerOption } from './textmate-tokenizer.js';
 import { Disposable } from '@theia/core/lib/common/disposable';
 
 export interface TextmateGrammarConfiguration extends IGrammarConfiguration {

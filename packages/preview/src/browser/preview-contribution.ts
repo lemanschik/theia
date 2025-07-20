@@ -23,10 +23,10 @@ import { TabBarToolbarContribution, TabBarToolbarRegistry } from '@theia/core/li
 import { MiniBrowserCommands } from '@theia/mini-browser/lib/browser/mini-browser-open-handler';
 import URI from '@theia/core/lib/common/uri';
 import { Position } from 'vscode-languageserver-protocol';
-import { PreviewWidget } from './preview-widget';
-import { PreviewHandlerProvider } from './preview-handler';
-import { PreviewUri } from './preview-uri';
-import { PreviewPreferences } from './preview-preferences';
+import { PreviewWidget } from './preview-widget.js';
+import { PreviewHandlerProvider } from './preview-handler.js';
+import { PreviewUri } from './preview-uri.js';
+import { PreviewPreferences } from './preview-preferences.js';
 import { nls } from '@theia/core/lib/common/nls';
 
 import debounce from 'lodash.debounce';
@@ -52,7 +52,7 @@ export interface PreviewOpenerOptions extends WidgetOpenerOptions {
 }
 
 @injectable()
-// eslint-disable-next-line max-len
+ 
 export class PreviewContribution extends NavigatableWidgetOpenHandler<PreviewWidget> implements CommandContribution, MenuContribution, FrontendApplicationContribution, TabBarToolbarContribution {
 
     readonly id = PreviewUri.id;

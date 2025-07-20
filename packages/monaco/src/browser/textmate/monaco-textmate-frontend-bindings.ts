@@ -17,13 +17,13 @@
 import { interfaces } from 'inversify';
 import { FrontendApplicationContribution, isBasicWasmSupported } from '@theia/core/lib/browser';
 import { bindContributionProvider } from '@theia/core';
-import { TextmateRegistry } from './textmate-registry';
-import { LanguageGrammarDefinitionContribution } from './textmate-contribution';
-import { MonacoTextmateService } from './monaco-textmate-service';
-import { MonacoThemeRegistry } from './monaco-theme-registry';
+import { TextmateRegistry } from './textmate-registry.js';
+import { LanguageGrammarDefinitionContribution } from './textmate-contribution.js';
+import { MonacoTextmateService } from './monaco-textmate-service.js';
+import { MonacoThemeRegistry } from './monaco-theme-registry.js';
 import { loadWASM, createOnigScanner, OnigScanner, createOnigString, OnigString } from 'vscode-oniguruma';
 import { IOnigLib, IRawGrammar, parseRawGrammar, Registry } from 'vscode-textmate';
-import { OnigasmProvider, TextmateRegistryFactory, ThemeMix } from './monaco-theme-types';
+import { OnigasmProvider, TextmateRegistryFactory, ThemeMix } from './monaco-theme-types.js';
 
 export class OnigasmLib implements IOnigLib {
     createOnigScanner(sources: string[]): OnigScanner {

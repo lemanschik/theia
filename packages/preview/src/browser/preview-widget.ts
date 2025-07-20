@@ -21,7 +21,7 @@ import { Navigatable } from '@theia/core/lib/browser/navigatable';
 import { BaseWidget, Message, addEventListener, codicon } from '@theia/core/lib/browser';
 import URI from '@theia/core/lib/common/uri';
 import { Event, Emitter } from '@theia/core/lib/common';
-import { PreviewHandler, PreviewHandlerProvider } from './preview-handler';
+import { PreviewHandler, PreviewHandlerProvider } from './preview-handler.js';
 import { ThemeService } from '@theia/core/lib/browser/theming';
 import { EditorPreferences } from '@theia/editor/lib/browser';
 import { Disposable } from '@theia/core/lib/common/disposable';

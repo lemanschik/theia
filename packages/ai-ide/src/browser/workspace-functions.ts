@@ -23,11 +23,11 @@ import {
     FILE_CONTENT_FUNCTION_ID, GET_FILE_DIAGNOSTICS_ID,
     GET_WORKSPACE_DIRECTORY_STRUCTURE_FUNCTION_ID,
     GET_WORKSPACE_FILE_LIST_FUNCTION_ID
-} from '../common/workspace-functions';
+} from '../common/workspace-functions.js';
 import ignore from 'ignore';
 import { Minimatch } from 'minimatch';
 import { PreferenceService, OpenerService, open } from '@theia/core/lib/browser';
-import { CONSIDER_GITIGNORE_PREF, USER_EXCLUDE_PATTERN_PREF } from './workspace-preferences';
+import { CONSIDER_GITIGNORE_PREF, USER_EXCLUDE_PATTERN_PREF } from './workspace-preferences.js';
 import { MonacoWorkspace } from '@theia/monaco/lib/browser/monaco-workspace';
 import { MonacoTextModelService } from '@theia/monaco/lib/browser/monaco-text-model-service';
 import { ProblemManager } from '@theia/markers/lib/browser';

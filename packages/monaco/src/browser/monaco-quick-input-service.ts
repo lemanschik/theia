@@ -27,7 +27,7 @@ import {
 } from '@theia/monaco-editor-core/esm/vs/platform/quickinput/common/quickInput';
 import { IQuickInputOptions, IQuickInputStyles } from '@theia/monaco-editor-core/esm/vs/platform/quickinput/browser/quickInput';
 import { QuickInputController } from '@theia/monaco-editor-core/esm/vs/platform/quickinput/browser/quickInputController';
-import { MonacoResolvedKeybinding } from './monaco-resolved-keybinding';
+import { MonacoResolvedKeybinding } from './monaco-resolved-keybinding.js';
 import { IQuickAccessController } from '@theia/monaco-editor-core/esm/vs/platform/quickinput/common/quickAccess';
 import { QuickAccessController } from '@theia/monaco-editor-core/esm/vs/platform/quickinput/browser/quickAccess';
 import { IContextKey, IContextKeyService } from '@theia/monaco-editor-core/esm/vs/platform/contextkey/common/contextkey';
@@ -37,7 +37,7 @@ import { IInstantiationService } from '@theia/monaco-editor-core/esm/vs/platform
 import { StandaloneServices } from '@theia/monaco-editor-core/esm/vs/editor/standalone/browser/standaloneServices';
 import { IMatch } from '@theia/monaco-editor-core/esm/vs/base/common/filters';
 import { CancellationToken, Event } from '@theia/core';
-import { MonacoColorRegistry } from './monaco-color-registry';
+import { MonacoColorRegistry } from './monaco-color-registry.js';
 import { ThemeService } from '@theia/core/lib/browser/theming';
 import { IStandaloneThemeService } from '@theia/monaco-editor-core/esm/vs/editor/standalone/common/standaloneTheme';
 import { ILayoutService } from '@theia/monaco-editor-core/esm/vs/platform/layout/browser/layoutService';

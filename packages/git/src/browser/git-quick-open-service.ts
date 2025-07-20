@@ -15,11 +15,11 @@
 // *****************************************************************************
 
 import { injectable, inject, optional } from 'inversify';
-import { Git, Repository, Branch, BranchType, Tag, Remote, StashEntry } from '../common';
-import { GitRepositoryProvider } from './git-repository-provider';
+import { Git, Repository, Branch, BranchType, Tag, Remote, StashEntry } from '../common/index.js';
+import { GitRepositoryProvider } from './git-repository-provider.js';
 import { MessageService } from '@theia/core/lib/common/message-service';
 import { WorkspaceService } from '@theia/workspace/lib/browser/workspace-service';
-import { GitErrorHandler } from './git-error-handler';
+import { GitErrorHandler } from './git-error-handler.js';
 import { ProgressService } from '@theia/core/lib/common/progress-service';
 import URI from '@theia/core/lib/common/uri';
 import { nls } from '@theia/core/lib/common/nls';
@@ -81,7 +81,7 @@ export class GitQuickOpenService {
         });
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     private query(quickPick: any, filter: string, folder: any): void {
         quickPick.busy = true;
         const { git, buildDefaultProjectPath, gitErrorHandler, wrapWithProgress } = this;

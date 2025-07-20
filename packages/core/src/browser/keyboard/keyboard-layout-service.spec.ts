@@ -15,11 +15,11 @@
 // *****************************************************************************
 
 import { Container, injectable } from 'inversify';
-import { Emitter, Event } from '../../common/event';
-import { KeyCode } from './keys';
-import { KeyboardLayoutService } from './keyboard-layout-service';
-import { KeyboardLayoutProvider, NativeKeyboardLayout, KeyboardLayoutChangeNotifier } from '../../common/keyboard/keyboard-layout-provider';
-import * as os from '../../common/os';
+import { Emitter, Event } from '../../common/event.js';
+import { KeyCode } from './keys.js';
+import { KeyboardLayoutService } from './keyboard-layout-service.js';
+import { KeyboardLayoutProvider, NativeKeyboardLayout, KeyboardLayoutChangeNotifier } from '../../common/keyboard/keyboard-layout-provider.js';
+import * as os from '../../common/os.js';
 import chai from 'chai';
 import sinon from 'sinon';
 

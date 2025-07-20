@@ -15,13 +15,13 @@
 // *****************************************************************************
 
 import { inject, injectable, postConstruct } from 'inversify';
-import { PreferenceSchema } from '../../common/preferences/preference-schema';
-import { Disposable, DisposableCollection, Emitter, Event, isObject, MaybePromise } from '../../common';
-import { PreferenceChangeEvent, PreferenceEventEmitter, PreferenceProxy, PreferenceProxyOptions, PreferenceRetrieval } from './preference-proxy';
-import { PreferenceChange, PreferenceChangeImpl, PreferenceChanges, PreferenceScope, PreferenceService } from './preference-service';
+import { PreferenceSchema } from '../../common/preferences/preference-schema.js';
+import { Disposable, DisposableCollection, Emitter, Event, isObject, MaybePromise } from '../../common/index.js';
+import { PreferenceChangeEvent, PreferenceEventEmitter, PreferenceProxy, PreferenceProxyOptions, PreferenceRetrieval } from './preference-proxy.js';
+import { PreferenceChange, PreferenceChangeImpl, PreferenceChanges, PreferenceScope, PreferenceService } from './preference-service.js';
 import { JSONValue } from '@lumino/coreutils';
-import { PreferenceProviderDataChange } from './preference-provider';
-import { OverridePreferenceName } from './preference-language-override-service';
+import { PreferenceProviderDataChange } from './preference-provider.js';
+import { OverridePreferenceName } from './preference-language-override-service.js';
 
 export const PreferenceProxySchema = Symbol('PreferenceProxySchema');
 export interface PreferenceProxyFactory {
@@ -133,7 +133,7 @@ export class InjectablePreferenceProxy<T extends Record<string, JSONValue>> impl
                 const { style, resourceUri, overrideIdentifier } = this;
                 return this.factory(this.schema, { prefix, resourceUri, style, overrideIdentifier });
             }
-            let value: any; // eslint-disable-line @typescript-eslint/no-explicit-any
+            let value: any;  
             let parentSegment = preferenceName;
             const segments = [];
             do {
@@ -175,7 +175,7 @@ export class InjectablePreferenceProxy<T extends Record<string, JSONValue>> impl
                         resourceUri,
                         overrideIdentifier,
                         style
-                    }) as any; // eslint-disable-line @typescript-eslint/no-explicit-any
+                    }) as any;  
                     const valueAsContainer = value as T;
                     for (const k of Object.keys(valueAsContainer)) {
                         subProxy[k as keyof T] = valueAsContainer[k as keyof T];
@@ -264,7 +264,7 @@ export class InjectablePreferenceProxy<T extends Record<string, JSONValue>> impl
     protected buildNewChangeEvent(change: PreferenceProviderDataChange, overrideInfo?: OverridePreferenceName): PreferenceChangeEvent<T> {
         const preferenceName = (overrideInfo?.preferenceName ?? change.preferenceName) as keyof T & string;
         const { newValue, oldValue, scope, domain } = change;
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         return new PreferenceProxyChange({ newValue, oldValue, preferenceName, scope, domain }, overrideInfo?.overrideIdentifier) as any;
     }
 

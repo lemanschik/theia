@@ -17,7 +17,7 @@
 import { injectable } from 'inversify';
 import { Argv } from 'yargs';
 import { CliContribution } from '@theia/core/lib/node/cli';
-import { CliPreferences } from '../common/cli-preferences';
+import { CliPreferences } from '../common/cli-preferences.js';
 
 @injectable()
 export class PreferenceCliContribution implements CliContribution, CliPreferences {

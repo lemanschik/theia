@@ -17,13 +17,13 @@
 import { Disposable, DisposableCollection, Emitter, Resource, URI } from '@theia/core';
 import { inject, injectable } from 'inversify';
 import { BinaryBuffer } from '@theia/core/lib/common/buffer';
-import { CellKind, NotebookData, TransientOptions } from '../../common';
-import { NotebookModel, NotebookModelFactory, NotebookModelProps } from '../view-model/notebook-model';
+import { CellKind, NotebookData, TransientOptions } from '../../common/index.js';
+import { NotebookModel, NotebookModelFactory, NotebookModelProps } from '../view-model/notebook-model.js';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
-import { NotebookCellModel, NotebookCellModelFactory, NotebookCellModelProps } from '../view-model/notebook-cell-model';
+import { NotebookCellModel, NotebookCellModelFactory, NotebookCellModelProps } from '../view-model/notebook-cell-model.js';
 import { Deferred } from '@theia/core/lib/common/promise-util';
-import { NotebookMonacoTextModelService } from './notebook-monaco-text-model-service';
-import { CellEditOperation } from '../notebook-types';
+import { NotebookMonacoTextModelService } from './notebook-monaco-text-model-service.js';
+import { CellEditOperation } from '../notebook-types.js';
 
 export const NotebookProvider = Symbol('notebook provider');
 
@@ -149,10 +149,10 @@ export class NotebookService implements Disposable {
 
         // Must declare these variables where they can be captured by the closure
         let disposable: Disposable;
-        // eslint-disable-next-line
+         
         let timeout: ReturnType<typeof setTimeout>;
 
-        // eslint-disable-next-line
+         
         disposable = this.onDidRegisterNotebookSerializer(viewType => {
             if (viewType === type) {
                 clearTimeout(timeout);

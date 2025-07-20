@@ -39,7 +39,7 @@ export class PseudoPty implements IPty {
 
     on(event: string, listener: (error?: string) => void): void;
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     on(event: string, listener: (...args: any[]) => void): void { }
 
     resize(columns: number, rows: number): void { }

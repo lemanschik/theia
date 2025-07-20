@@ -16,12 +16,12 @@
 
 import { injectable, inject, postConstruct } from 'inversify';
 import { ViewContainer, PanelLayout, ViewContainerPart, Message, codicon, Widget } from '@theia/core/lib/browser';
-import { VSXExtensionsSearchBar } from './vsx-extensions-search-bar';
-import { VSXExtensionsModel } from './vsx-extensions-model';
-import { VSXSearchMode } from './vsx-extensions-search-model';
-import { generateExtensionWidgetId } from './vsx-extensions-widget';
-import { VSXExtensionsSourceOptions } from './vsx-extensions-source';
-import { VSXExtensionsCommands } from './vsx-extension-commands';
+import { VSXExtensionsSearchBar } from './vsx-extensions-search-bar.js';
+import { VSXExtensionsModel } from './vsx-extensions-model.js';
+import { VSXSearchMode } from './vsx-extensions-search-model.js';
+import { generateExtensionWidgetId } from './vsx-extensions-widget.js';
+import { VSXExtensionsSourceOptions } from './vsx-extensions-source.js';
+import { VSXExtensionsCommands } from './vsx-extension-commands.js';
 import { nls } from '@theia/core/lib/common/nls';
 
 @injectable()
@@ -134,7 +134,7 @@ export class VSXExtensionsViewContainer extends ViewContainer {
         }
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     protected override doStoreState(): any {
         const modes: VSXExtensionsViewContainer.State['modes'] = {};
         for (const mode of this.lastModeState.keys()) {
@@ -146,9 +146,9 @@ export class VSXExtensionsViewContainer extends ViewContainer {
         };
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     protected override doRestoreState(state: any): void {
-        // eslint-disable-next-line guard-for-in
+         
         for (const key in state.modes) {
             const mode = Number(key) as VSXSearchMode;
             const modeState = state.modes[mode];

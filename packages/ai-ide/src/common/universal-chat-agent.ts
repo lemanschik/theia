@@ -18,7 +18,7 @@ import { LanguageModelRequirement } from '@theia/ai-core/lib/common';
 import { injectable } from 'inversify';
 import { AbstractStreamParsingChatAgent } from '@theia/ai-chat/lib/common/chat-agents';
 import { nls } from '@theia/core';
-import { universalTemplate, universalTemplateVariant } from './universal-prompt-template';
+import { universalTemplate, universalTemplateVariant } from './universal-prompt-template.js';
 
 export const UniversalChatAgentId = 'Universal';
 @injectable()

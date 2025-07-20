@@ -21,7 +21,7 @@ import { StorageService } from '@theia/core/lib/browser';
 import { Marker } from '@theia/markers/lib/common/marker';
 import { MarkerManager } from '@theia/markers/lib/browser/marker-manager';
 import URI from '@theia/core/lib/common/uri';
-import { SourceBreakpoint, BREAKPOINT_KIND, ExceptionBreakpoint, FunctionBreakpoint, BaseBreakpoint, InstructionBreakpoint } from './breakpoint-marker';
+import { SourceBreakpoint, BREAKPOINT_KIND, ExceptionBreakpoint, FunctionBreakpoint, BaseBreakpoint, InstructionBreakpoint } from './breakpoint-marker.js';
 
 export interface BreakpointsChangeEvent<T extends BaseBreakpoint> {
     uri: URI
@@ -319,7 +319,7 @@ export class BreakpointManager extends MarkerManager<SourceBreakpoint> {
             breakpoints: {}
         });
         this._breakpointsEnabled = data.breakpointsEnabled;
-        // eslint-disable-next-line guard-for-in
+         
         for (const uri in data.breakpoints) {
             this.setBreakpoints(new URI(uri), data.breakpoints[uri]);
         }

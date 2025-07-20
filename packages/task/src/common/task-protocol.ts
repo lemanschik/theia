@@ -17,7 +17,7 @@
 import { Event } from '@theia/core';
 import { RpcServer } from '@theia/core/lib/common/messaging/proxy-factory';
 import { IJSONSchema } from '@theia/core/lib/common/json-schema';
-import { ProblemMatcher, ProblemMatch, WatchingMatcherContribution, ProblemMatcherContribution, ProblemPatternContribution } from './problem-matcher-protocol';
+import { ProblemMatcher, ProblemMatch, WatchingMatcherContribution, ProblemMatcherContribution, ProblemPatternContribution } from './problem-matcher-protocol.js';
 export { WatchingMatcherContribution, ProblemMatcherContribution, ProblemPatternContribution };
 
 export const taskPath = '/services/task';
@@ -49,7 +49,7 @@ export interface TaskOutputPresentation {
     showReuseMessage?: boolean;
     clear?: boolean;
     close?: boolean;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     [name: string]: any;
 }
 export namespace TaskOutputPresentation {
@@ -65,7 +65,7 @@ export namespace TaskOutputPresentation {
         };
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     export function fromJson(task: any): TaskOutputPresentation {
         let outputPresentation = getDefault();
         if (task && task.presentation) {
@@ -138,7 +138,7 @@ export interface TaskCustomization {
 
     runOptions?: RunOptions;
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     [name: string]: any;
 }
 export namespace TaskCustomization {
@@ -207,7 +207,7 @@ export interface TaskInfo {
     /** task config used for launching a task */
     readonly config: TaskConfiguration,
     /** Additional properties specific for a particular Task Runner. */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     readonly [key: string]: any;
 }
 
@@ -236,7 +236,7 @@ export interface TaskServer extends RpcServer<TaskClient> {
 export interface TaskCustomizationData {
     type: string;
     problemMatcher?: ProblemMatcher[];
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     [name: string]: any;
 }
 

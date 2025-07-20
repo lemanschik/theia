@@ -16,13 +16,13 @@
 
 import { inject, injectable, named, postConstruct } from 'inversify';
 import fileIcons from 'file-icons-js';
-import URI from '../common/uri';
-import { ContributionProvider } from '../common/contribution-provider';
-import { Event, Emitter, Disposable, isObject, Path, Prioritizeable } from '../common';
-import { FrontendApplicationContribution } from './frontend-application-contribution';
-import { EnvVariablesServer } from '../common/env-variables/env-variables-protocol';
-import { ResourceLabelFormatter, ResourceLabelFormatting } from '../common/label-protocol';
-import { codicon } from './widgets';
+import URI from '../common/uri.js';
+import { ContributionProvider } from '../common/contribution-provider.js';
+import { Event, Emitter, Disposable, isObject, Path, Prioritizeable } from '../common/index.js';
+import { FrontendApplicationContribution } from './frontend-application-contribution.js';
+import { EnvVariablesServer } from '../common/env-variables/env-variables-protocol.js';
+import { ResourceLabelFormatter, ResourceLabelFormatting } from '../common/label-protocol.js';
+import { codicon } from './widgets/index.js';
 
 /**
  * @internal don't export it, use `LabelProvider.folderIcon` instead.

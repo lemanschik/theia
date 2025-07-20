@@ -17,7 +17,7 @@ import { inject, injectable } from 'inversify';
 import { FrontendApplicationContribution, PreferenceService } from '@theia/core/lib/browser';
 import { Emitter, MaybePromise, Event, } from '@theia/core';
 import { ContextKeyService, ContextKey } from '@theia/core/lib/browser/context-key-service';
-import { PREFERENCE_NAME_ENABLE_AI } from './ai-core-preferences';
+import { PREFERENCE_NAME_ENABLE_AI } from './ai-core-preferences.js';
 
 /**
  * Context key for the AI features. It is set to `true` if the feature is enabled.

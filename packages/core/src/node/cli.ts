@@ -16,8 +16,8 @@
 
 import { default as yargs } from 'yargs';
 import { inject, named, injectable } from 'inversify';
-import { ContributionProvider } from '../common/contribution-provider';
-import { MaybePromise } from '../common/types';
+import { ContributionProvider } from '../common/contribution-provider.js';
+import { MaybePromise } from '../common/types.js';
 
 export const CliContribution = Symbol('CliContribution');
 

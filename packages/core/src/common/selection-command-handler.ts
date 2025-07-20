@@ -14,9 +14,9 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { CommandHandler } from './command';
-import { SelectionService } from '../common/selection-service';
+ 
+import { CommandHandler } from './command.js';
+import { SelectionService } from '../common/selection-service.js';
 
 export class SelectionCommandHandler<S extends Object> implements CommandHandler {
 

@@ -15,10 +15,10 @@
 // *****************************************************************************
 
 import { Container } from 'inversify';
-import { ContributionProvider } from '../../common';
-import { CorePreferences } from '../core-preferences';
-import { FrontendApplicationContribution } from '../frontend-application-contribution';
-import { DefaultWindowService } from './default-window-service';
+import { ContributionProvider } from '../../common/index.js';
+import { CorePreferences } from '../core-preferences.js';
+import { FrontendApplicationContribution } from '../frontend-application-contribution.js';
+import { DefaultWindowService } from './default-window-service.js';
 import assert from 'assert';
 
 describe('DefaultWindowService', () => {

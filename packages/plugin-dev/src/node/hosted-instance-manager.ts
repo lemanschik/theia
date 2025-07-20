@@ -22,13 +22,13 @@ import net from 'net';
 import path from 'path';
 import URI from '@theia/core/lib/common/uri';
 import { ContributionProvider } from '@theia/core/lib/common/contribution-provider';
-import { HostedPluginUriPostProcessor, HostedPluginUriPostProcessorSymbolName } from './hosted-plugin-uri-postprocessor';
+import { HostedPluginUriPostProcessor, HostedPluginUriPostProcessorSymbolName } from './hosted-plugin-uri-postprocessor.js';
 import { environment, isWindows } from '@theia/core';
 import { FileUri } from '@theia/core/lib/common/file-uri';
 import { LogType } from '@theia/plugin-ext/lib/common/types';
 import { HostedPluginSupport } from '@theia/plugin-ext/lib/hosted/node/hosted-plugin';
 import { MetadataScanner } from '@theia/plugin-ext/lib/hosted/node/metadata-scanner';
-import { PluginDebugConfiguration } from '../common/plugin-dev-protocol';
+import { PluginDebugConfiguration } from '../common/plugin-dev-protocol.js';
 import { HostedPluginProcess } from '@theia/plugin-ext/lib/hosted/node/hosted-plugin-process';
 import { isENOENT } from '@theia/plugin-ext/lib/common/errors';
 

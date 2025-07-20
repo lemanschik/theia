@@ -15,7 +15,7 @@
 // *****************************************************************************
 import { injectable, inject } from 'inversify';
 import { ToolProvider, ToolRequest, ToolRequestParameters, ToolRequestParametersProperties } from '@theia/ai-core';
-import { WorkspaceFunctionScope } from './workspace-functions';
+import { WorkspaceFunctionScope } from './workspace-functions.js';
 import { ChangeSetElementArgs, ChangeSetFileElement, ChangeSetFileElementFactory } from '@theia/ai-chat/lib/browser/change-set-file-element';
 import { ChangeSet, MutableChatRequestModel } from '@theia/ai-chat';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
@@ -29,7 +29,7 @@ import {
     WRITE_FILE_REPLACEMENTS_ID,
     CLEAR_FILE_CHANGES_ID,
     GET_PROPOSED_CHANGES_ID
-} from '../common/file-changeset-function-ids';
+} from '../common/file-changeset-function-ids.js';
 
 @injectable()
 export class SuggestFileContent implements ToolProvider {

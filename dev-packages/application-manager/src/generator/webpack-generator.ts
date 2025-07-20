@@ -16,7 +16,7 @@
 
 import paths from 'path';
 import fs from 'fs-extra';
-import { AbstractGenerator } from './abstract-generator';
+import { AbstractGenerator } from './abstract-generator.js';
 
 export class WebpackGenerator extends AbstractGenerator {
 

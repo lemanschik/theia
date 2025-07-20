@@ -16,7 +16,7 @@
 
 import { BackendApplicationContribution } from '@theia/core/lib/node';
 import { injectable, inject } from 'inversify';
-import { PluginDeployer } from '../../common/plugin-protocol';
+import { PluginDeployer } from '../../common/plugin-protocol.js';
 import { ILogger } from '@theia/core';
 
 @injectable()

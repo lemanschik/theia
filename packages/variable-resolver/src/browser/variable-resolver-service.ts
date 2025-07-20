@@ -14,12 +14,12 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
 import { injectable, inject } from 'inversify';
-import { VariableRegistry } from './variable';
+import { VariableRegistry } from './variable.js';
 import URI from '@theia/core/lib/common/uri';
-import { CommandIdVariables } from '../common/variable-types';
+import { CommandIdVariables } from '../common/variable-types.js';
 import { isCancelled } from '@theia/core';
 
 export interface VariableResolveOptions {

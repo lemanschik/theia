@@ -15,14 +15,14 @@
 // *****************************************************************************
 
 import sinon from 'sinon';
-import { ChatAgentServiceImpl } from './chat-agent-service';
-import { ChatRequestParserImpl } from './chat-request-parser';
-import { ChatAgentLocation } from './chat-agents';
-import { ChatContext, ChatRequest } from './chat-model';
+import { ChatAgentServiceImpl } from './chat-agent-service.js';
+import { ChatRequestParserImpl } from './chat-request-parser.js';
+import { ChatAgentLocation } from './chat-agents.js';
+import { ChatContext, ChatRequest } from './chat-model.js';
 import { expect } from 'chai';
 import { AIVariable, DefaultAIVariableService, ResolvedAIVariable, ToolInvocationRegistryImpl, ToolRequest } from '@theia/ai-core';
 import { ILogger, Logger } from '@theia/core';
-import { ParsedChatRequestTextPart, ParsedChatRequestVariablePart } from './parsed-chat-request';
+import { ParsedChatRequestTextPart, ParsedChatRequestVariablePart } from './parsed-chat-request.js';
 
 describe('ChatRequestParserImpl', () => {
     const chatAgentService = sinon.createStubInstance(ChatAgentServiceImpl);

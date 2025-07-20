@@ -16,8 +16,8 @@
 
 import http from 'http';
 import https from 'https';
-import { getProxyAgent, ProxyAgent } from './proxy';
-import { Headers, RequestConfiguration, RequestContext, RequestOptions, RequestService, CancellationToken } from './common-request-service';
+import { getProxyAgent, ProxyAgent } from './proxy.js';
+import { Headers, RequestConfiguration, RequestContext, RequestOptions, RequestService, CancellationToken } from './common-request-service.js';
 import { createGunzip } from 'zlib';
 
 export interface RawRequestFunction {

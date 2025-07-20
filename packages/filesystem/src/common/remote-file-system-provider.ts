@@ -25,7 +25,7 @@ import {
     hasOpenReadWriteCloseCapability, hasFileFolderCopyCapability, hasReadWriteCapability, hasAccessCapability,
     FileSystemProviderError, FileSystemProviderErrorCode, FileUpdateOptions, hasUpdateCapability, FileUpdateResult, FileReadStreamOptions, hasFileReadStreamCapability,
     ReadOnlyMessageFileSystemProvider
-} from './files';
+} from './files.js';
 import { RpcServer, RpcProxy, RpcProxyFactory } from '@theia/core/lib/common/messaging/proxy-factory';
 import { ApplicationError } from '@theia/core/lib/common/application-error';
 import { Deferred } from '@theia/core/lib/common/promise-util';
@@ -85,7 +85,7 @@ export const RemoteFileSystemProviderError = ApplicationError.declare(-33005,
 
 export class RemoteFileSystemProxyFactory<T extends object> extends RpcProxyFactory<T> {
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     protected override serializeError(e: any): any {
         if (e instanceof FileSystemProviderError) {
             const { code, name } = e;
@@ -94,7 +94,7 @@ export class RemoteFileSystemProxyFactory<T extends object> extends RpcProxyFact
         return super.serializeError(e);
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     protected override deserializeError(capturedError: Error, e: any): any {
         const error = super.deserializeError(capturedError, e);
         if (RemoteFileSystemProviderError.is(error)) {

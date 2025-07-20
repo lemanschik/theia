@@ -14,10 +14,10 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-export * from './preference-service';
-export * from './preference-proxy';
-export * from './preference-contribution';
-export * from './preference-provider';
-export * from './preference-scope';
-export * from './preference-language-override-service';
-export * from './preference-validation-service';
+export * from './preference-service.js';
+export * from './preference-proxy.js';
+export * from './preference-contribution.js';
+export * from './preference-provider.js';
+export * from './preference-scope.js';
+export * from './preference-language-override-service.js';
+export * from './preference-validation-service.js';

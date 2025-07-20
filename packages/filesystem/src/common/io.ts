@@ -19,12 +19,12 @@
  *--------------------------------------------------------------------------------------------*/
 // based on https://github.com/microsoft/vscode/blob/04c36be045a94fee58e5f8992d3e3fd980294a84/src/vs/platform/files/common/io.ts
 
-/* eslint-disable max-len */
+ 
 
 import URI from '@theia/core/lib/common/uri';
 import { BinaryBuffer } from '@theia/core/lib/common//buffer';
 import { CancellationToken, cancelled as canceled } from '@theia/core/lib/common/cancellation';
-import { FileSystemProviderWithOpenReadWriteCloseCapability, FileReadStreamOptions, ensureFileSystemProviderError, createFileSystemProviderError, FileSystemProviderErrorCode } from './files';
+import { FileSystemProviderWithOpenReadWriteCloseCapability, FileReadStreamOptions, ensureFileSystemProviderError, createFileSystemProviderError, FileSystemProviderErrorCode } from './files.js';
 import { WriteableStream, ErrorTransformer, DataTransformer } from '@theia/core/lib/common/stream';
 
 export interface CreateReadStreamOptions extends FileReadStreamOptions {

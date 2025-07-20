@@ -21,12 +21,12 @@ import { Emitter, Event, Disposable, DisposableCollection } from '@theia/core';
 import { ContentLines } from '@theia/scm/lib/browser/dirty-diff/content-lines';
 import { DirtyDiffUpdate } from '@theia/scm/lib/browser/dirty-diff/dirty-diff-decorator';
 import { DiffComputer, DirtyDiff } from '@theia/scm/lib/browser/dirty-diff/diff-computer';
-import { GitPreferences, GitConfiguration } from '../git-preferences';
+import { GitPreferences, GitConfiguration } from '../git-preferences.js';
 import { PreferenceChangeEvent } from '@theia/core/lib/browser';
-import { GIT_RESOURCE_SCHEME } from '../git-resource';
-import { GitResourceResolver } from '../git-resource-resolver';
-import { WorkingDirectoryStatus, GitFileStatus, GitFileChange, Repository, Git, GitStatusChangeEvent } from '../../common';
-import { GitRepositoryTracker } from '../git-repository-tracker';
+import { GIT_RESOURCE_SCHEME } from '../git-resource.js';
+import { GitResourceResolver } from '../git-resource-resolver.js';
+import { WorkingDirectoryStatus, GitFileStatus, GitFileChange, Repository, Git, GitStatusChangeEvent } from '../../common/index.js';
+import { GitRepositoryTracker } from '../git-repository-tracker.js';
 
 import throttle from 'lodash.throttle';
 

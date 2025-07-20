@@ -16,7 +16,7 @@
 
 import { BackendApplicationConfig } from '@theia/application-package/lib/';
 import { expect } from 'chai';
-import { BackendApplicationConfigProvider } from './backend-application-config-provider';
+import { BackendApplicationConfigProvider } from './backend-application-config-provider.js';
 
 const { DEFAULT } = BackendApplicationConfig;
 

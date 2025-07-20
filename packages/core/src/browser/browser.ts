@@ -18,7 +18,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import { Disposable, environment, isOSX } from '../common';
+import { Disposable, environment, isOSX } from '../common/index.js';
 
 const userAgent = typeof navigator !== 'undefined' ? navigator.userAgent : '';
 
@@ -32,7 +32,7 @@ export const isWebKit = (userAgent.indexOf('AppleWebKit') >= 0);
 export const isChrome = (userAgent.indexOf('Chrome') >= 0);
 export const isSafari = (userAgent.indexOf('Chrome') === -1) && (userAgent.indexOf('Safari') >= 0);
 export const isIPad = (userAgent.indexOf('iPad') >= 0);
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 /**
  * @deprecated use Environment.electron.is
  */
@@ -42,7 +42,7 @@ export const isNative = environment.electron.is();
  * I.e. we use the browser version or connect to a remote Theia instance in Electron.
  */
 export const isRemote = !environment.electron.is() || new URL(location.href).searchParams.has('localPort');
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 export const isBasicWasmSupported = typeof (window as any).WebAssembly !== 'undefined';
 
 /**

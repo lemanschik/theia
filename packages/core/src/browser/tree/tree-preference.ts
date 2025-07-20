@@ -15,9 +15,9 @@
 // *****************************************************************************
 
 import { interfaces } from 'inversify';
-import { PreferenceProxy, PreferenceContribution, PreferenceSchema } from '../preferences';
-import { PreferenceProxyFactory } from '../preferences/injectable-preference-proxy';
-import { nls } from '../../common/nls';
+import { PreferenceProxy, PreferenceContribution, PreferenceSchema } from '../preferences/index.js';
+import { PreferenceProxyFactory } from '../preferences/injectable-preference-proxy.js';
+import { nls } from '../../common/nls.js';
 
 export const PREFERENCE_NAME_TREE_INDENT = 'workbench.tree.indent';
 

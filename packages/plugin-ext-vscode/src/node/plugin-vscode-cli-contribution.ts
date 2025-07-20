@@ -18,7 +18,7 @@ import { injectable } from 'inversify';
 import { Argv, Arguments } from 'yargs';
 import { CliContribution } from '@theia/core/lib/node/cli';
 import { PluginHostEnvironmentVariable } from '@theia/plugin-ext/lib/common';
-import { VSCODE_DEFAULT_API_VERSION } from '../common/plugin-vscode-types';
+import { VSCODE_DEFAULT_API_VERSION } from '../common/plugin-vscode-types.js';
 import { Deferred } from '@theia/core/lib/common/promise-util';
 
 /**
@@ -41,7 +41,7 @@ export class PluginVsCodeCliContribution implements CliContribution, PluginHostE
 
     configure(conf: Argv): void {
         conf.option(PluginVsCodeCliContribution.VSCODE_API_VERSION, {
-            // eslint-disable-next-line max-len
+             
             description: `Overrides the version returned by VSCode API 'vscode.version'. Example: --${PluginVsCodeCliContribution.VSCODE_API_VERSION}=<Wanted Version>. Default [${VSCODE_DEFAULT_API_VERSION}]`,
             type: 'string',
             nargs: 1

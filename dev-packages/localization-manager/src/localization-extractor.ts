@@ -374,7 +374,7 @@ function followReference(node: ts.Identifier): ts.Expression | undefined {
 }
 
 function collectScope(node: ts.Node, map: Map<string, ts.Expression> = new Map()): Map<string, ts.Expression> {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     const locals = (node as any)['locals'] as Map<string, ts.Symbol>;
     if (locals) {
         for (const [key, value] of locals.entries()) {

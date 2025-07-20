@@ -16,7 +16,7 @@
 
 import { inject, injectable, unmanaged } from 'inversify';
 import { EditorManager, TextEditor, EditorDecoration, EditorDecorationOptions, Range, Position, EditorDecorationStyle } from '@theia/editor/lib/browser';
-import { GitFileBlame } from '../../common';
+import { GitFileBlame } from '../../common/index.js';
 import { Disposable, DisposableCollection, nls } from '@theia/core';
 import { DateTime } from 'luxon';
 import URI from '@theia/core/lib/common/uri';

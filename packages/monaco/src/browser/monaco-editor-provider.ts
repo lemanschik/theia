@@ -14,23 +14,23 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 import URI from '@theia/core/lib/common/uri';
 import { EditorPreferenceChange, EditorPreferences, TextEditor, DiffNavigator } from '@theia/editor/lib/browser';
 import { DiffUris } from '@theia/core/lib/browser/diff-uris';
 import { inject, injectable, named, postConstruct } from 'inversify';
 import { DisposableCollection, deepClone, Disposable, CancellationToken } from '@theia/core/lib/common';
-import { MonacoDiffEditor } from './monaco-diff-editor';
-import { MonacoDiffNavigatorFactory } from './monaco-diff-navigator-factory';
-import { EditorServiceOverrides, MonacoEditor, MonacoEditorServices } from './monaco-editor';
-import { MonacoEditorModel, TextDocumentSaveReason } from './monaco-editor-model';
-import { MonacoWorkspace } from './monaco-workspace';
+import { MonacoDiffEditor } from './monaco-diff-editor.js';
+import { MonacoDiffNavigatorFactory } from './monaco-diff-navigator-factory.js';
+import { EditorServiceOverrides, MonacoEditor, MonacoEditorServices } from './monaco-editor.js';
+import { MonacoEditorModel, TextDocumentSaveReason } from './monaco-editor-model.js';
+import { MonacoWorkspace } from './monaco-workspace.js';
 import { ContributionProvider } from '@theia/core';
 import { KeybindingRegistry, OpenerService, open, WidgetOpenerOptions, SaveOptions, FormatType } from '@theia/core/lib/browser';
-import { MonacoResolvedKeybinding } from './monaco-resolved-keybinding';
+import { MonacoResolvedKeybinding } from './monaco-resolved-keybinding.js';
 import { HttpOpenHandlerOptions } from '@theia/core/lib/browser/http-open-handler';
-import { MonacoToProtocolConverter } from './monaco-to-protocol-converter';
-import { ProtocolToMonacoConverter } from './protocol-to-monaco-converter';
+import { MonacoToProtocolConverter } from './monaco-to-protocol-converter.js';
+import { ProtocolToMonacoConverter } from './protocol-to-monaco-converter.js';
 import monaco from '@theia/monaco-editor-core';
 import { StandaloneServices } from '@theia/monaco-editor-core/esm/vs/editor/standalone/browser/standaloneServices';
 import { IOpenerService, OpenExternalOptions, OpenInternalOptions } from '@theia/monaco-editor-core/esm/vs/platform/opener/common/opener';
@@ -41,11 +41,11 @@ import { IContextKeyService } from '@theia/monaco-editor-core/esm/vs/platform/co
 import { ITextModelService } from '@theia/monaco-editor-core/esm/vs/editor/common/services/resolverService';
 import { IReference } from '@theia/monaco-editor-core/esm/vs/base/common/lifecycle';
 import { MarkdownString } from '@theia/core/lib/common/markdown-rendering';
-import { SimpleMonacoEditor } from './simple-monaco-editor';
+import { SimpleMonacoEditor } from './simple-monaco-editor.js';
 import { ICodeEditorWidgetOptions } from '@theia/monaco-editor-core/esm/vs/editor/browser/widget/codeEditor/codeEditorWidget';
 import { timeoutReject } from '@theia/core/lib/common/promise-util';
 import { FileSystemPreferences } from '@theia/filesystem/lib/browser';
-import { insertFinalNewline } from './monaco-utilities';
+import { insertFinalNewline } from './monaco-utilities.js';
 
 export const MonacoEditorFactory = Symbol('MonacoEditorFactory');
 export interface MonacoEditorFactory {

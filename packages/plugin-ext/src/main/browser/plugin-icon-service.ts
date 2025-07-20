@@ -20,7 +20,7 @@ import { inject, injectable } from 'inversify';
 import { URI } from 'vscode-uri';
 import { MonacoIconRegistry } from '@theia/monaco/lib/browser/monaco-icon-registry';
 import path from 'path';
-import { IconContribution, DeployedPlugin, IconDefinition } from '../../common/plugin-protocol';
+import { IconContribution, DeployedPlugin, IconDefinition } from '../../common/plugin-protocol.js';
 
 @injectable()
 export class PluginIconService implements Disposable {

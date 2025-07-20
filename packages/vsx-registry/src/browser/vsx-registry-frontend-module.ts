@@ -22,24 +22,24 @@ import {
     WidgetStatusBarContribution,
     noopWidgetStatusBarContribution
 } from '@theia/core/lib/browser';
-import { VSXExtensionsViewContainer } from './vsx-extensions-view-container';
-import { VSXExtensionsContribution } from './vsx-extensions-contribution';
-import { VSXExtensionsSearchBar } from './vsx-extensions-search-bar';
-import { VSXExtensionsModel } from './vsx-extensions-model';
+import { VSXExtensionsViewContainer } from './vsx-extensions-view-container.js';
+import { VSXExtensionsContribution } from './vsx-extensions-contribution.js';
+import { VSXExtensionsSearchBar } from './vsx-extensions-search-bar.js';
+import { VSXExtensionsModel } from './vsx-extensions-model.js';
 import { ColorContribution } from '@theia/core/lib/browser/color-application-contribution';
-import { VSXExtensionsWidget, VSXExtensionsWidgetOptions } from './vsx-extensions-widget';
-import { VSXExtensionFactory, VSXExtension, VSXExtensionOptions } from './vsx-extension';
-import { VSXExtensionEditor } from './vsx-extension-editor';
-import { VSXExtensionEditorManager } from './vsx-extension-editor-manager';
-import { VSXExtensionsSourceOptions } from './vsx-extensions-source';
-import { VSXExtensionsSearchModel } from './vsx-extensions-search-model';
-import { bindExtensionPreferences } from './recommended-extensions/recommended-extensions-preference-contribution';
-import { bindPreferenceProviderOverrides } from './recommended-extensions/preference-provider-overrides';
-import { bindVsxExtensionsPreferences } from './vsx-extensions-preferences';
-import { VSXEnvironment, VSX_ENVIRONMENT_PATH } from '../common/vsx-environment';
+import { VSXExtensionsWidget, VSXExtensionsWidgetOptions } from './vsx-extensions-widget.js';
+import { VSXExtensionFactory, VSXExtension, VSXExtensionOptions } from './vsx-extension.js';
+import { VSXExtensionEditor } from './vsx-extension-editor.js';
+import { VSXExtensionEditorManager } from './vsx-extension-editor-manager.js';
+import { VSXExtensionsSourceOptions } from './vsx-extensions-source.js';
+import { VSXExtensionsSearchModel } from './vsx-extensions-search-model.js';
+import { bindExtensionPreferences } from './recommended-extensions/recommended-extensions-preference-contribution.js';
+import { bindPreferenceProviderOverrides } from './recommended-extensions/preference-provider-overrides.js';
+import { bindVsxExtensionsPreferences } from './vsx-extensions-preferences.js';
+import { VSXEnvironment, VSX_ENVIRONMENT_PATH } from '../common/vsx-environment.js';
 import { LanguageQuickPickService } from '@theia/core/lib/browser/i18n/language-quick-pick-service';
-import { VSXLanguageQuickPickService } from './vsx-language-quick-pick-service';
-import { VsxExtensionArgumentProcessor } from './vsx-extension-argument-processor';
+import { VSXLanguageQuickPickService } from './vsx-language-quick-pick-service.js';
+import { VsxExtensionArgumentProcessor } from './vsx-extension-argument-processor.js';
 import { ArgumentProcessorContribution } from '@theia/plugin-ext/lib/main/browser/command-registry-main';
 
 export default new ContainerModule((bind, unbind, isBound, rebind) => {

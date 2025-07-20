@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
 import {
     TreeDataProvider, TreeView, TreeViewExpansionEvent, TreeItem, TreeItemLabel,
@@ -25,16 +25,16 @@ import {
 import { Emitter } from '@theia/core/lib/common/event';
 import { basename } from '@theia/core/lib/common/paths';
 import { Disposable, DisposableCollection } from '@theia/core/lib/common/disposable';
-import { DataTransfer, DataTransferItem, Disposable as PluginDisposable, ThemeIcon, TreeItemCheckboxState } from '../types-impl';
-import { Plugin, PLUGIN_RPC_CONTEXT, TreeViewsExt, TreeViewsMain, TreeViewItem, TreeViewRevealOptions, DataTransferFileDTO } from '../../common/plugin-api-rpc';
-import { RPCProtocol } from '../../common/rpc-protocol';
-import { CommandRegistryImpl, CommandsConverter } from '../command-registry';
-import { TreeViewItemReference } from '../../common';
-import { PluginIconPath } from '../plugin-icon-path';
+import { DataTransfer, DataTransferItem, Disposable as PluginDisposable, ThemeIcon, TreeItemCheckboxState } from '../types-impl.js';
+import { Plugin, PLUGIN_RPC_CONTEXT, TreeViewsExt, TreeViewsMain, TreeViewItem, TreeViewRevealOptions, DataTransferFileDTO } from '../../common/plugin-api-rpc.js';
+import { RPCProtocol } from '../../common/rpc-protocol.js';
+import { CommandRegistryImpl, CommandsConverter } from '../command-registry.js';
+import { TreeViewItemReference } from '../../common/index.js';
+import { PluginIconPath } from '../plugin-icon-path.js';
 import { URI } from 'vscode-uri';
 import { UriComponents } from '@theia/core/lib/common/uri';
 import { isObject } from '@theia/core';
-import { coalesce } from '../../common/arrays';
+import { coalesce } from '../../common/arrays.js';
 
 export class TreeViewsExtImpl implements TreeViewsExt {
     private proxy: TreeViewsMain;

@@ -15,10 +15,10 @@
 // *****************************************************************************
 
 import { injectable, inject, unmanaged } from 'inversify';
-import { Disposable, MaybePromise, CancellationTokenSource, nls } from '../common';
-import { Key } from './keyboard/keys';
-import { Widget, BaseWidget, Message, addKeyListener, codiconArray } from './widgets/widget';
-import { FrontendApplicationContribution } from './frontend-application-contribution';
+import { Disposable, MaybePromise, CancellationTokenSource, nls } from '../common/index.js';
+import { Key } from './keyboard/keys.js';
+import { Widget, BaseWidget, Message, addKeyListener, codiconArray } from './widgets/widget.js';
+import { FrontendApplicationContribution } from './frontend-application-contribution.js';
 
 @injectable()
 export class DialogProps {
@@ -82,7 +82,7 @@ export class DialogOverlayService implements FrontendApplicationContribution {
         return DialogOverlayService.INSTANCE;
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     protected readonly dialogs: AbstractDialog<any>[] = [];
     protected readonly documents: Document[] = [];
 
@@ -93,12 +93,12 @@ export class DialogOverlayService implements FrontendApplicationContribution {
         DialogOverlayService.INSTANCE = this;
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     protected get currentDialog(): AbstractDialog<any> | undefined {
         return this.dialogs[0];
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     push(dialog: AbstractDialog<any>): Disposable {
         if (this.documents.findIndex(document => document === dialog.node.ownerDocument) < 0) {
             addKeyListener(dialog.node.ownerDocument.body, Key.ENTER, e => this.handleEnter(e));
@@ -142,7 +142,7 @@ export abstract class AbstractDialog<T> extends BaseWidget {
     protected readonly errorMessageNode: HTMLDivElement;
 
     protected resolve: undefined | ((value: T | undefined) => void);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     protected reject: undefined | ((reason: any) => void);
 
     protected closeButton: HTMLButtonElement | undefined;

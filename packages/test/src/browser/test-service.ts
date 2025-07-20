@@ -16,11 +16,11 @@
 
 import { CancellationToken, ContributionProvider, Disposable, Emitter, Event, QuickPickService, isObject, nls } from '@theia/core/lib/common';
 import { CancellationTokenSource, Location, Range, Position, DocumentUri } from 'vscode-languageserver-protocol';
-import { CollectionDelta, TreeDelta } from '../common/tree-delta';
+import { CollectionDelta, TreeDelta } from '../common/tree-delta.js';
 import { MarkdownString } from '@theia/core/lib/common/markdown-rendering';
 import URI from '@theia/core/lib/common/uri';
 import { inject, injectable, named, postConstruct } from 'inversify';
-import { groupBy } from '../common/collections';
+import { groupBy } from '../common/collections.js';
 import { codiconArray } from '@theia/core/lib/browser';
 
 export enum TestRunProfileKind {
@@ -317,7 +317,7 @@ export class DefaultTestService implements TestService {
         if (runProfiles.length === 0) {
             return undefined;
         }
-        // eslint-disable-next-line arrow-body-style
+         
         const picks = runProfiles.map(profile => {
             let iconClasses;
             if (profile.kind === TestRunProfileKind.Run) {
@@ -337,7 +337,7 @@ export class DefaultTestService implements TestService {
     }
 
     protected async pickProfileKind(): Promise<TestRunProfileKind | undefined> {
-        // eslint-disable-next-line arrow-body-style
+         
         const picks = [{
             iconClasses: codiconArray('run'),
             label: 'Run',

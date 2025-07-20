@@ -14,13 +14,13 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
 import { DisposableCollection, Emitter } from '@theia/core/lib/common';
 import { injectable, inject } from 'inversify';
-import { ScmContextKeyService } from './scm-context-key-service';
-import { ScmRepository, ScmProviderOptions } from './scm-repository';
-import { ScmCommand, ScmProvider } from './scm-provider';
+import { ScmContextKeyService } from './scm-context-key-service.js';
+import { ScmRepository, ScmProviderOptions } from './scm-repository.js';
+import { ScmCommand, ScmProvider } from './scm-provider.js';
 import URI from '@theia/core/lib/common/uri';
 
 @injectable()

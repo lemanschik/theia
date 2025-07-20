@@ -14,15 +14,15 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
 import { injectable, inject } from 'inversify';
 import jsoncparser from 'jsonc-parser';
 import plistparser from 'fast-plist';
 import URI from '@theia/core/lib/common/uri';
 import { Disposable, DisposableCollection } from '@theia/core/lib/common/disposable';
-import { MonacoThemeRegistry } from './textmate/monaco-theme-registry';
-import { getThemes, putTheme, MonacoThemeState, stateToTheme, ThemeServiceWithDB } from './monaco-indexed-db';
+import { MonacoThemeRegistry } from './textmate/monaco-theme-registry.js';
+import { getThemes, putTheme, MonacoThemeState, stateToTheme, ThemeServiceWithDB } from './monaco-indexed-db.js';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
 import monaco from '@theia/monaco-editor-core';
 

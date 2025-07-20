@@ -41,12 +41,12 @@ import strings from '@theia/core/lib/common/strings';
 import {
     Git, GitUtils, Repository, WorkingDirectoryStatus, GitFileChange, GitFileStatus, Branch, Commit,
     CommitIdentity, GitResult, CommitWithChanges, GitFileBlame, CommitLine, GitError, Remote, StashEntry
-} from '../common';
-import { GitRepositoryManager } from './git-repository-manager';
-import { GitLocator } from './git-locator/git-locator-protocol';
-import { GitExecProvider } from './git-exec-provider';
-import { GitEnvProvider } from './env/git-env-provider';
-import { GitInit } from './init/git-init';
+} from '../common/index.js';
+import { GitRepositoryManager } from './git-repository-manager.js';
+import { GitLocator } from './git-locator/git-locator-protocol.js';
+import { GitExecProvider } from './git-exec-provider.js';
+import { GitEnvProvider } from './env/git-env-provider.js';
+import { GitInit } from './init/git-init.js';
 
 import upath from 'upath';
 
@@ -402,7 +402,7 @@ export class DugiteGit implements Git {
     async branch(repository: Repository, options: { type: 'current' }): Promise<Branch | undefined>;
     async branch(repository: Repository, options: { type: 'local' | 'remote' | 'all' }): Promise<Branch[]>;
     async branch(repository: Repository, options: Git.Options.BranchCommand.Create | Git.Options.BranchCommand.Rename | Git.Options.BranchCommand.Delete): Promise<void>;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     async branch(repository: any, options: any): Promise<void | undefined | Branch | Branch[]> {
         await this.ready.promise;
         const [exec, env] = await Promise.all([this.execProvider.exec(), this.gitEnv.promise]);
@@ -736,7 +736,7 @@ export class DugiteGit implements Git {
         return blame;
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     async lsFiles(repository: Repository, uri: string, options?: Git.Options.LsFiles): Promise<any> {
         await this.ready.promise;
         const args = ['ls-files'];

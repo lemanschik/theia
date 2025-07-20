@@ -16,8 +16,8 @@
 
 import { injectable, inject } from 'inversify';
 import { ContextMenuRenderer, NodeProps, TreeProps, TreeNode, SELECTED_CLASS, FOCUS_CLASS } from '@theia/core/lib/browser';
-import { FileTreeWidget, FileStatNode } from '../file-tree';
-import { FileDialogModel } from './file-dialog-model';
+import { FileTreeWidget, FileStatNode } from '../file-tree/index.js';
+import { FileDialogModel } from './file-dialog-model.js';
 
 export const FILE_DIALOG_CLASS = 'theia-FileDialog';
 export const NOT_SELECTABLE_CLASS = 'theia-mod-not-selectable';
@@ -42,7 +42,7 @@ export class FileDialogWidget extends FileTreeWidget {
     }
 
     protected override createNodeAttributes(node: TreeNode, props: NodeProps): React.Attributes & React.HTMLAttributes<HTMLElement> {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         const attr = super.createNodeAttributes(node, props) as any;
         if (this.shouldDisableSelection(node)) {
             const keys = Object.keys(attr);

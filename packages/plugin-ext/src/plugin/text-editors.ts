@@ -14,15 +14,15 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { TextEditorsExt, EditorChangedPropertiesData, TextEditorPositionData, TextEditorsMain, PLUGIN_RPC_CONTEXT } from '../common/plugin-api-rpc';
-import { RPCProtocol } from '../common/rpc-protocol';
+import { TextEditorsExt, EditorChangedPropertiesData, TextEditorPositionData, TextEditorsMain, PLUGIN_RPC_CONTEXT } from '../common/plugin-api-rpc.js';
+import { RPCProtocol } from '../common/rpc-protocol.js';
 import theia from '@theia/plugin';
 import { Emitter, Event } from '@theia/core/lib/common/event';
-import { EditorsAndDocumentsExtImpl } from './editors-and-documents';
-import { TextEditorExt } from './text-editor';
-import * as Converters from './type-converters';
-import { TextEditorSelectionChangeKind, URI } from './types-impl';
-import { IdGenerator } from '../common/id-generator';
+import { EditorsAndDocumentsExtImpl } from './editors-and-documents.js';
+import { TextEditorExt } from './text-editor.js';
+import * as Converters from './type-converters.js';
+import { TextEditorSelectionChangeKind, URI } from './types-impl.js';
+import { IdGenerator } from '../common/id-generator.js';
 
 export class TextEditorsExtImpl implements TextEditorsExt {
     private readonly _onDidChangeTextEditorSelection = new Emitter<theia.TextEditorSelectionChangeEvent>();
@@ -155,7 +155,7 @@ export class TextEditorDecorationType implements theia.TextEditorDecorationType 
     constructor(proxy: TextEditorsMain, options: theia.DecorationRenderOptions) {
         this.key = TextEditorDecorationType.Keys.nextId();
         this.proxy = proxy;
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         this.proxy.$registerTextEditorDecorationType(this.key, Converters.DecorationRenderOptions.from(options));
     }
 

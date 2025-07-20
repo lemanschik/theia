@@ -25,9 +25,9 @@ import chai from 'chai';
 import { Container, ContainerModule } from 'inversify';
 import { ILogger, bindContributionProvider } from '@theia/core/lib/common';
 import { MockLogger } from '@theia/core/lib/common/test/mock-logger';
-import { VariableContribution, VariableRegistry } from './variable';
-import { VariableQuickOpenService } from './variable-quick-open-service';
-import { VariableResolverFrontendContribution } from './variable-resolver-frontend-contribution';
+import { VariableContribution, VariableRegistry } from './variable.js';
+import { VariableQuickOpenService } from './variable-quick-open-service.js';
+import { VariableResolverFrontendContribution } from './variable-resolver-frontend-contribution.js';
 
 disableJSDOM();
 
@@ -54,7 +54,7 @@ describe('variable-resolver-frontend-contribution', () => {
             bind(ILogger).to(MockLogger);
             bind(VariableRegistry).toSelf().inSingletonScope();
 
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+             
             bind(VariableQuickOpenService).toConstantValue({} as any); // mock VariableQuickOpenService
 
             bind(VariableResolverFrontendContribution).toSelf();

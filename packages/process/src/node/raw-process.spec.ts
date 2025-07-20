@@ -16,12 +16,12 @@
 import chai from 'chai';
 import process from 'process';
 import stream from 'stream';
-import { createProcessTestContainer } from './test/process-test-container';
-import { RawProcessFactory } from './raw-process';
+import { createProcessTestContainer } from './test/process-test-container.js';
+import { RawProcessFactory } from './raw-process.js';
 import temp from 'temp';
 import fs from 'fs';
 import path from 'path';
-import { IProcessStartEvent, ProcessErrorEvent } from './process';
+import { IProcessStartEvent, ProcessErrorEvent } from './process.js';
 
 /* Allow to create temporary files, but delete them when we're done.  */
 const track = temp.track();

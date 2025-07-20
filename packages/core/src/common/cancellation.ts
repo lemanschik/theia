@@ -18,9 +18,9 @@
  *  Licensed under the MIT License. See https://github.com/Microsoft/vscode/blob/master/LICENSE.txt for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import { Event, Emitter } from './event';
-import { isBoolean, isObject } from './types';
-import { Disposable } from './disposable';
+import { Event, Emitter } from './event.js';
+import { isBoolean, isObject } from './types.js';
+import { Disposable } from './disposable.js';
 
 export interface CancellationToken {
     readonly isCancellationRequested: boolean;
@@ -31,7 +31,7 @@ export interface CancellationToken {
     readonly onCancellationRequested: Event<void>;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 const shortcutEvent: Event<void> = Object.freeze(Object.assign(function (callback: any, context?: any): any {
     const handle = setTimeout(callback.bind(context), 0);
     return { dispose(): void { clearTimeout(handle); } };

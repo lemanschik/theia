@@ -15,9 +15,9 @@
 // *****************************************************************************
 
 import fuzzy from 'fuzzy';
-import { Event } from './event';
-import { KeySequence } from './keys';
-import { CancellationToken } from './cancellation';
+import { Event } from './event.js';
+import { KeySequence } from './keys.js';
+import { CancellationToken } from './cancellation.js';
 
 export const quickPickServicePath = '/services/quickPick';
 export const QuickPickService = Symbol('QuickPickService');

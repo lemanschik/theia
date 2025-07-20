@@ -22,7 +22,7 @@ import {
     NOTIFICATION_TYPES,
     NOTIFICATION_TYPE_OFF,
     NotificationType
-} from '../common/notification-types';
+} from '../common/notification-types.js';
 
 export const AI_CORE_PREFERENCES_TITLE = nls.localize('theia/ai/core/prefs/title', '✨ AI Features [Alpha]');
 export const PREFERENCE_NAME_ENABLE_AI = 'ai-features.AiEnable.enableAI';

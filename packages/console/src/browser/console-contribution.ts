@@ -17,9 +17,9 @@
 import { injectable, inject } from 'inversify';
 import { Command, CommandContribution, CommandRegistry, MenuContribution, MenuModelRegistry, CommandHandler } from '@theia/core';
 import { FrontendApplicationContribution, KeybindingContribution, KeybindingRegistry, CommonCommands } from '@theia/core/lib/browser';
-import { ConsoleManager } from './console-manager';
-import { ConsoleWidget } from './console-widget';
-import { ConsoleContentWidget } from './console-content-widget';
+import { ConsoleManager } from './console-manager.js';
+import { ConsoleWidget } from './console-widget.js';
+import { ConsoleContentWidget } from './console-content-widget.js';
 import { nls } from '@theia/core/lib/common/nls';
 
 export namespace ConsoleCommands {
@@ -115,7 +115,7 @@ export class ConsoleContribution implements FrontendApplicationContribution, Com
     }
 
 }
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 export type ConsoleExecuteFunction = (console: ConsoleWidget, ...args: any[]) => any;
 export class ConsoleCommandHandler implements CommandHandler {
 
@@ -132,7 +132,7 @@ export class ConsoleCommandHandler implements CommandHandler {
         return !!this.manager.currentConsole;
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     execute(...args: any[]): any {
         const { currentConsole } = this.manager;
         if (currentConsole) {

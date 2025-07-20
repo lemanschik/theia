@@ -16,13 +16,13 @@
 
 import { CommandContribution } from '@theia/core';
 import { ContainerModule } from 'inversify';
-import { MCPCommandContribution } from './mcp-command-contribution';
+import { MCPCommandContribution } from './mcp-command-contribution.js';
 import { FrontendApplicationContribution, PreferenceContribution, RemoteConnectionProvider, ServiceConnectionProvider } from '@theia/core/lib/browser';
-import { MCPFrontendService, MCPServerManager, MCPServerManagerPath, MCPFrontendNotificationService } from '../common/mcp-server-manager';
-import { McpServersPreferenceSchema } from './mcp-preferences';
-import { McpFrontendApplicationContribution } from './mcp-frontend-application-contribution';
-import { MCPFrontendServiceImpl } from './mcp-frontend-service';
-import { MCPFrontendNotificationServiceImpl } from './mcp-frontend-notification-service';
+import { MCPFrontendService, MCPServerManager, MCPServerManagerPath, MCPFrontendNotificationService } from '../common/mcp-server-manager.js';
+import { McpServersPreferenceSchema } from './mcp-preferences.js';
+import { McpFrontendApplicationContribution } from './mcp-frontend-application-contribution.js';
+import { MCPFrontendServiceImpl } from './mcp-frontend-service.js';
+import { MCPFrontendNotificationServiceImpl } from './mcp-frontend-notification-service.js';
 
 export default new ContainerModule(bind => {
     bind(PreferenceContribution).toConstantValue({ schema: McpServersPreferenceSchema });

@@ -20,7 +20,7 @@ import URI from '@theia/core/lib/common/uri';
 import { NavigatableWidget, StatefulWidget } from '@theia/core/lib/browser';
 import { DisposableCollection } from '@theia/core/lib/common/disposable';
 import { BaseWidget, codicon, PanelLayout } from '@theia/core/lib/browser/widgets/widget';
-import { MiniBrowserProps, MiniBrowserContentFactory } from './mini-browser-content';
+import { MiniBrowserProps, MiniBrowserContentFactory } from './mini-browser-content.js';
 
 export { MiniBrowserProps };
 
@@ -102,7 +102,7 @@ export class MiniBrowser extends BaseWidget implements NavigatableWidget, Statef
             return;
         }
         if ('props' in oldState) {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+             
             this.setProps((<any>oldState)['props']);
         }
     }

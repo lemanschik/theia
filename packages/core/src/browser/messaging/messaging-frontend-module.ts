@@ -15,12 +15,12 @@
 // *****************************************************************************
 
 import { ContainerModule } from 'inversify';
-import { BrowserFrontendIdProvider, FrontendIdProvider } from './frontend-id-provider';
-import { WebSocketConnectionSource } from './ws-connection-source';
-import { LocalConnectionProvider, RemoteConnectionProvider, ServiceConnectionProvider } from './service-connection-provider';
-import { ConnectionSource } from './connection-source';
-import { ConnectionCloseService, connectionCloseServicePath } from '../../common/messaging/connection-management';
-import { WebSocketConnectionProvider } from './ws-connection-provider';
+import { BrowserFrontendIdProvider, FrontendIdProvider } from './frontend-id-provider.js';
+import { WebSocketConnectionSource } from './ws-connection-source.js';
+import { LocalConnectionProvider, RemoteConnectionProvider, ServiceConnectionProvider } from './service-connection-provider.js';
+import { ConnectionSource } from './connection-source.js';
+import { ConnectionCloseService, connectionCloseServicePath } from '../../common/messaging/connection-management.js';
+import { WebSocketConnectionProvider } from './ws-connection-provider.js';
 
 const backendServiceProvider = Symbol('backendServiceProvider');
 

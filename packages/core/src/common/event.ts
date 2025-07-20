@@ -14,10 +14,10 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
-import { Disposable, DisposableGroup, DisposableCollection } from './disposable';
-import { MaybePromise } from './types';
+import { Disposable, DisposableGroup, DisposableCollection } from './disposable.js';
+import { MaybePromise } from './types.js';
 
 /**
  * Represents a typed event.
@@ -292,7 +292,7 @@ export class Emitter<T = any> {
                 }
             });
 
-            // eslint-disable-next-line max-len
+             
             console.warn(`Possible Emitter memory leak detected. ${listenerCount} listeners added. Use event.maxListeners to increase the limit (${maxListeners}). MOST frequent listener (${topCount}):`);
             console.warn(topStack!);
         }
@@ -411,7 +411,7 @@ export namespace WaitUntilEvent {
     }
 }
 
-import { CancellationToken } from './cancellation';
+import { CancellationToken } from './cancellation.js';
 
 export class AsyncEmitter<T extends WaitUntilEvent> extends Emitter<T> {
 

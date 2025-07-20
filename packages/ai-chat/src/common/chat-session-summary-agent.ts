@@ -19,8 +19,8 @@ import {
     PromptVariantSet
 } from '@theia/ai-core';
 import { injectable } from 'inversify';
-import { AbstractStreamParsingChatAgent, ChatAgent } from './chat-agents';
-import { CHAT_SESSION_SUMMARY_PROMPT } from './chat-session-summary-agent-prompt';
+import { AbstractStreamParsingChatAgent, ChatAgent } from './chat-agents.js';
+import { CHAT_SESSION_SUMMARY_PROMPT } from './chat-session-summary-agent-prompt.js';
 
 @injectable()
 export class ChatSessionSummaryAgent extends AbstractStreamParsingChatAgent implements ChatAgent {

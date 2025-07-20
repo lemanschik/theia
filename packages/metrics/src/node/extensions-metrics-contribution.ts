@@ -14,9 +14,9 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 import { injectable, inject } from 'inversify';
-import { MetricsContribution } from './metrics-contribution';
+import { MetricsContribution } from './metrics-contribution.js';
 import { ApplicationPackage } from '@theia/application-package';
-import { PROMETHEUS_REGEXP, toPrometheusValidName } from './prometheus';
+import { PROMETHEUS_REGEXP, toPrometheusValidName } from './prometheus.js';
 
 const metricsName = 'theia_extension_version';
 

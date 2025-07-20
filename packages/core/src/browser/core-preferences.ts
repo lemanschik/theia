@@ -16,14 +16,14 @@
 
 import { interfaces } from 'inversify';
 import { environment } from '@theia/application-package/lib/environment';
-import { createPreferenceProxy, PreferenceProxy, PreferenceService, PreferenceContribution, PreferenceSchema } from './preferences';
-import { SUPPORTED_ENCODINGS } from './supported-encodings';
-import { FrontendApplicationConfigProvider } from './frontend-application-config-provider';
-import { isOSX } from '../common/os';
-import { nls } from '../common/nls';
+import { createPreferenceProxy, PreferenceProxy, PreferenceService, PreferenceContribution, PreferenceSchema } from './preferences/index.js';
+import { SUPPORTED_ENCODINGS } from './supported-encodings.js';
+import { FrontendApplicationConfigProvider } from './frontend-application-config-provider.js';
+import { isOSX } from '../common/os.js';
+import { nls } from '../common/nls.js';
 import { DefaultTheme } from '@theia/application-package/lib/application-props';
 
-/* eslint-disable max-len */
+ 
 const windowTitleDescription = [
     nls.localizeByDefault('Controls the window title based on the current context such as the opened workspace or active editor. Variables are substituted based on the context:'),
     nls.localizeByDefault('`${activeEditorShort}`: the file name (e.g. myFile.txt).'),

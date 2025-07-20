@@ -14,9 +14,9 @@
 * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 *******************************************************************************/
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
-import { LogLevel } from '../logger';
+import { LogLevel } from '../logger.js';
 
 /**
  * A `Measurement` counts the time elapsed between its creation when the {@link Stopwatch}

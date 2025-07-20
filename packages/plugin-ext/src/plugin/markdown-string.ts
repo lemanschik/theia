@@ -17,8 +17,8 @@
 import { Mutable } from '@theia/core';
 import { MarkdownStringImpl as BaseMarkdownString, MarkdownString as MarkdownStringInterface, MarkdownStringTrustedOptions } from '@theia/core/lib/common/markdown-rendering';
 import pluginAPI from '@theia/plugin';
-import { es5ClassCompat } from '../common/types';
-import { URI } from './types-impl';
+import { es5ClassCompat } from '../common/types.js';
+import { URI } from './types-impl.js';
 
 // Copied from https://github.com/microsoft/vscode/blob/7d9b1c37f8e5ae3772782ba3b09d827eb3fdd833/src/vs/workbench/api/common/extHostTypes.ts
 
@@ -30,7 +30,7 @@ export class MarkdownString implements pluginAPI.MarkdownString {
     /**
      * @returns whether the thing is a markdown string implementation with helper methods.
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     static isMarkdownString(thing: any): thing is pluginAPI.MarkdownString {
         if (thing instanceof MarkdownString) {
             return true;

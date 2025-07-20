@@ -29,11 +29,11 @@ import {
     ApplyEditsOptions,
     SnippetEditOptions,
     DecorationOptions
-} from '../../common/plugin-api-rpc';
-import { Range } from '../../common/plugin-api-rpc-model';
+} from '../../common/plugin-api-rpc.js';
+import { Range } from '../../common/plugin-api-rpc-model.js';
 import { Emitter, Event } from '@theia/core';
-import { TextEditorCursorStyle, cursorStyleToString } from '../../common/editor-options';
-import { TextEditorLineNumbersStyle, EndOfLine } from '../../plugin/types-impl';
+import { TextEditorCursorStyle, cursorStyleToString } from '../../common/editor-options.js';
+import { TextEditorLineNumbersStyle, EndOfLine } from '../../plugin/types-impl.js';
 import { SimpleMonacoEditor } from '@theia/monaco/lib/browser/simple-monaco-editor';
 import { MonacoDiffEditor } from '@theia/monaco/lib/browser/monaco-diff-editor';
 import { EndOfLineSequence, ITextModel } from '@theia/monaco-editor-core/esm/vs/editor/common/model';

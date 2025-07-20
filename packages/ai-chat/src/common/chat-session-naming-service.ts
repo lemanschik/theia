@@ -26,7 +26,7 @@ import {
     UserRequest
 } from '@theia/ai-core';
 import { inject, injectable } from 'inversify';
-import { ChatSession } from './chat-service';
+import { ChatSession } from './chat-service.js';
 import { generateUuid } from '@theia/core';
 
 const CHAT_SESSION_NAMING_PROMPT: PromptVariantSet = {

@@ -17,7 +17,7 @@
 import { injectable, inject } from 'inversify';
 import { Event, Emitter, DisposableCollection } from '@theia/core';
 import { WidgetFactory } from '@theia/core/lib/browser';
-import { OutlineViewWidget, OutlineViewWidgetFactory, OutlineSymbolInformationNode } from './outline-view-widget';
+import { OutlineViewWidget, OutlineViewWidgetFactory, OutlineSymbolInformationNode } from './outline-view-widget.js';
 import { Widget } from '@lumino/widgets';
 
 @injectable()

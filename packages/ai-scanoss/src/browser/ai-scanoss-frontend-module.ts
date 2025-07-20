@@ -16,14 +16,14 @@
 
 import '../../src/browser/style/index.css';
 import { ContainerModule } from 'inversify';
-import { AIScanOSSPreferencesSchema } from './ai-scanoss-preferences';
+import { AIScanOSSPreferencesSchema } from './ai-scanoss-preferences.js';
 import { PreferenceContribution } from '@theia/core/lib/browser';
-import { ScanOSSScanButtonAction } from './ai-scanoss-code-scan-action';
+import { ScanOSSScanButtonAction } from './ai-scanoss-code-scan-action.js';
 import { CodePartRendererAction } from '@theia/ai-chat-ui/lib/browser/chat-response-renderer';
 import { ChangeSetActionRenderer } from '@theia/ai-chat-ui/lib/browser/change-set-actions/change-set-action-service';
-import { ChangeSetScanActionRenderer } from './change-set-scan-action/change-set-scan-action';
+import { ChangeSetScanActionRenderer } from './change-set-scan-action/change-set-scan-action.js';
 import { ChangeSetDecorator } from '@theia/ai-chat/lib/browser/change-set-decorator-service';
-import { ChangeSetScanDecorator } from './change-set-scan-action/change-set-scan-decorator';
+import { ChangeSetScanDecorator } from './change-set-scan-action/change-set-scan-decorator.js';
 
 export default new ContainerModule(bind => {
     bind(PreferenceContribution).toConstantValue({ schema: AIScanOSSPreferencesSchema });

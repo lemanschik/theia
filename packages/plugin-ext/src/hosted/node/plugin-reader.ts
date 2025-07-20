@@ -21,9 +21,9 @@ import { realpath } from 'fs/promises';
 import { ILogger } from '@theia/core';
 import { inject, injectable, optional, multiInject } from 'inversify';
 import { BackendApplicationContribution } from '@theia/core/lib/node/backend-application';
-import { PluginMetadata, getPluginId, MetadataProcessor, PluginPackage, PluginContribution } from '../../common/plugin-protocol';
-import { MetadataScanner } from './metadata-scanner';
-import { loadManifest } from './plugin-manifest-loader';
+import { PluginMetadata, getPluginId, MetadataProcessor, PluginPackage, PluginContribution } from '../../common/plugin-protocol.js';
+import { MetadataScanner } from './metadata-scanner.js';
+import { loadManifest } from './plugin-manifest-loader.js';
 
 @injectable()
 export class HostedPluginReader implements BackendApplicationContribution {
@@ -59,7 +59,7 @@ export class HostedPluginReader implements BackendApplicationContribution {
                         // the request was already closed
                         return;
                     }
-                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                     
                     if ((e as any)['code'] === 'ENOENT') {
                         res.status(404).send(`No such file found in '${escape_html(pluginId)}' plugin.`);
                     } else {

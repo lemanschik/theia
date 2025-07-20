@@ -15,7 +15,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
 import { inject, injectable } from 'inversify';
 import { IRawTheme } from 'vscode-textmate';
@@ -24,7 +24,7 @@ import { IStandaloneThemeService } from '@theia/monaco-editor-core/esm/vs/editor
 import { StandaloneServices } from '@theia/monaco-editor-core/esm/vs/editor/standalone/browser/standaloneServices';
 import { StandaloneThemeService } from '@theia/monaco-editor-core/esm/vs/editor/standalone/browser/standaloneThemeService';
 import { Color } from '@theia/monaco-editor-core/esm/vs/base/common/color';
-import { MixStandaloneTheme, TextmateRegistryFactory, ThemeMix } from './monaco-theme-types';
+import { MixStandaloneTheme, TextmateRegistryFactory, ThemeMix } from './monaco-theme-types.js';
 
 @injectable()
 export class MonacoThemeRegistry {

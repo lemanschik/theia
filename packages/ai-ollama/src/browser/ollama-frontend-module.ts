@@ -15,10 +15,10 @@
 // *****************************************************************************
 
 import { ContainerModule } from 'inversify';
-import { OllamaPreferencesSchema } from './ollama-preferences';
+import { OllamaPreferencesSchema } from './ollama-preferences.js';
 import { FrontendApplicationContribution, PreferenceContribution, RemoteConnectionProvider, ServiceConnectionProvider } from '@theia/core/lib/browser';
-import { OllamaFrontendApplicationContribution } from './ollama-frontend-application-contribution';
-import { OLLAMA_LANGUAGE_MODELS_MANAGER_PATH, OllamaLanguageModelsManager } from '../common';
+import { OllamaFrontendApplicationContribution } from './ollama-frontend-application-contribution.js';
+import { OLLAMA_LANGUAGE_MODELS_MANAGER_PATH, OllamaLanguageModelsManager } from '../common/index.js';
 
 export default new ContainerModule(bind => {
     bind(PreferenceContribution).toConstantValue({ schema: OllamaPreferencesSchema });

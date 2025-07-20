@@ -23,7 +23,7 @@ import URI from '@theia/core/lib/common/uri';
 import { FileUri } from '@theia/core/lib/common/file-uri';
 import { CancellationTokenSource, CancellationToken, ILogger, isWindows } from '@theia/core';
 import { RawProcessFactory } from '@theia/process/lib/node';
-import { FileSearchService, WHITESPACE_QUERY_SEPARATOR } from '../common/file-search-service';
+import { FileSearchService, WHITESPACE_QUERY_SEPARATOR } from '../common/file-search-service.js';
 import path from 'path';
 
 @injectable()
@@ -56,7 +56,7 @@ export class FileSearchServiceImpl implements FileSearchService {
                 }
             }
         }
-        // eslint-disable-next-line guard-for-in
+         
         for (const rootUri in roots) {
             const rootOptions = roots[rootUri];
             if (opts.includePatterns) {

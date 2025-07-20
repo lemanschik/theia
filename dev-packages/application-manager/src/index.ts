@@ -14,6 +14,6 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-export * from './rebuild';
-export * from './application-package-manager';
-export * from './application-process';
+export * from './rebuild.js';
+export * from './application-package-manager.js';
+export * from './application-process.js';

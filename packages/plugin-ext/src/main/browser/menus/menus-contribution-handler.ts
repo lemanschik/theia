@@ -14,22 +14,22 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
 import { inject, injectable, optional } from 'inversify';
 import { MenuPath, CommandRegistry, Disposable, DisposableCollection, nls, CommandMenu, AcceleratorSource, ContextExpressionMatcher } from '@theia/core';
 import { MenuModelRegistry } from '@theia/core/lib/common';
 import { TabBarToolbarRegistry } from '@theia/core/lib/browser/shell/tab-bar-toolbar';
-import { DeployedPlugin, IconUrl, Menu } from '../../../common';
+import { DeployedPlugin, IconUrl, Menu } from '../../../common/index.js';
 import { ScmWidget } from '@theia/scm/lib/browser/scm-widget';
 import { KeybindingRegistry, QuickCommandService } from '@theia/core/lib/browser';
 import {
     CodeEditorWidgetUtil, codeToTheiaMappings, ContributionPoint,
     PLUGIN_EDITOR_TITLE_MENU, PLUGIN_EDITOR_TITLE_RUN_MENU, PLUGIN_SCM_TITLE_MENU, PLUGIN_VIEW_TITLE_MENU
-} from './vscode-theia-menu-mappings';
-import { PluginMenuCommandAdapter } from './plugin-menu-command-adapter';
+} from './vscode-theia-menu-mappings.js';
+import { PluginMenuCommandAdapter } from './plugin-menu-command-adapter.js';
 import { ContextKeyService } from '@theia/core/lib/browser/context-key-service';
-import { PluginSharedStyle } from '../plugin-shared-style';
+import { PluginSharedStyle } from '../plugin-shared-style.js';
 import { ThemeIcon } from '@theia/monaco-editor-core/esm/vs/base/common/themables';
 
 @injectable()

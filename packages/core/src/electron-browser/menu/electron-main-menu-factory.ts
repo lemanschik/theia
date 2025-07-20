@@ -14,15 +14,15 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
 import { inject, injectable, postConstruct } from 'inversify';
-import { isOSX, MAIN_MENU_BAR, MenuNode, CompoundMenuNode, Group, RenderedMenuNode, CommandMenu, AcceleratorSource, MenuPath } from '../../common';
-import { PreferenceService, CommonCommands } from '../../browser';
+import { isOSX, MAIN_MENU_BAR, MenuNode, CompoundMenuNode, Group, RenderedMenuNode, CommandMenu, AcceleratorSource, MenuPath } from '../../common/index.js';
+import { PreferenceService, CommonCommands } from '../../browser/index.js';
 import debounce from 'lodash.debounce';
-import { BrowserMainMenuFactory } from '../../browser/menu/browser-menu-plugin';
-import { ContextMatcher } from '../../browser/context-key-service';
-import { MenuDto, MenuRole } from '../../electron-common/electron-api';
+import { BrowserMainMenuFactory } from '../../browser/menu/browser-menu-plugin.js';
+import { ContextMatcher } from '../../browser/context-key-service.js';
+import { MenuDto, MenuRole } from '../../electron-common/electron-api.js';
 
 /**
  * Representation of possible electron menu options.

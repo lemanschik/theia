@@ -31,11 +31,11 @@ import { Position } from '@theia/monaco-editor-core/esm/vs/editor/common/core/po
 import { ILanguageFeaturesService } from '@theia/monaco-editor-core/esm/vs/editor/common/services/languageFeatures';
 import { StandaloneServices } from '@theia/monaco-editor-core/esm/vs/editor/standalone/browser/standaloneServices';
 import { IConfigurationService } from '@theia/monaco-editor-core/esm/vs/platform/configuration/common/configuration';
-import { DebugVariable } from '../console/debug-console-items';
-import { DebugSessionManager } from '../debug-session-manager';
-import { DebugEditor } from './debug-editor';
-import { DebugExpressionProvider } from './debug-expression-provider';
-import { DebugHoverSource } from './debug-hover-source';
+import { DebugVariable } from '../console/debug-console-items.js';
+import { DebugSessionManager } from '../debug-session-manager.js';
+import { DebugEditor } from './debug-editor.js';
+import { DebugExpressionProvider } from './debug-expression-provider.js';
+import { DebugHoverSource } from './debug-hover-source.js';
 
 export interface ShowDebugHoverOptions {
     selection: monaco.Range

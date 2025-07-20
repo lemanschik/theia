@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { EOL } from 'os';
-import { AbstractGenerator } from './abstract-generator';
+import { AbstractGenerator } from './abstract-generator.js';
 
 export class BackendGenerator extends AbstractGenerator {
 

@@ -16,7 +16,7 @@
 
 import { injectable, inject, postConstruct, named } from 'inversify';
 import URI from '@theia/core/lib/common/uri';
-import { WorkspaceServer, UntitledWorkspaceService, WorkspaceFileService } from '../common';
+import { WorkspaceServer, UntitledWorkspaceService, WorkspaceFileService } from '../common/index.js';
 import { WindowService } from '@theia/core/lib/browser/window/window-service';
 import { DEFAULT_WINDOW_HASH } from '@theia/core/lib/common/window';
 import {
@@ -25,14 +25,14 @@ import {
 import { Deferred } from '@theia/core/lib/common/promise-util';
 import { EnvVariablesServer } from '@theia/core/lib/common/env-variables';
 import { ILogger, Disposable, DisposableCollection, Emitter, Event, MaybePromise, MessageService, nls, ContributionProvider } from '@theia/core';
-import { WorkspacePreferences } from './workspace-preferences';
+import { WorkspacePreferences } from './workspace-preferences.js';
 import jsoncparser from 'jsonc-parser';
 import Ajv from 'ajv';
 import { FileStat, BaseStat } from '@theia/filesystem/lib/common/files';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
 import { WindowTitleService } from '@theia/core/lib/browser/window/window-title-service';
 import { FileSystemPreferences } from '@theia/filesystem/lib/browser';
-import { workspaceSchema, WorkspaceSchemaUpdater } from './workspace-schema-updater';
+import { workspaceSchema, WorkspaceSchemaUpdater } from './workspace-schema-updater.js';
 import { IJSONSchema } from '@theia/core/lib/common/json-schema';
 import { StopReason } from '@theia/core/lib/common/frontend-application-state';
 
@@ -754,7 +754,7 @@ export interface WorkspaceInput {
 
 export interface WorkspaceData {
     folders: Array<{ path: string, name?: string }>;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     [key: string]: { [id: string]: any };
 }
 

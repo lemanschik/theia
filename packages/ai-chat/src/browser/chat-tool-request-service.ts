@@ -16,9 +16,9 @@
 
 import { ToolRequest } from '@theia/ai-core';
 import { injectable, inject } from 'inversify';
-import { ChatToolRequestService, ChatToolRequest } from '../common/chat-tool-request-service';
-import { MutableChatRequestModel, ToolCallChatResponseContent } from '../common/chat-model';
-import { ToolConfirmationManager, ToolConfirmationMode, ChatToolPreferences } from './chat-tool-preferences';
+import { ChatToolRequestService, ChatToolRequest } from '../common/chat-tool-request-service.js';
+import { MutableChatRequestModel, ToolCallChatResponseContent } from '../common/chat-model.js';
+import { ToolConfirmationManager, ToolConfirmationMode, ChatToolPreferences } from './chat-tool-preferences.js';
 
 /**
  * Frontend-specific implementation of ChatToolRequestService that handles tool confirmation

@@ -24,7 +24,7 @@ import debounce from 'lodash.debounce';
 import jsoncparser from 'jsonc-parser';
 import { injectable, inject, postConstruct } from 'inversify';
 import { IconThemeService, IconTheme, IconThemeDefinition } from '@theia/core/lib/browser/icon-theme-service';
-import { IconThemeContribution, DeployedPlugin, UiTheme, getPluginId } from '../../common/plugin-protocol';
+import { IconThemeContribution, DeployedPlugin, UiTheme, getPluginId } from '../../common/plugin-protocol.js';
 import URI from '@theia/core/lib/common/uri';
 import { Disposable, DisposableCollection } from '@theia/core/lib/common/disposable';
 import { Emitter } from '@theia/core/lib/common/event';
@@ -40,7 +40,7 @@ import { WorkspaceService } from '@theia/workspace/lib/browser';
 import { StandaloneServices } from '@theia/monaco-editor-core/esm/vs/editor/standalone/browser/standaloneServices';
 import { ILanguageService } from '@theia/monaco-editor-core/esm/vs/editor/common/languages/language';
 import { LanguageService } from '@theia/core/lib/browser/language-service';
-import { DEFAULT_ICON_SIZE, PLUGIN_FILE_ICON_CLASS } from './plugin-shared-style';
+import { DEFAULT_ICON_SIZE, PLUGIN_FILE_ICON_CLASS } from './plugin-shared-style.js';
 
 export interface PluginIconDefinition {
     iconPath: string;
@@ -443,7 +443,7 @@ export class PluginIconTheme extends PluginIconThemeDefinition implements IconTh
         }
         const folderNames = associations.folderNames;
         if (folderNames) {
-            // eslint-disable-next-line guard-for-in
+             
             for (const folderName in folderNames) {
                 accept(folderNames[folderName]!, this.folderNameIcon(folderName), this.folderIcon);
                 this.hasFolderIcons = true;
@@ -451,7 +451,7 @@ export class PluginIconTheme extends PluginIconThemeDefinition implements IconTh
         }
         const folderNamesExpanded = associations.folderNamesExpanded;
         if (folderNamesExpanded) {
-            // eslint-disable-next-line guard-for-in
+             
             for (const folderName in folderNamesExpanded) {
                 accept(folderNamesExpanded[folderName]!, this.expandedFolderNameIcon(folderName), this.folderExpandedIcon);
                 this.hasFolderIcons = true;
@@ -462,7 +462,7 @@ export class PluginIconTheme extends PluginIconThemeDefinition implements IconTh
             if (!languageIds.jsonc && languageIds.json) {
                 languageIds.jsonc = languageIds.json;
             }
-            // eslint-disable-next-line guard-for-in
+             
             for (const languageId in languageIds) {
                 accept(languageIds[languageId]!, this.languageIcon(languageId), this.fileIcon);
                 this.hasFileIcons = true;
@@ -472,7 +472,7 @@ export class PluginIconTheme extends PluginIconThemeDefinition implements IconTh
         }
         const fileExtensions = associations.fileExtensions;
         if (fileExtensions) {
-            // eslint-disable-next-line guard-for-in
+             
             for (const fileExtension in fileExtensions) {
                 accept(fileExtensions[fileExtension]!, ...this.fileExtensionIcon(fileExtension), this.fileIcon);
                 this.hasFileIcons = true;
@@ -481,7 +481,7 @@ export class PluginIconTheme extends PluginIconThemeDefinition implements IconTh
         }
         const fileNames = associations.fileNames;
         if (fileNames) {
-            // eslint-disable-next-line guard-for-in
+             
             for (const fileName in fileNames) {
                 accept(fileNames[fileName]!, ...this.fileNameIcon(fileName), this.fileIcon);
                 this.hasFileIcons = true;

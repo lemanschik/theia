@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { injectable } from 'inversify';
-import { TerminalProcess, TerminalProcessOptions } from './terminal-process';
+import { TerminalProcess, TerminalProcessOptions } from './terminal-process.js';
 
 export const TaskTerminalProcessFactory = Symbol('TaskTerminalProcessFactory');
 export interface TaskTerminalProcessFactory {

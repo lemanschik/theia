@@ -16,15 +16,15 @@
 
 import { WebContents } from 'electron';
 import { inject, injectable, named, postConstruct } from 'inversify';
-import { ConnectionHandlers } from '../../node/messaging/default-messaging-service';
-import { AbstractChannel, Channel, ChannelMultiplexer, MessageProvider } from '../../common/message-rpc/channel';
-import { ConnectionHandler, ContributionProvider, Emitter, WriteBuffer } from '../../common';
-import { Uint8ArrayReadBuffer, Uint8ArrayWriteBuffer } from '../../common/message-rpc/uint8-array-message-buffer';
+import { ConnectionHandlers } from '../../node/messaging/default-messaging-service.js';
+import { AbstractChannel, Channel, ChannelMultiplexer, MessageProvider } from '../../common/message-rpc/channel.js';
+import { ConnectionHandler, ContributionProvider, Emitter, WriteBuffer } from '../../common/index.js';
+import { Uint8ArrayReadBuffer, Uint8ArrayWriteBuffer } from '../../common/message-rpc/uint8-array-message-buffer.js';
 import { TheiaRendererAPI } from '../electron-api-main.js';
 import { MessagingService } from '../../node/index.js';
-import { ElectronMessagingService } from './electron-messaging-service';
-import { ElectronConnectionHandler } from './electron-connection-handler';
-import { ElectronMainApplicationContribution } from '../electron-main-application';
+import { ElectronMessagingService } from './electron-messaging-service.js';
+import { ElectronConnectionHandler } from './electron-connection-handler.js';
+import { ElectronMainApplicationContribution } from '../electron-main-application.js';
 
 /**
  * This component replicates the role filled by `MessagingContribution` but for Electron.
@@ -54,7 +54,7 @@ export class ElectronMessagingContribution implements ElectronMainApplicationCon
         TheiaRendererAPI.onIpcData((sender, data) => this.handleIpcEvent(sender, data));
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     ipcChannel(spec: string, callback: (params: any, channel: Channel) => void): void {
         this.channelHandlers.push(spec, callback);
     }

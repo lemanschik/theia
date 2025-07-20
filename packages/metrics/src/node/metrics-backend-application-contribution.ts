@@ -20,7 +20,7 @@ import https from 'https';
 import { default as express } from 'express';
 import { ContributionProvider } from '@theia/core/lib/common';
 import { BackendApplicationContribution } from '@theia/core/lib/node';
-import { MetricsContribution } from './metrics-contribution';
+import { MetricsContribution } from './metrics-contribution.js';
 
 @injectable()
 export class MetricsBackendApplicationContribution implements BackendApplicationContribution {

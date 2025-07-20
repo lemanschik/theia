@@ -14,9 +14,9 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { Event } from '../../common';
-import { ApplicationShell } from '../shell';
-import { ExtractableWidget } from '../widgets';
+import { Event } from '../../common/index.js';
+import { ApplicationShell } from '../shell/index.js';
+import { ExtractableWidget } from '../widgets/index.js';
 
 export const SecondaryWindowService = Symbol('SecondaryWindowService');
 

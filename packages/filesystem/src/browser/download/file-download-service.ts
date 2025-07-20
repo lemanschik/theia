@@ -18,7 +18,7 @@ import { inject, injectable } from 'inversify';
 import URI from '@theia/core/lib/common/uri';
 import { ILogger } from '@theia/core/lib/common/logger';
 import { Endpoint } from '@theia/core/lib/browser/endpoint';
-import { FileDownloadData } from '../../common/download/file-download-data';
+import { FileDownloadData } from '../../common/download/file-download-data.js';
 import { MessageService } from '@theia/core/lib/common/message-service';
 import { addClipboardListener } from '@theia/core/lib/browser/widgets';
 import { nls } from '@theia/core';
@@ -62,7 +62,7 @@ export class FileDownloadService {
                     text: text,
                     options: { cancelable: true }
                 }, () => { cancel = true; }),
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                 
                 new Promise<{ response: Response, jsonResponse: any }>(async resolve => {
                     const resp = await fetch(this.request(uris));
                     const jsonResp = await resp.json();

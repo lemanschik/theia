@@ -17,13 +17,13 @@
 import { expect } from 'chai';
 import assert from 'assert';
 import path from 'path';
-import { FileSearchServiceImpl } from './file-search-service-impl';
+import { FileSearchServiceImpl } from './file-search-service-impl.js';
 import { FileUri } from '@theia/core/lib/node';
 import { Container, ContainerModule } from 'inversify';
 import { CancellationTokenSource } from '@theia/core';
 import { bindLogger } from '@theia/core/lib/node/logger-backend-module';
 import URI from '@theia/core/lib/common/uri';
-import { FileSearchService } from '../common/file-search-service';
+import { FileSearchService } from '../common/file-search-service.js';
 import { RawProcessFactory } from '@theia/process/lib/node';
 
 const testContainer = new Container();

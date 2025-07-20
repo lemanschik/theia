@@ -14,9 +14,9 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { DefaultOpenerService, OpenHandler } from './opener-service';
+import { DefaultOpenerService, OpenHandler } from './opener-service.js';
 import assert from 'assert';
-import { MaybePromise } from '../common/types';
+import { MaybePromise } from '../common/types.js';
 import chai from 'chai';
 const expect = chai.expect;
 

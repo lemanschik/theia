@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 import { isObject } from '@theia/core';
-import { ChatRequestInvocation, ChatResponseContent } from '../common';
+import { ChatRequestInvocation, ChatResponseContent } from '../common/index.js';
 
 /**
  * Response Content created when an Agent delegates a prompt to another agent.

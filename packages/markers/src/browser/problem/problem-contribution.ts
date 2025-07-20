@@ -19,14 +19,14 @@ import { injectable, inject } from 'inversify';
 import { FrontendApplication, FrontendApplicationContribution, CompositeTreeNode, SelectableTreeNode, Widget, codicon } from '@theia/core/lib/browser';
 import { StatusBar, StatusBarAlignment } from '@theia/core/lib/browser/status-bar/status-bar';
 import { AbstractViewContribution } from '@theia/core/lib/browser/shell/view-contribution';
-import { PROBLEM_KIND, ProblemMarker } from '../../common/problem-marker';
-import { ProblemManager, ProblemStat } from './problem-manager';
-import { ProblemWidget, PROBLEMS_WIDGET_ID } from './problem-widget';
+import { PROBLEM_KIND, ProblemMarker } from '../../common/problem-marker.js';
+import { ProblemManager, ProblemStat } from './problem-manager.js';
+import { ProblemWidget, PROBLEMS_WIDGET_ID } from './problem-widget.js';
 import { MenuPath, MenuModelRegistry } from '@theia/core/lib/common/menu';
 import { Command, CommandRegistry } from '@theia/core/lib/common/command';
 import { TabBarToolbarContribution, TabBarToolbarRegistry } from '@theia/core/lib/browser/shell/tab-bar-toolbar';
 import { SelectionService } from '@theia/core/lib/common/selection-service';
-import { ProblemSelection } from './problem-selection';
+import { ProblemSelection } from './problem-selection.js';
 import { nls } from '@theia/core/lib/common/nls';
 
 export const PROBLEMS_CONTEXT_MENU: MenuPath = [PROBLEM_KIND];

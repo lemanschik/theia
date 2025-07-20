@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { injectable } from 'inversify';
-import { LocalizationContribution, LocalizationRegistry } from './localization-contribution';
+import { LocalizationContribution, LocalizationRegistry } from './localization-contribution.js';
 
 @injectable()
 export class TheiaLocalizationContribution implements LocalizationContribution {

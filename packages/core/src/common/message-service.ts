@@ -22,8 +22,8 @@ import {
     Progress,
     ProgressUpdate,
     ProgressMessage
-} from './message-service-protocol';
-import { CancellationTokenSource } from './cancellation';
+} from './message-service-protocol.js';
+import { CancellationTokenSource } from './cancellation.js';
 
 /**
  * Service to log and categorize messages, show progress information and offer actions.
@@ -68,7 +68,7 @@ export class MessageService {
      * @returns the selected action if there is any, `undefined` when there was no action or none was selected.
      */
     log<T extends string>(message: string, options?: MessageOptions, ...actions: T[]): Promise<T | undefined>;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     log(message: string, ...args: any[]): Promise<string | undefined> {
         return this.processMessage(MessageType.Log, message, args);
     }
@@ -90,7 +90,7 @@ export class MessageService {
      * @returns the selected action if there is any, `undefined` when there was no action or none was selected.
      */
     info<T extends string>(message: string, options?: MessageOptions, ...actions: T[]): Promise<T | undefined>;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     info(message: string, ...args: any[]): Promise<string | undefined> {
         return this.processMessage(MessageType.Info, message, args);
     }
@@ -112,7 +112,7 @@ export class MessageService {
      * @returns the selected action if there is any, `undefined` when there was no action or none was selected.
      */
     warn<T extends string>(message: string, options?: MessageOptions, ...actions: T[]): Promise<T | undefined>;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     warn(message: string, ...args: any[]): Promise<string | undefined> {
         return this.processMessage(MessageType.Warning, message, args);
     }
@@ -134,12 +134,12 @@ export class MessageService {
      * @returns the selected action if there is any, `undefined` when there was no action or none was selected.
      */
     error<T extends string>(message: string, options?: MessageOptions, ...actions: T[]): Promise<T | undefined>;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     error(message: string, ...args: any[]): Promise<string | undefined> {
         return this.processMessage(MessageType.Error, message, args);
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     protected processMessage(type: MessageType, text: string, args?: any[]): Promise<string | undefined> {
         if (!!args && args.length > 0) {
             const first = args[0];

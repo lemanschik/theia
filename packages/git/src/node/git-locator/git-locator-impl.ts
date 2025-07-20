@@ -16,7 +16,7 @@
 
 import fs from 'fs-extra';
 import path from 'path';
-import { GitLocator, GitLocateOptions } from './git-locator-protocol';
+import { GitLocator, GitLocateOptions } from './git-locator-protocol.js';
 
 export type FindGitRepositories = (path: string, progressCb: (repos: string[]) => void) => Promise<string[]>;
 const findGitRepositories: FindGitRepositories = require('find-git-repositories');
@@ -29,16 +29,16 @@ export interface GitLocateContext {
 export class GitLocatorImpl implements GitLocator {
 
     protected readonly options: {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         info: (message: string, ...args: any[]) => void
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         error: (message: string, ...args: any[]) => void
     };
 
     constructor(options?: {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         info?: (message: string, ...args: any[]) => void
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         error?: (message: string, ...args: any[]) => void
     }) {
         this.options = {

@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { Diagnostic } from 'vscode-languageserver-protocol';
-import { ProtocolToMonacoConverter } from './protocol-to-monaco-converter';
+import { ProtocolToMonacoConverter } from './protocol-to-monaco-converter.js';
 import monaco from '@theia/monaco-editor-core';
 import { Marker } from '@theia/markers/lib/common/marker';
 import URI from '@theia/core/lib/common/uri';

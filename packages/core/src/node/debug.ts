@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-// eslint-disable-next-line no-var, @typescript-eslint/no-explicit-any
+ 
 declare var v8debug: any;
 function isInDebugMode(): boolean {
     if (typeof v8debug === 'object') {

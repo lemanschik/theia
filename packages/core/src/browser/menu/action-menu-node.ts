@@ -14,10 +14,10 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { KeybindingRegistry } from '../keybinding';
-import { ContextKeyService } from '../context-key-service';
-import { DisposableCollection, isObject, CommandRegistry, Emitter } from '../../common';
-import { CommandMenu, ContextExpressionMatcher, MenuAction, MenuPath } from '../../common/menu/menu-types';
+import { KeybindingRegistry } from '../keybinding.js';
+import { ContextKeyService } from '../context-key-service.js';
+import { DisposableCollection, isObject, CommandRegistry, Emitter } from '../../common/index.js';
+import { CommandMenu, ContextExpressionMatcher, MenuAction, MenuPath } from '../../common/menu/menu-types.js';
 
 export interface AcceleratorSource {
     getAccelerator(context: HTMLElement | undefined): string[];

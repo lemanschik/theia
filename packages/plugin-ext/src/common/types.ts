@@ -31,7 +31,7 @@ export function isObject(obj: unknown): boolean {
         && !(obj instanceof Date);
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 export function mixin(destination: any, source: any, overwrite: boolean = true): any {
     if (!isObject(destination)) {
         return source;
@@ -65,11 +65,11 @@ export interface LogPart {
     type: LogType;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 export interface KeysToAnyValues { [key: string]: any }
 export interface KeysToKeysToAnyValue { [key: string]: KeysToAnyValues }
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 /** copied from https://github.com/TypeFox/vscode/blob/70b8db24a37fafc77247de7f7cb5bb0195120ed0/src/vs/workbench/api/common/extHostTypes.ts#L18-L27 */
 export function es5ClassCompat<T extends Function>(target: T): T {
     // @ts-ignore
@@ -79,7 +79,7 @@ export function es5ClassCompat<T extends Function>(target: T): T {
     Object.setPrototypeOf(_.prototype, target.prototype);
     return _ as unknown as T;
 }
-/* eslint-enable @typescript-eslint/no-explicit-any */
+ 
 const _typeof = {
     number: 'number',
     string: 'string',
@@ -87,7 +87,7 @@ const _typeof = {
     object: 'object',
     function: 'function'
 };
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 /**
  * @returns whether the provided parameter is a JavaScript Array or not.
  */

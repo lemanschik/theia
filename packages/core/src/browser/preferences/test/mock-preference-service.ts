@@ -15,11 +15,11 @@
 // *****************************************************************************
 
 import { injectable } from 'inversify';
-import { Emitter, Event } from '../../../common';
-import URI from '../../../common/uri';
-import { PreferenceChange, PreferenceChanges, PreferenceInspection, PreferenceService } from '../preference-service';
-import { PreferenceScope } from '../preference-scope';
-import { OverridePreferenceName } from '../preference-language-override-service';
+import { Emitter, Event } from '../../../common/index.js';
+import URI from '../../../common/uri.js';
+import { PreferenceChange, PreferenceChanges, PreferenceInspection, PreferenceService } from '../preference-service.js';
+import { PreferenceScope } from '../preference-scope.js';
+import { OverridePreferenceName } from '../preference-language-override-service.js';
 
 @injectable()
 export class MockPreferenceService implements PreferenceService {
@@ -43,7 +43,7 @@ export class MockPreferenceService implements PreferenceService {
     inspectInScope<T>(preferenceName: string, scope: PreferenceScope, resourceUri?: string, forceLanguageOverride?: boolean): T | undefined {
         return undefined;
     }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     set(preferenceName: string, value: any): Promise<void> { return Promise.resolve(); }
     updateValue(): Promise<void> { return Promise.resolve(); }
     readonly ready: Promise<void> = Promise.resolve();
@@ -57,7 +57,7 @@ export class MockPreferenceService implements PreferenceService {
         return undefined;
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     validate(name: string, value: any): boolean { return true; }
     getConfigUri(scope: PreferenceScope, resourceUri?: string): URI | undefined { return undefined; }
 }

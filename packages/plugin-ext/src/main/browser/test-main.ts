@@ -21,18 +21,18 @@ import {
 import { TestExecutionProgressService } from '@theia/test/lib/browser/test-execution-progress-service';
 import { AccumulatingTreeDeltaEmitter, CollectionDelta, DeltaKind, TreeDelta, TreeDeltaBuilder } from '@theia/test/lib/common/tree-delta';
 import { Emitter, Location, Range } from 'vscode-languageserver-protocol';
-import { Range as PluginRange, Location as PluginLocation } from '../../common/plugin-api-rpc-model';
+import { Range as PluginRange, Location as PluginLocation } from '../../common/plugin-api-rpc-model.js';
 import { MarkdownString } from '@theia/core/lib/common/markdown-rendering';
 import { CancellationToken, Disposable, Event, URI } from '@theia/core';
-import { MAIN_RPC_CONTEXT, TestControllerUpdate, TestingExt, TestingMain } from '../../common';
-import { RPCProtocol } from '../../common/rpc-protocol';
+import { MAIN_RPC_CONTEXT, TestControllerUpdate, TestingExt, TestingMain } from '../../common/index.js';
+import { RPCProtocol } from '../../common/rpc-protocol.js';
 import { interfaces } from 'inversify';
 import {
     TestExecutionState, TestItemDTO, TestItemReference, TestOutputDTO,
     TestRunDTO, TestRunProfileDTO, TestStateChangeDTO
-} from '../../common/test-types';
-import { TestRunProfileKind } from '../../plugin/types-impl';
-import { CommandRegistryMainImpl } from './command-registry-main';
+} from '../../common/test-types.js';
+import { TestRunProfileKind } from '../../plugin/types-impl.js';
+import { CommandRegistryMainImpl } from './command-registry-main.js';
 
 export class TestItemCollection extends TreeCollection<string, TestItemImpl, TestItemImpl | TestControllerImpl> {
     override add(item: TestItemImpl): TestItemImpl | undefined {
@@ -80,9 +80,9 @@ export class TestItemImpl implements TestItem {
         this.items = new TestItemCollection(this, (v: TestItemImpl) => v.path, (v: TestItemImpl) => v.deltaBuilder);
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     protected notifyPropertyChange(property: keyof TestItemImpl, value: any): void {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         const val: any = {};
         val[property] = value;
         if (this.path) {
@@ -298,7 +298,7 @@ class TestRunImpl implements TestRun {
     }
 
     protected notifyPropertyChange(property: 'name' | 'isRunning', value: unknown): void {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         const val: any = {};
         val[property] = value;
         this.onDidChangePropertyEmitter.fire(val);
@@ -566,7 +566,7 @@ export class TestingMainImpl implements TestingMain {
         this.testExecutionProgressService = container.get(TestExecutionProgressService);
         this.proxy = rpc.getProxy(MAIN_RPC_CONTEXT.TESTING_EXT);
         commandRegistry.registerArgumentProcessor({
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+             
             processArgument(arg: any): any {
                 if (arg instanceof TestItemImpl) {
                     if (!arg.controller || !arg.path) {

@@ -14,11 +14,11 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { enableJSDOM } from '../../browser/test/jsdom';
+import { enableJSDOM } from '../../browser/test/jsdom.js';
 let disableJSDOM = enableJSDOM();
 
-import { KeyCode, Key, KeyModifier, KeySequence } from './keys';
-import * as os from '../../common/os';
+import { KeyCode, Key, KeyModifier, KeySequence } from './keys.js';
+import * as os from '../../common/os.js';
 import chai from 'chai';
 import sinon from 'sinon';
 

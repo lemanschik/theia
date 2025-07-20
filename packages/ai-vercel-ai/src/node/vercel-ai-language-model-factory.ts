@@ -18,7 +18,7 @@ import { createAnthropic } from '@ai-sdk/anthropic';
 import { createOpenAI } from '@ai-sdk/openai';
 import { LanguageModelV1 } from '@ai-sdk/provider';
 import { injectable } from 'inversify';
-import { VercelAiModelDescription } from '../common';
+import { VercelAiModelDescription } from '../common/index.js';
 
 export type VercelAiProvider = 'openai' | 'anthropic';
 

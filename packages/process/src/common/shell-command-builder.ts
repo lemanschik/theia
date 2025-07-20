@@ -24,7 +24,7 @@
 import { injectable } from 'inversify';
 import {
     createShellCommandLine, BashQuotingFunctions, PowershellQuotingFunctions, CmdQuotingFunctions, ShellQuoting, ShellQuotedString, escapeForShell, ShellQuotingFunctions
-} from '../common/shell-quoting';
+} from '../common/shell-quoting.js';
 
 export interface ProcessInfo {
     executable: string

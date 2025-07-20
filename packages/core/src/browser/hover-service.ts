@@ -15,11 +15,11 @@
 // *****************************************************************************
 
 import { inject, injectable } from 'inversify';
-import { Disposable, DisposableCollection, disposableTimeout, isOSX } from '../common';
-import { MarkdownString } from '../common/markdown-rendering/markdown-string';
-import { animationFrame } from './browser';
-import { MarkdownRenderer, MarkdownRendererFactory } from './markdown-rendering/markdown-renderer';
-import { PreferenceService } from './preferences';
+import { Disposable, DisposableCollection, disposableTimeout, isOSX } from '../common/index.js';
+import { MarkdownString } from '../common/markdown-rendering/markdown-string.js';
+import { animationFrame } from './browser.js';
+import { MarkdownRenderer, MarkdownRendererFactory } from './markdown-rendering/markdown-renderer.js';
+import { PreferenceService } from './preferences/index.js';
 
 import '../../src/browser/style/hover-service.css';
 

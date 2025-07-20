@@ -17,9 +17,9 @@ import { AICommandHandlerFactory } from '@theia/ai-core/lib/browser/ai-command-h
 import { CommandContribution, CommandRegistry, MessageService, nls } from '@theia/core';
 import { PreferenceService, QuickInputService } from '@theia/core/lib/browser';
 import { inject, injectable } from 'inversify';
-import { LlamafileManager } from '../common/llamafile-manager';
-import { PREFERENCE_LLAMAFILE } from './llamafile-preferences';
-import { LlamafileEntry } from './llamafile-frontend-application-contribution';
+import { LlamafileManager } from '../common/llamafile-manager.js';
+import { PREFERENCE_LLAMAFILE } from './llamafile-preferences.js';
+import { LlamafileEntry } from './llamafile-frontend-application-contribution.js';
 
 export const StartLlamafileCommand = {
     id: 'llamafile.start',

@@ -27,16 +27,16 @@ import {
     PreferenceRegistryMain,
     PreferenceData,
     PreferenceChangeExt,
-} from '../../common/plugin-api-rpc';
-import { RPCProtocol } from '../../common/rpc-protocol';
-import { ConfigurationTarget } from '../../plugin/types-impl';
+} from '../../common/plugin-api-rpc.js';
+import { RPCProtocol } from '../../common/rpc-protocol.js';
+import { ConfigurationTarget } from '../../plugin/types-impl.js';
 import { WorkspaceService } from '@theia/workspace/lib/browser';
 import { FileStat } from '@theia/filesystem/lib/common/files';
 import { Disposable, DisposableCollection } from '@theia/core/lib/common/disposable';
 
 export function getPreferences(preferenceProviderProvider: PreferenceProviderProvider, rootFolders: FileStat[]): PreferenceData {
     const folders = rootFolders.map(root => root.resource.toString());
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     return PreferenceScope.getScopes().reduce((result: { [key: number]: any }, scope: PreferenceScope) => {
         result[scope] = {};
         const provider = preferenceProviderProvider(scope);
@@ -82,7 +82,7 @@ export class PreferenceRegistryMainImpl implements PreferenceRegistryMain, Dispo
         this.toDispose.dispose();
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     async $updateConfigurationOption(target: boolean | ConfigurationTarget | undefined, key: string, value: any, resource?: string, withLanguageOverride?: boolean): Promise<void> {
         const scope = this.parseConfigurationTarget(target, resource);
         const effectiveKey = this.getEffectiveKey(key, scope, withLanguageOverride, resource);

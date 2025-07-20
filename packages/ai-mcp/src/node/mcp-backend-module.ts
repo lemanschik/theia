@@ -16,8 +16,8 @@
 
 import { ContainerModule } from 'inversify';
 import { ConnectionHandler, RpcConnectionHandler } from '@theia/core';
-import { MCPServerManagerImpl } from './mcp-server-manager-impl';
-import { MCPFrontendNotificationService, MCPServerManager, MCPServerManagerPath } from '../common/mcp-server-manager';
+import { MCPServerManagerImpl } from './mcp-server-manager-impl.js';
+import { MCPFrontendNotificationService, MCPServerManager, MCPServerManagerPath } from '../common/mcp-server-manager.js';
 import { ConnectionContainerModule } from '@theia/core/lib/node/messaging/connection-container-module';
 
 // We use a connection module to handle AI services separately for each frontend.

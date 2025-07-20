@@ -24,12 +24,12 @@
 /**
  * Return a hash value for an object.
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 export function hash(obj: any): number {
     return doHash(obj, 0);
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 export function doHash(obj: any, hashVal: number): number {
     switch (typeof obj) {
         case 'object':
@@ -69,13 +69,13 @@ export function stringHash(s: string, hashVal: number): number {
     return hashVal;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 function arrayHash(arr: any[], initialHashVal: number): number {
     initialHashVal = numberHash(104579, initialHashVal);
     return arr.reduce((hashVal, item) => doHash(item, hashVal), initialHashVal);
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 function objectHash(obj: any, initialHashVal: number): number {
     initialHashVal = numberHash(181387, initialHashVal);
     return Object.keys(obj).sort().reduce((hashVal, key) => {

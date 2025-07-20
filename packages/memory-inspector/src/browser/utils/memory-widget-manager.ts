@@ -16,12 +16,12 @@
 import { Disposable, DisposableCollection, Emitter, MessageService } from '@theia/core';
 import { ApplicationShell, OpenViewArguments, WidgetManager } from '@theia/core/lib/browser';
 import { injectable, inject, postConstruct } from 'inversify';
-import { MemoryDiffTableWidget, MemoryDiffWidget } from '../diff-widget/memory-diff-table-widget';
-import { MemoryWidget } from '../memory-widget/memory-widget';
-import { RegisterWidget } from '../register-widget/register-widget-types';
-import { MemoryDiffWidgetData, MemoryWidgetOptions } from './memory-widget-utils';
+import { MemoryDiffTableWidget, MemoryDiffWidget } from '../diff-widget/memory-diff-table-widget.js';
+import { MemoryWidget } from '../memory-widget/memory-widget.js';
+import { RegisterWidget } from '../register-widget/register-widget-types.js';
+import { MemoryDiffWidgetData, MemoryWidgetOptions } from './memory-widget-utils.js';
 import { nls } from '@theia/core/lib/common/nls';
-import { EditableMemoryWidget } from '../editable-widget/memory-editable-table-widget';
+import { EditableMemoryWidget } from '../editable-widget/memory-editable-table-widget.js';
 
 @injectable()
 export class MemoryWidgetManager implements Disposable {
@@ -139,12 +139,12 @@ export class MemoryWidgetManager implements Disposable {
 
     async doDiff(options: Omit<MemoryDiffWidgetData, 'dynamic' | 'identifier'>): Promise<MemoryDiffWidget | undefined> {
         if (options.beforeBytes.length === 0) {
-            // eslint-disable-next-line max-len
+             
             const beforeBytesMessage = nls.localize('theia/memory-inspector/utils/bytesMessage', 'You must load memory in both widgets you would like to compare. {0} has no memory loaded.', options.titles[0]);
             this.messageService.warn(beforeBytesMessage);
             return undefined;
         } else if (options.afterBytes.length === 0) {
-            // eslint-disable-next-line max-len
+             
             const afterBytesMessage = nls.localize('theia/memory-inspector/utils/afterBytes', 'You must load memory in both widgets you would like to compare. {0} has no memory loaded.', options.titles[1]);
             this.messageService.warn(afterBytesMessage);
             return undefined;

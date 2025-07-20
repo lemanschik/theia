@@ -15,9 +15,9 @@
 // *****************************************************************************
 
 import { injectable, unmanaged } from 'inversify';
-import { Tree, TreeNode } from './tree';
-import { Event, Emitter, Disposable, DisposableCollection, MaybePromise } from '../../common';
-import { WidgetDecoration } from '../widget-decoration';
+import { Tree, TreeNode } from './tree.js';
+import { Event, Emitter, Disposable, DisposableCollection, MaybePromise } from '../../common/index.js';
+import { WidgetDecoration } from '../widget-decoration.js';
 
 /**
  * The {@link TreeDecorator} allows adapting the look and the style of the tree items within a widget. Changes are reflected in
@@ -125,7 +125,7 @@ export interface TreeDecoratorService extends Disposable {
      *
      * @returns the deserialized `decoration data
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     inflateDecorators(state: any): Map<string, TreeDecoration.Data[]>;
 
 }
@@ -144,7 +144,7 @@ export class NoopTreeDecoratorService implements TreeDecoratorService {
         this.emitter.dispose();
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     getDecorations(): Map<any, any> {
         return new Map();
     }
@@ -206,7 +206,7 @@ export abstract class AbstractTreeDecoratorService implements TreeDecoratorServi
         return state;
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     inflateDecorators(state: any): Map<string, TreeDecoration.Data[]> {
         const decorators = new Map<string, TreeDecoration.Data[]>();
         for (const id of Object.keys(state)) {

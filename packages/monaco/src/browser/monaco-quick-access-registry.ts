@@ -18,7 +18,7 @@ import { KeybindingRegistry, QuickPickItem, QuickPickSeparator } from '@theia/co
 import { QuickAccessProviderDescriptor, QuickAccessRegistry } from '@theia/core/lib/browser/quick-input/quick-access';
 import { CancellationToken, Disposable } from '@theia/core/lib/common';
 import { inject, injectable } from 'inversify';
-import { MonacoQuickPickItem } from './monaco-quick-input-service';
+import { MonacoQuickPickItem } from './monaco-quick-input-service.js';
 import {
     IPickerQuickAccessProviderOptions, PickerQuickAccessProvider, Picks, Pick, IPickerQuickAccessItem
 } from '@theia/monaco-editor-core/esm/vs/platform/quickinput/browser/pickerQuickAccess';
@@ -46,7 +46,7 @@ abstract class MonacoPickerAccessProvider extends PickerQuickAccessProvider<IQui
 class TheiaQuickAccessDescriptor implements IQuickAccessProviderDescriptor {
     constructor(
         public readonly theiaDescriptor: QuickAccessProviderDescriptor,
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         readonly ctor: { new(...services: any /* TS BrandedService but no clue how to type this properly */[]): IQuickAccessProvider },
         readonly prefix: string,
         readonly helpEntries: IQuickAccessProviderHelp[],

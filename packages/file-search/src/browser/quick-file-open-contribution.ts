@@ -16,7 +16,7 @@
 
 import { injectable, inject } from 'inversify';
 import URI from '@theia/core/lib/common/uri';
-import { QuickFileOpenService, quickFileOpen } from './quick-file-open';
+import { QuickFileOpenService, quickFileOpen } from './quick-file-open.js';
 import { CommandRegistry, CommandContribution, MenuContribution, MenuModelRegistry } from '@theia/core/lib/common';
 import { KeybindingRegistry, KeybindingContribution, QuickAccessContribution } from '@theia/core/lib/browser';
 import { EditorMainMenu } from '@theia/editor/lib/browser';
@@ -30,7 +30,7 @@ export class QuickFileOpenFrontendContribution implements QuickAccessContributio
 
     registerCommands(commands: CommandRegistry): void {
         commands.registerCommand(quickFileOpen, {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+             
             execute: (...args: any[]) => {
                 let fileURI: string | undefined;
                 if (args) {

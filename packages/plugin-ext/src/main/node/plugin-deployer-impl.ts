@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
 import { injectable, optional, multiInject, inject, named } from 'inversify';
 import semver from 'semver';
@@ -23,17 +23,17 @@ import {
     PluginDeployerEntry, PluginDeployer, PluginDeployerParticipant, PluginDeployerStartContext,
     PluginDeployerResolverInit,
     PluginDeployerEntryType, PluginDeployerHandler, PluginType, UnresolvedPluginEntry, PluginIdentifiers, PluginDeployOptions
-} from '../../common/plugin-protocol';
-import { PluginDeployerEntryImpl } from './plugin-deployer-entry-impl';
+} from '../../common/plugin-protocol.js';
+import { PluginDeployerEntryImpl } from './plugin-deployer-entry-impl.js';
 import {
     PluginDeployerResolverContextImpl,
     PluginDeployerResolverInitImpl
-} from './plugin-deployer-resolver-context-impl';
-import { ProxyPluginDeployerEntry } from './plugin-deployer-proxy-entry-impl';
-import { PluginDeployerFileHandlerContextImpl } from './plugin-deployer-file-handler-context-impl';
-import { PluginDeployerDirectoryHandlerContextImpl } from './plugin-deployer-directory-handler-context-impl';
+} from './plugin-deployer-resolver-context-impl.js';
+import { ProxyPluginDeployerEntry } from './plugin-deployer-proxy-entry-impl.js';
+import { PluginDeployerFileHandlerContextImpl } from './plugin-deployer-file-handler-context-impl.js';
+import { PluginDeployerDirectoryHandlerContextImpl } from './plugin-deployer-directory-handler-context-impl.js';
 import { ILogger, Emitter, ContributionProvider } from '@theia/core';
-import { PluginCliContribution } from './plugin-cli-contribution';
+import { PluginCliContribution } from './plugin-cli-contribution.js';
 import { Measurement, Stopwatch } from '@theia/core/lib/common';
 
 @injectable()

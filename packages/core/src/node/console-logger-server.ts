@@ -15,9 +15,9 @@
 // *****************************************************************************
 
 import { inject, injectable, postConstruct } from 'inversify';
-import { LoggerWatcher } from '../common/logger-watcher';
-import { LogLevelCliContribution } from './logger-cli-contribution';
-import { ILoggerServer, ILoggerClient, ConsoleLogger, rootLoggerName } from '../common/logger-protocol';
+import { LoggerWatcher } from '../common/logger-watcher.js';
+import { LogLevelCliContribution } from './logger-cli-contribution.js';
+import { ILoggerServer, ILoggerClient, ConsoleLogger, rootLoggerName } from '../common/logger-protocol.js';
 import { format } from 'util';
 import { EOL } from 'os';
 import fs from 'fs';
@@ -60,7 +60,7 @@ export class ConsoleLoggerServer implements ILoggerServer {
         return this.cli.logLevelFor(name);
     }
 
-    /* eslint-disable @typescript-eslint/no-explicit-any */
+     
     async log(name: string, logLevel: number, message: string, params: any[]): Promise<void> {
         const configuredLogLevel = await this.getLogLevel(name);
         if (logLevel >= configuredLogLevel) {

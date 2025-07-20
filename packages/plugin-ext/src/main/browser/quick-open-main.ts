@@ -13,11 +13,11 @@
 //
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
 import { InputBoxOptions } from '@theia/plugin';
 import { interfaces } from 'inversify';
-import { RPCProtocol } from '../../common/rpc-protocol';
+import { RPCProtocol } from '../../common/rpc-protocol.js';
 import {
     QuickOpenExt,
     QuickOpenMain,
@@ -27,7 +27,7 @@ import {
     TransferQuickInput,
     TransferQuickInputButton,
     TransferQuickPickOptions
-} from '../../common/plugin-api-rpc';
+} from '../../common/plugin-api-rpc.js';
 import {
     InputOptions,
     QuickInput,
@@ -41,9 +41,9 @@ import {
 import { DisposableCollection, Disposable } from '@theia/core/lib/common/disposable';
 import { CancellationToken } from '@theia/core/lib/common/cancellation';
 import { MonacoQuickInputService } from '@theia/monaco/lib/browser/monaco-quick-input-service';
-import { QuickInputButtons } from '../../plugin/types-impl';
+import { QuickInputButtons } from '../../plugin/types-impl.js';
 import { ThemeIcon } from '@theia/monaco-editor-core/esm/vs/base/common/themables';
-import { PluginSharedStyle } from './plugin-shared-style';
+import { PluginSharedStyle } from './plugin-shared-style.js';
 import { QuickPickSeparator } from '@theia/core';
 
 export interface QuickInputSession {

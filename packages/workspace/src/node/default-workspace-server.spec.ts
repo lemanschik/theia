@@ -19,8 +19,8 @@ import { MockEnvVariablesServerImpl } from '@theia/core/lib/browser/test/mock-en
 import { EnvVariablesServer } from '@theia/core/lib/common/env-variables';
 import URI from '@theia/core/lib/common/uri';
 import { FileUri } from '@theia/core/lib/node';
-import { WorkspaceFileService, UntitledWorkspaceService } from '../common';
-import { DefaultWorkspaceServer, FileWorkspaceHandlerContribution, WorkspaceCliContribution, WorkspaceHandlerContribution } from './default-workspace-server';
+import { WorkspaceFileService, UntitledWorkspaceService } from '../common/index.js';
+import { DefaultWorkspaceServer, FileWorkspaceHandlerContribution, WorkspaceCliContribution, WorkspaceHandlerContribution } from './default-workspace-server.js';
 import { expect } from 'chai';
 import temp from 'temp';
 import fs from 'fs';

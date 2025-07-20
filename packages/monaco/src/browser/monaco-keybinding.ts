@@ -16,15 +16,15 @@
 
 import { injectable, inject, postConstruct } from 'inversify';
 import { KeybindingContribution, KeybindingRegistry, KeybindingScope, KeyCode } from '@theia/core/lib/browser';
-import { MonacoCommands } from './monaco-command';
-import { MonacoCommandRegistry } from './monaco-command-registry';
+import { MonacoCommands } from './monaco-command.js';
+import { MonacoCommandRegistry } from './monaco-command-registry.js';
 import { CommandRegistry, DisposableCollection, environment, isOSX } from '@theia/core';
-import { MonacoResolvedKeybinding } from './monaco-resolved-keybinding';
+import { MonacoResolvedKeybinding } from './monaco-resolved-keybinding.js';
 import { KeybindingsRegistry } from '@theia/monaco-editor-core/esm/vs/platform/keybinding/common/keybindingsRegistry';
 import { StandaloneKeybindingService, StandaloneServices } from '@theia/monaco-editor-core/esm/vs/editor/standalone/browser/standaloneServices';
 import { IKeybindingService } from '@theia/monaco-editor-core/esm/vs/platform/keybinding/common/keybinding';
-import { MonacoContextKeyService } from './monaco-context-key-service';
-import { KEY_CODE_MAP } from './monaco-keycode-map';
+import { MonacoContextKeyService } from './monaco-context-key-service.js';
+import { KEY_CODE_MAP } from './monaco-keycode-map.js';
 import monaco from '@theia/monaco-editor-core';
 
 @injectable()

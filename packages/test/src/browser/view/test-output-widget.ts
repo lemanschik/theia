@@ -21,7 +21,7 @@ import { inject, injectable, postConstruct } from 'inversify';
 import { Disposable, DisposableCollection } from '@theia/core';
 import { TerminalPreferences } from '@theia/terminal/lib/browser/terminal-preferences';
 import { TerminalThemeService } from '@theia/terminal/lib/browser/terminal-theme-service';
-import { TestOutputSource, TestOutputUIModel } from './test-output-ui-model';
+import { TestOutputSource, TestOutputUIModel } from './test-output-ui-model.js';
 import debounce from 'p-debounce';
 
 @injectable()
@@ -92,7 +92,7 @@ export class TestOutputWidget extends BaseWidget {
 
         if (isFirefox) {
             // monkey patching intersection observer handling for secondary window support
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+             
             const renderService: any = (this.term as any)._core._renderService;
             const originalFunc: (entry: IntersectionObserverEntry) => void = renderService._onIntersectionChange.bind(renderService);
             const replacement = function (entry: IntersectionObserverEntry): void {

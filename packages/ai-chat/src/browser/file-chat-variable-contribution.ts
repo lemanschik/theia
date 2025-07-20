@@ -23,8 +23,8 @@ import monaco from '@theia/monaco-editor-core';
 import { FileQuickPickItem, QuickFileSelectService } from '@theia/file-search/lib/browser/quick-file-select-service';
 import { WorkspaceService } from '@theia/workspace/lib/browser';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
-import { VARIABLE_ADD_CONTEXT_COMMAND } from './ai-chat-frontend-contribution';
-import { IMAGE_CONTEXT_VARIABLE, ImageContextVariable } from '../common/image-context-variable';
+import { VARIABLE_ADD_CONTEXT_COMMAND } from './ai-chat-frontend-contribution.js';
+import { IMAGE_CONTEXT_VARIABLE, ImageContextVariable } from '../common/image-context-variable.js';
 
 @injectable()
 export class FileChatVariableContribution implements FrontendVariableContribution {

@@ -16,10 +16,10 @@
 
 // tslint:disable-next-line:no-implicit-dependencies
 import 'reflect-metadata';
-import { createTaskTestContainer } from './test/task-test-container';
+import { createTaskTestContainer } from './test/task-test-container.js';
 import { BackendApplication } from '@theia/core/lib/node/backend-application';
-import { TaskExitedEvent, TaskInfo, TaskServer, TaskWatcher, TaskConfiguration } from '../common';
-import { ProcessType, ProcessTaskConfiguration } from '../common/process/task-protocol';
+import { TaskExitedEvent, TaskInfo, TaskServer, TaskWatcher, TaskConfiguration } from '../common/index.js';
+import { ProcessType, ProcessTaskConfiguration } from '../common/process/task-protocol.js';
 import http from 'http';
 import https from 'https';
 import { isWindows, isOSX } from '@theia/core/lib/common/os';
@@ -381,7 +381,7 @@ function createProcessTaskConfig(processType: ProcessType, command: string, args
     };
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 function createProcessTaskConfig2(processType: ProcessType, command: string, args?: any[]): TaskConfiguration {
     return <ProcessTaskConfiguration>{
         label: 'test task',

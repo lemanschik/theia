@@ -16,11 +16,11 @@
 
 import { default as yargs } from 'yargs';
 import { RpcProxyFactory } from '@theia/core';
-import { FileSystemWatcherServiceClient } from '../../common/filesystem-watcher-protocol';
-import { ParcelFileSystemWatcherService } from './parcel-filesystem-service';
+import { FileSystemWatcherServiceClient } from '../../common/filesystem-watcher-protocol.js';
+import { ParcelFileSystemWatcherService } from './parcel-filesystem-service.js';
 import { IPCEntryPoint } from '@theia/core/lib/node/messaging/ipc-protocol';
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
 const options: {
     verbose: boolean

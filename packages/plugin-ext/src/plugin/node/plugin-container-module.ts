@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { interfaces, ContainerModule } from 'inversify';
-import { Plugin, PluginManager, emptyPlugin } from '../../common';
+import { Plugin, PluginManager, emptyPlugin } from '../../common/index.js';
 
 export type ApiFactory<T extends object> = (plugin: Plugin) => T;
 
@@ -124,13 +124,13 @@ export class PluginApiCache<T extends object> {
      * the construction of its default exports object.
      */
     private overrideInternalLoad(): void {
-        // eslint-disable-next-line @typescript-eslint/no-var-requires
+         
         const module = require('module');
 
         const internalLoad = module._load;
         const self = this;
 
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         module._load = function (request: string, parent: any, isMain: any): any {
             if (request !== self.apiModuleName) {
                 // Pass the request to the next implementation down the chain

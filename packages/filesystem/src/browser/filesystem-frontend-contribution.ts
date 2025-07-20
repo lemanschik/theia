@@ -38,12 +38,12 @@ import URI from '@theia/core/lib/common/uri';
 import { environment } from '@theia/application-package/lib/environment';
 import { inject, injectable } from 'inversify';
 import { UserWorkingDirectoryProvider } from '@theia/core/lib/browser/user-working-directory-provider';
-import { FileChangeType, FileChangesEvent, FileOperation } from '../common/files';
-import { FileDialogService, SaveFileDialogProps } from './file-dialog';
-import { FileSelection } from './file-selection';
-import { FileService, UserFileOperationEvent } from './file-service';
-import { FileUploadResult, FileUploadService } from './file-upload-service';
-import { FileSystemPreferences } from './filesystem-preferences';
+import { FileChangeType, FileChangesEvent, FileOperation } from '../common/files.js';
+import { FileDialogService, SaveFileDialogProps } from './file-dialog/index.js';
+import { FileSelection } from './file-selection.js';
+import { FileService, UserFileOperationEvent } from './file-service.js';
+import { FileUploadResult, FileUploadService } from './file-upload-service.js';
+import { FileSystemPreferences } from './filesystem-preferences.js';
 
 export namespace FileSystemCommands {
 
@@ -320,7 +320,7 @@ export class FileSystemFrontendContribution implements FrontendApplicationContri
         });
         this.applyMoveSnapshot(newWidget, snapshot);
         const area = this.shell.getAreaFor(widget) || 'main';
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         const pending: Promise<any>[] = [this.shell.addWidget(newWidget, {
             area, ref: widget
         })];

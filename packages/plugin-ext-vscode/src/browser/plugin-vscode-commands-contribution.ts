@@ -77,7 +77,7 @@ import { CustomEditorOpener } from '@theia/plugin-ext/lib/main/browser/custom-ed
 import { nls } from '@theia/core/lib/common/nls';
 import { WindowService } from '@theia/core/lib/browser/window/window-service';
 import monaco from '@theia/monaco-editor-core';
-import { VSCodeExtensionUri } from '../common/plugin-vscode-uri';
+import { VSCodeExtensionUri } from '../common/plugin-vscode-uri.js';
 import { CodeEditorWidgetUtil } from '@theia/plugin-ext/lib/main/browser/menus/vscode-theia-menu-mappings';
 import { OutlineViewContribution } from '@theia/outline-view/lib/browser/outline-view-contribution';
 import { CompletionList, Range, Position as PluginPosition } from '@theia/plugin';
@@ -317,7 +317,7 @@ export class PluginVscodeCommandsContribution implements CommandContribution {
 
         commands.registerCommand(VscodeCommands.DIFF, {
             isVisible: () => false,
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+             
             execute: async (left: URI, right: URI, label?: string, options?: TextDocumentShowOptions) => {
                 if (!left || !right) {
                     throw new Error(`${VscodeCommands.DIFF} command requires at least two URI arguments. Found left=${left}, right=${right} as arguments`);
@@ -587,7 +587,7 @@ export class PluginVscodeCommandsContribution implements CommandContribution {
 
         // Register built-in language service commands
         // see https://code.visualstudio.com/api/references/commands
-        /* eslint-disable @typescript-eslint/no-explicit-any */
+         
 
         // TODO register other `vscode.execute...` commands.
         // see https://github.com/microsoft/vscode/blob/master/src/vs/workbench/api/common/extHostApiCommands.ts
@@ -660,7 +660,7 @@ export class PluginVscodeCommandsContribution implements CommandContribution {
             {
                 execute: (resource: URI) => commands.executeCommand('_executeDocumentSymbolProvider',
                     monaco.Uri.parse(resource.toString())
-                ).then((value: any) => { // eslint-disable-line @typescript-eslint/no-explicit-any
+                ).then((value: any) => {  
                     if (!Array.isArray(value) || value === undefined) {
                         return undefined;
                     }

@@ -15,8 +15,8 @@
 // *****************************************************************************
 
 import { URI as Uri } from 'vscode-uri';
-import URI from './uri';
-import { isWindows } from './os';
+import URI from './uri.js';
+import { isWindows } from './os.js';
 
 export namespace FileUri {
 
@@ -46,7 +46,7 @@ export namespace FileUri {
              * (by, for example, the readdir function in the fs-extra module).
              * A backslash must be appended to the drive, eg c:\, to ensure the correct path.
              */
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+             
             const fsPathFromVsCodeUri = (uri as any).codeUri.fsPath;
             if (isWindows) {
                 const isWindowsDriveRoot = windowsDriveRegex.exec(fsPathFromVsCodeUri);

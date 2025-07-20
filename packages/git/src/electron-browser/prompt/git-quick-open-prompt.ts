@@ -17,7 +17,7 @@
 import { inject, injectable, optional } from 'inversify';
 import { QuickInputService } from '@theia/core/lib/browser';
 import PQueue from 'p-queue';
-import { GitPrompt } from '../../common/git-prompt';
+import { GitPrompt } from '../../common/git-prompt.js';
 
 @injectable()
 export class GitQuickOpenPrompt extends GitPrompt {

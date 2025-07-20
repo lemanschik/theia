@@ -16,10 +16,10 @@
 
 import { LanguageModelRegistry, TokenUsageService } from '@theia/ai-core';
 import { inject, injectable, named } from 'inversify';
-import { VercelAiModel } from './vercel-ai-language-model';
-import { VercelAiLanguageModelsManager, VercelAiModelDescription } from '../common';
+import { VercelAiModel } from './vercel-ai-language-model.js';
+import { VercelAiLanguageModelsManager, VercelAiModelDescription } from '../common/index.js';
 import { ILogger } from '@theia/core';
-import { VercelAiLanguageModelFactory, VercelAiProvider, VercelAiProviderConfig } from './vercel-ai-language-model-factory';
+import { VercelAiLanguageModelFactory, VercelAiProvider, VercelAiProviderConfig } from './vercel-ai-language-model-factory.js';
 
 @injectable()
 export class VercelAiLanguageModelsManagerImpl implements VercelAiLanguageModelsManager {

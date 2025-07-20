@@ -20,7 +20,7 @@
 
 // based on https://github.com/microsoft/vscode/blob/04c36be045a94fee58e5f8992d3e3fd980294a84/src/vs/base/common/strings.ts
 
-import { CharCode } from './char-code';
+import { CharCode } from './char-code.js';
 
 /**
  * Determines if haystack ends with needle.
@@ -225,7 +225,7 @@ export function regExpFlags(regexp: RegExp): string {
     return (regexp.global ? 'g' : '')
         + (regexp.ignoreCase ? 'i' : '')
         + (regexp.multiline ? 'm' : '')
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         + ((regexp as any /* standalone editor compilation */).unicode ? 'u' : '');
 }
 

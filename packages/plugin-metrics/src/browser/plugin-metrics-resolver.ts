@@ -14,11 +14,11 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
 import { injectable, inject } from 'inversify';
-import { PluginMetricsCreator } from './plugin-metrics-creator';
-import { createRequestData } from '../common/plugin-metrics-types';
+import { PluginMetricsCreator } from './plugin-metrics-creator.js';
+import { createRequestData } from '../common/plugin-metrics-types.js';
 
 /**
  * This class helps resolve language server requests into successes or failures

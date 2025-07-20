@@ -22,12 +22,12 @@ import { default as express } from 'express';
 import { default as yargs } from 'yargs';
 import fs from 'fs-extra';
 import { inject, named, injectable, postConstruct } from 'inversify';
-import { ContributionProvider, MaybePromise, Stopwatch } from '../common';
-import { CliContribution } from './cli';
-import { Deferred } from '../common/promise-util';
-import { environment } from '../common/index';
+import { ContributionProvider, MaybePromise, Stopwatch } from '../common/index.js';
+import { CliContribution } from './cli.js';
+import { Deferred } from '../common/promise-util.js';
+import { environment } from '../common/index.js';
 import { AddressInfo } from 'net';
-import { ProcessUtils } from './process-utils';
+import { ProcessUtils } from './process-utils.js';
 
 /**
  * The path to the application project directory. This is the directory where the application code is located.

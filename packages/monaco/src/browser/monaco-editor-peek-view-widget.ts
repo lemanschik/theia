@@ -16,7 +16,7 @@
 
 import { Position, Range } from 'vscode-languageserver-protocol';
 import { DisposableCollection } from '@theia/core';
-import { MonacoEditor } from './monaco-editor';
+import { MonacoEditor } from './monaco-editor.js';
 import monaco from '@theia/monaco-editor-core';
 import { PeekViewWidget, IPeekViewOptions, IPeekViewStyles } from '@theia/monaco-editor-core/esm/vs/editor/contrib/peekView/browser/peekView';
 import { ICodeEditor } from '@theia/monaco-editor-core/esm/vs/editor/browser/editorBrowser';

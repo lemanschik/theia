@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { ILogger } from '../../common';
+import { ILogger } from '../../common/index.js';
 
 export interface ResolvedConnectionErrorHandlerOptions {
     readonly serverName: string
@@ -62,7 +62,7 @@ export class ConnectionErrorHandler {
         }
         const diff = this.restarts[this.restarts.length - 1] - this.restarts[0];
         if (diff <= this.options.restartInterval * 60 * 1000) {
-            // eslint-disable-next-line max-len
+             
             this.options.logger.error(`The ${this.options.serverName} server crashed ${this.options.maxRestarts} times in the last ${this.options.restartInterval} minutes. The server will not be restarted.`);
             return false;
         }

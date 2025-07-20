@@ -16,8 +16,8 @@
 
 import { LanguageModelRegistry, TokenUsageService } from '@theia/ai-core';
 import { inject, injectable } from 'inversify';
-import { GoogleModel } from './google-language-model';
-import { GoogleLanguageModelsManager, GoogleModelDescription } from '../common';
+import { GoogleModel } from './google-language-model.js';
+import { GoogleLanguageModelsManager, GoogleModelDescription } from '../common/index.js';
 
 export interface GoogleLanguageModelRetrySettings {
     maxRetriesOnErrors: number;

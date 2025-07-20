@@ -21,7 +21,7 @@ import { isOSX, isWindows } from '@theia/core';
 import { Readable, Writable } from 'stream';
 import { exec } from 'child_process';
 import fs from 'fs';
-import { IProcessStartEvent, IProcessExitEvent, ProcessErrorEvent, ProcessType, ManagedProcessManager, ManagedProcess } from '../common/process-manager-types';
+import { IProcessStartEvent, IProcessExitEvent, ProcessErrorEvent, ProcessType, ManagedProcessManager, ManagedProcess } from '../common/process-manager-types.js';
 export { IProcessStartEvent, IProcessExitEvent, ProcessErrorEvent, ProcessType };
 
 /**
@@ -36,7 +36,7 @@ export interface ProcessOptions {
     readonly command: string,
     args?: string[],
     options?: {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         [key: string]: any
     }
 }

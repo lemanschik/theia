@@ -17,7 +17,7 @@
 import fs from 'fs-extra';
 import paths from 'path';
 import semver from 'semver';
-import { NpmRegistry, PublishedNodePackage, NodePackage } from './npm-registry';
+import { NpmRegistry, PublishedNodePackage, NodePackage } from './npm-registry.js';
 
 export interface Extension {
     frontendPreload?: string;

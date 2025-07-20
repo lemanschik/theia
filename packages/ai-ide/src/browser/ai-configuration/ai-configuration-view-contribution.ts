@@ -19,7 +19,7 @@ import { AIViewContribution } from '@theia/ai-core/lib/browser';
 import { ChatViewWidget } from '@theia/ai-chat-ui/lib/browser/chat-view-widget';
 import { FrontendApplication } from '@theia/core/lib/browser';
 import { injectable } from 'inversify';
-import { AIConfigurationContainerWidget } from './ai-configuration-widget';
+import { AIConfigurationContainerWidget } from './ai-configuration-widget.js';
 
 export const AI_CONFIGURATION_TOGGLE_COMMAND_ID = 'aiConfiguration:toggle';
 export const OPEN_AI_CONFIG_VIEW = Command.toLocalizedCommand({

@@ -23,7 +23,7 @@
 
 import { Buffer as SaferBuffer } from 'safer-buffer';
 import iconv from 'iconv-lite';
-import * as streams from './stream';
+import * as streams from './stream.js';
 
 const hasBuffer = (typeof Buffer !== 'undefined');
 const hasTextEncoder = (typeof TextEncoder !== 'undefined');

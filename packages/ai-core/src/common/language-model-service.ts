@@ -15,8 +15,8 @@
 // *****************************************************************************
 
 import { inject } from 'inversify';
-import { isLanguageModelStreamResponse, LanguageModel, LanguageModelRegistry, LanguageModelResponse, LanguageModelStreamResponsePart, UserRequest } from './language-model';
-import { LanguageModelExchangeRequest, LanguageModelSession } from './language-model-interaction-model';
+import { isLanguageModelStreamResponse, LanguageModel, LanguageModelRegistry, LanguageModelResponse, LanguageModelStreamResponsePart, UserRequest } from './language-model.js';
+import { LanguageModelExchangeRequest, LanguageModelSession } from './language-model-interaction-model.js';
 import { Emitter } from '@theia/core';
 
 export interface RequestAddedEvent {

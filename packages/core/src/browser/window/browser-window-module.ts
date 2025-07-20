@@ -15,15 +15,15 @@
 // *****************************************************************************
 
 import { ContainerModule } from 'inversify';
-import { WindowService } from '../../browser/window/window-service';
-import { DefaultWindowService } from '../../browser/window/default-window-service';
-import { FrontendApplicationContribution } from '../frontend-application-contribution';
-import { ClipboardService } from '../clipboard-service';
-import { BrowserClipboardService } from '../browser-clipboard-service';
-import { SecondaryWindowService } from './secondary-window-service';
-import { DefaultSecondaryWindowService } from './default-secondary-window-service';
-import { bindContributionProvider } from '../../common';
-import { WindowTitleContribution } from './window-title-service';
+import { WindowService } from '../../browser/window/window-service.js';
+import { DefaultWindowService } from '../../browser/window/default-window-service.js';
+import { FrontendApplicationContribution } from '../frontend-application-contribution.js';
+import { ClipboardService } from '../clipboard-service.js';
+import { BrowserClipboardService } from '../browser-clipboard-service.js';
+import { SecondaryWindowService } from './secondary-window-service.js';
+import { DefaultSecondaryWindowService } from './default-secondary-window-service.js';
+import { bindContributionProvider } from '../../common/index.js';
+import { WindowTitleContribution } from './window-title-service.js';
 
 export default new ContainerModule(bind => {
     bind(DefaultWindowService).toSelf().inSingletonScope();

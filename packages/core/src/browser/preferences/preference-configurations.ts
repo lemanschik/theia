@@ -15,8 +15,8 @@
 // *****************************************************************************
 
 import { injectable, inject, named, interfaces } from 'inversify';
-import URI from '../../common/uri';
-import { ContributionProvider, bindContributionProvider } from '../../common/contribution-provider';
+import URI from '../../common/uri.js';
+import { ContributionProvider, bindContributionProvider } from '../../common/contribution-provider.js';
 
 export const PreferenceConfiguration = Symbol('PreferenceConfiguration');
 export interface PreferenceConfiguration {

@@ -22,8 +22,8 @@ import {
     TheiaSplitPanel,
 } from '@theia/core/lib/browser';
 import { inject, injectable, interfaces, postConstruct } from 'inversify';
-import { Toolbar, ToolbarFactory } from './toolbar-interfaces';
-import { ToolbarPreferences, TOOLBAR_ENABLE_PREFERENCE_ID } from './toolbar-preference-contribution';
+import { Toolbar, ToolbarFactory } from './toolbar-interfaces.js';
+import { ToolbarPreferences, TOOLBAR_ENABLE_PREFERENCE_ID } from './toolbar-preference-contribution.js';
 
 @injectable()
 export class ApplicationShellWithToolbarOverride extends ApplicationShell {

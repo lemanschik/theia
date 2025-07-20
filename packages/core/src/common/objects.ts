@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { isObject, isUndefined, isUndefinedOrNull } from './types';
+import { isObject, isUndefined, isUndefinedOrNull } from './types.js';
 
 export function deepClone<T>(obj: T): T {
     if (!isObject(obj)) {
@@ -23,7 +23,7 @@ export function deepClone<T>(obj: T): T {
     if (obj instanceof RegExp) {
         return obj;
     }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     const result: any = Array.isArray(obj) ? [] : {};
     Object.keys(obj).forEach((key: string) => {
         const prop = obj[key];
@@ -40,7 +40,7 @@ export function deepFreeze<T>(obj: T): T {
     if (!isObject(obj)) {
         return obj;
     }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     const stack: any[] = [obj];
     while (stack.length > 0) {
         const objectToFreeze = stack.shift();
@@ -78,12 +78,12 @@ export function isEmpty(arg: Object): boolean {
 
 // Copied from https://github.com/microsoft/vscode/blob/1.72.2/src/vs/base/common/objects.ts
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 export function cloneAndChange(obj: any, changer: (orig: any) => any): any {
     return _cloneAndChange(obj, changer, new Set());
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 function _cloneAndChange(obj: any, changer: (orig: any) => any, seen: Set<any>): any {
     if (isUndefinedOrNull(obj)) {
         return obj;
@@ -95,7 +95,7 @@ function _cloneAndChange(obj: any, changer: (orig: any) => any, seen: Set<any>):
     }
 
     if (Array.isArray(obj)) {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         const r1: any[] = [];
         for (const e of obj) {
             r1.push(_cloneAndChange(e, changer, seen));
@@ -111,7 +111,7 @@ function _cloneAndChange(obj: any, changer: (orig: any) => any, seen: Set<any>):
         const r2 = {};
         for (const i2 in obj) {
             if (_hasOwnProperty.call(obj, i2)) {
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                 
                 (r2 as any)[i2] = _cloneAndChange(obj[i2], changer, seen);
             }
         }

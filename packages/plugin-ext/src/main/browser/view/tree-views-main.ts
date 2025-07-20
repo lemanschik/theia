@@ -15,9 +15,9 @@
 // *****************************************************************************
 
 import { interfaces } from 'inversify';
-import { MAIN_RPC_CONTEXT, TreeViewsMain, TreeViewsExt, TreeViewRevealOptions, RegisterTreeDataProviderOptions } from '../../../common/plugin-api-rpc';
-import { RPCProtocol } from '../../../common/rpc-protocol';
-import { PluginViewRegistry, PLUGIN_VIEW_DATA_FACTORY_ID } from './plugin-view-registry';
+import { MAIN_RPC_CONTEXT, TreeViewsMain, TreeViewsExt, TreeViewRevealOptions, RegisterTreeDataProviderOptions } from '../../../common/plugin-api-rpc.js';
+import { RPCProtocol } from '../../../common/rpc-protocol.js';
+import { PluginViewRegistry, PLUGIN_VIEW_DATA_FACTORY_ID } from './plugin-view-registry.js';
 import {
     SelectableTreeNode,
     ExpandableTreeNode,
@@ -25,10 +25,10 @@ import {
     WidgetManager
 } from '@theia/core/lib/browser';
 import { Disposable, DisposableCollection } from '@theia/core';
-import { TreeViewWidget, TreeViewNode, PluginTreeModel, TreeViewWidgetOptions } from './tree-view-widget';
-import { PluginViewWidget } from './plugin-view-widget';
+import { TreeViewWidget, TreeViewNode, PluginTreeModel, TreeViewWidgetOptions } from './tree-view-widget.js';
+import { PluginViewWidget } from './plugin-view-widget.js';
 import { BinaryBuffer } from '@theia/core/lib/common/buffer';
-import { DnDFileContentStore } from './dnd-file-content-store';
+import { DnDFileContentStore } from './dnd-file-content-store.js';
 import { ViewBadge } from '@theia/plugin';
 
 export class TreeViewsMainImpl implements TreeViewsMain, Disposable {
@@ -120,7 +120,7 @@ export class TreeViewsMainImpl implements TreeViewsMain, Disposable {
 
     // elementParentChain parameter contain a list of tree ids from root to the revealed node
     // all parents of the revealed node should be fetched and expanded in order for it to reveal
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     async $reveal(treeViewId: string, elementParentChain: string[], options: TreeViewRevealOptions): Promise<any> {
         const viewPanel = await this.viewRegistry.openView(treeViewId, { activate: options.focus, reveal: true });
         const widget = viewPanel && viewPanel.widgets[0];

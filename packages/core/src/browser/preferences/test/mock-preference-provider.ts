@@ -14,11 +14,11 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
 import { interfaces } from 'inversify';
-import { PreferenceProvider } from '../preference-provider';
-import { PreferenceScope } from '../preference-scope';
+import { PreferenceProvider } from '../preference-provider.js';
+import { PreferenceScope } from '../preference-scope.js';
 
 export class MockPreferenceProvider extends PreferenceProvider {
     readonly prefs: { [p: string]: any } = {};

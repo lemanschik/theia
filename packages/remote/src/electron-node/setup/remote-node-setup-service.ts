@@ -20,7 +20,7 @@ import os from 'os';
 
 import { inject, injectable } from 'inversify';
 import { RequestService } from '@theia/request';
-import { RemoteSetupScriptService } from './remote-setup-script-service';
+import { RemoteSetupScriptService } from './remote-setup-script-service.js';
 import { RemotePlatform } from '@theia/core/lib/node/remote/remote-cli-contribution';
 import { OS } from '@theia/core';
 

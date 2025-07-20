@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { CustomChatAgent } from '../common';
+import { CustomChatAgent } from '../common/index.js';
 
 export const CustomAgentFactory = Symbol('CustomAgentFactory');
 export type CustomAgentFactory = (id: string, name: string, description: string, prompt: string, defaultLLM: string) => CustomChatAgent;

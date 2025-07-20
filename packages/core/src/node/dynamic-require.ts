@@ -18,7 +18,7 @@ declare const __non_webpack_require__: NodeJS.Require;
 
 const nodeRequire = typeof __non_webpack_require__ !== 'undefined' ? __non_webpack_require__ : require;
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 export function dynamicRequire<T = any>(id: string): T {
     if (typeof id !== 'string') {
         throw new TypeError('module id must be a string');

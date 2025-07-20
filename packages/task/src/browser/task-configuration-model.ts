@@ -17,7 +17,7 @@
 import URI from '@theia/core/lib/common/uri';
 import { Emitter, Event } from '@theia/core/lib/common/event';
 import { Disposable, DisposableCollection } from '@theia/core/lib/common/disposable';
-import { TaskCustomization, TaskConfiguration, TaskConfigurationScope } from '../common/task-protocol';
+import { TaskCustomization, TaskConfiguration, TaskConfigurationScope } from '../common/task-protocol.js';
 import { PreferenceProvider, PreferenceProviderDataChanges, PreferenceProviderDataChange } from '@theia/core/lib/browser';
 import { isObject } from '@theia/core/lib/common';
 
@@ -79,7 +79,7 @@ export class TaskConfigurationModel implements Disposable {
 
     protected parseConfigurations(): TaskConfigurationModel.JsonContent {
         const configurations: (TaskCustomization | TaskConfiguration)[] = [];
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         const { configUri, value } = this.preferences.resolve<any>('tasks', this.getWorkspaceFolder());
         if (isObject(value) && Array.isArray(value.tasks)) {
             for (const taskConfig of value.tasks) {

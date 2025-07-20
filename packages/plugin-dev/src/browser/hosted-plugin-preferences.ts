@@ -17,7 +17,7 @@
 import { interfaces } from 'inversify';
 import { createPreferenceProxy, PreferenceProxy, PreferenceService, PreferenceContribution, PreferenceSchema } from '@theia/core/lib/browser';
 import { nls } from '@theia/core/lib/common/nls';
-import { PluginDebugPort } from '../common';
+import { PluginDebugPort } from '../common/index.js';
 
 export const HostedPluginConfigSchema: PreferenceSchema = {
     'type': 'object',

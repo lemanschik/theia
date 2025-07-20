@@ -16,8 +16,8 @@
 
 import { FrontendApplicationContribution, PreferenceService } from '@theia/core/lib/browser';
 import { inject, injectable } from 'inversify';
-import { GoogleLanguageModelsManager, GoogleModelDescription } from '../common';
-import { API_KEY_PREF, MODELS_PREF, MAX_RETRIES, RETRY_DELAY_OTHER_ERRORS, RETRY_DELAY_RATE_LIMIT } from './google-preferences';
+import { GoogleLanguageModelsManager, GoogleModelDescription } from '../common/index.js';
+import { API_KEY_PREF, MODELS_PREF, MAX_RETRIES, RETRY_DELAY_OTHER_ERRORS, RETRY_DELAY_RATE_LIMIT } from './google-preferences.js';
 
 const GOOGLE_PROVIDER_ID = 'google';
 

@@ -62,7 +62,7 @@ export interface MsgPackExtension {
     class: Function,
     tag: number,
     serialize(instance: unknown): unknown,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     deserialize(serialized: any): unknown
 }
 

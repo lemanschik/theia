@@ -16,7 +16,7 @@
 
 import { inject, injectable } from 'inversify';
 import { PreferenceService } from '@theia/core/lib/browser';
-import { PREF_AI_INLINE_COMPLETION_STRIP_BACKTICKS } from './ai-code-completion-preference';
+import { PREF_AI_INLINE_COMPLETION_STRIP_BACKTICKS } from './ai-code-completion-preference.js';
 
 export interface CodeCompletionPostProcessor {
     postProcess(text: string): string;

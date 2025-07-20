@@ -14,14 +14,14 @@
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
  ********************************************************************************/
 
-import type { ApplicationShell } from './shell';
+import type { ApplicationShell } from './shell/index.js';
 import { injectable } from 'inversify';
-import { UNTITLED_SCHEME, URI, Disposable, DisposableCollection, Emitter, Event } from '../common';
-import { Navigatable, NavigatableWidget } from './navigatable-types';
-import { AutoSaveMode, Saveable, SaveableSource, SaveableWidget, SaveOptions, SaveReason, setDirty, close, PostCreationSaveableWidget, ShouldSaveDialog } from './saveable';
-import { waitForClosed, Widget } from './widgets';
-import { FrontendApplicationContribution } from './frontend-application-contribution';
-import { FrontendApplication } from './frontend-application';
+import { UNTITLED_SCHEME, URI, Disposable, DisposableCollection, Emitter, Event } from '../common/index.js';
+import { Navigatable, NavigatableWidget } from './navigatable-types.js';
+import { AutoSaveMode, Saveable, SaveableSource, SaveableWidget, SaveOptions, SaveReason, setDirty, close, PostCreationSaveableWidget, ShouldSaveDialog } from './saveable.js';
+import { waitForClosed, Widget } from './widgets/index.js';
+import { FrontendApplicationContribution } from './frontend-application-contribution.js';
+import { FrontendApplication } from './frontend-application.js';
 import throttle from 'lodash.throttle';
 
 @injectable()

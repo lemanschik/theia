@@ -15,8 +15,8 @@
 // *****************************************************************************
 
 import { IDataTransferItem, IReadonlyVSDataTransfer } from '@theia/monaco-editor-core/esm/vs/base/common/dataTransfer';
-import { DataTransferDTO, DataTransferItemDTO } from '../../../common/plugin-api-rpc-model';
-import { URI } from '../../../plugin/types-impl';
+import { DataTransferDTO, DataTransferItemDTO } from '../../../common/plugin-api-rpc-model.js';
+import { URI } from '../../../plugin/types-impl.js';
 
 export namespace DataTransferItem {
     export async function from(mime: string, item: IDataTransferItem): Promise<DataTransferItemDTO> {

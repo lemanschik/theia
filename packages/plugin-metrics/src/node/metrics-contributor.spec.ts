@@ -14,11 +14,11 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { AnalyticsFromRequests } from '../common/plugin-metrics-types';
-import { PluginMetricsContributor } from './metrics-contributor';
+import { AnalyticsFromRequests } from '../common/plugin-metrics-types.js';
+import { PluginMetricsContributor } from './metrics-contributor.js';
 import { Container, ContainerModule } from 'inversify';
-import { PluginMetricsImpl } from './plugin-metrics-impl';
-import { PluginMetrics } from '../common/metrics-protocol';
+import { PluginMetricsImpl } from './plugin-metrics-impl.js';
+import { PluginMetrics } from '../common/metrics-protocol.js';
 import assert from 'assert';
 
 describe('Metrics contributor:', () => {

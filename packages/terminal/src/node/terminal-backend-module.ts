@@ -15,22 +15,22 @@
 // *****************************************************************************
 
 import { ContainerModule, Container, interfaces } from 'inversify';
-import { TerminalBackendContribution } from './terminal-backend-contribution';
+import { TerminalBackendContribution } from './terminal-backend-contribution.js';
 import { ConnectionHandler, RpcConnectionHandler } from '@theia/core/lib/common/messaging';
-import { ShellProcess, ShellProcessFactory, ShellProcessOptions } from './shell-process';
-import { ITerminalServer, terminalPath } from '../common/terminal-protocol';
-import { IBaseTerminalClient, DispatchingBaseTerminalClient, IBaseTerminalServer } from '../common/base-terminal-protocol';
-import { TerminalServer } from './terminal-server';
-import { IShellTerminalServer, shellTerminalPath } from '../common/shell-terminal-protocol';
-import { ShellTerminalServer } from '../node/shell-terminal-server';
-import { TerminalWatcher } from '../common/terminal-watcher';
+import { ShellProcess, ShellProcessFactory, ShellProcessOptions } from './shell-process.js';
+import { ITerminalServer, terminalPath } from '../common/terminal-protocol.js';
+import { IBaseTerminalClient, DispatchingBaseTerminalClient, IBaseTerminalServer } from '../common/base-terminal-protocol.js';
+import { TerminalServer } from './terminal-server.js';
+import { IShellTerminalServer, shellTerminalPath } from '../common/shell-terminal-protocol.js';
+import { ShellTerminalServer } from '../node/shell-terminal-server.js';
+import { TerminalWatcher } from '../common/terminal-watcher.js';
 import { MessagingService } from '@theia/core/lib/node/messaging/messaging-service';
 
 export function bindTerminalServer(bind: interfaces.Bind, { path, identifier, constructor }: {
     path: string,
     identifier: interfaces.ServiceIdentifier<IBaseTerminalServer>,
     constructor: {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         new(...args: any[]): IBaseTerminalServer;
     }
 }): void {

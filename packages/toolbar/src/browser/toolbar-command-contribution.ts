@@ -32,8 +32,8 @@ import {
     Widget,
 } from '@theia/core/lib/browser';
 import { injectable, inject, interfaces, Container } from 'inversify';
-import { ToolbarImpl } from './toolbar';
-import { bindToolbarIconDialog } from './toolbar-icon-selector-dialog';
+import { ToolbarImpl } from './toolbar.js';
+import { bindToolbarIconDialog } from './toolbar-icon-selector-dialog.js';
 import {
     ToolbarContribution,
     ToolbarItemPosition,
@@ -41,15 +41,15 @@ import {
     Toolbar,
     LateInjector,
     lateInjector,
-} from './toolbar-interfaces';
-import { ToolbarCommandQuickInputService } from './toolbar-command-quick-input-service';
-import { ToolbarStorageProvider } from './toolbar-storage-provider';
-import { ToolbarController } from './toolbar-controller';
-import { ToolbarPreferencesSchema, ToolbarPreferences, TOOLBAR_ENABLE_PREFERENCE_ID } from './toolbar-preference-contribution';
-import { ToolbarDefaults, ToolbarDefaultsFactory } from './toolbar-defaults';
-import { ToolbarCommands, ToolbarMenus, UserToolbarURI, USER_TOOLBAR_URI } from './toolbar-constants';
+} from './toolbar-interfaces.js';
+import { ToolbarCommandQuickInputService } from './toolbar-command-quick-input-service.js';
+import { ToolbarStorageProvider } from './toolbar-storage-provider.js';
+import { ToolbarController } from './toolbar-controller.js';
+import { ToolbarPreferencesSchema, ToolbarPreferences, TOOLBAR_ENABLE_PREFERENCE_ID } from './toolbar-preference-contribution.js';
+import { ToolbarDefaults, ToolbarDefaultsFactory } from './toolbar-defaults.js';
+import { ToolbarCommands, ToolbarMenus, UserToolbarURI, USER_TOOLBAR_URI } from './toolbar-constants.js';
 import { JsonSchemaContribution, JsonSchemaDataStore, JsonSchemaRegisterContext } from '@theia/core/lib/browser/json-schema-store';
-import { toolbarConfigurationSchema, toolbarSchemaId } from './toolbar-preference-schema';
+import { toolbarConfigurationSchema, toolbarSchemaId } from './toolbar-preference-schema.js';
 import URI from '@theia/core/lib/common/uri';
 
 @injectable()

@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { injectable } from 'inversify';
-import { DefaultLanguageModelRegistryImpl, LanguageModel, LanguageModelMetaData, LanguageModelRegistryClient } from '../common';
+import { DefaultLanguageModelRegistryImpl, LanguageModel, LanguageModelMetaData, LanguageModelRegistryClient } from '../common/index.js';
 
 /**
  * Notifies a client whenever a model is added or removed

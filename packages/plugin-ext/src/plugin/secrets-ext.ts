@@ -21,8 +21,8 @@
 // code copied and modified from https://github.com/microsoft/vscode/blob/1.55.2/src/vs/workbench/api/common/extHostSecrets.ts
 
 import { inject, injectable } from 'inversify';
-import { Plugin, PLUGIN_RPC_CONTEXT, SecretsExt, SecretsMain } from '../common/plugin-api-rpc';
-import { RPCProtocol } from '../common/rpc-protocol';
+import { Plugin, PLUGIN_RPC_CONTEXT, SecretsExt, SecretsMain } from '../common/plugin-api-rpc.js';
+import { RPCProtocol } from '../common/rpc-protocol.js';
 import { Event, Emitter } from '@theia/core/lib/common/event';
 import { Disposable, DisposableGroup } from '@theia/core';
 import theia from '@theia/plugin';
@@ -40,7 +40,7 @@ export interface InternalSecretsExt extends SecretsExt {
 
     delete(extensionId: string, key: string): Promise<void>;
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     onDidChangePassword(listener: (e: PasswordChange) => any, thisArgs?: any, disposables?: DisposableGroup): Disposable;
 }
 

@@ -15,10 +15,10 @@
 // *****************************************************************************
 
 import theia from '@theia/plugin';
-import { DocumentsExtImpl } from '../documents';
-import * as Converter from '../type-converters';
+import { DocumentsExtImpl } from '../documents.js';
+import * as Converter from '../type-converters.js';
 import { URI } from 'vscode-uri';
-import { FormattingOptions, TextEdit } from '../../common/plugin-api-rpc-model';
+import { FormattingOptions, TextEdit } from '../../common/plugin-api-rpc-model.js';
 
 export class DocumentFormattingAdapter {
 
@@ -35,7 +35,7 @@ export class DocumentFormattingAdapter {
 
         const doc = document.document;
 
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         return Promise.resolve(this.provider.provideDocumentFormattingEdits(doc, <any>options, token)).then(value => {
             if (Array.isArray(value)) {
                 return value.map(Converter.fromTextEdit);

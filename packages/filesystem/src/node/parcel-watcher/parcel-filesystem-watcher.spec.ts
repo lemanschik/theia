@@ -21,8 +21,8 @@ import fs from 'fs-extra';
 import assert from 'assert';
 import URI from '@theia/core/lib/common/uri';
 import { FileUri } from '@theia/core/lib/node';
-import { ParcelFileSystemWatcherService } from './parcel-filesystem-service';
-import { DidFilesChangedParams, FileChange, FileChangeType } from '../../common/filesystem-watcher-protocol';
+import { ParcelFileSystemWatcherService } from './parcel-filesystem-service.js';
+import { DidFilesChangedParams, FileChange, FileChangeType } from '../../common/filesystem-watcher-protocol.js';
 
 const expect = chai.expect;
 const track = temp.track();
@@ -169,7 +169,7 @@ describe('parcel-filesystem-watcher', function (): void {
 
 });
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 process.on('unhandledRejection', (reason: any) => {
     console.error('Unhandled promise rejection: ' + reason);
 });

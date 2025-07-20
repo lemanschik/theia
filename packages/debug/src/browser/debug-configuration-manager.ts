@@ -29,11 +29,11 @@ import { MonacoEditor } from '@theia/monaco/lib/browser/monaco-editor';
 import { LabelProvider, PreferenceScope, PreferenceService, QuickPickValue, StorageService } from '@theia/core/lib/browser';
 import { QuickPickService } from '@theia/core/lib/common/quick-pick-service';
 import { WorkspaceService } from '@theia/workspace/lib/browser/workspace-service';
-import { DebugConfigurationModel } from './debug-configuration-model';
-import { DebugSessionOptions, DynamicDebugConfigurationSessionOptions } from './debug-session-options';
-import { DebugService } from '../common/debug-service';
+import { DebugConfigurationModel } from './debug-configuration-model.js';
+import { DebugSessionOptions, DynamicDebugConfigurationSessionOptions } from './debug-session-options.js';
+import { DebugService } from '../common/debug-service.js';
 import { ContextKey, ContextKeyService } from '@theia/core/lib/browser/context-key-service';
-import { DebugConfiguration } from '../common/debug-common';
+import { DebugConfiguration } from '../common/debug-common.js';
 import { WorkspaceVariableContribution } from '@theia/workspace/lib/browser/workspace-variable-contribution';
 import { PreferenceConfigurations } from '@theia/core/lib/browser/preferences/preference-configurations';
 import { MonacoTextModelService } from '@theia/monaco/lib/browser/monaco-text-model-service';
@@ -41,7 +41,7 @@ import monaco from '@theia/monaco-editor-core';
 import { ICommandService } from '@theia/monaco-editor-core/esm/vs/platform/commands/common/commands';
 import { StandaloneServices } from '@theia/monaco-editor-core/esm/vs/editor/standalone/browser/standaloneServices';
 import { nls } from '@theia/core';
-import { DebugCompound } from '../common/debug-compound';
+import { DebugCompound } from '../common/debug-compound.js';
 
 export interface WillProvideDebugConfiguration extends WaitUntilEvent {
 }

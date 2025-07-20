@@ -17,8 +17,8 @@
 import { inject, injectable, postConstruct } from 'inversify';
 import URI from '@theia/core/lib/common/uri';
 import { Decoration, DecorationsProvider, DecorationsService } from '@theia/core/lib/browser/decorations-service';
-import { ProblemManager } from './problem-manager';
-import { ProblemUtils } from './problem-utils';
+import { ProblemManager } from './problem-manager.js';
+import { ProblemUtils } from './problem-utils.js';
 import { FrontendApplicationContribution } from '@theia/core/lib/browser';
 import { CancellationToken, Emitter, Event, nls } from '@theia/core';
 import debounce from 'lodash.debounce';

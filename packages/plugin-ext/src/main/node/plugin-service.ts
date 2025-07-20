@@ -21,7 +21,7 @@ const vhost = require('vhost');
 import { default as express } from 'express';
 import { BackendApplicationContribution } from '@theia/core/lib/node/backend-application';
 import { inject, injectable, postConstruct } from 'inversify';
-import { WebviewExternalEndpoint } from '../common/webview-protocol';
+import { WebviewExternalEndpoint } from '../common/webview-protocol.js';
 import { environment } from '@theia/application-package/lib/environment';
 import { WsRequestValidatorContribution } from '@theia/core/lib/node/ws-request-validators';
 import { MaybePromise } from '@theia/core/lib/common';

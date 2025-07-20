@@ -15,8 +15,8 @@
 // *****************************************************************************
 
 import { injectable, inject } from 'inversify';
-import { CustomTaskRunner } from './custom-task-runner';
-import { TaskRunnerContribution, TaskRunnerRegistry } from '../task-runner';
+import { CustomTaskRunner } from './custom-task-runner.js';
+import { TaskRunnerContribution, TaskRunnerRegistry } from '../task-runner.js';
 
 @injectable()
 export class CustomTaskRunnerContribution implements TaskRunnerContribution {

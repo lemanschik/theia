@@ -17,7 +17,7 @@
 import { injectable } from 'inversify';
 import { JSONExt } from '@lumino/coreutils';
 import { Event, Emitter } from '@theia/core/lib/common';
-import { TaskConfiguration, TaskDefinition, TaskCustomization } from '../common';
+import { TaskConfiguration, TaskDefinition, TaskCustomization } from '../common/index.js';
 import { Disposable } from '@theia/core/lib/common/disposable';
 
 @injectable()

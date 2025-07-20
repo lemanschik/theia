@@ -15,11 +15,11 @@
 // *****************************************************************************
 
 import { ContainerModule } from 'inversify';
-import { VERCEL_AI_LANGUAGE_MODELS_MANAGER_PATH, VercelAiLanguageModelsManager } from '../common/vercel-ai-language-models-manager';
+import { VERCEL_AI_LANGUAGE_MODELS_MANAGER_PATH, VercelAiLanguageModelsManager } from '../common/vercel-ai-language-models-manager.js';
 import { ConnectionHandler, RpcConnectionHandler } from '@theia/core';
-import { VercelAiLanguageModelsManagerImpl } from './vercel-ai-language-models-manager-impl';
+import { VercelAiLanguageModelsManagerImpl } from './vercel-ai-language-models-manager-impl.js';
 import { ConnectionContainerModule } from '@theia/core/lib/node/messaging/connection-container-module';
-import { VercelAiLanguageModelFactory } from './vercel-ai-language-model-factory';
+import { VercelAiLanguageModelFactory } from './vercel-ai-language-model-factory.js';
 
 const vercelAiConnectionModule = ConnectionContainerModule.create(({ bind, bindBackendService, bindFrontendService }) => {
     bind(VercelAiLanguageModelsManagerImpl).toSelf().inSingletonScope();

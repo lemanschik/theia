@@ -21,12 +21,12 @@
 // code copied and modified from https://github.com/microsoft/vscode/blob/1.47.3/src/vs/workbench/services/authentication/browser/authenticationService.ts
 
 import { injectable, inject, postConstruct } from 'inversify';
-import { Emitter, Event } from '../common/event';
-import { StorageService } from '../browser/storage-service';
-import { Disposable, DisposableCollection } from '../common/disposable';
-import { ACCOUNTS_MENU, ACCOUNTS_SUBMENU, MenuModelRegistry } from '../common/menu';
-import { Command, CommandRegistry } from '../common/command';
-import { nls } from '../common/nls';
+import { Emitter, Event } from '../common/event.js';
+import { StorageService } from '../browser/storage-service.js';
+import { Disposable, DisposableCollection } from '../common/disposable.js';
+import { ACCOUNTS_MENU, ACCOUNTS_SUBMENU, MenuModelRegistry } from '../common/menu/index.js';
+import { Command, CommandRegistry } from '../common/command.js';
+import { nls } from '../common/nls.js';
 
 export interface AuthenticationSessionAccountInformation {
     readonly id: string;

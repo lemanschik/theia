@@ -14,13 +14,13 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
-import { Disposable, Event, isObject, MaybePromise } from '../../common';
-import { PreferenceService } from './preference-service';
-import { PreferenceSchema } from './preference-contribution';
-import { PreferenceScope } from './preference-scope';
-import { OverridePreferenceName } from './preference-language-override-service';
+import { Disposable, Event, isObject, MaybePromise } from '../../common/index.js';
+import { PreferenceService } from './preference-service.js';
+import { PreferenceSchema } from './preference-contribution.js';
+import { PreferenceScope } from './preference-scope.js';
+import { OverridePreferenceName } from './preference-language-override-service.js';
 
 /**
  * It is worth explaining the type for `PreferenceChangeEvent`:

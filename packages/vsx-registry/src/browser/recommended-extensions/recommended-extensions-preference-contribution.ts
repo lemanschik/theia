@@ -19,7 +19,7 @@ import { JsonSchemaContribution } from '@theia/core/lib/browser/json-schema-stor
 import { nls } from '@theia/core/lib/common/nls';
 import { PreferenceConfiguration } from '@theia/core/lib/browser/preferences/preference-configurations';
 import { interfaces } from 'inversify';
-import { ExtensionSchemaContribution, extensionsSchemaID } from './recommended-extensions-json-schema';
+import { ExtensionSchemaContribution, extensionsSchemaID } from './recommended-extensions-json-schema.js';
 
 export interface RecommendedExtensions {
     recommendations?: string[];

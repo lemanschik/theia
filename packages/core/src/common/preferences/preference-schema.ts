@@ -14,12 +14,12 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
 import { JSONValue } from '@lumino/coreutils';
-import { IJSONSchema } from '../json-schema';
-import { PreferenceScope } from './preference-scope';
-import { isObject, isString } from '../types';
+import { IJSONSchema } from '../json-schema.js';
+import { PreferenceScope } from './preference-scope.js';
+import { isObject, isString } from '../types.js';
 
 export interface PreferenceSchema {
     [name: string]: any,

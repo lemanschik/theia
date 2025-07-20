@@ -19,7 +19,7 @@ import { RequestContext, RequestService } from '@theia/request';
 import { inject, injectable } from 'inversify';
 import { LanguageInfo } from '@theia/core/lib/common/i18n/localization';
 import { PluginPackage, PluginServer } from '@theia/plugin-ext';
-import { OVSXClientProvider } from '../common/ovsx-client-provider';
+import { OVSXClientProvider } from '../common/ovsx-client-provider.js';
 import { VSXSearchEntry } from '@theia/ovsx-client';
 import { VSCodeExtensionUri } from '@theia/plugin-ext-vscode/lib/common/plugin-vscode-uri';
 import { nls } from '@theia/core/lib/common/nls';

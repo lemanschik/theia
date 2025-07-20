@@ -15,22 +15,22 @@
 // *****************************************************************************
 
 import { ContainerModule } from 'inversify';
-import { generateUuid } from '../common/uuid';
-import { bindContributionProvider } from '../common/contribution-provider';
-import { RpcConnectionHandler } from '../common/messaging/proxy-factory';
-import { ElectronSecurityToken } from '../electron-common/electron-token';
-import { ElectronMainWindowService, electronMainWindowServicePath } from '../electron-common/electron-main-window-service';
-import { ElectronMainApplication, ElectronMainApplicationContribution, ElectronMainProcessArgv } from './electron-main-application';
-import { ElectronMainWindowServiceImpl } from './electron-main-window-service-impl';
-import { TheiaBrowserWindowOptions, TheiaElectronWindow, TheiaElectronWindowFactory, WindowApplicationConfig } from './theia-electron-window';
-import { TheiaMainApi } from './electron-api-main';
-import { ElectronMessagingContribution } from './messaging/electron-messaging-contribution';
-import { ElectronSecurityTokenService } from './electron-security-token-service';
-import { ElectronMessagingService } from './messaging/electron-messaging-service';
-import { ElectronConnectionHandler } from './messaging/electron-connection-handler';
+import { generateUuid } from '../common/uuid.js';
+import { bindContributionProvider } from '../common/contribution-provider.js';
+import { RpcConnectionHandler } from '../common/messaging/proxy-factory.js';
+import { ElectronSecurityToken } from '../electron-common/electron-token.js';
+import { ElectronMainWindowService, electronMainWindowServicePath } from '../electron-common/electron-main-window-service.js';
+import { ElectronMainApplication, ElectronMainApplicationContribution, ElectronMainProcessArgv } from './electron-main-application.js';
+import { ElectronMainWindowServiceImpl } from './electron-main-window-service-impl.js';
+import { TheiaBrowserWindowOptions, TheiaElectronWindow, TheiaElectronWindowFactory, WindowApplicationConfig } from './theia-electron-window.js';
+import { TheiaMainApi } from './electron-api-main.js';
+import { ElectronMessagingContribution } from './messaging/electron-messaging-contribution.js';
+import { ElectronSecurityTokenService } from './electron-security-token-service.js';
+import { ElectronMessagingService } from './messaging/electron-messaging-service.js';
+import { ElectronConnectionHandler } from './messaging/electron-connection-handler.js';
 
 const electronSecurityToken: ElectronSecurityToken = { value: generateUuid() };
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 (global as any)[ElectronSecurityToken] = electronSecurityToken;
 
 export default new ContainerModule(bind => {

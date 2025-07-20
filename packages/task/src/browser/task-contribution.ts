@@ -16,7 +16,7 @@
 
 import { injectable, postConstruct } from 'inversify';
 import { Disposable } from '@theia/core/lib/common/disposable';
-import { TaskConfiguration } from '../common/task-protocol';
+import { TaskConfiguration } from '../common/task-protocol.js';
 import { WaitUntilEvent, Emitter } from '@theia/core/lib/common/event';
 
 export const TaskContribution = Symbol('TaskContribution');

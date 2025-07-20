@@ -15,8 +15,8 @@
 // *****************************************************************************
 
 import { ContainerModule } from 'inversify';
-import { MetricsFrontendApplicationContribution } from './metrics-frontend-application-contribution';
-import { MeasurementNotificationService, measurementNotificationServicePath } from '../common';
+import { MetricsFrontendApplicationContribution } from './metrics-frontend-application-contribution.js';
+import { MeasurementNotificationService, measurementNotificationServicePath } from '../common/index.js';
 import { FrontendApplicationContribution, WebSocketConnectionProvider } from '@theia/core/lib/browser';
 
 export default new ContainerModule(bind => {

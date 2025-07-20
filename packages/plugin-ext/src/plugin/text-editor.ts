@@ -13,15 +13,15 @@
 //
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
-import { TextEditorConfiguration, TextEditorsMain, TextEditorConfigurationUpdate, SingleEditOperation } from '../common/plugin-api-rpc';
-import { Range as ApiRange } from '../common/plugin-api-rpc-model';
-import { Selection, Range, TextEditorLineNumbersStyle, SnippetString, Position, TextEditorRevealType, EndOfLine } from './types-impl';
+import { TextEditorConfiguration, TextEditorsMain, TextEditorConfigurationUpdate, SingleEditOperation } from '../common/plugin-api-rpc.js';
+import { Range as ApiRange } from '../common/plugin-api-rpc-model.js';
+import { Selection, Range, TextEditorLineNumbersStyle, SnippetString, Position, TextEditorRevealType, EndOfLine } from './types-impl.js';
 import theia from '@theia/plugin';
-import { DocumentDataExt } from './document-data';
-import { readonly, illegalArgument } from '../common/errors';
-import { TextEditorCursorStyle } from '../common/editor-options';
-import { ok } from '../common/assert';
-import * as Converter from './type-converters';
+import { DocumentDataExt } from './document-data.js';
+import { readonly, illegalArgument } from '../common/errors.js';
+import { TextEditorCursorStyle } from '../common/editor-options.js';
+import { ok } from '../common/assert.js';
+import * as Converter from './type-converters.js';
 
 export class TextEditorExt implements theia.TextEditor {
     private _viewColumn: theia.ViewColumn | undefined;
@@ -133,7 +133,7 @@ export class TextEditorExt implements theia.TextEditor {
         this._viewColumn = value;
     }
 
-    // eslint-disable-next-line max-len
+     
     edit(callback: (editBuilder: theia.TextEditorEdit) => void, options: { undoStopBefore: boolean; undoStopAfter: boolean; } = { undoStopBefore: true, undoStopAfter: true }): Promise<boolean> {
         if (this.disposed) {
             return Promise.reject(new Error('TextEditor#edit not possible on closed editor'));
@@ -143,7 +143,7 @@ export class TextEditorExt implements theia.TextEditor {
         callback(edit);
         return this.applyEdit(edit);
     }
-    // eslint-disable-next-line max-len
+     
     insertSnippet(snippet: SnippetString, location?: Position | Range | Position[] | Range[], options: { undoStopBefore: boolean; undoStopAfter: boolean; } = { undoStopBefore: true, undoStopAfter: true }): Promise<boolean> {
         if (this.disposed) {
             return Promise.reject(new Error('TextEditor#insertSnippet not possible on closed editors'));
@@ -249,7 +249,7 @@ export class TextEditorExt implements theia.TextEditor {
         });
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     private runOnProxy(callback: () => Promise<any>): Promise<TextEditorExt | undefined> {
         if (this.disposed) {
             console.warn('TextEditor is disposed!');
@@ -577,7 +577,7 @@ export class TextEditorEdit {
     }
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 function warnOnError(promise: Promise<any>): void {
     promise.then(undefined, err => {
         console.warn(err);

@@ -15,14 +15,14 @@
 // *****************************************************************************
 
 import { injectable, inject, postConstruct } from 'inversify';
-import { NewWindowOptions, WindowSearchParams } from '../../common/window';
-import { DefaultWindowService } from '../../browser/window/default-window-service';
-import { ElectronMainWindowService } from '../../electron-common/electron-main-window-service';
-import { ElectronWindowPreferences } from './electron-window-preferences';
-import { ConnectionCloseService } from '../../common/messaging/connection-management';
-import { FrontendIdProvider } from '../../browser/messaging/frontend-id-provider';
-import { WindowReloadOptions } from '../../browser/window/window-service';
-import { Listener, ListenerList } from '../../common/listener';
+import { NewWindowOptions, WindowSearchParams } from '../../common/window.js';
+import { DefaultWindowService } from '../../browser/window/default-window-service.js';
+import { ElectronMainWindowService } from '../../electron-common/electron-main-window-service.js';
+import { ElectronWindowPreferences } from './electron-window-preferences.js';
+import { ConnectionCloseService } from '../../common/messaging/connection-management.js';
+import { FrontendIdProvider } from '../../browser/messaging/frontend-id-provider.js';
+import { WindowReloadOptions } from '../../browser/window/window-service.js';
+import { Listener, ListenerList } from '../../common/listener.js';
 
 @injectable()
 export class ElectronWindowService extends DefaultWindowService {

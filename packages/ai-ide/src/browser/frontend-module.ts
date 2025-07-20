@@ -19,11 +19,11 @@ import '../../src/browser/style/index.css';
 import { ContainerModule } from 'inversify';
 import { ChatAgent, DefaultChatAgentId, FallbackChatAgentId } from '@theia/ai-chat/lib/common';
 import { Agent, AIVariableContribution, bindToolProvider } from '@theia/ai-core/lib/common';
-import { ArchitectAgent } from './architect-agent';
-import { CoderAgent } from './coder-agent';
-import { SummarizeSessionCommandContribution } from './summarize-session-command-contribution';
-import { FileContentFunction, FileDiagnosticProvider, GetWorkspaceDirectoryStructure, GetWorkspaceFileList, WorkspaceFunctionScope } from './workspace-functions';
-import { WorkspaceSearchProvider } from './workspace-search-provider';
+import { ArchitectAgent } from './architect-agent.js';
+import { CoderAgent } from './coder-agent.js';
+import { SummarizeSessionCommandContribution } from './summarize-session-command-contribution.js';
+import { FileContentFunction, FileDiagnosticProvider, GetWorkspaceDirectoryStructure, GetWorkspaceFileList, WorkspaceFunctionScope } from './workspace-functions.js';
+import { WorkspaceSearchProvider } from './workspace-search-provider.js';
 import {
     FrontendApplicationContribution,
     PreferenceContribution,
@@ -32,8 +32,8 @@ import {
     RemoteConnectionProvider,
     ServiceConnectionProvider
 } from '@theia/core/lib/browser';
-import { TaskListProvider, TaskRunnerProvider } from './workspace-task-provider';
-import { WorkspacePreferencesSchema } from './workspace-preferences';
+import { TaskListProvider, TaskRunnerProvider } from './workspace-task-provider.js';
+import { WorkspacePreferencesSchema } from './workspace-preferences.js';
 import {
     ClearFileChanges,
     GetProposedFileState,
@@ -44,33 +44,33 @@ import {
     WriteFileContent,
     WriteFileReplacements,
     SimpleWriteFileReplacements
-} from './file-changeset-functions';
-import { OrchestratorChatAgent, OrchestratorChatAgentId } from '../common/orchestrator-chat-agent';
-import { UniversalChatAgent, UniversalChatAgentId } from '../common/universal-chat-agent';
-import { AppTesterChatAgent } from './app-tester-chat-agent';
-import { CommandChatAgent } from '../common/command-chat-agents';
-import { ListChatContext, ResolveChatContext, AddFileToChatContext } from './context-functions';
-import { AIAgentConfigurationWidget } from './ai-configuration/agent-configuration-widget';
-import { AIConfigurationSelectionService } from './ai-configuration/ai-configuration-service';
-import { AIAgentConfigurationViewContribution } from './ai-configuration/ai-configuration-view-contribution';
-import { AIConfigurationContainerWidget } from './ai-configuration/ai-configuration-widget';
-import { AIVariableConfigurationWidget } from './ai-configuration/variable-configuration-widget';
-import { ContextFilesVariableContribution } from '../common/context-files-variable';
-import { AIToolsConfigurationWidget } from './ai-configuration/tools-configuration-widget';
+} from './file-changeset-functions.js';
+import { OrchestratorChatAgent, OrchestratorChatAgentId } from '../common/orchestrator-chat-agent.js';
+import { UniversalChatAgent, UniversalChatAgentId } from '../common/universal-chat-agent.js';
+import { AppTesterChatAgent } from './app-tester-chat-agent.js';
+import { CommandChatAgent } from '../common/command-chat-agents.js';
+import { ListChatContext, ResolveChatContext, AddFileToChatContext } from './context-functions.js';
+import { AIAgentConfigurationWidget } from './ai-configuration/agent-configuration-widget.js';
+import { AIConfigurationSelectionService } from './ai-configuration/ai-configuration-service.js';
+import { AIAgentConfigurationViewContribution } from './ai-configuration/ai-configuration-view-contribution.js';
+import { AIConfigurationContainerWidget } from './ai-configuration/ai-configuration-widget.js';
+import { AIVariableConfigurationWidget } from './ai-configuration/variable-configuration-widget.js';
+import { ContextFilesVariableContribution } from '../common/context-files-variable.js';
+import { AIToolsConfigurationWidget } from './ai-configuration/tools-configuration-widget.js';
 import { TabBarToolbarContribution } from '@theia/core/lib/browser/shell/tab-bar-toolbar';
-import { AiConfigurationPreferences } from './ai-configuration/ai-configuration-preferences';
-import { TemplatePreferenceContribution } from './template-preference-contribution';
-import { AIMCPConfigurationWidget } from './ai-configuration/mcp-configuration-widget';
+import { AiConfigurationPreferences } from './ai-configuration/ai-configuration-preferences.js';
+import { TemplatePreferenceContribution } from './template-preference-contribution.js';
+import { AIMCPConfigurationWidget } from './ai-configuration/mcp-configuration-widget.js';
 import { ChatWelcomeMessageProvider } from '@theia/ai-chat-ui/lib/browser/chat-tree-view';
-import { IdeChatWelcomeMessageProvider } from './ide-chat-welcome-message-provider';
-import { AITokenUsageConfigurationWidget } from './ai-configuration/token-usage-configuration-widget';
-import { TaskContextSummaryVariableContribution } from './task-background-summary-variable';
-import { TaskContextFileStorageService } from './task-context-file-storage-service';
+import { IdeChatWelcomeMessageProvider } from './ide-chat-welcome-message-provider.js';
+import { AITokenUsageConfigurationWidget } from './ai-configuration/token-usage-configuration-widget.js';
+import { TaskContextSummaryVariableContribution } from './task-background-summary-variable.js';
+import { TaskContextFileStorageService } from './task-context-file-storage-service.js';
 import { TaskContextStorageService } from '@theia/ai-chat/lib/browser/task-context-service';
 import { CommandContribution } from '@theia/core';
-import { AIPromptFragmentsConfigurationWidget } from './ai-configuration/prompt-fragments-configuration-widget';
-import { BrowserAutomation, browserAutomationPath } from '../common/browser-automation-protocol';
-import { CloseBrowserProvider, IsBrowserRunningProvider, LaunchBrowserProvider, QueryDomProvider } from './app-tester-chat-functions';
+import { AIPromptFragmentsConfigurationWidget } from './ai-configuration/prompt-fragments-configuration-widget.js';
+import { BrowserAutomation, browserAutomationPath } from '../common/browser-automation-protocol.js';
+import { CloseBrowserProvider, IsBrowserRunningProvider, LaunchBrowserProvider, QueryDomProvider } from './app-tester-chat-functions.js';
 
 export default new ContainerModule((bind, _unbind, _isBound, rebind) => {
     bind(PreferenceContribution).toConstantValue({ schema: WorkspacePreferencesSchema });

@@ -17,8 +17,8 @@
 import http from 'http';
 import https from 'https';
 import { AddressInfo } from 'net';
-import { checkParentAlive } from './messaging/ipc-protocol';
-import { MaybePromise } from '../common/types';
+import { checkParentAlive } from './messaging/ipc-protocol.js';
+import { MaybePromise } from '../common/types.js';
 
 checkParentAlive();
 

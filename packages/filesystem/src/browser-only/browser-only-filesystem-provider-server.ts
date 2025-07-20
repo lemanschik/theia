@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { injectable } from 'inversify';
-import { FileSystemProviderServer } from '../common/remote-file-system-provider';
+import { FileSystemProviderServer } from '../common/remote-file-system-provider.js';
 import { Event } from '@theia/core';
 
 /**

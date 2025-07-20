@@ -14,16 +14,16 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
 import { inject, injectable, postConstruct } from 'inversify';
 import { nls } from '@theia/core';
 import { Localization } from '@theia/core/lib/common/i18n/localization';
-import { LocalizationExt, LocalizationMain, Plugin, PLUGIN_RPC_CONTEXT, StringDetails } from '../common';
-import { LanguagePackBundle } from '../common/language-pack-service';
-import { RPCProtocol } from '../common/rpc-protocol';
-import { URI } from './types-impl';
-import { PluginLogger } from './logger';
+import { LocalizationExt, LocalizationMain, Plugin, PLUGIN_RPC_CONTEXT, StringDetails } from '../common/index.js';
+import { LanguagePackBundle } from '../common/language-pack-service.js';
+import { RPCProtocol } from '../common/rpc-protocol.js';
+import { URI } from './types-impl.js';
+import { PluginLogger } from './logger.js';
 
 @injectable()
 export class LocalizationExtImpl implements LocalizationExt {

@@ -17,13 +17,13 @@
 import { injectable, inject } from 'inversify';
 import { Command, CommandHandler, CommandRegistry, SelectionService } from '@theia/core';
 import { TextEditorSelection } from '@theia/editor/lib/browser';
-import { MonacoEditor } from './monaco-editor';
-import { MonacoEditorProvider } from './monaco-editor-provider';
+import { MonacoEditor } from './monaco-editor.js';
+import { MonacoEditorProvider } from './monaco-editor-provider.js';
 
 export interface MonacoEditorCommandHandler {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     execute(editor: MonacoEditor, ...args: any[]): any;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     isEnabled?(editor: MonacoEditor, ...args: any[]): boolean;
 }
 @injectable()
@@ -62,7 +62,7 @@ export class MonacoCommandRegistry {
         };
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     protected execute(monacoHandler: MonacoEditorCommandHandler, ...args: any[]): any {
         const editor = this.monacoEditors.current;
         if (editor) {
@@ -71,13 +71,13 @@ export class MonacoCommandRegistry {
         return Promise.resolve();
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     protected isEnabled(monacoHandler: MonacoEditorCommandHandler, ...args: any[]): boolean {
         const editor = this.monacoEditors.current;
         return !!editor && (!monacoHandler.isEnabled || monacoHandler.isEnabled(editor, ...args));
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     protected isVisible(monacoHandler: MonacoEditorCommandHandler, ...args: any[]): boolean {
         return TextEditorSelection.is(this.selectionService.selection);
     }

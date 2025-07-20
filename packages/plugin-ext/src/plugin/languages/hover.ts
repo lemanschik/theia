@@ -17,11 +17,11 @@
 
 import { URI } from 'vscode-uri';
 import theia from '@theia/plugin';
-import { DocumentsExtImpl } from '../documents';
-import { Hover } from '../../common/plugin-api-rpc-model';
-import * as Converter from '../type-converters';
-import { Range } from '../types-impl';
-import { Position } from '../../common/plugin-api-rpc';
+import { DocumentsExtImpl } from '../documents.js';
+import { Hover } from '../../common/plugin-api-rpc-model.js';
+import * as Converter from '../type-converters.js';
+import { Range } from '../types-impl.js';
+import { Position } from '../../common/plugin-api-rpc.js';
 
 export class HoverAdapter {
 
@@ -40,7 +40,7 @@ export class HoverAdapter {
         const pos = Converter.toPosition(position);
 
         return Promise.resolve(this.provider.provideHover(doc, pos, token)).then(value => {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+             
             if (!value || !Array.isArray(value.contents) || (value.contents as Array<any>).length === 0) {
                 return undefined;
             }

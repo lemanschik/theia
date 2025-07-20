@@ -28,18 +28,18 @@ import {
     ScmMain, ScmRawResource, ScmRawResourceGroup,
     ScmRawResourceSplice, ScmRawResourceSplices,
     SourceControlGroupFeatures
-} from '../common';
+} from '../common/index.js';
 import { Disposable, DisposableCollection } from '@theia/core/lib/common/disposable';
-import { CommandRegistryImpl } from '../plugin/command-registry';
-import { Splice } from '../common/arrays';
-import { UriComponents } from '../common/uri-components';
-import { Command } from '../common/plugin-api-rpc-model';
-import { RPCProtocol } from '../common/rpc-protocol';
-import { URI, ThemeIcon } from './types-impl';
-import { ScmCommandArg } from '../common/plugin-api-rpc';
+import { CommandRegistryImpl } from '../plugin/command-registry.js';
+import { Splice } from '../common/arrays.js';
+import { UriComponents } from '../common/uri-components.js';
+import { Command } from '../common/plugin-api-rpc-model.js';
+import { RPCProtocol } from '../common/rpc-protocol.js';
+import { URI, ThemeIcon } from './types-impl.js';
+import { ScmCommandArg } from '../common/plugin-api-rpc.js';
 import { sep } from '@theia/core/lib/common/paths';
-import { PluginIconPath } from './plugin-icon-path';
-import { createAPIObject } from './plugin-context';
+import { PluginIconPath } from './plugin-icon-path.js';
+import { createAPIObject } from './plugin-context.js';
 type ProviderHandle = number;
 type GroupHandle = number;
 type ResourceStateHandle = number;
@@ -240,7 +240,7 @@ function compareResourceStates(a: theia.SourceControlResourceState, b: theia.Sou
     return result;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 function compareArgs(a: any[], b: any[]): boolean {
     for (let i = 0; i < a.length; i++) {
         if (a[i] !== b[i]) {
@@ -484,7 +484,7 @@ class ScmResourceGroupImpl implements theia.SourceControlResourceGroup {
 
                 // TODO remove the letter and colorId fields when the FileDecorationProvider is applied, see https://github.com/eclipse-theia/theia/pull/8911
                 const rawResource = {
-                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                     
                     handle, sourceUri, letter: (r as any).letter, colorId: (r as any).color?.id, icons,
                     tooltip, strikeThrough, faded, contextValue, command
                 } as ScmRawResource;
@@ -756,7 +756,7 @@ export class ScmExtImpl implements ScmExt {
         this.proxy = rpc.getProxy(PLUGIN_RPC_CONTEXT.SCM_MAIN);
 
         commands.registerArgumentProcessor({
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+             
             processArgument: (arg: any) => {
                 if (!ScmCommandArg.is(arg)) {
                     return arg;

@@ -31,27 +31,27 @@ import {
     TerminalServiceExt,
     LocalizationExt,
     ExtensionKind
-} from '../common/plugin-api-rpc';
-import { PluginMetadata, PluginJsonValidationContribution } from '../common/plugin-protocol';
+} from '../common/plugin-api-rpc.js';
+import { PluginMetadata, PluginJsonValidationContribution } from '../common/plugin-protocol.js';
 import theia from '@theia/plugin';
-import * as types from './types-impl';
-import { join } from './path';
-import { EnvExtImpl } from './env';
-import { PreferenceRegistryExtImpl } from './preference-registry';
-import { InternalStorageExt, Memento, GlobalState } from './plugin-storage';
-import { ExtPluginApi } from '../common/plugin-ext-api-contribution';
-import { RPCProtocol } from '../common/rpc-protocol';
+import * as types from './types-impl.js';
+import { join } from './path.js';
+import { EnvExtImpl } from './env.js';
+import { PreferenceRegistryExtImpl } from './preference-registry.js';
+import { InternalStorageExt, Memento, GlobalState } from './plugin-storage.js';
+import { ExtPluginApi } from '../common/plugin-ext-api-contribution.js';
+import { RPCProtocol } from '../common/rpc-protocol.js';
 import { Emitter, Event } from '@theia/core/lib/common/event';
-import { WebviewsExtImpl } from './webviews';
-import { URI as Uri } from './types-impl';
-import { InternalSecretsExt, SecretStorageExt } from '../plugin/secrets-ext';
-import { PluginExt } from './plugin-context';
+import { WebviewsExtImpl } from './webviews.js';
+import { URI as Uri } from './types-impl.js';
+import { InternalSecretsExt, SecretStorageExt } from '../plugin/secrets-ext.js';
+import { PluginExt } from './plugin-context.js';
 import { Deferred } from '@theia/core/lib/common/promise-util';
-import { PluginLogger } from './logger';
+import { PluginLogger } from './logger.js';
 
 export interface PluginHost {
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     loadPlugin(plugin: Plugin): any;
 
     init(data: PluginMetadata[]): Promise<[Plugin[], Plugin[]]> | [Plugin[], Plugin[]];
@@ -86,7 +86,7 @@ export type MinimalTerminalServiceExt = Pick<TerminalServiceExt,
     'getEnvironmentVariableCollection' | '$initEnvironmentVariableCollections' | '$setShell'>;
 
 @injectable()
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 export abstract class AbstractPluginManagerExtImpl<P extends Record<string, any>> implements AbstractPluginManagerExt<P>, PluginManager {
 
     @inject(EnvExtImpl)
@@ -369,7 +369,7 @@ export abstract class AbstractPluginManagerExtImpl<P extends Record<string, any>
         }
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     private async startPlugin(plugin: Plugin, configStorage: ConfigStorage, pluginMain: any): Promise<void> {
         const subscriptions: theia.Disposable[] = [];
         const asAbsolutePath = (relativePath: string): string => join(plugin.pluginFolder, relativePath);

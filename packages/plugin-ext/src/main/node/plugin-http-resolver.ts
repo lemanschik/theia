@@ -20,8 +20,8 @@ import { Deferred } from '@theia/core/lib/common/promise-util';
 import { promises as fs } from 'fs';
 import path from 'path';
 import url from 'url';
-import { PluginDeployerResolver, PluginDeployerResolverContext } from '../../common';
-import { getTempDirPathAsync } from './temp-dir-util';
+import { PluginDeployerResolver, PluginDeployerResolverContext } from '../../common/index.js';
+import { getTempDirPathAsync } from './temp-dir-util.js';
 
 /**
  * Resolver that handle the http(s): protocol

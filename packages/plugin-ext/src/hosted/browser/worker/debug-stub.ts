@@ -16,9 +16,9 @@
 
 // eslint-disable-next-line @theia/runtime-import-check
 import { interfaces } from 'inversify';
-import { DebugExtImpl } from '../../../plugin/debug/debug-ext';
+import { DebugExtImpl } from '../../../plugin/debug/debug-ext.js';
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 export function createDebugExtStub(container: interfaces.Container): DebugExtImpl {
     const delegate = container.get(DebugExtImpl);
     return new Proxy(delegate, {

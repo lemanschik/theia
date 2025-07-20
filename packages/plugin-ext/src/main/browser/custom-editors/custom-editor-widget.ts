@@ -20,8 +20,8 @@ import { FileOperation } from '@theia/filesystem/lib/common/files';
 import { ApplicationShell, DelegatingSaveable, NavigatableWidget, Saveable, SaveableSource } from '@theia/core/lib/browser';
 import { SaveableService } from '@theia/core/lib/browser/saveable-service';
 import { Reference } from '@theia/core/lib/common/reference';
-import { WebviewWidget } from '../webview/webview';
-import { CustomEditorModel } from './custom-editors-main';
+import { WebviewWidget } from '../webview/webview.js';
+import { CustomEditorModel } from './custom-editors-main.js';
 import { CustomEditorWidget as CustomEditorWidgetShape } from '@theia/editor/lib/browser';
 
 @injectable()

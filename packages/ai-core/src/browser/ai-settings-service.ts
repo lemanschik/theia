@@ -17,7 +17,7 @@ import { DisposableCollection, Emitter, Event } from '@theia/core';
 import { PreferenceScope, PreferenceService } from '@theia/core/lib/browser';
 import { inject, injectable } from 'inversify';
 import { JSONObject } from '@lumino/coreutils';
-import { AISettings, AISettingsService, AgentSettings } from '../common';
+import { AISettings, AISettingsService, AgentSettings } from '../common/index.js';
 
 @injectable()
 export class AISettingsServiceImpl implements AISettingsService {

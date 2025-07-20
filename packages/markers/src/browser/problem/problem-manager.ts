@@ -15,8 +15,8 @@
 // *****************************************************************************
 
 import { injectable } from 'inversify';
-import { MarkerManager } from '../marker-manager';
-import { PROBLEM_KIND } from '../../common/problem-marker';
+import { MarkerManager } from '../marker-manager.js';
+import { PROBLEM_KIND } from '../../common/problem-marker.js';
 import { Diagnostic } from 'vscode-languageserver-protocol';
 
 export interface ProblemStat {

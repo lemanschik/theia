@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { StorageService } from '../storage-service';
+import { StorageService } from '../storage-service.js';
 import { injectable } from 'inversify';
 
 /**
@@ -24,10 +24,10 @@ import { injectable } from 'inversify';
 export class MockStorageService implements StorageService {
     readonly data = new Map<string, unknown | undefined>();
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     onSetDataCallback?: (key: string, data?: any) => void;
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     onSetData(callback: (key: string, data?: any) => void): void {
         this.onSetDataCallback = callback;
     }

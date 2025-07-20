@@ -18,7 +18,7 @@ import { injectable, inject } from 'inversify';
 import { ArrayUtils, CommandRegistry, MenuModelRegistry } from '@theia/core/lib/common';
 import { CommonCommands, CommonMenus, AbstractViewContribution, FrontendApplicationContribution, FrontendApplication, PreferenceService } from '@theia/core/lib/browser';
 import { EditorManager } from '@theia/editor/lib/browser/editor-manager';
-import { GettingStartedWidget } from './getting-started-widget';
+import { GettingStartedWidget } from './getting-started-widget.js';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
 import { FrontendApplicationStateService } from '@theia/core/lib/browser/frontend-application-state';
 import { PreviewContribution } from '@theia/preview/lib/browser/preview-contribution';

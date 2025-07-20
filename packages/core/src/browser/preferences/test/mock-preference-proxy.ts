@@ -14,10 +14,10 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { Emitter } from '../../../common';
-import { PreferenceChange } from '../preference-service';
+import { Emitter } from '../../../common/index.js';
+import { PreferenceChange } from '../preference-service.js';
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 export function createMockPreferenceProxy(preferences: { [p: string]: any }): any {
     const unsupportedOperation = (_: any, __: string) => {
         throw new Error('Unsupported operation');

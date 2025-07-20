@@ -17,8 +17,8 @@
 import { injectable, inject } from 'inversify';
 import { TreeModelImpl, TreeNode, TreeProps, CompositeTreeNode, SelectableTreeNode, ExpandableTreeNode } from '@theia/core/lib/browser/tree';
 import URI from '@theia/core/lib/common/uri';
-import { ScmProvider, ScmResourceGroup, ScmResource, ScmResourceDecorations } from './scm-provider';
-import { ScmContextKeyService } from './scm-context-key-service';
+import { ScmProvider, ScmResourceGroup, ScmResource, ScmResourceDecorations } from './scm-provider.js';
+import { ScmContextKeyService } from './scm-context-key-service.js';
 
 export const ScmTreeModelProps = Symbol('ScmTreeModelProps');
 export interface ScmTreeModelProps {
@@ -389,7 +389,7 @@ export abstract class ScmTreeModel extends TreeModelImpl {
         return this.groups.find(g => g.id === groupId);
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     override storeState(): any {
         return {
             ...super.storeState(),
@@ -397,7 +397,7 @@ export abstract class ScmTreeModel extends TreeModelImpl {
         };
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     override restoreState(oldState: any): void {
         super.restoreState(oldState);
         this.viewMode = oldState.mode === 'tree' ? 'tree' : 'list';

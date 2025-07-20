@@ -17,26 +17,26 @@
 import 'reflect-metadata';
 import { Container } from 'inversify';
 import theia from '@theia/plugin';
-import { emptyPlugin, MAIN_RPC_CONTEXT, Plugin } from '../../../common/plugin-api-rpc';
-import { ExtPluginApi } from '../../../common/plugin-ext-api-contribution';
-import { getPluginId, PluginMetadata } from '../../../common/plugin-protocol';
-import { RPCProtocol } from '../../../common/rpc-protocol';
-import { ClipboardExt } from '../../../plugin/clipboard-ext';
-import { EditorsAndDocumentsExtImpl } from '../../../plugin/editors-and-documents';
-import { MessageRegistryExt } from '../../../plugin/message-registry';
-import { createAPIFactory } from '../../../plugin/plugin-context';
-import { PluginManagerExtImpl } from '../../../plugin/plugin-manager';
-import { KeyValueStorageProxy } from '../../../plugin/plugin-storage';
-import { PreferenceRegistryExtImpl } from '../../../plugin/preference-registry';
-import { WebviewsExtImpl } from '../../../plugin/webviews';
-import { WorkspaceExtImpl } from '../../../plugin/workspace';
-import { loadManifest } from './plugin-manifest-loader';
-import { EnvExtImpl } from '../../../plugin/env';
-import { DebugExtImpl } from '../../../plugin/debug/debug-ext';
-import { LocalizationExtImpl } from '../../../plugin/localization-ext';
-import pluginHostModule from './worker-plugin-module';
+import { emptyPlugin, MAIN_RPC_CONTEXT, Plugin } from '../../../common/plugin-api-rpc.js';
+import { ExtPluginApi } from '../../../common/plugin-ext-api-contribution.js';
+import { getPluginId, PluginMetadata } from '../../../common/plugin-protocol.js';
+import { RPCProtocol } from '../../../common/rpc-protocol.js';
+import { ClipboardExt } from '../../../plugin/clipboard-ext.js';
+import { EditorsAndDocumentsExtImpl } from '../../../plugin/editors-and-documents.js';
+import { MessageRegistryExt } from '../../../plugin/message-registry.js';
+import { createAPIFactory } from '../../../plugin/plugin-context.js';
+import { PluginManagerExtImpl } from '../../../plugin/plugin-manager.js';
+import { KeyValueStorageProxy } from '../../../plugin/plugin-storage.js';
+import { PreferenceRegistryExtImpl } from '../../../plugin/preference-registry.js';
+import { WebviewsExtImpl } from '../../../plugin/webviews.js';
+import { WorkspaceExtImpl } from '../../../plugin/workspace.js';
+import { loadManifest } from './plugin-manifest-loader.js';
+import { EnvExtImpl } from '../../../plugin/env.js';
+import { DebugExtImpl } from '../../../plugin/debug/debug-ext.js';
+import { LocalizationExtImpl } from '../../../plugin/localization-ext.js';
+import pluginHostModule from './worker-plugin-module.js';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 const ctx = self as any;
 
 const pluginsApiImpl = new Map<string, typeof theia>();
@@ -59,7 +59,7 @@ container.load(pluginHostModule);
 const rpc: RPCProtocol = container.get(RPCProtocol);
 const pluginManager = container.get(PluginManagerExtImpl);
 pluginManager.setPluginHost({
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     loadPlugin(plugin: Plugin): any {
         if (plugin.pluginPath) {
             if (isElectron()) {
@@ -179,7 +179,7 @@ const apiFactory = createAPIFactory(
 let defaultApi: typeof theia;
 
 const handler = {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     get: (target: any, name: string) => {
         const plugin = pluginsModulesNames.get(name);
         if (plugin) {

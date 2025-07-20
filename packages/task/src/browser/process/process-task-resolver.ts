@@ -16,10 +16,10 @@
 
 import { injectable, inject } from 'inversify';
 import { VariableResolverService } from '@theia/variable-resolver/lib/browser';
-import { TaskResolver } from '../task-contribution';
-import { TaskConfiguration } from '../../common/task-protocol';
-import { ProcessTaskConfiguration } from '../../common/process/task-protocol';
-import { TaskDefinitionRegistry } from '../task-definition-registry';
+import { TaskResolver } from '../task-contribution.js';
+import { TaskConfiguration } from '../../common/task-protocol.js';
+import { ProcessTaskConfiguration } from '../../common/process/task-protocol.js';
+import { TaskDefinitionRegistry } from '../task-definition-registry.js';
 import URI from '@theia/core/lib/common/uri';
 import { WorkspaceService } from '@theia/workspace/lib/browser';
 

@@ -13,14 +13,14 @@
 //
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
 import cp from 'child_process';
 import { Socket } from 'net';
 import { Duplex } from 'stream';
-import { AbstractChannel, Disposable, WriteBuffer } from '../../common';
-import { Uint8ArrayReadBuffer, Uint8ArrayWriteBuffer } from '../../common/message-rpc/uint8-array-message-buffer';
-import { BinaryMessagePipe } from './binary-message-pipe';
+import { AbstractChannel, Disposable, WriteBuffer } from '../../common/index.js';
+import { Uint8ArrayReadBuffer, Uint8ArrayWriteBuffer } from '../../common/message-rpc/uint8-array-message-buffer.js';
+import { BinaryMessagePipe } from './binary-message-pipe.js';
 
 /**
  * A {@link Channel} to send messages between two processes using a dedicated pipe/fd for binary messages.

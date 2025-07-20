@@ -21,7 +21,7 @@ import { FrontendApplicationConfigProvider } from '@theia/core/lib/browser/front
 FrontendApplicationConfigProvider.set({});
 
 import { expect } from 'chai';
-import { NavigatorDiff } from './navigator-diff';
+import { NavigatorDiff } from './navigator-diff.js';
 import path from 'path';
 import { Container, ContainerModule } from 'inversify';
 import { SelectionService, ILogger } from '@theia/core/lib/common';

@@ -14,33 +14,33 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { enableJSDOM } from './test/jsdom';
+import { enableJSDOM } from './test/jsdom.js';
 let disableJSDOM = enableJSDOM();
 
-import { FrontendApplicationConfigProvider } from './frontend-application-config-provider';
+import { FrontendApplicationConfigProvider } from './frontend-application-config-provider.js';
 FrontendApplicationConfigProvider.set({});
 
 import { Container, injectable, ContainerModule } from 'inversify';
-import { bindContributionProvider } from '../common/contribution-provider';
-import { KeyboardLayoutProvider, NativeKeyboardLayout, KeyboardLayoutChangeNotifier } from '../common/keyboard/keyboard-layout-provider';
-import { ILogger } from '../common/logger';
-import { KeybindingRegistry, KeybindingContext, KeybindingContribution, KeybindingScope } from './keybinding';
-import { Keybinding } from '../common/keybinding';
-import { KeyCode, Key, KeyModifier, KeySequence } from './keyboard/keys';
-import { KeyboardLayoutService } from './keyboard/keyboard-layout-service';
-import { CommandRegistry, CommandService, CommandContribution, Command } from '../common/command';
-import { LabelParser } from './label-parser';
-import { MockLogger } from '../common/test/mock-logger';
-import { FrontendApplicationStateService } from './frontend-application-state';
-import { ContextKeyService, ContextKeyServiceDummyImpl } from './context-key-service';
+import { bindContributionProvider } from '../common/contribution-provider.js';
+import { KeyboardLayoutProvider, NativeKeyboardLayout, KeyboardLayoutChangeNotifier } from '../common/keyboard/keyboard-layout-provider.js';
+import { ILogger } from '../common/logger.js';
+import { KeybindingRegistry, KeybindingContext, KeybindingContribution, KeybindingScope } from './keybinding.js';
+import { Keybinding } from '../common/keybinding.js';
+import { KeyCode, Key, KeyModifier, KeySequence } from './keyboard/keys.js';
+import { KeyboardLayoutService } from './keyboard/keyboard-layout-service.js';
+import { CommandRegistry, CommandService, CommandContribution, Command } from '../common/command.js';
+import { LabelParser } from './label-parser.js';
+import { MockLogger } from '../common/test/mock-logger.js';
+import { FrontendApplicationStateService } from './frontend-application-state.js';
+import { ContextKeyService, ContextKeyServiceDummyImpl } from './context-key-service.js';
 import { CorePreferences } from './core-preferences.js';
 import * as os from '../common/os.js';
 import chai from 'chai';
 import sinon from 'sinon';
-import { Emitter, Event } from '../common/event';
-import { bindPreferenceService } from './frontend-application-bindings';
-import { MarkdownRenderer, MarkdownRendererFactory, MarkdownRendererImpl } from './markdown-rendering/markdown-renderer';
-import { StatusBar } from './status-bar';
+import { Emitter, Event } from '../common/event.js';
+import { bindPreferenceService } from './frontend-application-bindings.js';
+import { MarkdownRenderer, MarkdownRendererFactory, MarkdownRendererImpl } from './markdown-rendering/markdown-renderer.js';
+import { StatusBar } from './status-bar/index.js';
 
 disableJSDOM();
 

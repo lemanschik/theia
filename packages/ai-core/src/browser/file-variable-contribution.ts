@@ -27,8 +27,8 @@ import {
     AIVariableResolutionRequest,
     AIVariableResolver,
     ResolvedAIContextVariable,
-} from '../common/variable-service';
-import { FrontendVariableService } from './frontend-variable-service';
+} from '../common/variable-service.js';
+import { FrontendVariableService } from './frontend-variable-service.js';
 
 export namespace FileVariableArgs {
     export const uri = 'uri';

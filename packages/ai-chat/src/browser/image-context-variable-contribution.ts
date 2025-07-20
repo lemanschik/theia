@@ -24,7 +24,7 @@ import { LabelProvider, LabelProviderContribution, open, OpenerService } from '@
 import { inject, injectable } from 'inversify';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
 import { WorkspaceService } from '@theia/workspace/lib/browser';
-import { IMAGE_CONTEXT_VARIABLE, ImageContextVariable, ImageContextVariableRequest } from '../common/image-context-variable';
+import { IMAGE_CONTEXT_VARIABLE, ImageContextVariable, ImageContextVariableRequest } from '../common/image-context-variable.js';
 
 @injectable()
 export class ImageContextVariableContribution implements AIVariableContribution, AIVariableResolver, AIVariableOpener, LabelProviderContribution {

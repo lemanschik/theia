@@ -17,7 +17,7 @@
 import { injectable } from 'inversify';
 import { Disposable, DisposableCollection, MaybePromise } from '@theia/core';
 import URI from '@theia/core/lib/common/uri';
-import { CommandIdVariables } from '../common/variable-types';
+import { CommandIdVariables } from '../common/variable-types.js';
 
 /**
  * Variable can be used inside of strings using ${variableName} syntax.
@@ -45,7 +45,7 @@ export interface Variable {
         configurationSection?: string,
         commandIdVariables?: CommandIdVariables,
         configuration?: unknown
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
     ): MaybePromise<any>;
 }
 

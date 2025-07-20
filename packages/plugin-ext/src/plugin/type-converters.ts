@@ -16,26 +16,26 @@
 
 import theia from '@theia/plugin';
 import lstypes from 'vscode-languageserver-protocol';
-import { InlineValueEvaluatableExpression, InlineValueText, InlineValueVariableLookup, QuickPickItemKind, ThemeIcon, URI } from './types-impl';
-import * as rpc from '../common/plugin-api-rpc';
+import { InlineValueEvaluatableExpression, InlineValueText, InlineValueVariableLookup, QuickPickItemKind, ThemeIcon, URI } from './types-impl.js';
+import * as rpc from '../common/plugin-api-rpc.js';
 import {
     DecorationOptions, EditorPosition, Plugin, Position, WorkspaceTextEditDto, WorkspaceFileEditDto, Selection, TaskDto, WorkspaceEditDto
-} from '../common/plugin-api-rpc';
-import * as model from '../common/plugin-api-rpc-model';
+} from '../common/plugin-api-rpc.js';
+import * as model from '../common/plugin-api-rpc-model.js';
 import { LanguageFilter, LanguageSelector, RelativePattern } from '@theia/editor/lib/common/language-selector';
-import { MarkdownString as PluginMarkdownStringImpl } from './markdown-string';
-import * as types from './types-impl';
-import { UriComponents } from '../common/uri-components';
-import { isReadonlyArray } from '../common/arrays';
+import { MarkdownString as PluginMarkdownStringImpl } from './markdown-string.js';
+import * as types from './types-impl.js';
+import { UriComponents } from '../common/uri-components.js';
+import { isReadonlyArray } from '../common/arrays.js';
 import { DisposableCollection, Mutable, isEmptyObject, isObject } from '@theia/core/lib/common';
 import * as notebooks from '@theia/notebook/lib/common';
-import { CommandsConverter } from './command-registry';
+import { CommandsConverter } from './command-registry.js';
 import { BinaryBuffer } from '@theia/core/lib/common/buffer';
 import { CellRange, isTextStreamMime } from '@theia/notebook/lib/common';
 import { MarkdownString as MarkdownStringDTO } from '@theia/core/lib/common/markdown-rendering';
 
-import { TestItemDTO, TestMessageDTO, TestMessageStackFrameDTO } from '../common/test-types';
-import { PluginIconPath } from './plugin-icon-path';
+import { TestItemDTO, TestMessageDTO, TestMessageStackFrameDTO } from '../common/test-types.js';
+import { PluginIconPath } from './plugin-icon-path.js';
 
 const SIDE_GROUP = -2;
 const ACTIVE_GROUP = -1;
@@ -178,7 +178,7 @@ export function fromRangeOrRangeWithMessage(ranges: theia.Range[] | theia.Decora
             return {
                 range: fromRange(r.range)!,
                 hoverMessage: hoverMessage,
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                 
                 renderOptions: <any> /* URI vs Uri */r.renderOptions
             };
         });
@@ -471,7 +471,7 @@ export function toInlineValueContext(inlineValueContext: model.InlineValueContex
     };
 }
 
-// eslint-disable-next-line @typescript-eslint/no-shadow
+ 
 export function fromLocation(location: theia.Location): model.Location;
 export function fromLocation(location: theia.Location | undefined): model.Location | undefined;
 export function fromLocation(location: theia.Location | undefined): model.Location | undefined {
@@ -610,7 +610,7 @@ export namespace SignatureHelp {
     }
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 export function fromWorkspaceEdit(value: theia.WorkspaceEdit, documents?: any): WorkspaceEditDto {
     const result: WorkspaceEditDto = {
         edits: []
@@ -1144,9 +1144,9 @@ function getCommand(command: string | theia.ShellQuotedString): string {
     return typeof command === 'string' ? command : command.value;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 export function getShellExecutionOptions(options: theia.ShellExecutionOptions): { [key: string]: any } {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     const result = {} as { [key: string]: any };
 
     const env = options.env;

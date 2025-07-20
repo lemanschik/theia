@@ -17,8 +17,8 @@
 import chalk from 'chalk';
 import fs from 'fs-extra';
 import path from 'path';
-import { Localization, sortLocalization } from './common';
-import { deepl, DeeplLanguage, DeeplParameters, defaultLanguages, isSupportedLanguage } from './deepl-api';
+import { Localization, sortLocalization } from './common.js';
+import { deepl, DeeplLanguage, DeeplParameters, defaultLanguages, isSupportedLanguage } from './deepl-api.js';
 
 export interface LocalizationOptions {
     freeApi: Boolean

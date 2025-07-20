@@ -49,7 +49,7 @@ function exposeModule(modulePackage: { dir: string, name?: string }, resourcePat
  * Such syntax can be used by external code, for instance, for testing.
  */
 // TODO: webpack@5.36.2 is missing a `LoaderContext` interface so we'll use any in the meantime
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 export default function (this: any, source: string, sourceMap?: RawSourceMap): string | undefined {
     if (this.cacheable) {
         this.cacheable();

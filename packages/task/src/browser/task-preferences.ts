@@ -16,7 +16,7 @@
 
 import { interfaces } from 'inversify';
 import { PreferenceContribution, PreferenceSchema } from '@theia/core/lib/browser/preferences/preference-contribution';
-import { taskSchemaId } from './task-schema-updater';
+import { taskSchemaId } from './task-schema-updater.js';
 import { PreferenceConfiguration } from '@theia/core/lib/browser/preferences/preference-configurations';
 
 export const taskPreferencesSchema: PreferenceSchema = {

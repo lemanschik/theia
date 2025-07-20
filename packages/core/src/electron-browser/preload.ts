@@ -14,9 +14,9 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 //
 import { IpcRendererEvent, webUtils } from 'electron';
-import { Disposable } from '../common/disposable';
-import { StopReason } from '../common/frontend-application-state';
-import { NativeKeyboardLayout } from '../common/keyboard/keyboard-layout-provider';
+import { Disposable } from '../common/disposable.js';
+import { StopReason } from '../common/frontend-application-state.js';
+import { NativeKeyboardLayout } from '../common/keyboard/keyboard-layout-provider.js';
 import {
     CHANNEL_ATTACH_SECURITY_TOKEN,
     CHANNEL_FOCUS_WINDOW, CHANNEL_GET_SECURITY_TOKEN, CHANNEL_INVOKE_MENU, CHANNEL_SET_MENU, CHANNEL_OPEN_POPUP, CHANNEL_CLOSE_POPUP,
@@ -28,7 +28,7 @@ import {
     CHANNEL_KEYBOARD_LAYOUT_CHANGED, CHANNEL_IPC_CONNECTION, InternalMenuDto, CHANNEL_REQUEST_SECONDARY_CLOSE, CHANNEL_SET_BACKGROUND_COLOR,
     CHANNEL_WC_METADATA, CHANNEL_ABOUT_TO_CLOSE, CHANNEL_OPEN_WITH_SYSTEM_APP,
     CHANNEL_OPEN_URL, CHANNEL_SET_THEME
-} from '../electron-common/electron-api';
+} from '../electron-common/electron-api.js';
 
 // eslint-disable-next-line import/no-extraneous-dependencies
 const { ipcRenderer, contextBridge } = require('electron');
@@ -179,7 +179,7 @@ const api: TheiaCoreAPI = {
     },
 
     setSecondaryWindowCloseRequestHandler(windowName: string, handler: () => Promise<boolean>): void {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         const listener: (event: IpcRendererEvent, ...args: any[]) => void = async (event, name, confirmChannel, cancelChannel) => {
             if (name === windowName) {
                 try {
@@ -246,7 +246,7 @@ const api: TheiaCoreAPI = {
     useNativeElements: !('THEIA_ELECTRON_DISABLE_NATIVE_ELEMENTS' in process.env && process.env.THEIA_ELECTRON_DISABLE_NATIVE_ELEMENTS === '1')
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 function createDisposableListener(channel: string, handler: (event: any, ...args: unknown[]) => any): Disposable {
     ipcRenderer.on(channel, handler);
     return Disposable.create(() => ipcRenderer.off(channel, handler));

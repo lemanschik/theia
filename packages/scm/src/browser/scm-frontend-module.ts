@@ -23,27 +23,27 @@ import {
     WidgetManager, ApplicationShellLayoutMigration,
     createTreeContainer, TreeModel, TreeModelImpl, StylingParticipant
 } from '@theia/core/lib/browser';
-import { ScmService } from './scm-service';
-import { SCM_WIDGET_FACTORY_ID, ScmContribution, SCM_VIEW_CONTAINER_ID, SCM_VIEW_CONTAINER_TITLE_OPTIONS } from './scm-contribution';
-import { ScmWidget } from './scm-widget';
-import { ScmTreeWidget } from './scm-tree-widget';
-import { ScmCommitWidget } from './scm-commit-widget';
-import { ScmAmendWidget } from './scm-amend-widget';
-import { ScmNoRepositoryWidget } from './scm-no-repository-widget';
-import { ScmTreeModelProps } from './scm-tree-model';
-import { ScmGroupsTreeModel } from './scm-groups-tree-model';
-import { ScmQuickOpenService } from './scm-quick-open-service';
-import { bindDirtyDiff } from './dirty-diff/dirty-diff-module';
-import { ScmDecorationsService } from './decorations/scm-decorations-service';
-import { ScmAvatarService } from './scm-avatar-service';
-import { ScmContextKeyService } from './scm-context-key-service';
-import { ScmLayoutVersion3Migration, ScmLayoutVersion5Migration } from './scm-layout-migrations';
-import { ScmTreeLabelProvider } from './scm-tree-label-provider';
+import { ScmService } from './scm-service.js';
+import { SCM_WIDGET_FACTORY_ID, ScmContribution, SCM_VIEW_CONTAINER_ID, SCM_VIEW_CONTAINER_TITLE_OPTIONS } from './scm-contribution.js';
+import { ScmWidget } from './scm-widget.js';
+import { ScmTreeWidget } from './scm-tree-widget.js';
+import { ScmCommitWidget } from './scm-commit-widget.js';
+import { ScmAmendWidget } from './scm-amend-widget.js';
+import { ScmNoRepositoryWidget } from './scm-no-repository-widget.js';
+import { ScmTreeModelProps } from './scm-tree-model.js';
+import { ScmGroupsTreeModel } from './scm-groups-tree-model.js';
+import { ScmQuickOpenService } from './scm-quick-open-service.js';
+import { bindDirtyDiff } from './dirty-diff/dirty-diff-module.js';
+import { ScmDecorationsService } from './decorations/scm-decorations-service.js';
+import { ScmAvatarService } from './scm-avatar-service.js';
+import { ScmContextKeyService } from './scm-context-key-service.js';
+import { ScmLayoutVersion3Migration, ScmLayoutVersion5Migration } from './scm-layout-migrations.js';
+import { ScmTreeLabelProvider } from './scm-tree-label-provider.js';
 import { TabBarToolbarContribution } from '@theia/core/lib/browser/shell/tab-bar-toolbar';
 import { ColorContribution } from '@theia/core/lib/browser/color-application-contribution';
 import { LabelProviderContribution } from '@theia/core/lib/browser/label-provider';
-import { bindScmPreferences } from './scm-preferences';
-import { ScmTabBarDecorator } from './decorations/scm-tab-bar-decorator';
+import { bindScmPreferences } from './scm-preferences.js';
+import { ScmTabBarDecorator } from './decorations/scm-tab-bar-decorator.js';
 import { TabBarDecorator } from '@theia/core/lib/browser/shell/tab-bar-decorator';
 export default new ContainerModule(bind => {
     bind(ScmContextKeyService).toSelf().inSingletonScope();

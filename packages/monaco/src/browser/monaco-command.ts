@@ -19,9 +19,9 @@ import { Position, Location } from 'vscode-languageserver-protocol';
 import { CommandContribution, CommandRegistry, CommandHandler } from '@theia/core/lib/common/command';
 import { CommonCommands, QuickInputService, ApplicationShell } from '@theia/core/lib/browser';
 import { EditorCommands, EditorManager, EditorWidget } from '@theia/editor/lib/browser';
-import { MonacoEditor } from './monaco-editor';
-import { MonacoCommandRegistry, MonacoEditorCommandHandler } from './monaco-command-registry';
-import { ProtocolToMonacoConverter } from './protocol-to-monaco-converter';
+import { MonacoEditor } from './monaco-editor.js';
+import { MonacoCommandRegistry, MonacoEditorCommandHandler } from './monaco-command-registry.js';
+import { ProtocolToMonacoConverter } from './protocol-to-monaco-converter.js';
 import { nls } from '@theia/core/lib/common/nls';
 import { EditorExtensionsRegistry } from '@theia/monaco-editor-core/esm/vs/editor/browser/editorExtensions';
 import { CommandsRegistry, ICommandService } from '@theia/monaco-editor-core/esm/vs/platform/commands/common/commands';
@@ -255,7 +255,7 @@ export class MonacoEditorCommandHandlers implements CommandContribution {
             const tabSizeOptions = sizes.map(size =>
             ({
                 label: size === tabSize ? size + '   ' + nls.localizeByDefault('Configured Tab Size') : size.toString(),
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                 
                 execute: () =>
                     model.updateOptions({
                         tabSize: size || tabSize,

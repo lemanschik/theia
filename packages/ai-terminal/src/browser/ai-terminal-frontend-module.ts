@@ -18,8 +18,8 @@ import { Agent } from '@theia/ai-core/lib/common';
 import { CommandContribution, MenuContribution } from '@theia/core';
 import { KeybindingContribution } from '@theia/core/lib/browser';
 import { ContainerModule } from 'inversify';
-import { AiTerminalAgent } from './ai-terminal-agent';
-import { AiTerminalCommandContribution } from './ai-terminal-contribution';
+import { AiTerminalAgent } from './ai-terminal-agent.js';
+import { AiTerminalCommandContribution } from './ai-terminal-contribution.js';
 
 import '../../src/browser/style/ai-terminal.css';
 

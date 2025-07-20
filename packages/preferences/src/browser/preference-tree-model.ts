@@ -29,13 +29,13 @@ import {
     PreferenceService,
 } from '@theia/core/lib/browser';
 import { Emitter } from '@theia/core';
-import { PreferencesSearchbarWidget } from './views/preference-searchbar-widget';
-import { PreferenceTreeGenerator } from './util/preference-tree-generator';
+import { PreferencesSearchbarWidget } from './views/preference-searchbar-widget.js';
+import { PreferenceTreeGenerator } from './util/preference-tree-generator.js';
 import fuzzy from 'fuzzy';
-import { PreferencesScopeTabBar } from './views/preference-scope-tabbar-widget';
-import { Preference } from './util/preference-types';
+import { PreferencesScopeTabBar } from './views/preference-scope-tabbar-widget.js';
+import { Preference } from './util/preference-types.js';
 import { Event } from '@theia/core/lib/common';
-import { COMMONLY_USED_SECTION_PREFIX } from './util/preference-layout';
+import { COMMONLY_USED_SECTION_PREFIX } from './util/preference-layout.js';
 
 export interface PreferenceTreeNodeProps extends NodeProps {
     visibleChildren: number;

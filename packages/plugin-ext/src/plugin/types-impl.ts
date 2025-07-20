@@ -22,15 +22,15 @@
 /* eslint-disable no-null/no-null */
 
 import { UUID } from '@lumino/coreutils';
-import { illegalArgument } from '../common/errors';
+import { illegalArgument } from '../common/errors.js';
 import type * as theia from '@theia/plugin';
 import { URI as CodeURI, UriComponents } from 'vscode-uri';
-import { relative } from '../common/paths-util';
+import { relative } from '../common/paths-util.js';
 import { startsWithIgnoreCase } from '@theia/core/lib/common/strings';
-import { SymbolKind } from '../common/plugin-api-rpc-model';
+import { SymbolKind } from '../common/plugin-api-rpc-model.js';
 import { FileSystemProviderErrorCode, markAsFileSystemProviderError } from '@theia/filesystem/lib/common/files';
 import paths from 'path';
-import { es5ClassCompat } from '../common/types';
+import { es5ClassCompat } from '../common/types.js';
 import { isObject, isStringArray } from '@theia/core/lib/common';
 import { CellEditType, CellMetadataEdit, NotebookDocumentMetadataEdit } from '@theia/notebook/lib/common';
 
@@ -107,7 +107,7 @@ export class URI extends CodeURI implements theia.Uri {
 export class Disposable {
     private disposable: undefined | (() => void);
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     static from(...disposables: { dispose(): any }[]): Disposable {
         return new Disposable(() => {
             if (disposables) {
@@ -977,7 +977,7 @@ export enum CompletionItemKind {
     Enum = 12,
     Keyword = 13,
     Snippet = 14,
-    Color = 15, // eslint-disable-line @typescript-eslint/no-shadow
+    Color = 15,  
     File = 16,
     Reference = 17,
     Folder = 18,
@@ -1197,7 +1197,7 @@ export class NotebookCellData implements theia.NotebookCellData {
     kind: NotebookCellKind;
     value: string;
     outputs?: theia.NotebookCellOutput[];
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     metadata?: { [key: string]: any };
     executionSummary?: theia.NotebookCellExecutionSummary;
 
@@ -1216,10 +1216,10 @@ export class NotebookCellData implements theia.NotebookCellData {
 export class NotebookCellOutput implements theia.NotebookCellOutput {
     outputId: string;
     items: theia.NotebookCellOutputItem[];
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     metadata?: { [key: string]: any };
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     constructor(items: theia.NotebookCellOutputItem[], idOrMetadata?: string | Record<string, any>, metadata?: { [key: string]: any }) {
         this.items = items;
         if (typeof idOrMetadata === 'string') {
@@ -1243,7 +1243,7 @@ export class NotebookCellOutputItem implements theia.NotebookCellOutputItem {
         return new NotebookCellOutputItem(bytes, mime || 'text/plain');
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     static json(value: any, mime?: string): NotebookCellOutputItem {
         const jsonStr = JSON.stringify(value, undefined, '\t');
         return NotebookCellOutputItem.text(jsonStr, mime);
@@ -1291,7 +1291,7 @@ export class NotebookCellStatusBarItem implements theia.NotebookCellStatusBarIte
 @es5ClassCompat
 export class NotebookData implements theia.NotebookData {
     cells: NotebookCellData[];
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     metadata?: { [key: string]: any };
 
     constructor(cells: NotebookCellData[]) {
@@ -1367,9 +1367,9 @@ export class SnippetTextEdit implements theia.SnippetTextEdit {
 export class NotebookEdit implements theia.NotebookEdit {
     range: theia.NotebookRange;
     newCells: theia.NotebookCellData[];
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     newCellMetadata?: { [key: string]: any; } | undefined;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     newNotebookMetadata?: { [key: string]: any; } | undefined;
 
     static isNotebookCellEdit(thing: unknown): thing is NotebookEdit {
@@ -1395,12 +1395,12 @@ export class NotebookEdit implements theia.NotebookEdit {
         return new NotebookEdit(range, []);
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     static updateCellMetadata(index: number, newCellMetadata: { [key: string]: any }): NotebookEdit {
         return new NotebookEdit(new NotebookRange(index, index), [], newCellMetadata);
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     static updateNotebookMetadata(newNotebookMetadata: { [key: string]: any }): NotebookEdit {
         return new NotebookEdit(new NotebookRange(0, 0), [], undefined, newNotebookMetadata);
     }
@@ -1806,7 +1806,7 @@ export interface WorkspaceEditMetadata {
 export const enum FileEditType {
     File = 1,
     Text = 2,
-    // eslint-disable-next-line @typescript-eslint/no-shadow
+     
     Cell = 3,
     CellReplace = 5,
     Snippet = 6,
@@ -2009,7 +2009,7 @@ export class WorkspaceEdit implements theia.WorkspaceEdit {
         return this.entries().length;
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     toJSON(): any {
         return this.entries();
     }
@@ -2024,7 +2024,7 @@ export class DataTransferItem {
         return undefined;
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     constructor(readonly value: any) {
     }
 }
@@ -2050,7 +2050,7 @@ export class DataTransfer implements Iterable<[mimeType: string, item: DataTrans
         return this.items.has(mimeType);
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     forEach(callbackfn: (item: DataTransferItem, mimeType: string, dataTransfer: DataTransfer) => void, thisArg?: any): void {
         this.items.forEach((item, mimetype) => {
             callbackfn.call(thisArg, item, mimetype, this);
@@ -2147,7 +2147,7 @@ export class SymbolInformation {
         SymbolInformation.validate(this);
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     toJSON(): any {
         return {
             name: this.name,
@@ -2660,7 +2660,7 @@ export class Task {
         problemMatchers?: string | string[],
     );
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     constructor(...args: any[]) {
         let taskDefinition: theia.TaskDefinition;
         let scope: theia.WorkspaceFolder | theia.TaskScope.Global | theia.TaskScope.Workspace | undefined;
@@ -3558,9 +3558,9 @@ export class SemanticTokensBuilder {
             let prevLine = 0;
             let prevChar = 0;
             for (let i = 0; i < tokenCount; i++) {
-                // eslint-disable-next-line @typescript-eslint/no-shadow
+                 
                 let line = this._data[5 * i];
-                // eslint-disable-next-line @typescript-eslint/no-shadow
+                 
                 let char = this._data[5 * i + 1];
 
                 if (line === 0) {
@@ -3728,18 +3728,18 @@ export class TelemetryLogger {
     readonly onDidChangeEnableStates: theia.Event<TelemetryLogger>;
     readonly isUsageEnabled: boolean;
     readonly isErrorsEnabled: boolean;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     logUsage(eventName: string, data?: Record<string, any | TelemetryTrustedValue<any>>): void { }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     logError(eventNameOrError: string | Error, data?: Record<string, any | TelemetryTrustedValue<any>>): void { }
     dispose(): void { }
     constructor(readonly sender: TelemetrySender, readonly options?: TelemetryLoggerOptions) { }
 }
 
 export interface TelemetrySender {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     sendEventData(eventName: string, data?: Record<string, any>): void;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     sendErrorData(error: Error, data?: Record<string, any>): void;
     flush?(): void | Thenable<void>;
 }
@@ -3760,7 +3760,7 @@ export interface TelemetryLoggerOptions {
     /**
      * Any additional common properties which should be injected into the data object.
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     readonly additionalCommonProperties?: Record<string, any>;
 }
 

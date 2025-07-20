@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-export { ArrayUtils } from './array-utils';
-export { Prioritizeable } from './prioritizeable';
+export { ArrayUtils } from './array-utils.js';
+export { Prioritizeable } from './prioritizeable.js';
 
 type UnknownObject<T extends object> = Record<string | number | symbol, unknown> & { [K in keyof T]: unknown };
 
@@ -51,7 +51,7 @@ export function isErrorLike(value: unknown): value is Error {
     return isObject(value) && isString(value.name) && isString(value.message) && (isUndefined(value.stack) || isString(value.stack));
 }
 
-// eslint-disable-next-line space-before-function-paren
+ 
 export function isFunction<T extends (...args: unknown[]) => unknown>(value: unknown): value is T {
     return typeof value === 'function';
 }

@@ -16,7 +16,7 @@
 
 import { createTreeContainer, TreeProps } from '@theia/core/lib/browser';
 import { interfaces } from 'inversify';
-import { ChatViewTreeWidget } from './chat-view-tree-widget';
+import { ChatViewTreeWidget } from './chat-view-tree-widget.js';
 
 const CHAT_VIEW_TREE_PROPS = {
     multiSelect: false,

@@ -16,7 +16,7 @@
 
 import { injectable, inject } from 'inversify';
 import { ApplicationShell } from '@theia/core/lib/browser';
-import { ConsoleWidget } from './console-widget';
+import { ConsoleWidget } from './console-widget.js';
 
 @injectable()
 export class ConsoleManager {

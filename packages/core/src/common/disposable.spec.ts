@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { expect, spy, use } from 'chai';
-import { DisposableCollection, Disposable } from './disposable';
+import { DisposableCollection, Disposable } from './disposable.js';
 import { default as spies } from 'chai-spies';
 
 use(spies);

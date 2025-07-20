@@ -15,8 +15,8 @@
 
 import { Event, Emitter } from '@theia/core/lib/common/event';
 import { cloneAndChange } from '@theia/core';
-import { mixin } from '../common/types';
-import { TelemetryTrustedValue, TelemetryLoggerOptions } from './types-impl';
+import { mixin } from '../common/types.js';
+import { TelemetryTrustedValue, TelemetryLoggerOptions } from './types-impl.js';
 
 export class TelemetryExtImpl {
 
@@ -47,7 +47,7 @@ export class TelemetryExtImpl {
 export class TelemetryLogger {
     private sender: TelemetrySender | undefined;
     readonly options: TelemetryLoggerOptions | undefined;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     readonly commonProperties: Record<string, any>;
     telemetryEnabled: boolean;
 
@@ -87,7 +87,7 @@ export class TelemetryLogger {
         }
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     logUsage(eventName: string, data?: Record<string, any | TelemetryTrustedValue<any>>): void {
         if (!this.telemetryEnabled || !this.isUsageEnabled) {
             return;
@@ -95,7 +95,7 @@ export class TelemetryLogger {
         this.logEvent(eventName, data);
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     logError(eventNameOrException: string | Error, data?: Record<string, any | TelemetryTrustedValue<any>>): void {
         if (!this.telemetryEnabled || !this.isErrorsEnabled || !this.sender) {
             // no sender available or error shall not be sent
@@ -118,7 +118,7 @@ export class TelemetryLogger {
         }
     };
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     private logEvent(eventName: string, data?: Record<string, any>): void {
         // No sender means likely disposed of, we should no-op
         if (!this.sender) {
@@ -128,16 +128,16 @@ export class TelemetryLogger {
         this.sender?.sendEventData(eventName, data);
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     private getCommonProperties(): Record<string, any> {
         return [];
     }
 }
 
 interface TelemetrySender {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     sendEventData(eventName: string, data?: Record<string, any>): void;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     sendErrorData(error: Error, data?: Record<string, any>): void;
     flush?(): void | Thenable<void>;
 }
@@ -148,7 +148,7 @@ interface TelemetrySender {
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 function mixInCommonPropsAndCleanData(data: Record<string, any>, additionalProperties?: Record<string, any>, commonProperties?: Record<string, any>): Record<string, any> {
     let updatedData = data.properties ?? data;
 
@@ -267,7 +267,7 @@ function removePropertiesWithPossibleUserInfo(property: string): string {
  * @param paths Any additional patterns that should be removed from the data set
  * @returns A new object with the PII removed
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 export function cleanData(data: Record<string, any>, cleanUpPatterns: RegExp[]): Record<string, any> {
     return cloneAndChange(data, value => {
 

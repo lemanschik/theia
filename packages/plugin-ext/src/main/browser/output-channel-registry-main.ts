@@ -17,7 +17,7 @@
 import { injectable, inject } from 'inversify';
 import { CommandService } from '@theia/core/lib/common/command';
 import { OutputCommands } from '@theia/output/lib/browser/output-commands';
-import { OutputChannelRegistryMain, PluginInfo } from '../../common/plugin-api-rpc';
+import { OutputChannelRegistryMain, PluginInfo } from '../../common/plugin-api-rpc.js';
 
 @injectable()
 export class OutputChannelRegistryMainImpl implements OutputChannelRegistryMain {

@@ -17,9 +17,9 @@
 import { PreferenceService } from '@theia/core/lib/browser';
 import { inject, injectable } from 'inversify';
 import { Prioritizeable } from '@theia/core/lib/common/prioritizeable';
-import { LanguageModel, LanguageModelResponse, UserRequest } from '../common';
-import { LanguageModelServiceImpl } from '../common/language-model-service';
-import { PREFERENCE_NAME_REQUEST_SETTINGS, RequestSetting, getRequestSettingSpecificity } from './ai-core-preferences';
+import { LanguageModel, LanguageModelResponse, UserRequest } from '../common/index.js';
+import { LanguageModelServiceImpl } from '../common/language-model-service.js';
+import { PREFERENCE_NAME_REQUEST_SETTINGS, RequestSetting, getRequestSettingSpecificity } from './ai-core-preferences.js';
 
 @injectable()
 export class FrontendLanguageModelServiceImpl extends LanguageModelServiceImpl {

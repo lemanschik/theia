@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { SelectionService } from './selection-service';
+import { SelectionService } from './selection-service.js';
 import chai from 'chai';
 
 const expect = chai.expect;
@@ -24,7 +24,7 @@ describe('selection-service', () => {
     describe('01 #addListener and dispose', () => {
         it('Should be rejected when path argument is undefined.', () => {
             const service = createSelectionService();
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+             
             const events: any[] = [];
             const disposable = service.onSelectionChanged(
                 e => events.push(e)

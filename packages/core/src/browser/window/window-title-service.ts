@@ -15,11 +15,11 @@
 // *****************************************************************************
 
 import { inject, injectable, named, postConstruct } from 'inversify';
-import { escapeRegExpCharacters } from '../../common/strings';
-import { Emitter, Event } from '../../common/event';
-import { CorePreferences } from '../core-preferences';
-import { FrontendApplicationConfigProvider } from '../frontend-application-config-provider';
-import { ContributionProvider } from '../../common';
+import { escapeRegExpCharacters } from '../../common/strings.js';
+import { Emitter, Event } from '../../common/event.js';
+import { CorePreferences } from '../core-preferences.js';
+import { FrontendApplicationConfigProvider } from '../frontend-application-config-provider.js';
+import { ContributionProvider } from '../../common/index.js';
 
 export const WindowTitleContribution = Symbol('WindowTitleAddOnContribution');
 export interface WindowTitleContribution {

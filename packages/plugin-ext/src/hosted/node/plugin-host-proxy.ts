@@ -19,8 +19,8 @@ import https from 'https';
 import tls from 'tls';
 
 import { createHttpPatch, createProxyResolver, createTlsPatch, ProxySupportSetting } from '@vscode/proxy-agent';
-import { PreferenceRegistryExtImpl } from '../../plugin/preference-registry';
-import { WorkspaceExtImpl } from '../../plugin/workspace';
+import { PreferenceRegistryExtImpl } from '../../plugin/preference-registry.js';
+import { WorkspaceExtImpl } from '../../plugin/workspace.js';
 
 export function connectProxyResolver(workspaceExt: WorkspaceExtImpl, configProvider: PreferenceRegistryExtImpl): void {
     const resolveProxy = createProxyResolver({

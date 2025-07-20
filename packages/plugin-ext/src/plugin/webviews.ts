@@ -16,15 +16,15 @@
 
 import { generateUuid, hashValue } from '@theia/core/lib/common/uuid';
 import { inject, injectable, postConstruct } from 'inversify';
-import { Plugin, WebviewsExt, WebviewPanelViewState, WebviewsMain, PLUGIN_RPC_CONTEXT, WebviewInitData, /* WebviewsMain, PLUGIN_RPC_CONTEXT  */ } from '../common/plugin-api-rpc';
+import { Plugin, WebviewsExt, WebviewPanelViewState, WebviewsMain, PLUGIN_RPC_CONTEXT, WebviewInitData, /* WebviewsMain, PLUGIN_RPC_CONTEXT  */ } from '../common/plugin-api-rpc.js';
 import theia from '@theia/plugin';
-import { RPCProtocol } from '../common/rpc-protocol';
+import { RPCProtocol } from '../common/rpc-protocol.js';
 import { Emitter, Event } from '@theia/core/lib/common/event';
-import { fromViewColumn, toViewColumn, toWebviewPanelShowOptions } from './type-converters';
-import { Disposable, WebviewPanelTargetArea, URI } from './types-impl';
-import { WorkspaceExtImpl } from './workspace';
-import { PluginIconPath } from './plugin-icon-path';
-import { PluginModel, PluginPackage } from '../common';
+import { fromViewColumn, toViewColumn, toWebviewPanelShowOptions } from './type-converters.js';
+import { Disposable, WebviewPanelTargetArea, URI } from './types-impl.js';
+import { WorkspaceExtImpl } from './workspace.js';
+import { PluginIconPath } from './plugin-icon-path.js';
+import { PluginModel, PluginPackage } from '../common/index.js';
 
 @injectable()
 export class WebviewsExtImpl implements WebviewsExt {
@@ -55,7 +55,7 @@ export class WebviewsExtImpl implements WebviewsExt {
         this.initData = initData;
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     $onMessage(handle: string, message: any): void {
         const panel = this.getWebviewPanel(handle);
         if (panel) {
@@ -90,7 +90,7 @@ export class WebviewsExtImpl implements WebviewsExt {
     $deserializeWebviewPanel(viewId: string,
         viewType: string,
         title: string,
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         state: any,
         viewState: WebviewPanelViewState,
         options: theia.WebviewOptions & theia.WebviewPanelOptions): PromiseLike<void> {
@@ -223,10 +223,10 @@ export class WebviewImpl implements theia.Webview {
     private _html: string;
     private _options: theia.WebviewOptions;
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     public readonly onMessageEmitter = new Emitter<any>();
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     public readonly onDidReceiveMessage: Event<any> = this.onMessageEmitter.event;
 
     constructor(
@@ -286,7 +286,7 @@ export class WebviewImpl implements theia.Webview {
         this._options = newOptions;
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     postMessage(message: any): PromiseLike<boolean> {
         this.checkIsDisposed();
         return this.proxy.$postMessage(this.viewId, message);
@@ -454,7 +454,7 @@ export class WebviewPanelImpl implements theia.WebviewPanel {
         });
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     postMessage(message: any): PromiseLike<boolean> {
         this.checkIsDisposed();
         return this.proxy.$postMessage(this.viewId, message);

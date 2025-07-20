@@ -21,13 +21,13 @@ import SftpClient from 'ssh2-sftp-client';
 import SshConfig from 'ssh-config';
 import { Emitter, Event, MessageService, QuickInputService } from '@theia/core';
 import { inject, injectable } from 'inversify';
-import { RemoteSSHConnectionProvider, RemoteSSHConnectionProviderOptions, SSHConfig } from '../../electron-common/remote-ssh-connection-provider';
-import { RemoteConnectionService } from '../remote-connection-service';
-import { RemoteProxyServerProvider } from '../remote-proxy-server-provider';
-import { RemoteConnection, RemoteExecOptions, RemoteExecResult, RemoteExecTester, RemoteStatusReport } from '../remote-types';
+import { RemoteSSHConnectionProvider, RemoteSSHConnectionProviderOptions, SSHConfig } from '../../electron-common/remote-ssh-connection-provider.js';
+import { RemoteConnectionService } from '../remote-connection-service.js';
+import { RemoteProxyServerProvider } from '../remote-proxy-server-provider.js';
+import { RemoteConnection, RemoteExecOptions, RemoteExecResult, RemoteExecTester, RemoteStatusReport } from '../remote-types.js';
 import { Deferred, timeout } from '@theia/core/lib/common/promise-util';
-import { SSHIdentityFileCollector, SSHKey } from './ssh-identity-file-collector';
-import { RemoteSetupService } from '../setup/remote-setup-service';
+import { SSHIdentityFileCollector, SSHKey } from './ssh-identity-file-collector.js';
+import { RemoteSetupService } from '../setup/remote-setup-service.js';
 import { generateUuid } from '@theia/core/lib/common/uuid';
 import { EnvVariablesServer, EnvVariable } from '@theia/core/lib/common/env-variables';
 
@@ -338,7 +338,7 @@ export class RemoteSSHConnection implements RemoteConnection {
     }
 
     protected async setupSftpClient(): Promise<SftpClient> {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         const sftpClient = new SftpClient() as any;
         // A hack to set the internal ssh2 client of the sftp client
         // That way, we don't have to create a second connection

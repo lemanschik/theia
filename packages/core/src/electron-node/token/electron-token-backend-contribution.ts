@@ -16,8 +16,8 @@
 
 import express from 'express';
 import { injectable, inject } from 'inversify';
-import { BackendApplicationContribution } from '../../node';
-import { ElectronTokenValidator } from './electron-token-validator';
+import { BackendApplicationContribution } from '../../node/index.js';
+import { ElectronTokenValidator } from './electron-token-validator.js';
 
 /**
  * This component contributes an Express middleware that will refuse all

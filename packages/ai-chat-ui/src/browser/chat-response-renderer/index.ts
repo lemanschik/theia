@@ -13,15 +13,15 @@
 //
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
-export * from './ai-selection-resolver';
-export * from './code-part-renderer';
-export * from './command-part-renderer';
-export * from './error-part-renderer';
-export * from './horizontal-layout-part-renderer';
-export * from './markdown-part-renderer';
-export * from './text-part-renderer';
-export * from './toolcall-part-renderer';
-export * from './thinking-part-renderer';
-export * from './progress-part-renderer';
-export * from './tool-confirmation';
-export * from './delegation-response-renderer';
+export * from './ai-selection-resolver.js';
+export * from './code-part-renderer.js';
+export * from './command-part-renderer.js';
+export * from './error-part-renderer.js';
+export * from './horizontal-layout-part-renderer.js';
+export * from './markdown-part-renderer.js';
+export * from './text-part-renderer.js';
+export * from './toolcall-part-renderer.js';
+export * from './thinking-part-renderer.js';
+export * from './progress-part-renderer.js';
+export * from './tool-confirmation.js';
+export * from './delegation-response-renderer.js';

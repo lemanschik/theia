@@ -14,9 +14,9 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-export * from './npm-registry';
-export * from './extension-package';
-export * from './application-package';
-export * from './application-props';
-export * from './environment';
-export * from './api';
+export * from './npm-registry.js';
+export * from './extension-package.js';
+export * from './application-package.js';
+export * from './application-props.js';
+export * from './environment.js';
+export * from './api.js';

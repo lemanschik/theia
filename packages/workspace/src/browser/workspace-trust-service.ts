@@ -23,9 +23,9 @@ import { inject, injectable, postConstruct } from 'inversify';
 import { WindowService } from '@theia/core/lib/browser/window/window-service';
 import {
     WorkspaceTrustPreferences, WORKSPACE_TRUST_EMPTY_WINDOW, WORKSPACE_TRUST_ENABLED, WORKSPACE_TRUST_STARTUP_PROMPT, WorkspaceTrustPrompt
-} from './workspace-trust-preferences';
+} from './workspace-trust-preferences.js';
 import { FrontendApplicationConfigProvider } from '@theia/core/lib/browser/frontend-application-config-provider';
-import { WorkspaceService } from './workspace-service';
+import { WorkspaceService } from './workspace-service.js';
 import { ContextKeyService } from '@theia/core/lib/browser/context-key-service';
 
 const STORAGE_TRUSTED = 'trusted';

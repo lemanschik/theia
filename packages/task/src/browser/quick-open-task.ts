@@ -15,17 +15,17 @@
 // *****************************************************************************
 
 import { inject, injectable, optional } from 'inversify';
-import { TaskService } from './task-service';
-import { TaskInfo, TaskConfiguration, TaskCustomization, TaskScope, TaskConfigurationScope, TaskDefinition } from '../common/task-protocol';
-import { TaskDefinitionRegistry } from './task-definition-registry';
+import { TaskService } from './task-service.js';
+import { TaskInfo, TaskConfiguration, TaskCustomization, TaskScope, TaskConfigurationScope, TaskDefinition } from '../common/task-protocol.js';
+import { TaskDefinitionRegistry } from './task-definition-registry.js';
 import URI from '@theia/core/lib/common/uri';
 import { LabelProvider, QuickAccessProvider, QuickAccessRegistry, QuickInputService, QuickPick, PreferenceService } from '@theia/core/lib/browser';
 import { WorkspaceService } from '@theia/workspace/lib/browser';
 import { TerminalService } from '@theia/terminal/lib/browser/base/terminal-service';
-import { ALL_TASK_TYPES } from './provided-task-configurations';
-import { TaskNameResolver } from './task-name-resolver';
-import { TaskSourceResolver } from './task-source-resolver';
-import { TaskConfigurationManager } from './task-configuration-manager';
+import { ALL_TASK_TYPES } from './provided-task-configurations.js';
+import { TaskNameResolver } from './task-name-resolver.js';
+import { TaskSourceResolver } from './task-source-resolver.js';
+import { TaskConfigurationManager } from './task-configuration-manager.js';
 import { filterItems, QuickInputButton, QuickPickItem, QuickPickItemOrSeparator, QuickPicks, QuickPickInput, QuickPickValue } from
     '@theia/core/lib/browser/quick-input/quick-input-service';
 import { CancellationToken } from '@theia/core/lib/common';

@@ -18,7 +18,7 @@ import { injectable } from 'inversify';
 import {
     FileSystemWatcherClient, FileSystemWatcherServiceClient,
     DidFilesChangedParams, FileSystemWatcherErrorParams
-} from '../common/filesystem-watcher-protocol';
+} from '../common/filesystem-watcher-protocol.js';
 
 /**
  * This component routes watch events to the right clients.

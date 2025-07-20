@@ -15,8 +15,8 @@
 // *****************************************************************************
 
 import { expect } from 'chai';
-import { PanelKind, RevealKind, TaskScope, TaskDefinition } from '../common';
-import { TaskDefinitionRegistry } from './task-definition-registry';
+import { PanelKind, RevealKind, TaskScope, TaskDefinition } from '../common/index.js';
+import { TaskDefinitionRegistry } from './task-definition-registry.js';
 
 describe('TaskDefinitionRegistry', () => {
     let registry: TaskDefinitionRegistry;
@@ -180,7 +180,7 @@ describe('TaskDefinitionRegistry', () => {
         });
 
         it('should return false if given 2 task configurations with different deep properties', () => {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+             
             const inputs: [any, any][] = [
                 [
                     configureFakeTask('id_1', undefined, undefined, [1, '2', { '3': { a: true, b: 'b' } }]),

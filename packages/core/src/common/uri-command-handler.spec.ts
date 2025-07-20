@@ -15,20 +15,20 @@
 // *****************************************************************************
 
 import chai from 'chai';
-import { SelectionService } from './selection-service';
-import { MaybeArray } from './types';
-import URI from './uri';
-import { UriAwareCommandHandler, UriCommandHandler } from './uri-command-handler';
+import { SelectionService } from './selection-service.js';
+import { MaybeArray } from './types.js';
+import URI from './uri.js';
+import { UriAwareCommandHandler, UriCommandHandler } from './uri-command-handler.js';
 
 const expect = chai.expect;
 
 interface CommandHandlerMock extends UriCommandHandler<MaybeArray<URI>> {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     lastCall: any[];
 }
 
 const mockHandler: CommandHandlerMock = {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     execute(...args: any[]): void { this.lastCall = args; },
     lastCall: []
 };

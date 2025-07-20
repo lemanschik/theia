@@ -17,7 +17,7 @@
 import { injectable } from 'inversify';
 import { Argv, Arguments } from 'yargs';
 import { CliContribution } from '@theia/core/lib/node/cli';
-import { LocalDirectoryPluginDeployerResolver } from './resolvers/local-directory-plugin-deployer-resolver';
+import { LocalDirectoryPluginDeployerResolver } from './resolvers/local-directory-plugin-deployer-resolver.js';
 
 @injectable()
 export class PluginCliContribution implements CliContribution {
@@ -37,7 +37,7 @@ export class PluginCliContribution implements CliContribution {
 
     configure(conf: Argv): void {
         conf.option(PluginCliContribution.PLUGINS, {
-            // eslint-disable-next-line max-len
+             
             description: `Provides further refinement for the plugins. Example: --${PluginCliContribution.PLUGINS}=${LocalDirectoryPluginDeployerResolver.LOCAL_DIR}:path/to/your/plugins`,
             type: 'string',
             nargs: 1

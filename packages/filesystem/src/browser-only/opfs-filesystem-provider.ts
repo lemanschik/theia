@@ -22,9 +22,9 @@ import {
     FileSystemProviderErrorCode,
     FileSystemProviderWithFileReadWriteCapability,
     FileType, FileWriteOptions, Stat, WatchOptions, createFileSystemProviderError
-} from '../common/files';
+} from '../common/files.js';
 import { Emitter, Event, URI, Disposable, Path } from '@theia/core';
-import { OPFSInitialization } from './opfs-filesystem-initialization';
+import { OPFSInitialization } from './opfs-filesystem-initialization.js';
 
 /** Options to be used when traversing the file system handles */
 interface CreateFileSystemHandleOptions {

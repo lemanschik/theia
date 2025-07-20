@@ -15,8 +15,8 @@
 // *****************************************************************************
 
 import { injectable } from 'inversify';
-import { escapeRegExpCharacters, isObject } from '../../common';
-import { PreferenceSchemaProperties } from '../../common/preferences/preference-schema';
+import { escapeRegExpCharacters, isObject } from '../../common/index.js';
+import { PreferenceSchemaProperties } from '../../common/preferences/preference-schema.js';
 
 export interface OverridePreferenceName {
     preferenceName: string

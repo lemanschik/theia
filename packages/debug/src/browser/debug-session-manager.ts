@@ -23,22 +23,22 @@ import { QuickOpenTask } from '@theia/task/lib/browser/quick-open-task';
 import { TaskService, TaskEndedInfo, TaskEndedTypes } from '@theia/task/lib/browser/task-service';
 import { VariableResolverService } from '@theia/variable-resolver/lib/browser';
 import { inject, injectable, postConstruct } from 'inversify';
-import { DebugConfiguration } from '../common/debug-common';
-import { DebugError, DebugService } from '../common/debug-service';
-import { BreakpointManager } from './breakpoint/breakpoint-manager';
-import { DebugConfigurationManager } from './debug-configuration-manager';
-import { DebugSession, DebugState, debugStateContextValue } from './debug-session';
-import { DebugSessionContributionRegistry, DebugSessionFactory } from './debug-session-contribution';
-import { DebugCompoundRoot, DebugCompoundSessionOptions, DebugConfigurationSessionOptions, DebugSessionOptions, InternalDebugSessionOptions } from './debug-session-options';
-import { DebugStackFrame } from './model/debug-stack-frame';
-import { DebugThread } from './model/debug-thread';
+import { DebugConfiguration } from '../common/debug-common.js';
+import { DebugError, DebugService } from '../common/debug-service.js';
+import { BreakpointManager } from './breakpoint/breakpoint-manager.js';
+import { DebugConfigurationManager } from './debug-configuration-manager.js';
+import { DebugSession, DebugState, debugStateContextValue } from './debug-session.js';
+import { DebugSessionContributionRegistry, DebugSessionFactory } from './debug-session-contribution.js';
+import { DebugCompoundRoot, DebugCompoundSessionOptions, DebugConfigurationSessionOptions, DebugSessionOptions, InternalDebugSessionOptions } from './debug-session-options.js';
+import { DebugStackFrame } from './model/debug-stack-frame.js';
+import { DebugThread } from './model/debug-thread.js';
 import { TaskIdentifier } from '@theia/task/lib/common';
-import { DebugSourceBreakpoint } from './model/debug-source-breakpoint';
-import { DebugFunctionBreakpoint } from './model/debug-function-breakpoint';
+import { DebugSourceBreakpoint } from './model/debug-source-breakpoint.js';
+import { DebugFunctionBreakpoint } from './model/debug-function-breakpoint.js';
 import monaco from '@theia/monaco-editor-core';
-import { DebugInstructionBreakpoint } from './model/debug-instruction-breakpoint';
-import { DebugWidget } from './view/debug-widget';
-import { DebugSessionConfigurationLabelProvider } from './debug-session-configuration-label-provider';
+import { DebugInstructionBreakpoint } from './model/debug-instruction-breakpoint.js';
+import { DebugWidget } from './view/debug-widget.js';
+import { DebugSessionConfigurationLabelProvider } from './debug-session-configuration-label-provider.js';
 
 export interface WillStartDebugSession extends WaitUntilEvent {
 }
@@ -58,7 +58,7 @@ export interface DidChangeBreakpointsEvent {
 }
 
 export interface DebugSessionCustomEvent {
-    readonly body?: any // eslint-disable-line @typescript-eslint/no-explicit-any
+    readonly body?: any  
     readonly event: string
     readonly session: DebugSession
 }

@@ -18,10 +18,10 @@ import 'reflect-metadata';
 
 import { expect } from 'chai';
 import { Container } from 'inversify';
-import { PromptService, PromptServiceImpl } from './prompt-service';
-import { DefaultAIVariableService, AIVariableService } from './variable-service';
-import { ToolInvocationRegistry } from './tool-invocation-registry';
-import { ToolRequest } from './language-model';
+import { PromptService, PromptServiceImpl } from './prompt-service.js';
+import { DefaultAIVariableService, AIVariableService } from './variable-service.js';
+import { ToolInvocationRegistry } from './tool-invocation-registry.js';
+import { ToolRequest } from './language-model.js';
 import { MockLogger } from '@theia/core/lib/common/test/mock-logger';
 import { ILogger, Logger } from '@theia/core';
 import sinon from 'sinon';
@@ -328,7 +328,7 @@ describe('PromptService', () => {
         // Create a container with our mocked registry
         const container = new Container();
         container.bind<PromptService>(PromptService).to(PromptServiceImpl).inSingletonScope();
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         container.bind<ToolInvocationRegistry>(ToolInvocationRegistry).toConstantValue(toolInvocationRegistry as any);
 
         // Set up a variable service that returns a fragment with a function reference

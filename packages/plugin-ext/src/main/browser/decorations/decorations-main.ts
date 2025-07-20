@@ -19,13 +19,13 @@ import {
     DecorationsExt,
     DecorationsMain,
     MAIN_RPC_CONTEXT
-} from '../../../common/plugin-api-rpc';
+} from '../../../common/plugin-api-rpc.js';
 
 import { interfaces } from 'inversify';
 import { Emitter } from '@theia/core/lib/common/event';
 import { Disposable } from '@theia/core/lib/common/disposable';
-import { RPCProtocol } from '../../../common/rpc-protocol';
-import { UriComponents } from '../../../common/uri-components';
+import { RPCProtocol } from '../../../common/rpc-protocol.js';
+import { UriComponents } from '../../../common/uri-components.js';
 import { URI as VSCodeURI } from 'vscode-uri';
 import { CancellationToken } from '@theia/core/lib/common/cancellation';
 import URI from '@theia/core/lib/common/uri';
@@ -43,7 +43,7 @@ class DecorationRequestsQueue {
     private requests = new Map<number, DecorationRequest>();
     private resolver = new Map<number, (data: DecorationData) => void>();
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     private timer: any;
 
     constructor(

@@ -26,7 +26,7 @@ FrontendApplicationConfigProvider.set({});
 import chai from 'chai';
 import { expect } from 'chai';
 import URI from '@theia/core/lib/common/uri';
-import { MarkdownPreviewHandler } from './markdown-preview-handler';
+import { MarkdownPreviewHandler } from './markdown-preview-handler.js';
 
 disableJSDOM();
 
@@ -36,7 +36,7 @@ let previewHandler: MarkdownPreviewHandler;
 
 before(() => {
     previewHandler = new MarkdownPreviewHandler();
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     (previewHandler as any).linkNormalizer = {
         normalizeLink: (documentUri: URI, link: string) =>
             'endpoint/' + documentUri.parent.resolve(link).path.toString().substring(1)
@@ -207,7 +207,7 @@ function mockOffsetProperties(): void {
             get: () => 0
         },
         offsetTop: {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+             
             get: function (): any {
                 const element = this as HTMLElement;
                 const line = Number.parseInt(element.getAttribute('data-line') || '0');

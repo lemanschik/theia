@@ -15,7 +15,7 @@
 *******************************************************************************/
 
 import { injectable } from 'inversify';
-import { Measurement, MeasurementOptions, Stopwatch } from '../../common';
+import { Measurement, MeasurementOptions, Stopwatch } from '../../common/index.js';
 
 @injectable()
 export class FrontendStopwatch extends Stopwatch {

@@ -21,33 +21,33 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import './theia-extra';
-import './theia.proposed.canonicalUriProvider';
-import './theia.proposed.customEditorMove';
-import './theia.proposed.debugVisualization';
-import './theia.proposed.diffCommand';
-import './theia.proposed.editSessionIdentityProvider';
-import './theia.proposed.extensionsAny';
-import './theia.proposed.externalUriOpener';
-import './theia.proposed.findTextInFiles';
-import './theia.proposed.fsChunks';
-import './theia.proposed.mappedEditsProvider';
-import './theia.proposed.multiDocumentHighlightProvider';
-import './theia.proposed.notebookCellExecutionState';
-import './theia.proposed.notebookKernelSource';
-import './theia.proposed.notebookMessaging';
-import './theia.proposed.portsAttributes';
-import './theia.proposed.profileContentHandlers';
-import './theia.proposed.resolvers';
-import './theia.proposed.scmValidation';
-import './theia.proposed.shareProvider';
-import './theia.proposed.terminalCompletionProvider';
-import './theia.proposed.terminalQuickFixProvider';
-import './theia.proposed.textSearchProvider';
-import './theia.proposed.timeline';
+import './theia-extra.js';
+import './theia.proposed.canonicalUriProvider.js';
+import './theia.proposed.customEditorMove.js';
+import './theia.proposed.debugVisualization.js';
+import './theia.proposed.diffCommand.js';
+import './theia.proposed.editSessionIdentityProvider.js';
+import './theia.proposed.extensionsAny.js';
+import './theia.proposed.externalUriOpener.js';
+import './theia.proposed.findTextInFiles.js';
+import './theia.proposed.fsChunks.js';
+import './theia.proposed.mappedEditsProvider.js';
+import './theia.proposed.multiDocumentHighlightProvider.js';
+import './theia.proposed.notebookCellExecutionState.js';
+import './theia.proposed.notebookKernelSource.js';
+import './theia.proposed.notebookMessaging.js';
+import './theia.proposed.portsAttributes.js';
+import './theia.proposed.profileContentHandlers.js';
+import './theia.proposed.resolvers.js';
+import './theia.proposed.scmValidation.js';
+import './theia.proposed.shareProvider.js';
+import './theia.proposed.terminalCompletionProvider.js';
+import './theia.proposed.terminalQuickFixProvider.js';
+import './theia.proposed.textSearchProvider.js';
+import './theia.proposed.timeline.js';
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable max-len */
+ 
+ 
 
 export module '@theia/plugin' {
 
@@ -9723,7 +9723,7 @@ export module '@theia/plugin' {
         Enum = 12,
         Keyword = 13,
         Snippet = 14,
-        // eslint-disable-next-line @typescript-eslint/no-shadow
+         
         Color = 15,
         Reference = 17,
         File = 16,
@@ -13324,14 +13324,14 @@ export module '@theia/plugin' {
          * Add breakpoints.
          * @param breakpoints The breakpoints to add.
          */
-        // eslint-disable-next-line @typescript-eslint/no-shadow
+         
         export function addBreakpoints(breakpoints: readonly Breakpoint[]): void;
 
         /**
          * Remove breakpoints.
          * @param breakpoints The breakpoints to remove.
          */
-        // eslint-disable-next-line @typescript-eslint/no-shadow
+         
         export function removeBreakpoints(breakpoints: readonly Breakpoint[]): void;
     }
 

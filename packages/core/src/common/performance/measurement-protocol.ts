@@ -14,11 +14,11 @@
 * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 *******************************************************************************/
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
 import { inject, injectable } from 'inversify';
-import { Measurement, MeasurementOptions } from './measurement';
-import { Stopwatch } from './stopwatch';
+import { Measurement, MeasurementOptions } from './measurement.js';
+import { Stopwatch } from './stopwatch.js';
 
 export const BackendStopwatch = Symbol('BackendStopwatch');
 

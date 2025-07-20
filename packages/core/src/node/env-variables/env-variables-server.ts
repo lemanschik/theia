@@ -19,11 +19,11 @@ import { homedir } from 'os';
 import { injectable } from 'inversify';
 import drivelist from 'drivelist';
 import { pathExists, mkdir } from 'fs-extra';
-import { EnvVariable, EnvVariablesServer } from '../../common/env-variables';
-import { isWindows } from '../../common/os';
-import { FileUri } from '../../common/file-uri';
-import { BackendApplicationPath } from '../backend-application';
-import { BackendApplicationConfigProvider } from '../backend-application-config-provider';
+import { EnvVariable, EnvVariablesServer } from '../../common/env-variables/index.js';
+import { isWindows } from '../../common/os.js';
+import { FileUri } from '../../common/file-uri.js';
+import { BackendApplicationPath } from '../backend-application.js';
+import { BackendApplicationConfigProvider } from '../backend-application-config-provider.js';
 
 @injectable()
 export class EnvVariablesServerImpl implements EnvVariablesServer {

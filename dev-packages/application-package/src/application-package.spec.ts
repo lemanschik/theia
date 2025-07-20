@@ -18,8 +18,8 @@ import assert from 'assert';
 import temp from 'temp';
 import fs from 'fs-extra';
 import path from 'path';
-import { ApplicationPackage } from './application-package';
-import { ApplicationProps } from './application-props';
+import { ApplicationPackage } from './application-package.js';
+import { ApplicationProps } from './application-props.js';
 import sinon from 'sinon';
 
 const track = temp.track();

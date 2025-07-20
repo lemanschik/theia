@@ -16,9 +16,9 @@
 
 import { inject, injectable, postConstruct } from 'inversify';
 import theia from '@theia/plugin';
-import { RPCProtocol } from '../common/rpc-protocol';
-import { EnvMain, PLUGIN_RPC_CONTEXT } from '../common/plugin-api-rpc';
-import { QueryParameters } from '../common/env';
+import { RPCProtocol } from '../common/rpc-protocol.js';
+import { EnvMain, PLUGIN_RPC_CONTEXT } from '../common/plugin-api-rpc.js';
+import { QueryParameters } from '../common/env.js';
 import { generateUuid } from '@theia/core/lib/common/uuid';
 
 @injectable()

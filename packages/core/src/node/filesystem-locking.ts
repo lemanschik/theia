@@ -47,7 +47,7 @@ export class FileSystemLockingImpl implements FileSystemLocking {
 
     protected getLocks(): Map<string, Mutex> {
         const kLocks = Symbol.for('FileSystemLockingImpl.Locks');
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         return (globalThis as any)[kLocks] ??= this.initializeLocks();
     }
 

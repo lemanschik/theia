@@ -18,9 +18,9 @@ import cp from 'child_process';
 import { inject, injectable } from 'inversify';
 import path from 'path';
 import { createInterface } from 'readline';
-import { Channel, ConnectionErrorHandler, Disposable, DisposableCollection, ILogger } from '../../common';
-import { IPCChannel } from './ipc-channel';
-import { createIpcEnv } from './ipc-protocol';
+import { Channel, ConnectionErrorHandler, Disposable, DisposableCollection, ILogger } from '../../common/index.js';
+import { IPCChannel } from './ipc-channel.js';
+import { createIpcEnv } from './ipc-protocol.js';
 
 export interface ResolvedIPCConnectionOptions {
     readonly serverName: string

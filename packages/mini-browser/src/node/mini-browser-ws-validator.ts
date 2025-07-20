@@ -18,7 +18,7 @@ import { WsRequestValidatorContribution } from '@theia/core/lib/node/ws-request-
 import http from 'http';
 import { injectable, postConstruct } from 'inversify';
 import url from 'url';
-import { MiniBrowserEndpoint } from '../common/mini-browser-endpoint';
+import { MiniBrowserEndpoint } from '../common/mini-browser-endpoint.js';
 
 /**
  * Prevents explicit WebSocket connections from the mini-browser virtual host.

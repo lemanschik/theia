@@ -19,11 +19,11 @@ import { inject, injectable, named } from 'inversify';
 import { WorkspaceServer } from '@theia/workspace/lib/common';
 import fs from 'fs-extra';
 import Docker from 'dockerode';
-import { ContainerConnectionOptions } from '../electron-common/remote-container-connection-provider';
-import { DevContainerConfiguration } from './devcontainer-file';
-import { DevContainerFileService } from './dev-container-file-service';
-import { ContainerOutputProvider } from '../electron-common/container-output-provider';
-import { RemoteDockerContainerConnection } from './remote-container-connection-provider';
+import { ContainerConnectionOptions } from '../electron-common/remote-container-connection-provider.js';
+import { DevContainerConfiguration } from './devcontainer-file.js';
+import { DevContainerFileService } from './dev-container-file-service.js';
+import { ContainerOutputProvider } from '../electron-common/container-output-provider.js';
+import { RemoteDockerContainerConnection } from './remote-container-connection-provider.js';
 
 export const ContainerCreationContribution = Symbol('ContainerCreationContributions');
 

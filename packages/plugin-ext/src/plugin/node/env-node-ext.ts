@@ -16,7 +16,7 @@
 
 import { injectable } from 'inversify';
 import mac from 'macaddress';
-import { EnvExtImpl } from '../env';
+import { EnvExtImpl } from '../env.js';
 import { createHash } from 'crypto';
 import { generateUuid } from '@theia/core/lib/common/uuid';
 import fs from 'fs';

@@ -16,9 +16,9 @@
 import chai from 'chai';
 import process from 'process';
 import stream from 'stream';
-import { createProcessTestContainer } from './test/process-test-container';
-import { TerminalProcessFactory } from './terminal-process';
-import { IProcessExitEvent, ProcessErrorEvent } from './process';
+import { createProcessTestContainer } from './test/process-test-container.js';
+import { TerminalProcessFactory } from './terminal-process.js';
+import { IProcessExitEvent, ProcessErrorEvent } from './process.js';
 import { isWindows } from '@theia/core/lib/common/os';
 
 /**

@@ -109,7 +109,7 @@ export class MultiKeyMap<K, V> {
         this.doForeach(handler, this.rootMap, []);
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     private doForeach(handler: (value: V, key: K[]) => void, currentMap: Map<any, any>, keys: K[]): void {
         if (keys.length === this.keyLength - 1) {
             currentMap.forEach((v, k) => {

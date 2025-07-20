@@ -18,8 +18,8 @@ import chai from 'chai';
 import { expect } from 'chai';
 chai.use(require('chai-string'));
 
-import { DiffComputer, DirtyDiff } from './diff-computer';
-import { ContentLines } from './content-lines';
+import { DiffComputer, DirtyDiff } from './diff-computer.js';
+import { ContentLines } from './content-lines.js';
 
 let diffComputer: DiffComputer;
 

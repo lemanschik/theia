@@ -15,8 +15,8 @@
 // *****************************************************************************
 
 import { injectable } from 'inversify';
-import { CancellationToken } from './cancellation';
-import { nls } from './nls';
+import { CancellationToken } from './cancellation.js';
+import { nls } from './nls.js';
 
 export const messageServicePath = '/services/messageService';
 

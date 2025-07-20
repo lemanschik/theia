@@ -16,7 +16,7 @@
 
 import { injectable } from 'inversify';
 import { ArgumentProcessor } from '@theia/plugin-ext/lib/common/commands';
-import { VSXExtension } from './vsx-extension';
+import { VSXExtension } from './vsx-extension.js';
 
 @injectable()
 export class VsxExtensionArgumentProcessor implements ArgumentProcessor {

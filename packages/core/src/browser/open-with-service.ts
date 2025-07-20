@@ -15,13 +15,13 @@
 // *****************************************************************************
 
 import { inject, injectable } from 'inversify';
-import { Disposable } from '../common/disposable';
-import { nls } from '../common/nls';
-import { MaybePromise } from '../common/types';
-import { URI } from '../common/uri';
-import { QuickInputService, QuickPickItem, QuickPickItemOrSeparator } from './quick-input';
-import { PreferenceScope, PreferenceService } from './preferences';
-import { getDefaultHandler } from './opener-service';
+import { Disposable } from '../common/disposable.js';
+import { nls } from '../common/nls.js';
+import { MaybePromise } from '../common/types.js';
+import { URI } from '../common/uri.js';
+import { QuickInputService, QuickPickItem, QuickPickItemOrSeparator } from './quick-input/index.js';
+import { PreferenceScope, PreferenceService } from './preferences/index.js';
+import { getDefaultHandler } from './opener-service.js';
 
 export interface OpenWithHandler {
     /**

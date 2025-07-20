@@ -13,11 +13,11 @@
 //
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
 import { Packr as MsgPack } from 'msgpackr';
-import { ReadBuffer, WriteBuffer } from './message-buffer';
-import { MsgPackExtensionManager } from './msg-pack-extension-manager';
+import { ReadBuffer, WriteBuffer } from './message-buffer.js';
+import { MsgPackExtensionManager } from './msg-pack-extension-manager.js';
 
 /**
  * This code lets you encode rpc protocol messages (request/reply/notification/error/cancel)
@@ -173,7 +173,7 @@ export function registerMsgPackExtensions(): void {
     MsgPackExtensionManager.getInstance().registerExtensions({
         class: Error,
         tag: 1,
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         serialize: (error: any) => {
             const { code, data, message, name } = error;
             const stack = error.stacktrace ?? error.stack;

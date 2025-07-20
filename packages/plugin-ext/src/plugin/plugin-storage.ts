@@ -17,9 +17,9 @@
 import theia from '@theia/plugin';
 import { inject, injectable } from 'inversify';
 import { Disposable, DisposableGroup, Event, Emitter } from '@theia/core';
-import { PLUGIN_RPC_CONTEXT, StorageMain, StorageExt } from '../common/plugin-api-rpc';
-import { KeysToAnyValues, KeysToKeysToAnyValue } from '../common/types';
-import { RPCProtocol } from '../common/rpc-protocol';
+import { PLUGIN_RPC_CONTEXT, StorageMain, StorageExt } from '../common/plugin-api-rpc.js';
+import { KeysToAnyValues, KeysToKeysToAnyValue } from '../common/types.js';
+import { RPCProtocol } from '../common/rpc-protocol.js';
 
 export class Memento implements theia.Memento {
 
@@ -53,7 +53,7 @@ export class Memento implements theia.Memento {
         }
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     update(key: string, value: any): Promise<void> {
         if (value === undefined) {
             delete this.cache[key];
@@ -79,7 +79,7 @@ export interface InternalStorageExt extends StorageExt {
 
     setPerPluginData(key: string, value: KeysToAnyValues, isGlobal: boolean): Promise<boolean>;
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     storageDataChangedEvent(listener: (e: KeysToKeysToAnyValue) => any, thisArgs?: any, disposables?: DisposableGroup): Disposable;
 
     $updatePluginsWorkspaceData(workspaceData: KeysToKeysToAnyValue): void;

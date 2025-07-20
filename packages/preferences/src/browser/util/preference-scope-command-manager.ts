@@ -18,7 +18,7 @@ import { injectable, inject } from 'inversify';
 import { PreferenceScope, LabelProvider, codicon } from '@theia/core/lib/browser';
 import { FileStat } from '@theia/filesystem/lib/common/files';
 import { CommandRegistry, MenuModelRegistry, Command } from '@theia/core/lib/common';
-import { Preference, PreferenceMenus } from './preference-types';
+import { Preference, PreferenceMenus } from './preference-types.js';
 
 /**
  * @deprecated since 1.17.0 moved to PreferenceMenus namespace.

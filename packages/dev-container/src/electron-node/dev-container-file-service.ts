@@ -16,12 +16,12 @@
 
 import { inject, injectable, named } from 'inversify';
 import { WorkspaceServer } from '@theia/workspace/lib/common';
-import { DevContainerFile } from '../electron-common/remote-container-connection-provider';
-import { DevContainerConfiguration } from './devcontainer-file';
+import { DevContainerFile } from '../electron-common/remote-container-connection-provider.js';
+import { DevContainerConfiguration } from './devcontainer-file.js';
 import { parse } from 'jsonc-parser';
 import fs from 'fs-extra';
 import { ContributionProvider, Path, URI } from '@theia/core';
-import { VariableResolverContribution } from './devcontainer-contributions/variable-resolver-contribution';
+import { VariableResolverContribution } from './devcontainer-contributions/variable-resolver-contribution.js';
 
 const VARIABLE_REGEX = /^\$\{(.+?)(?::(.+))?\}$/;
 

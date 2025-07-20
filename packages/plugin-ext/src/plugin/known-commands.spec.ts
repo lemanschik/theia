@@ -15,9 +15,9 @@
 // *****************************************************************************
 
 import assert from 'assert';
-import { KnownCommands } from './known-commands';
-import { Position, URI } from './types-impl';
-import { fromPosition } from './type-converters';
+import { KnownCommands } from './known-commands.js';
+import { Position, URI } from './types-impl.js';
+import { fromPosition } from './type-converters.js';
 
 describe('Known Command Conversions', () => {
 
@@ -33,7 +33,7 @@ describe('Known Command Conversions', () => {
         assert.ok(KnownCommands.mapped(commandID));
 
         // when
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         KnownCommands.map(commandID, [uri, position], (mappedID: string, mappedArgs: any[]) => {
 
             // then

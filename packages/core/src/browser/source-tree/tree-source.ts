@@ -14,12 +14,12 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
 import { ReactNode } from 'react';
 import { injectable, unmanaged } from 'inversify';
-import { Disposable, DisposableCollection, Emitter, Event, isObject, MaybePromise } from '../../common';
-import { TreeWidget } from '../tree';
+import { Disposable, DisposableCollection, Emitter, Event, isObject, MaybePromise } from '../../common/index.js';
+import { TreeWidget } from '../tree/index.js';
 
 export interface TreeElement {
     /** default: parent id + position among siblings */

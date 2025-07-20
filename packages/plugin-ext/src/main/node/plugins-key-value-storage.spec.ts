@@ -18,10 +18,10 @@ import 'reflect-metadata';
 import { expect } from 'chai';
 import { Container } from 'inversify';
 import { EnvVariablesServer } from '@theia/core/lib/common/env-variables';
-import { PluginsKeyValueStorage } from './plugins-key-value-storage';
-import { PluginPathsService } from '../common/plugin-paths-protocol';
-import { PluginPathsServiceImpl } from './paths/plugin-paths-service';
-import { PluginCliContribution } from './plugin-cli-contribution';
+import { PluginsKeyValueStorage } from './plugins-key-value-storage.js';
+import { PluginPathsService } from '../common/plugin-paths-protocol.js';
+import { PluginPathsServiceImpl } from './paths/plugin-paths-service.js';
+import { PluginCliContribution } from './plugin-cli-contribution.js';
 import { ILogger } from '@theia/core/lib/common/logger';
 import { MockLogger } from '@theia/core/lib/common/test/mock-logger';
 import { MockEnvVariablesServerImpl } from '@theia/core/lib/browser/test/mock-env-variables-server';
@@ -85,7 +85,7 @@ describe('Plugins Key Value Storage', () => {
 const populateStorage = async (storage: PluginsKeyValueStorage, keyPrefix: string, valuePropName: string, num: number) => {
     const tasks: Promise<boolean>[] = [];
     for (let i = 0; i < num; i++) {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         const value: { [key: string]: any } = {};
         value[valuePropName] = i;
         tasks.push(storage.set(keyPrefix + i, value, GlobalStorageKind));
@@ -99,7 +99,7 @@ const getNumEntries = async (storage: PluginsKeyValueStorage) => {
 };
 
 const checkStorageContent = async (storage: PluginsKeyValueStorage, keyPrefix: string, valuePropName: string, num: number) => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     const expectedValue: { [key: string]: any } = {};
     const all = await storage.getAll(GlobalStorageKind);
     for (let i = 0; i < num; i++) {

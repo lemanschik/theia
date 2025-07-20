@@ -14,17 +14,17 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { AbstractChannel, Channel, Disposable, DisposableCollection, Emitter, Event, servicesPath } from '../../common';
-import { ConnectionSource } from './connection-source';
+import { AbstractChannel, Channel, Disposable, DisposableCollection, Emitter, Event, servicesPath } from '../../common/index.js';
+import { ConnectionSource } from './connection-source.js';
 import { Socket, io } from 'socket.io-client';
-import { Endpoint } from '../endpoint';
-import { ForwardingChannel } from '../../common/message-rpc/channel';
-import { Uint8ArrayReadBuffer, Uint8ArrayWriteBuffer } from '../../common/message-rpc/uint8-array-message-buffer';
+import { Endpoint } from '../endpoint.js';
+import { ForwardingChannel } from '../../common/message-rpc/channel.js';
+import { Uint8ArrayReadBuffer, Uint8ArrayWriteBuffer } from '../../common/message-rpc/uint8-array-message-buffer.js';
 import { inject, injectable, postConstruct } from 'inversify';
-import { FrontendIdProvider } from './frontend-id-provider';
-import { FrontendApplicationConfigProvider } from '../frontend-application-config-provider';
-import { SocketWriteBuffer } from '../../common/messaging/socket-write-buffer';
-import { ConnectionManagementMessages } from '../../common/messaging/connection-management';
+import { FrontendIdProvider } from './frontend-id-provider.js';
+import { FrontendApplicationConfigProvider } from '../frontend-application-config-provider.js';
+import { SocketWriteBuffer } from '../../common/messaging/socket-write-buffer.js';
+import { ConnectionManagementMessages } from '../../common/messaging/connection-management.js';
 
 @injectable()
 export class WebSocketConnectionSource implements ConnectionSource {
@@ -146,7 +146,7 @@ export class WebSocketConnectionSource implements ConnectionSource {
     protected createChannel(): AbstractChannel {
         const toDispose = new DisposableCollection();
 
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         const messageHandler = (data: any) => {
             this.onIncomingMessageActivityEmitter.fire();
             if (this.currentChannel) {

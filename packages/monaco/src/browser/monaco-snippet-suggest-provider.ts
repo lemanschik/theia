@@ -197,7 +197,7 @@ export class MonacoSnippetSuggestProvider implements monaco.languages.Completion
             if (JsonSerializedSnippet.is(scopeOrTemplate)) {
                 accept(name, scopeOrTemplate);
             } else {
-                // eslint-disable-next-line @typescript-eslint/no-shadow
+                 
                 for (const [name, template] of Object.entries(scopeOrTemplate)) {
                     accept(name, template);
                 }

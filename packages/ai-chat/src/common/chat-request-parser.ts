@@ -20,9 +20,9 @@
 // Partially copied from https://github.com/microsoft/vscode/blob/a2cab7255c0df424027be05d58e1b7b941f4ea60/src/vs/workbench/contrib/chat/common/chatRequestParser.ts
 
 import { inject, injectable } from 'inversify';
-import { ChatAgentService } from './chat-agent-service';
-import { ChatAgentLocation } from './chat-agents';
-import { ChatContext, ChatRequest } from './chat-model';
+import { ChatAgentService } from './chat-agent-service.js';
+import { ChatAgentLocation } from './chat-agents.js';
+import { ChatContext, ChatRequest } from './chat-model.js';
 import {
     chatAgentLeader,
     chatFunctionLeader,
@@ -34,7 +34,7 @@ import {
     OffsetRange,
     ParsedChatRequest,
     ParsedChatRequestPart,
-} from './parsed-chat-request';
+} from './parsed-chat-request.js';
 import { AIVariable, AIVariableService, createAIResolveVariableCache, getAllResolvedAIVariables, ToolInvocationRegistry, ToolRequest } from '@theia/ai-core';
 import { ILogger } from '@theia/core';
 

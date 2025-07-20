@@ -15,10 +15,10 @@
 // *****************************************************************************
 
 import theia from '@theia/plugin';
-import { DocumentsExtImpl } from '../documents';
-import * as Converter from '../type-converters';
+import { DocumentsExtImpl } from '../documents.js';
+import * as Converter from '../type-converters.js';
 import { URI } from 'vscode-uri';
-import { FormattingOptions, TextEdit, Range } from '../../common/plugin-api-rpc-model';
+import { FormattingOptions, TextEdit, Range } from '../../common/plugin-api-rpc-model.js';
 
 export class RangeFormattingAdapter {
 
@@ -36,7 +36,7 @@ export class RangeFormattingAdapter {
         const doc = document.document;
         const ran = Converter.toRange(range);
 
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         return Promise.resolve(this.provider.provideDocumentRangeFormattingEdits(doc, ran, <any>options, token)).then(value => {
             if (Array.isArray(value)) {
                 return value.map(Converter.fromTextEdit);

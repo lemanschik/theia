@@ -14,6 +14,6 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-export * from './preview-uri';
-export * from './preview-handler';
-export { PreviewOpenerOptions } from './preview-contribution';
+export * from './preview-uri.js';
+export * from './preview-handler.js';
+export { PreviewOpenerOptions } from './preview-contribution.js';

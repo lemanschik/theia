@@ -16,7 +16,7 @@
 
 import { expect } from 'chai';
 import { Container } from 'inversify';
-import { ProcessUtils } from './process-utils';
+import { ProcessUtils } from './process-utils.js';
 
 /** PPID, PID */
 const mockPsOutput = `\
@@ -40,7 +40,7 @@ describe('ProcessUtils', () => {
     });
 
     it('ProcessUtils#unixGetChildrenRecursive', () => {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         coreProcessManager['spawnSync'] = () => ({ stdout: mockPsOutput }) as any;
         const pids = coreProcessManager['unixGetChildrenRecursive'](2);
         expect(Array.from(pids)).members([40, 5, 6, 7]);

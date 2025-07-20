@@ -18,9 +18,9 @@ import { injectable, inject, postConstruct, interfaces, Container } from 'invers
 import { MenuPath } from '@theia/core/lib/common';
 import { TreeNode, NodeProps } from '@theia/core/lib/browser';
 import { SourceTreeWidget } from '@theia/core/lib/browser/source-tree';
-import { DebugBreakpointsSource } from './debug-breakpoints-source';
-import { BreakpointManager } from '../breakpoint/breakpoint-manager';
-import { DebugViewModel } from './debug-view-model';
+import { DebugBreakpointsSource } from './debug-breakpoints-source.js';
+import { BreakpointManager } from '../breakpoint/breakpoint-manager.js';
+import { DebugViewModel } from './debug-view-model.js';
 import { nls } from '@theia/core/lib/common/nls';
 
 @injectable()

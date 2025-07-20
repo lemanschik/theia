@@ -19,20 +19,20 @@ import { MessageClient } from '@theia/core/lib/common';
 import { LabelProvider } from '@theia/core/lib/browser';
 import { EditorManager } from '@theia/editor/lib/browser';
 import { TerminalService } from '@theia/terminal/lib/browser/base/terminal-service';
-import { DebugSession } from './debug-session';
-import { BreakpointManager } from './breakpoint/breakpoint-manager';
-import { DebugConfigurationSessionOptions, DebugSessionOptions } from './debug-session-options';
+import { DebugSession } from './debug-session.js';
+import { BreakpointManager } from './breakpoint/breakpoint-manager.js';
+import { DebugConfigurationSessionOptions, DebugSessionOptions } from './debug-session-options.js';
 import { OutputChannelManager, OutputChannel } from '@theia/output/lib/browser/output-channel';
-import { DebugPreferences } from './debug-preferences';
-import { DebugSessionConnection } from './debug-session-connection';
-import { DebugChannel, DebugAdapterPath, ForwardingDebugChannel } from '../common/debug-service';
+import { DebugPreferences } from './debug-preferences.js';
+import { DebugSessionConnection } from './debug-session-connection.js';
+import { DebugChannel, DebugAdapterPath, ForwardingDebugChannel } from '../common/debug-service.js';
 import { ContributionProvider } from '@theia/core/lib/common/contribution-provider';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
-import { DebugContribution } from './debug-contribution';
+import { DebugContribution } from './debug-contribution.js';
 import { WorkspaceService } from '@theia/workspace/lib/browser';
 import { RemoteConnectionProvider, ServiceConnectionProvider } from '@theia/core/lib/browser/messaging/service-connection-provider';
 import { TestService } from '@theia/test/lib/browser/test-service';
-import { DebugSessionManager } from './debug-session-manager';
+import { DebugSessionManager } from './debug-session-manager.js';
 
 /**
  * DebugSessionContribution symbol for DI.

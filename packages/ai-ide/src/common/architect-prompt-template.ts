@@ -12,9 +12,9 @@ import { PromptVariantSet } from '@theia/ai-core/lib/common';
 import {
     GET_WORKSPACE_FILE_LIST_FUNCTION_ID, FILE_CONTENT_FUNCTION_ID, GET_WORKSPACE_DIRECTORY_STRUCTURE_FUNCTION_ID, SEARCH_IN_WORKSPACE_FUNCTION_ID,
     GET_FILE_DIAGNOSTICS_ID
-} from './workspace-functions';
-import { CONTEXT_FILES_VARIABLE_ID, TASK_CONTEXT_SUMMARY_VARIABLE_ID } from './context-variables';
-import { UPDATE_CONTEXT_FILES_FUNCTION_ID } from './context-functions';
+} from './workspace-functions.js';
+import { CONTEXT_FILES_VARIABLE_ID, TASK_CONTEXT_SUMMARY_VARIABLE_ID } from './context-variables.js';
+import { UPDATE_CONTEXT_FILES_FUNCTION_ID } from './context-functions.js';
 
 export const ARCHITECT_TASK_SUMMARY_PROMPT_TEMPLATE_ID = 'architect-tasksummary-create';
 export const ARCHITECT_TASK_SUMMARY_UPDATE_PROMPT_TEMPLATE_ID = 'architect-tasksummary-update';

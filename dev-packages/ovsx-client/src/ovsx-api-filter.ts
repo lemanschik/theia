@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import semver from 'semver';
-import { OVSXClient, VSXAllVersions, VSXBuiltinNamespaces, VSXExtensionRaw, VSXQueryOptions, VSXSearchEntry } from './ovsx-types';
+import { OVSXClient, VSXAllVersions, VSXBuiltinNamespaces, VSXExtensionRaw, VSXQueryOptions, VSXSearchEntry } from './ovsx-types.js';
 
 export const OVSXApiFilterProvider = Symbol('OVSXApiFilterProvider');
 

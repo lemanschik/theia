@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
 import { enableJSDOM } from '@theia/core/lib/browser/test/jsdom';
 const disableJSDOM = enableJSDOM();
@@ -24,7 +24,7 @@ FrontendApplicationConfigProvider.set({});
 
 import { expect } from 'chai';
 import { Container } from 'inversify';
-import { AbstractResourcePreferenceProvider } from './abstract-resource-preference-provider';
+import { AbstractResourcePreferenceProvider } from './abstract-resource-preference-provider.js';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
 import { bindPreferenceService } from '@theia/core/lib/browser/frontend-application-bindings';
 import { bindMockPreferenceProviders } from '@theia/core/lib/browser/preferences/test';
@@ -33,7 +33,7 @@ import { Disposable, MessageService } from '@theia/core/lib/common';
 import { MonacoWorkspace } from '@theia/monaco/lib/browser/monaco-workspace';
 import { PreferenceSchemaProvider } from '@theia/core/lib/browser';
 import { EditorManager } from '@theia/editor/lib/browser';
-import { PreferenceTransactionFactory } from './preference-transaction-manager';
+import { PreferenceTransactionFactory } from './preference-transaction-manager.js';
 
 disableJSDOM();
 

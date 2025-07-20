@@ -18,12 +18,12 @@ import { injectable, inject } from 'inversify';
 import { codicon, StatusBar, StatusBarAlignment, StatusBarEntry } from '@theia/core/lib/browser';
 import { LanguageService } from '@theia/core/lib/browser/language-service';
 import { CommandRegistry, nls } from '@theia/core';
-import { TextEditor } from '../editor';
-import { EditorCommands } from '../editor-command';
-import { LanguageSelector, score } from '../../common/language-selector';
+import { TextEditor } from '../editor.js';
+import { EditorCommands } from '../editor-command.js';
+import { LanguageSelector, score } from '../../common/language-selector.js';
 import { AccessibilityInformation } from '@theia/core/lib/common/accessibility';
 import URI from '@theia/core/lib/common/uri';
-import { CurrentEditorAccess } from '../editor-manager';
+import { CurrentEditorAccess } from '../editor-manager.js';
 import { Severity } from '@theia/core/lib/common/severity';
 import { LabelParser } from '@theia/core/lib/browser/label-parser';
 

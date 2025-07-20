@@ -17,11 +17,11 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { expect } from 'chai';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 export async function expectThrowsAsync(actual: Promise<any>, expected?: string | RegExp, message?: string): Promise<void>;
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 export async function expectThrowsAsync(actual: Promise<any>, constructor: Error | Function, expected?: string | RegExp, message?: string): Promise<void>;
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 export async function expectThrowsAsync(promise: Promise<any>, ...args: any[]): Promise<void> {
     let synchronous = () => { };
     try {

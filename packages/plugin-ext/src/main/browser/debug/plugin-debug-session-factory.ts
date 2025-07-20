@@ -26,12 +26,12 @@ import { DebugConfigurationSessionOptions, TestRunReference } from '@theia/debug
 import { DebugSession } from '@theia/debug/lib/browser/debug-session';
 import { DebugSessionConnection } from '@theia/debug/lib/browser/debug-session-connection';
 import { TerminalWidgetOptions, TerminalWidget } from '@theia/terminal/lib/browser/base/terminal-widget';
-import { TerminalOptionsExt } from '../../../common/plugin-api-rpc';
+import { TerminalOptionsExt } from '../../../common/plugin-api-rpc.js';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
 import { DebugContribution } from '@theia/debug/lib/browser/debug-contribution';
 import { ContributionProvider } from '@theia/core/lib/common/contribution-provider';
 import { WorkspaceService } from '@theia/workspace/lib/browser';
-import { PluginChannel } from '../../../common/connection';
+import { PluginChannel } from '../../../common/connection.js';
 import { TestService } from '@theia/test/lib/browser/test-service';
 import { DebugSessionManager } from '@theia/debug/lib/browser/debug-session-manager';
 

@@ -21,7 +21,7 @@
 
 import { ContributionProvider, ILogger } from '@theia/core';
 import { inject, injectable, named } from 'inversify';
-import { ChatAgent } from './chat-agents';
+import { ChatAgent } from './chat-agents.js';
 import { AgentService } from '@theia/ai-core';
 
 export const ChatAgentService = Symbol('ChatAgentService');

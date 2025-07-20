@@ -1,4 +1,4 @@
-/* eslint-disable max-len */
+ 
 
 // *****************************************************************************
 // Copyright (C) 2024 EclipseSource GmbH.
@@ -25,7 +25,7 @@ import { nls } from '@theia/core';
 import { inject, injectable } from 'inversify';
 import { MCP_SERVERS_PREF } from '@theia/ai-mcp/lib/browser/mcp-preferences';
 import { PreferenceScope, PreferenceService } from '@theia/core/lib/browser';
-import { QUERY_DOM_FUNCTION_ID, LAUNCH_BROWSER_FUNCTION_ID, CLOSE_BROWSER_FUNCTION_ID, IS_BROWSER_RUNNING_FUNCTION_ID } from '../common/app-tester-chat-functions';
+import { QUERY_DOM_FUNCTION_ID, LAUNCH_BROWSER_FUNCTION_ID, CLOSE_BROWSER_FUNCTION_ID, IS_BROWSER_RUNNING_FUNCTION_ID } from '../common/app-tester-chat-functions.js';
 
 export const REQUIRED_MCP_SERVERS: MCPServerDescription[] = [
     {

@@ -17,8 +17,8 @@ import 'reflect-metadata';
 import { Container } from 'inversify';
 import { ConnectionClosedError, RPCProtocol } from '@theia/plugin-ext/lib/common/rpc-protocol';
 import { ProcessTerminatedMessage, ProcessTerminateMessage } from '@theia/plugin-ext/lib/hosted/node/hosted-plugin-protocol';
-import { HeadlessPluginHostRPC } from './plugin-host-headless-rpc';
-import pluginHostModule from './plugin-host-headless-module';
+import { HeadlessPluginHostRPC } from './plugin-host-headless-rpc.js';
+import pluginHostModule from './plugin-host-headless-module.js';
 
 const banner = `HEADLESS_PLUGIN_HOST(${process.pid}):`;
 console.log(banner, 'Starting instance');
@@ -30,7 +30,7 @@ process.exit = function (code?: number): void {
 } as (code?: number) => never;
 
 // same for 'crash'(works only in electron)
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 const proc = process as any;
 if (proc.crash) {
     proc.crash = function (): void {
@@ -43,10 +43,10 @@ process.on('uncaughtException', (err: Error) => {
     console.error(banner, err);
 });
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 const unhandledPromises: Promise<any>[] = [];
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 process.on('unhandledRejection', (reason: any, promise: Promise<any>) => {
     unhandledPromises.push(promise);
     setTimeout(() => {
@@ -67,7 +67,7 @@ process.on('unhandledRejection', (reason: any, promise: Promise<any>) => {
     }, 1000);
 });
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 process.on('rejectionHandled', (promise: Promise<any>) => {
     const index = unhandledPromises.indexOf(promise);
     if (index >= 0) {

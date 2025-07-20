@@ -20,7 +20,7 @@
 // copied from https://github.com/Microsoft/vscode/blob/master/src/vs/workbench/services/extensions/node/rpcProtocol.ts
 // with small modifications
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
 import { Channel, Disposable, DisposableCollection, isObject, ReadBuffer, RpcProtocol, URI, WriteBuffer } from '@theia/core';
 import { Emitter, Event } from '@theia/core/lib/common/event';
@@ -29,7 +29,7 @@ import { Uint8ArrayReadBuffer, Uint8ArrayWriteBuffer } from '@theia/core/lib/com
 import { MsgPackExtensionManager } from '@theia/core/lib/common/message-rpc/msg-pack-extension-manager';
 import { URI as VSCodeURI } from 'vscode-uri';
 import { BinaryBuffer } from '@theia/core/lib/common/buffer';
-import { Range, Position } from '../plugin/types-impl';
+import { Range, Position } from '../plugin/types-impl.js';
 
 export interface MessageConnection {
     send(msg: string): void;
@@ -286,7 +286,7 @@ export function registerMsgPackExtensions(): void {
         {
             class: VSCodeURI,
             tag: 4,
-            // eslint-disable-next-line arrow-body-style
+             
             serialize: (instance: URI) => {
                 return instance.toString();
             },
@@ -295,11 +295,11 @@ export function registerMsgPackExtensions(): void {
         {
             class: BinaryBuffer,
             tag: 5,
-            // eslint-disable-next-line arrow-body-style
+             
             serialize: (instance: BinaryBuffer) => {
                 return instance.buffer;
             },
-            // eslint-disable-next-line arrow-body-style
+             
             deserialize: buffer => {
                 return BinaryBuffer.wrap(buffer);
             }

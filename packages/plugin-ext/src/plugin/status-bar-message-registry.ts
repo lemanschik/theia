@@ -13,13 +13,13 @@
 //
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
-import { Disposable, StatusBarAlignment } from './types-impl';
+import { Disposable, StatusBarAlignment } from './types-impl.js';
 import { StatusBarItem } from '@theia/plugin';
 import {
     PLUGIN_RPC_CONTEXT as Ext, StatusBarMessageRegistryMain
-} from '../common/plugin-api-rpc';
-import { RPCProtocol } from '../common/rpc-protocol';
-import { StatusBarItemImpl } from './status-bar/status-bar-item';
+} from '../common/plugin-api-rpc.js';
+import { RPCProtocol } from '../common/rpc-protocol.js';
+import { StatusBarItemImpl } from './status-bar/status-bar-item.js';
 
 /*---------------------------------------------------------------------------------------------
  *  Copyright (c) Microsoft Corporation. All rights reserved.
@@ -38,10 +38,10 @@ export class StatusBarMessageRegistryExt {
     }
 
     // copied from https://github.com/Microsoft/vscode/blob/6c8f02b41db9ae5c4d15df767d47755e5c73b9d5/src/vs/workbench/api/node/extHostStatusBar.ts#L174
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     setStatusBarMessage(text: string, timeoutOrThenable?: number | PromiseLike<any>): Disposable {
         const d = this.statusMessage.setMessage(text);
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         let handle: any;
 
         if (typeof timeoutOrThenable === 'number') {

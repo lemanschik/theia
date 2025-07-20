@@ -25,11 +25,11 @@ import { WindowService } from '@theia/core/lib/browser/window/window-service';
 import { parseCssTime, Key, KeyCode } from '@theia/core/lib/browser';
 import { DisposableCollection, Disposable } from '@theia/core/lib/common/disposable';
 import { BaseWidget, addEventListener, codiconArray } from '@theia/core/lib/browser/widgets/widget';
-import { LocationMapperService } from './location-mapper-service';
+import { LocationMapperService } from './location-mapper-service.js';
 import { ApplicationShellMouseTracker } from '@theia/core/lib/browser/shell/application-shell-mouse-tracker';
 
 import debounce from 'lodash.debounce';
-import { MiniBrowserContentStyle } from './mini-browser-content-style';
+import { MiniBrowserContentStyle } from './mini-browser-content-style.js';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
 import { FileChangesEvent, FileChangeType } from '@theia/filesystem/lib/common/files';
 
@@ -190,7 +190,7 @@ export class MiniBrowserContent extends BaseWidget {
     protected readonly loadIndicator: HTMLElement;
     protected readonly errorBar: HTMLElement & Readonly<{ message: HTMLElement }>;
     protected readonly frame: HTMLIFrameElement;
-    // eslint-disable-next-line max-len
+     
     // XXX This is a hack to be able to tack the mouse events when drag and dropping the widgets. On `mousedown` we put a transparent div over the `iframe` to avoid losing the mouse tacking.
     protected readonly transparentOverlay: HTMLElement;
     // XXX It is a hack. Instead of loading the PDF in an iframe we use `PDFObject` to render it in a div.
@@ -285,7 +285,7 @@ export class MiniBrowserContent extends BaseWidget {
         return !this.props.startPage ? 'show' : this.props.toolbar || 'show';
     }
 
-    // eslint-disable-next-line max-len
+     
     protected createContentArea(parent: HTMLElement): HTMLElement & Readonly<{ frame: HTMLIFrameElement, loadIndicator: HTMLElement, errorBar: HTMLElement & Readonly<{ message: HTMLElement }>, pdfContainer: HTMLElement, transparentOverlay: HTMLElement }> {
         const contentArea = document.createElement('div');
         contentArea.classList.add(MiniBrowserContentStyle.CONTENT_AREA);
@@ -502,7 +502,7 @@ export class MiniBrowserContent extends BaseWidget {
         return button;
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     protected onClick(element: HTMLElement, emitter: Emitter<any>): HTMLElement {
         this.toDispose.push(addEventListener(element, 'click', () => {
             if (!element.classList.contains(MiniBrowserContentStyle.DISABLED)) {
@@ -583,7 +583,7 @@ export class MiniBrowserContent extends BaseWidget {
                     this.pdfContainer.style.display = 'block';
                     this.frame.style.display = 'none';
                     PDFObject.embed(url, this.pdfContainer, {
-                        // eslint-disable-next-line max-len, @typescript-eslint/quotes
+                        // eslint-disable-next-line @typescript-eslint/quotes
                         fallbackLink: `<p style="padding: 0px 15px 0px 15px">Your browser does not support inline PDFs. Click on this <a href='[url]' target="_blank">link</a> to open the PDF in a new tab.</p>`
                     });
                     clearTimeout(this.frameLoadTimeout);

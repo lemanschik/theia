@@ -44,7 +44,7 @@ import {
     ToolResultPart,
     ToolSet
 } from 'ai';
-import { VercelAiLanguageModelFactory, VercelAiProviderConfig } from './vercel-ai-language-model-factory';
+import { VercelAiLanguageModelFactory, VercelAiProviderConfig } from './vercel-ai-language-model-factory.js';
 
 interface VercelCancellationToken extends Disposable {
     signal: AbortSignal;

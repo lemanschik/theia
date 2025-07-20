@@ -17,7 +17,7 @@
 import { nls } from '@theia/core';
 import { AbstractViewContribution } from '@theia/core/lib/browser';
 import { injectable } from 'inversify';
-import { PortForwardingWidget, PORT_FORWARDING_WIDGET_ID } from './port-forwarding-widget';
+import { PortForwardingWidget, PORT_FORWARDING_WIDGET_ID } from './port-forwarding-widget.js';
 
 @injectable()
 export class PortForwardingContribution extends AbstractViewContribution<PortForwardingWidget> {

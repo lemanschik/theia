@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-export * from './widget';
-export * from './react-renderer';
-export * from './react-widget';
-export * from './extractable-widget';
-export * from './split-widget';
+export * from './widget.js';
+export * from './react-renderer.js';
+export * from './react-widget.js';
+export * from './extractable-widget.js';
+export * from './split-widget.js';

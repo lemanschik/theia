@@ -14,10 +14,10 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
 import { interfaces, ContainerModule } from 'inversify';
-import { RpcProxyFactory, ConnectionHandler, RpcConnectionHandler, RpcProxy } from '../../common';
+import { RpcProxyFactory, ConnectionHandler, RpcConnectionHandler, RpcProxy } from '../../common/index.js';
 
 export type BindFrontendService = <T extends object>(path: string, serviceIdentifier: interfaces.ServiceIdentifier<T>) => interfaces.BindingWhenOnSyntax<T>;
 export type BindBackendService = <T extends object, C extends object = object>(

@@ -17,11 +17,11 @@
 import { Container, interfaces } from 'inversify';
 import { TreeProps, defaultTreeProps } from '@theia/core/lib/browser';
 import { createFileTreeContainer } from '@theia/filesystem/lib/browser';
-import { FileNavigatorTree } from './navigator-tree';
-import { FileNavigatorModel } from './navigator-model';
-import { FileNavigatorWidget } from './navigator-widget';
-import { NAVIGATOR_CONTEXT_MENU } from './navigator-contribution';
-import { NavigatorDecoratorService } from './navigator-decorator-service';
+import { FileNavigatorTree } from './navigator-tree.js';
+import { FileNavigatorModel } from './navigator-model.js';
+import { FileNavigatorWidget } from './navigator-widget.js';
+import { NAVIGATOR_CONTEXT_MENU } from './navigator-contribution.js';
+import { NavigatorDecoratorService } from './navigator-decorator-service.js';
 
 export const FILE_NAVIGATOR_PROPS = <TreeProps>{
     ...defaultTreeProps,

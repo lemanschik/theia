@@ -18,7 +18,7 @@ import { injectable, inject } from 'inversify';
 import URI from '@theia/core/lib/common/uri';
 import { LabelProviderContribution, LabelProvider, URIIconReference } from '@theia/core/lib/browser/label-provider';
 import { TreeLabelProvider } from '@theia/core/lib/browser/tree/tree-label-provider';
-import { TreeViewNode } from './tree-view-widget';
+import { TreeViewNode } from './tree-view-widget.js';
 import { TreeNode } from '@theia/core/lib/browser/tree/tree';
 import { ThemeIcon } from '@theia/monaco-editor-core/esm/vs/base/common/themables';
 
@@ -31,7 +31,7 @@ export class PluginTreeViewNodeLabelProvider implements LabelProviderContributio
     @inject(TreeLabelProvider)
     protected readonly treeLabelProvider: TreeLabelProvider;
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     canHandle(element: TreeViewNode | any): number {
         if (TreeNode.is(element) && ('resourceUri' in element || 'themeIcon' in element)) {
             return Number.MAX_SAFE_INTEGER - 512;

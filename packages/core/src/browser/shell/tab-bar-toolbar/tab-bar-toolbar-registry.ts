@@ -16,18 +16,18 @@
 
 import debounce from 'lodash.debounce';
 import { inject, injectable, named } from 'inversify';
-// eslint-disable-next-line max-len
-import { CommandRegistry, ContributionProvider, Disposable, DisposableCollection, Emitter, Event, MenuModelRegistry, MenuPath } from '../../../common';
-import { ContextKeyService } from '../../context-key-service';
-import { FrontendApplicationContribution } from '../../frontend-application-contribution';
-import { Widget } from '../../widgets';
-import { ReactTabBarToolbarAction, RenderedToolbarAction } from './tab-bar-toolbar-types';
-import { ToolbarMenuNodeWrapper, ToolbarSubmenuWrapper } from './tab-bar-toolbar-menu-adapters';
-import { KeybindingRegistry } from '../../keybinding';
-import { LabelParser } from '../../label-parser';
-import { ContextMenuRenderer } from '../../context-menu-renderer';
-import { CommandMenu, CompoundMenuNode, RenderedMenuNode } from '../../../common/menu';
-import { ReactToolbarItemImpl, RenderedToolbarItemImpl, TabBarToolbarItem } from './tab-toolbar-item';
+ 
+import { CommandRegistry, ContributionProvider, Disposable, DisposableCollection, Emitter, Event, MenuModelRegistry, MenuPath } from '../../../common/index.js';
+import { ContextKeyService } from '../../context-key-service.js';
+import { FrontendApplicationContribution } from '../../frontend-application-contribution.js';
+import { Widget } from '../../widgets/index.js';
+import { ReactTabBarToolbarAction, RenderedToolbarAction } from './tab-bar-toolbar-types.js';
+import { ToolbarMenuNodeWrapper, ToolbarSubmenuWrapper } from './tab-bar-toolbar-menu-adapters.js';
+import { KeybindingRegistry } from '../../keybinding.js';
+import { LabelParser } from '../../label-parser.js';
+import { ContextMenuRenderer } from '../../context-menu-renderer.js';
+import { CommandMenu, CompoundMenuNode, RenderedMenuNode } from '../../../common/menu/index.js';
+import { ReactToolbarItemImpl, RenderedToolbarItemImpl, TabBarToolbarItem } from './tab-toolbar-item.js';
 
 /**
  * Clients should implement this interface if they want to contribute to the tab-bar toolbar.

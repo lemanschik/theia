@@ -16,9 +16,9 @@
 
 import { inject, injectable } from 'inversify';
 import { Widget } from '@theia/core/lib/browser';
-import { TestResultViewContribution } from './view/test-result-view-contribution';
-import { TestViewContribution } from './view/test-view-contribution';
-import { TestPreferences } from './test-preferences';
+import { TestResultViewContribution } from './view/test-result-view-contribution.js';
+import { TestViewContribution } from './view/test-view-contribution.js';
+import { TestPreferences } from './test-preferences.js';
 
 export interface TestExecutionProgressService {
     onTestRunRequested(preserveFocus: boolean): Promise<void>;

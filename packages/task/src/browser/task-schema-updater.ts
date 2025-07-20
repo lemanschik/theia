@@ -28,9 +28,9 @@ import { deepClone, Emitter } from '@theia/core/lib/common';
 import { IJSONSchema } from '@theia/core/lib/common/json-schema';
 import { inputsSchema } from '@theia/variable-resolver/lib/browser/variable-input-schema';
 import URI from '@theia/core/lib/common/uri';
-import { ProblemMatcherRegistry } from './task-problem-matcher-registry';
-import { TaskDefinitionRegistry } from './task-definition-registry';
-import { TaskServer, asVariableName } from '../common';
+import { ProblemMatcherRegistry } from './task-problem-matcher-registry.js';
+import { TaskDefinitionRegistry } from './task-definition-registry.js';
+import { TaskServer, asVariableName } from '../common/index.js';
 import { UserStorageUri } from '@theia/userstorage/lib/browser';
 import { WorkspaceService } from '@theia/workspace/lib/browser';
 import { JSONObject } from '@lumino/coreutils';
@@ -90,7 +90,7 @@ export class TaskSchemaUpdater implements JsonSchemaContribution {
         this.onDidChangeTaskSchemaEmitter.fire(undefined);
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     validate(data: any): boolean {
         return !!this.doValidate && !!this.doValidate(data);
     }
@@ -319,7 +319,7 @@ const group: IJSONSchema = {
             }
         }
     ],
-    // eslint-disable-next-line max-len
+     
     description: 'Defines to which execution group this task belongs to. It supports "build" to add it to the build group and "test" to add it to the test group.'
 };
 
@@ -346,7 +346,7 @@ const problemPattern: IJSONSchema = {
         },
         location: {
             type: 'integer',
-            // eslint-disable-next-line max-len
+             
             description: 'The match group index of the problem\'s location. Valid location patterns are: (line), (line,column) and (startLine,startColumn,endLine,endColumn). If omitted (line,column) is assumed.'
         },
         line: {
@@ -379,7 +379,7 @@ const problemPattern: IJSONSchema = {
         },
         loop: {
             type: 'boolean',
-            // eslint-disable-next-line max-len
+             
             description: 'In a multi line matcher loop indicated whether this pattern is executed in a loop as long as it matches. Can only specified on a last pattern in a multi line pattern.'
         }
     }
@@ -584,7 +584,7 @@ const presentation: IJSONSchema = {
             enum: ['shared', 'dedicated', 'new'],
             enumDescriptions: [
                 'The terminal is shared and the output of other task runs are added to the same terminal.',
-                // eslint-disable-next-line max-len
+                 
                 'The terminal is dedicated to a specific task. If that task is executed again, the terminal is reused. However, the output of a different task is presented in a different terminal.',
                 'Every execution of that task is using a new clean terminal.'
             ],

@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { ContainerModule } from 'inversify';
-import { GitEnvProvider, DefaultGitEnvProvider } from './git-env-provider';
+import { GitEnvProvider, DefaultGitEnvProvider } from './git-env-provider.js';
 
 export default new ContainerModule(bind => {
     bind(DefaultGitEnvProvider).toSelf().inSingletonScope();

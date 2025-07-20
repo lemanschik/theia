@@ -17,9 +17,9 @@
 import deepEqual from 'fast-deep-equal';
 import { inject, injectable, postConstruct } from 'inversify';
 import { Resource, URI, generateUuid } from '@theia/core';
-import { AIVariableContext, AIVariableResolutionRequest } from './variable-service';
+import { AIVariableContext, AIVariableResolutionRequest } from './variable-service.js';
 import stableJsonStringify from 'fast-json-stable-stringify';
-import { ConfigurableInMemoryResources, ConfigurableMutableReferenceResource } from './configurable-in-memory-resources';
+import { ConfigurableInMemoryResources, ConfigurableMutableReferenceResource } from './configurable-in-memory-resources.js';
 
 export const AI_VARIABLE_RESOURCE_SCHEME = 'ai-variable';
 export const NO_CONTEXT_AUTHORITY = 'context-free';

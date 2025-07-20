@@ -18,11 +18,11 @@ import { interfaces } from 'inversify';
 import { CommandRegistry } from '@theia/core/lib/common/command';
 import theia from '@theia/plugin';
 import { Disposable, DisposableCollection } from '@theia/core/lib/common/disposable';
-import { CommandRegistryMain, CommandRegistryExt, MAIN_RPC_CONTEXT } from '../../common/plugin-api-rpc';
-import { RPCProtocol } from '../../common/rpc-protocol';
+import { CommandRegistryMain, CommandRegistryExt, MAIN_RPC_CONTEXT } from '../../common/plugin-api-rpc.js';
+import { RPCProtocol } from '../../common/rpc-protocol.js';
 import { KeybindingRegistry } from '@theia/core/lib/browser';
-import { PluginContributionHandler } from './plugin-contribution-handler';
-import { ArgumentProcessor } from '../../common/commands';
+import { PluginContributionHandler } from './plugin-contribution-handler.js';
+import { ArgumentProcessor } from '../../common/commands.js';
 import { ContributionProvider } from '@theia/core';
 
 export const ArgumentProcessorContribution = Symbol('ArgumentProcessorContribution');
@@ -91,7 +91,7 @@ export class CommandRegistryMainImpl implements CommandRegistryMain, Disposable 
         }
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     async $executeCommand<T>(id: string, ...args: any[]): Promise<T | undefined> {
         if (!this.delegate.getCommand(id)) {
             throw new Error(`Command with id '${id}' is not registered.`);

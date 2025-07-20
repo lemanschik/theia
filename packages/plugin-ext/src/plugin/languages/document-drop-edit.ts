@@ -14,13 +14,13 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 import theia from '@theia/plugin';
-import { DataTransferDTO, DocumentDropEdit } from '../../common/plugin-api-rpc-model';
+import { DataTransferDTO, DocumentDropEdit } from '../../common/plugin-api-rpc-model.js';
 import { CancellationToken } from 'vscode-languageserver-protocol';
-import { Position } from '../../common/plugin-api-rpc';
-import * as Converter from '../type-converters';
-import { DocumentsExtImpl } from '../documents';
+import { Position } from '../../common/plugin-api-rpc.js';
+import * as Converter from '../type-converters.js';
+import { DocumentsExtImpl } from '../documents.js';
 import { URI } from 'vscode-uri';
-import { FileSystemExtImpl } from '../file-system-ext-impl';
+import { FileSystemExtImpl } from '../file-system-ext-impl.js';
 import os from 'os';
 import path from 'path';
 

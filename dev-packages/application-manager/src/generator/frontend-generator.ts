@@ -17,7 +17,7 @@
 /* eslint-disable @typescript-eslint/indent */
 
 import { EOL } from 'os';
-import { AbstractGenerator, GeneratorOptions } from './abstract-generator';
+import { AbstractGenerator, GeneratorOptions } from './abstract-generator.js';
 import { existsSync, readFileSync } from 'fs';
 
 export class FrontendGenerator extends AbstractGenerator {

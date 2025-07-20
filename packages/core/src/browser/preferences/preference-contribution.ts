@@ -17,7 +17,7 @@
 import { default as Ajv } from 'ajv';
 import { inject, injectable, interfaces, named, postConstruct } from 'inversify';
 import { ContributionProvider, bindContributionProvider, Emitter, Event, Disposable } from '../../common/index.js';
-import { PreferenceScope } from './preference-scope';
+import { PreferenceScope } from './preference-scope.js';
 import { PreferenceProvider, PreferenceProviderDataChange } from './preference-provider.js';
 import {
     PreferenceSchema, PreferenceSchemaProperties, PreferenceDataSchema, PreferenceItem, PreferenceSchemaProperty, PreferenceDataProperty
@@ -26,11 +26,11 @@ import { FrontendApplicationConfigProvider } from '../frontend-application-confi
 import { FrontendApplicationConfig } from '@theia/application-package/lib/application-props.js';
 import { bindPreferenceConfigurations, PreferenceConfigurations } from './preference-configurations.js';
 export { PreferenceSchema, PreferenceSchemaProperties, PreferenceDataSchema, PreferenceItem, PreferenceSchemaProperty, PreferenceDataProperty };
-import { isObject, Mutable } from '../../common/types';
+import { isObject, Mutable } from '../../common/types.js';
 import { PreferenceLanguageOverrideService } from './preference-language-override-service.js';
 import { JSONValue } from '@lumino/coreutils';
 
-/* eslint-disable guard-for-in, @typescript-eslint/no-explicit-any */
+ 
 
 export const PreferenceContribution = Symbol('PreferenceContribution');
 

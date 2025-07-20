@@ -14,18 +14,18 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
 import { injectable, inject, postConstruct } from 'inversify';
-import { Event, Emitter, DisposableCollection, Disposable, deepFreeze, unreachable } from '../../common';
-import { Deferred } from '../../common/promise-util';
-import { PreferenceProvider, PreferenceProviderDataChange, PreferenceProviderDataChanges, PreferenceResolveResult } from './preference-provider';
-import { PreferenceSchemaProvider } from './preference-contribution';
-import URI from '../../common/uri';
-import { PreferenceScope } from './preference-scope';
-import { PreferenceConfigurations } from './preference-configurations';
+import { Event, Emitter, DisposableCollection, Disposable, deepFreeze, unreachable } from '../../common/index.js';
+import { Deferred } from '../../common/promise-util.js';
+import { PreferenceProvider, PreferenceProviderDataChange, PreferenceProviderDataChanges, PreferenceResolveResult } from './preference-provider.js';
+import { PreferenceSchemaProvider } from './preference-contribution.js';
+import URI from '../../common/uri.js';
+import { PreferenceScope } from './preference-scope.js';
+import { PreferenceConfigurations } from './preference-configurations.js';
 import { JSONExt, JSONValue } from '@lumino/coreutils';
-import { OverridePreferenceName, PreferenceLanguageOverrideService } from './preference-language-override-service';
+import { OverridePreferenceName, PreferenceLanguageOverrideService } from './preference-language-override-service.js';
 
 export { PreferenceScope };
 

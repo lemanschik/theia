@@ -16,9 +16,9 @@
 
 import { default as yargs } from 'yargs';
 import chai from 'chai';
-import { CliManager, CliContribution } from './cli';
-import { Deferred } from '../common/promise-util';
-import { MaybePromise } from '../common/types';
+import { CliManager, CliContribution } from './cli.js';
+import { Deferred } from '../common/promise-util.js';
+import { MaybePromise } from '../common/types.js';
 
 class TestCliManager extends CliManager {
     constructor(...contribs: CliContribution[]) {

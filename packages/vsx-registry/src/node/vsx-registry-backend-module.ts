@@ -18,11 +18,11 @@ import { ConnectionHandler, JsonRpcConnectionHandler } from '@theia/core';
 import { CliContribution } from '@theia/core/lib/node';
 import { ContainerModule } from 'inversify';
 import { PluginDeployerParticipant, PluginDeployerResolver } from '@theia/plugin-ext/lib/common/plugin-protocol';
-import { VSXEnvironment, VSX_ENVIRONMENT_PATH } from '../common/vsx-environment';
-import { VsxCli } from './vsx-cli';
-import { VSXEnvironmentImpl } from './vsx-environment-impl';
-import { VSXExtensionResolver } from './vsx-extension-resolver';
-import { VsxCliDeployerParticipant } from './vsx-cli-deployer-participant';
+import { VSXEnvironment, VSX_ENVIRONMENT_PATH } from '../common/vsx-environment.js';
+import { VsxCli } from './vsx-cli.js';
+import { VSXEnvironmentImpl } from './vsx-environment-impl.js';
+import { VSXExtensionResolver } from './vsx-extension-resolver.js';
+import { VsxCliDeployerParticipant } from './vsx-cli-deployer-participant.js';
 
 export default new ContainerModule(bind => {
     bind(VSXEnvironment).to(VSXEnvironmentImpl).inSingletonScope();

@@ -15,8 +15,8 @@
 // *****************************************************************************
 
 import { expect } from 'chai';
-import { MockLogger } from './test/mock-logger';
-import { setRootLogger, unsetRootLogger } from './logger';
+import { MockLogger } from './test/mock-logger.js';
+import { setRootLogger, unsetRootLogger } from './logger.js';
 
 describe('logger', () => {
 

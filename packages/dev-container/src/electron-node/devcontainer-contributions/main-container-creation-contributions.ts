@@ -15,13 +15,13 @@
 // *****************************************************************************
 import Docker from 'dockerode';
 import { inject, injectable, interfaces } from 'inversify';
-import { ContainerCreationContribution } from '../docker-container-service';
-import { DevContainerConfiguration, DockerfileContainer, ImageContainer, NonComposeContainerBase } from '../devcontainer-file';
+import { ContainerCreationContribution } from '../docker-container-service.js';
+import { DevContainerConfiguration, DockerfileContainer, ImageContainer, NonComposeContainerBase } from '../devcontainer-file.js';
 import { Path } from '@theia/core';
-import { ContainerOutputProvider } from '../../electron-common/container-output-provider';
+import { ContainerOutputProvider } from '../../electron-common/container-output-provider.js';
 import fs from 'fs-extra';
 import { RemotePortForwardingProvider } from '@theia/remote/lib/electron-common/remote-port-forwarding-provider';
-import { RemoteDockerContainerConnection } from '../remote-container-connection-provider';
+import { RemoteDockerContainerConnection } from '../remote-container-connection-provider.js';
 
 export function registerContainerCreationContributions(bind: interfaces.Bind): void {
     bind(ContainerCreationContribution).to(ImageFileContribution).inSingletonScope();

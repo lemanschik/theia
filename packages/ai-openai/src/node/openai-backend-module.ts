@@ -15,11 +15,11 @@
 // *****************************************************************************
 
 import { ContainerModule } from 'inversify';
-import { OPENAI_LANGUAGE_MODELS_MANAGER_PATH, OpenAiLanguageModelsManager } from '../common/openai-language-models-manager';
+import { OPENAI_LANGUAGE_MODELS_MANAGER_PATH, OpenAiLanguageModelsManager } from '../common/openai-language-models-manager.js';
 import { ConnectionHandler, RpcConnectionHandler } from '@theia/core';
-import { OpenAiLanguageModelsManagerImpl } from './openai-language-models-manager-impl';
+import { OpenAiLanguageModelsManagerImpl } from './openai-language-models-manager-impl.js';
 import { ConnectionContainerModule } from '@theia/core/lib/node/messaging/connection-container-module';
-import { OpenAiModelUtils } from './openai-language-model';
+import { OpenAiModelUtils } from './openai-language-model.js';
 
 export const OpenAiModelFactory = Symbol('OpenAiModelFactory');
 

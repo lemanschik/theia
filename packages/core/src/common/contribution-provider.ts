@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { interfaces } from 'inversify';
-import { ContributionFilterRegistry } from './contribution-filter';
+import { ContributionFilterRegistry } from './contribution-filter/index.js';
 
 export const ContributionProvider = Symbol('ContributionProvider');
 
@@ -87,7 +87,7 @@ export function bindContributionProvider(bindable: Bindable, id: symbol): void {
  * @param service an already bound service to refer the contributions to.
  * @param contributions array of contribution identifiers to bind the service to.
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 export function bindContribution(bindable: Bindable, service: interfaces.ServiceIdentifier<any>, contributions: interfaces.ServiceIdentifier<any>[]): void {
     const bind: interfaces.Bind = Bindable.isContainer(bindable) ? bindable.bind.bind(bindable) : bindable;
     for (const contribution of contributions) {

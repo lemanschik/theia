@@ -19,7 +19,7 @@ import { PreferenceSchema, PreferenceProxy } from '@theia/core/lib/browser';
 import { PreferenceProxyFactory } from '@theia/core/lib/browser/preferences/injectable-preference-proxy';
 import { PreferenceSchemaProvider } from '@theia/core/lib/browser/preferences/preference-contribution';
 import { isWindows, isOSX } from '@theia/core/lib/common/os';
-import { ExternalTerminalService, ExternalTerminalConfiguration } from '../common/external-terminal';
+import { ExternalTerminalService, ExternalTerminalConfiguration } from '../common/external-terminal.js';
 import { nls } from '@theia/core/lib/common/nls';
 
 export const ExternalTerminalPreferences = Symbol('ExternalTerminalPreferences');

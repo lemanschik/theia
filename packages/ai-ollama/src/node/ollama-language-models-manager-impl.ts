@@ -16,8 +16,8 @@
 
 import { LanguageModelRegistry, TokenUsageService } from '@theia/ai-core';
 import { inject, injectable } from 'inversify';
-import { OllamaModel } from './ollama-language-model';
-import { OllamaLanguageModelsManager, OllamaModelDescription } from '../common';
+import { OllamaModel } from './ollama-language-model.js';
+import { OllamaLanguageModelsManager, OllamaModelDescription } from '../common/index.js';
 
 @injectable()
 export class OllamaLanguageModelsManagerImpl implements OllamaLanguageModelsManager {

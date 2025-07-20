@@ -25,10 +25,10 @@ import {
 import { AbstractViewContribution, codicon, Widget } from '@theia/core/lib/browser';
 import { ClipboardService } from '@theia/core/lib/browser/clipboard-service';
 import { CommonCommands, CommonMenus } from '@theia/core/lib/browser/common-frontend-contribution';
-import { KeymapsService } from './keymaps-service';
+import { KeymapsService } from './keymaps-service.js';
 import { Keybinding } from '@theia/core/lib/common/keybinding';
 import { KeybindingRegistry } from '@theia/core/lib/browser/keybinding';
-import { KeybindingItem, KeybindingWidget } from './keybindings-widget';
+import { KeybindingItem, KeybindingWidget } from './keybindings-widget.js';
 import { TabBarToolbarContribution, TabBarToolbarRegistry } from '@theia/core/lib/browser/shell/tab-bar-toolbar';
 import { nls } from '@theia/core/lib/common/nls';
 

@@ -21,10 +21,10 @@ import { createIpcEnv } from '@theia/core/lib/node/messaging/ipc-protocol';
 import { inject, injectable, named } from 'inversify';
 import cp from 'child_process';
 import { Duplex } from 'stream';
-import { HostedPluginClient, PLUGIN_HOST_BACKEND, PluginHostEnvironmentVariable, ServerPluginRunner } from '../../common/plugin-protocol';
-import { HostedPluginCliContribution } from './hosted-plugin-cli-contribution';
-import { HostedPluginLocalizationService } from './hosted-plugin-localization-service';
-import { ProcessTerminateMessage, ProcessTerminatedMessage } from './hosted-plugin-protocol';
+import { HostedPluginClient, PLUGIN_HOST_BACKEND, PluginHostEnvironmentVariable, ServerPluginRunner } from '../../common/plugin-protocol.js';
+import { HostedPluginCliContribution } from './hosted-plugin-cli-contribution.js';
+import { HostedPluginLocalizationService } from './hosted-plugin-localization-service.js';
+import { ProcessTerminateMessage, ProcessTerminatedMessage } from './hosted-plugin-protocol.js';
 import psTree from 'ps-tree';
 
 export interface IPCConnectionOptions {
@@ -84,12 +84,12 @@ export class HostedPluginProcess implements ServerPluginRunner {
 
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     public acceptMessage(pluginHostId: string, message: Uint8Array): boolean {
         return pluginHostId === 'main';
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     public onMessage(pluginHostId: string, message: Uint8Array): void {
         if (this.messagePipe) {
             this.messagePipe.send(message);
@@ -102,7 +102,7 @@ export class HostedPluginProcess implements ServerPluginRunner {
         }
 
         this.terminatingPluginServer = true;
-        // eslint-disable-next-line @typescript-eslint/no-shadow
+         
         const cp = this.childProcess;
         this.childProcess = undefined;
 

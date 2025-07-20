@@ -17,8 +17,8 @@
 import temp from 'temp';
 import { expect } from 'chai';
 import { FileUri } from '@theia/core/lib/common/file-uri';
-import { GitFileStatus } from '../common';
-import { createGit } from './test/binding-helper';
+import { GitFileStatus } from '../common/index.js';
+import { createGit } from './test/binding-helper.js';
 
 const track = temp.track();
 

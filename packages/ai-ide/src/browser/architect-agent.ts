@@ -16,11 +16,11 @@
 import { AbstractStreamParsingChatAgent, ChatRequestModel, ChatService, ChatSession, MutableChatModel, MutableChatRequestModel } from '@theia/ai-chat/lib/common';
 import { LanguageModelRequirement } from '@theia/ai-core';
 import { inject, injectable } from 'inversify';
-import { architectSystemVariants, architectTaskSummaryVariants } from '../common/architect-prompt-template';
-import { FILE_CONTENT_FUNCTION_ID, GET_WORKSPACE_FILE_LIST_FUNCTION_ID } from '../common/workspace-functions';
+import { architectSystemVariants, architectTaskSummaryVariants } from '../common/architect-prompt-template.js';
+import { FILE_CONTENT_FUNCTION_ID, GET_WORKSPACE_FILE_LIST_FUNCTION_ID } from '../common/workspace-functions.js';
 import { nls } from '@theia/core';
 import { MarkdownStringImpl } from '@theia/core/lib/common/markdown-rendering';
-import { AI_SUMMARIZE_SESSION_AS_TASK_FOR_CODER, AI_UPDATE_TASK_CONTEXT_COMMAND } from '../common/summarize-session-commands';
+import { AI_SUMMARIZE_SESSION_AS_TASK_FOR_CODER, AI_UPDATE_TASK_CONTEXT_COMMAND } from '../common/summarize-session-commands.js';
 
 @injectable()
 export class ArchitectAgent extends AbstractStreamParsingChatAgent {

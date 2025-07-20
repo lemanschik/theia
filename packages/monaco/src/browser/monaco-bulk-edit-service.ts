@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { injectable, inject } from 'inversify';
-import { MonacoWorkspace } from './monaco-workspace';
+import { MonacoWorkspace } from './monaco-workspace.js';
 import {
     IBulkEditOptions, IBulkEditPreviewHandler, IBulkEditResult, IBulkEditService, ResourceEdit
 } from '@theia/monaco-editor-core/esm/vs/editor/browser/services/bulkEditService';

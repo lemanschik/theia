@@ -14,35 +14,35 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
 import { dynamicRequire, removeFromCache } from '@theia/core/lib/node/dynamic-require';
 import { ContainerModule, inject, injectable, postConstruct, unmanaged } from 'inversify';
-import { AbstractPluginManagerExtImpl, PluginHost, PluginManagerExtImpl } from '../../plugin/plugin-manager';
+import { AbstractPluginManagerExtImpl, PluginHost, PluginManagerExtImpl } from '../../plugin/plugin-manager.js';
 import {
     MAIN_RPC_CONTEXT, Plugin, PluginAPIFactory, PluginManager,
     LocalizationExt
-} from '../../common/plugin-api-rpc';
-import { PluginMetadata, PluginModel } from '../../common/plugin-protocol';
-import { createAPIFactory } from '../../plugin/plugin-context';
-import { EnvExtImpl } from '../../plugin/env';
-import { PreferenceRegistryExtImpl } from '../../plugin/preference-registry';
-import { ExtPluginApi, ExtPluginApiBackendInitializationFn } from '../../common/plugin-ext-api-contribution';
-import { DebugExtImpl } from '../../plugin/debug/debug-ext';
-import { EditorsAndDocumentsExtImpl } from '../../plugin/editors-and-documents';
-import { WorkspaceExtImpl } from '../../plugin/workspace';
-import { MessageRegistryExt } from '../../plugin/message-registry';
-import { ClipboardExt } from '../../plugin/clipboard-ext';
-import { loadManifest } from './plugin-manifest-loader';
-import { KeyValueStorageProxy } from '../../plugin/plugin-storage';
-import { WebviewsExtImpl } from '../../plugin/webviews';
-import { TerminalServiceExtImpl } from '../../plugin/terminal-ext';
-import { SecretsExtImpl } from '../../plugin/secrets-ext';
-import { connectProxyResolver } from './plugin-host-proxy';
-import { LocalizationExtImpl } from '../../plugin/localization-ext';
-import { RPCProtocol, ProxyIdentifier } from '../../common/rpc-protocol';
-import { PluginApiCache } from '../../plugin/node/plugin-container-module';
-import { overridePluginDependencies } from './plugin-require-override';
+} from '../../common/plugin-api-rpc.js';
+import { PluginMetadata, PluginModel } from '../../common/plugin-protocol.js';
+import { createAPIFactory } from '../../plugin/plugin-context.js';
+import { EnvExtImpl } from '../../plugin/env.js';
+import { PreferenceRegistryExtImpl } from '../../plugin/preference-registry.js';
+import { ExtPluginApi, ExtPluginApiBackendInitializationFn } from '../../common/plugin-ext-api-contribution.js';
+import { DebugExtImpl } from '../../plugin/debug/debug-ext.js';
+import { EditorsAndDocumentsExtImpl } from '../../plugin/editors-and-documents.js';
+import { WorkspaceExtImpl } from '../../plugin/workspace.js';
+import { MessageRegistryExt } from '../../plugin/message-registry.js';
+import { ClipboardExt } from '../../plugin/clipboard-ext.js';
+import { loadManifest } from './plugin-manifest-loader.js';
+import { KeyValueStorageProxy } from '../../plugin/plugin-storage.js';
+import { WebviewsExtImpl } from '../../plugin/webviews.js';
+import { TerminalServiceExtImpl } from '../../plugin/terminal-ext.js';
+import { SecretsExtImpl } from '../../plugin/secrets-ext.js';
+import { connectProxyResolver } from './plugin-host-proxy.js';
+import { LocalizationExtImpl } from '../../plugin/localization-ext.js';
+import { RPCProtocol, ProxyIdentifier } from '../../common/rpc-protocol.js';
+import { PluginApiCache } from '../../plugin/node/plugin-container-module.js';
+import { overridePluginDependencies } from './plugin-require-override.js';
 
 /**
  * The full set of all possible `Ext` interfaces that a plugin manager can support.

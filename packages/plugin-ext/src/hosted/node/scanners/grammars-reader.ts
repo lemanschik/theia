@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { injectable } from 'inversify';
-import { PluginPackageGrammarsContribution, GrammarsContribution } from '../../../common';
+import { PluginPackageGrammarsContribution, GrammarsContribution } from '../../../common/index.js';
 import path from 'path';
 import fs from 'fs-extra';
 

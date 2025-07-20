@@ -15,11 +15,11 @@
 // *****************************************************************************
 import { ContainerModule } from 'inversify';
 import { RemoteRegistryContribution } from '@theia/remote/lib/electron-browser/remote-registry-contribution';
-import { RemoteContainerConnectionProvider, RemoteContainerConnectionProviderPath } from '../electron-common/remote-container-connection-provider';
-import { ContainerConnectionContribution } from './container-connection-contribution';
+import { RemoteContainerConnectionProvider, RemoteContainerConnectionProviderPath } from '../electron-common/remote-container-connection-provider.js';
+import { ContainerConnectionContribution } from './container-connection-contribution.js';
 import { ServiceConnectionProvider } from '@theia/core/lib/browser/messaging/service-connection-provider';
-import { ContainerOutputProvider } from './container-output-provider';
-import { ContainerInfoContribution } from './container-info-contribution';
+import { ContainerOutputProvider } from './container-output-provider.js';
+import { ContainerInfoContribution } from './container-info-contribution.js';
 import { FrontendApplicationContribution, LabelProviderContribution } from '@theia/core/lib/browser';
 import { WorkspaceOpenHandlerContribution } from '@theia/workspace/lib/browser/workspace-service';
 import { WindowTitleContribution } from '@theia/core/lib/browser/window/window-title-service';

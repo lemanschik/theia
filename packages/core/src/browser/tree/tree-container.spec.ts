@@ -16,9 +16,9 @@
 
 import assert from 'assert';
 import { Container } from 'inversify';
-import { createTreeContainer, isTreeServices } from './tree-container';
-import { TreeSearch } from './tree-search';
-import { defaultTreeProps, TreeProps } from './tree-widget';
+import { createTreeContainer, isTreeServices } from './tree-container.js';
+import { TreeSearch } from './tree-search.js';
+import { defaultTreeProps, TreeProps } from './tree-widget.js';
 
 describe('TreeContainer', () => {
     describe('IsTreeServices should accurately distinguish TreeProps from TreeContainerProps', () => {

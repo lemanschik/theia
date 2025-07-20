@@ -15,15 +15,15 @@
 // *****************************************************************************
 
 import paths from 'path';
-import { readJsonFile, writeJsonFile } from './json-file';
-import { NpmRegistry, NodePackage, PublishedNodePackage, sortByKey } from './npm-registry';
-import { Extension, ExtensionPackage, ExtensionPackageOptions, RawExtensionPackage } from './extension-package';
-import { ExtensionPackageCollector } from './extension-package-collector';
-import { ApplicationProps } from './application-props';
+import { readJsonFile, writeJsonFile } from './json-file.js';
+import { NpmRegistry, NodePackage, PublishedNodePackage, sortByKey } from './npm-registry.js';
+import { Extension, ExtensionPackage, ExtensionPackageOptions, RawExtensionPackage } from './extension-package.js';
+import { ExtensionPackageCollector } from './extension-package-collector.js';
+import { ApplicationProps } from './application-props.js';
 import { default as deepmerge } from 'deepmerge';
 import { default as resolvePackagePath } from 'resolve-package-path';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 export type ApplicationLog = (message?: any, ...optionalParams: any[]) => void;
 export class ApplicationPackageOptions {
     readonly projectPath: string;

@@ -48,7 +48,7 @@ export module '@theia/plugin' {
          * @param thisArg The `this` context used when invoking the handler function.
          * @return Disposable which unregisters this command on disposal.
          */
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         export function registerDiffInformationCommand(command: string, callback: (diff: LineChange[], ...args: any[]) => any, thisArg?: any): Disposable;
     }
 

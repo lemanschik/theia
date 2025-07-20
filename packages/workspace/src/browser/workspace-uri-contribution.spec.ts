@@ -23,10 +23,10 @@ import { Container } from 'inversify';
 import { Event } from '@theia/core/lib/common/event';
 import { ApplicationShell, WidgetManager } from '@theia/core/lib/browser';
 import { DefaultUriLabelProviderContribution } from '@theia/core/lib/browser/label-provider';
-import { WorkspaceUriLabelProviderContribution } from './workspace-uri-contribution';
+import { WorkspaceUriLabelProviderContribution } from './workspace-uri-contribution.js';
 import URI from '@theia/core/lib/common/uri';
-import { WorkspaceVariableContribution } from './workspace-variable-contribution';
-import { WorkspaceService } from './workspace-service';
+import { WorkspaceVariableContribution } from './workspace-variable-contribution.js';
+import { WorkspaceService } from './workspace-service.js';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
 import { FileStat } from '@theia/filesystem/lib/common/files';
 import { EnvVariablesServer } from '@theia/core/lib/common/env-variables';
@@ -47,11 +47,11 @@ beforeEach(() => {
     container.bind(ApplicationShell).toConstantValue({
         onDidChangeCurrentWidget: () => undefined,
         widgets: []
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
     } as any);
     container.bind(WidgetManager).toConstantValue({
         onDidCreateWidget: Event.None
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
     } as any);
     const workspaceService = new WorkspaceService();
     workspaceService.tryGetRoots = () => roots;
@@ -95,26 +95,26 @@ describe('WorkspaceUriLabelProviderContribution class', () => {
         });
 
         it('should return file icon from a non-folder FileStat', async () => {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+             
             stubs.push(sinon.stub(DefaultUriLabelProviderContribution.prototype, <any>'getFileIcon').returns(undefined));
             expect(labelProvider.getIcon(FileStat.file('file:///home/test'))).eq(labelProvider.defaultFileIcon);
         });
 
         it('should return folder icon from a folder FileStat', async () => {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+             
             stubs.push(sinon.stub(DefaultUriLabelProviderContribution.prototype, <any>'getFileIcon').returns(undefined));
             expect(labelProvider.getIcon(FileStat.dir('file:///home/test'))).eq(labelProvider.defaultFolderIcon);
         });
 
         it('should return file icon from a file FileStat', async () => {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+             
             stubs.push(sinon.stub(DefaultUriLabelProviderContribution.prototype, <any>'getFileIcon').returns(undefined));
             expect(labelProvider.getIcon(FileStat.file('file:///home/test'))).eq(labelProvider.defaultFileIcon);
         });
 
         it('should return what getFileIcon() returns from a URI or non-folder FileStat, if getFileIcon() does not return null or undefined', async () => {
             const ret = 'TestString';
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+             
             stubs.push(sinon.stub(DefaultUriLabelProviderContribution.prototype, <any>'getFileIcon').returns(ret));
             expect(labelProvider.getIcon(new URI('file:///home/test'))).eq(ret);
             expect(labelProvider.getIcon(FileStat.file('file:///home/test'))).eq(ret);

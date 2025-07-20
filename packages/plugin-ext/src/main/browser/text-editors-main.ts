@@ -31,16 +31,16 @@ import {
     DocumentsMain,
     WorkspaceEditMetadataDto,
     SnippetEditOptions,
-} from '../../common/plugin-api-rpc';
-import { Range, TextDocumentShowOptions } from '../../common/plugin-api-rpc-model';
-import { EditorsAndDocumentsMain } from './editors-and-documents-main';
-import { RPCProtocol } from '../../common/rpc-protocol';
+} from '../../common/plugin-api-rpc.js';
+import { Range, TextDocumentShowOptions } from '../../common/plugin-api-rpc-model.js';
+import { EditorsAndDocumentsMain } from './editors-and-documents-main.js';
+import { RPCProtocol } from '../../common/rpc-protocol.js';
 import { Disposable, DisposableCollection } from '@theia/core/lib/common/disposable';
-import { TextEditorMain } from './text-editor-main';
-import { disposed } from '../../common/errors';
-import { toMonacoWorkspaceEdit } from './languages-main';
+import { TextEditorMain } from './text-editor-main.js';
+import { disposed } from '../../common/errors.js';
+import { toMonacoWorkspaceEdit } from './languages-main.js';
 import { MonacoBulkEditService } from '@theia/monaco/lib/browser/monaco-bulk-edit-service';
-import { UriComponents } from '../../common/uri-components';
+import { UriComponents } from '../../common/uri-components.js';
 import { Endpoint } from '@theia/core/lib/browser/endpoint';
 import monaco from '@theia/monaco-editor-core';
 import { ResourceEdit } from '@theia/monaco-editor-core/esm/vs/editor/browser/services/bulkEditService';
@@ -49,7 +49,7 @@ import { StandaloneServices } from '@theia/monaco-editor-core/esm/vs/editor/stan
 import { ICodeEditorService } from '@theia/monaco-editor-core/esm/vs/editor/browser/services/codeEditorService';
 import { type ILineChange } from '@theia/monaco-editor-core/esm/vs/editor/common/diff/legacyLinesDiffComputer';
 import { ArrayUtils, URI } from '@theia/core';
-import { toNotebookWorspaceEdit } from './notebooks/notebooks-main';
+import { toNotebookWorspaceEdit } from './notebooks/notebooks-main.js';
 import { interfaces } from 'inversify';
 import { NotebookService } from '@theia/notebook/lib/browser';
 

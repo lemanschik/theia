@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { WebSocket } from './web-socket-channel';
+import { WebSocket } from './web-socket-channel.js';
 
 export class SocketWriteBuffer {
     private static DISCONNECTED_BUFFER_SIZE = 100 * 1024;

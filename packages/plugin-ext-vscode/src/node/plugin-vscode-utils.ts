@@ -19,7 +19,7 @@ import path from 'path';
 import filenamify from 'filenamify';
 import { FileUri } from '@theia/core/lib/node';
 import fs from 'fs-extra';
-import { PluginVSCodeEnvironment } from '../common/plugin-vscode-environment';
+import { PluginVSCodeEnvironment } from '../common/plugin-vscode-environment.js';
 
 export async function decompressExtension(sourcePath: string, destPath: string): Promise<boolean> {
     try {

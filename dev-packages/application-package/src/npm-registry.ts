@@ -14,11 +14,11 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 import { default as nano } from 'nano';
 import { RequestContext } from '@theia/request';
 import { NodeRequestService } from '@theia/request/lib/node-request-service';
-import { NpmRegistryProps } from './application-props';
+import { NpmRegistryProps } from './application-props.js';
 
 export interface IChangeStream {
     on(event: 'data', cb: (change: { id: string }) => void): void;

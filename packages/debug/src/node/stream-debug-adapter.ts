@@ -19,7 +19,7 @@ import { Emitter, Event } from '@theia/core/lib/common/event';
 import { ChildProcess } from 'child_process';
 import stream from 'stream';
 import net from 'net';
-import { DebugAdapter } from '../common/debug-model';
+import { DebugAdapter } from '../common/debug-model.js';
 
 abstract class StreamDebugAdapter extends DisposableCollection {
     private messageReceivedEmitter = new Emitter<string>();

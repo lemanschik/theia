@@ -16,12 +16,12 @@
 
 import debounce from 'lodash.debounce';
 import { inject, injectable } from 'inversify';
-import { BoxLayout, BoxPanel, ExtractableWidget, Widget } from './widgets';
-import { MessageService } from '../common/message-service';
-import { ApplicationShell } from './shell/application-shell';
-import { Emitter } from '../common/event';
-import { SecondaryWindowService } from './window/secondary-window-service';
-import { KeybindingRegistry } from './keybinding';
+import { BoxLayout, BoxPanel, ExtractableWidget, Widget } from './widgets/index.js';
+import { MessageService } from '../common/message-service.js';
+import { ApplicationShell } from './shell/application-shell.js';
+import { Emitter } from '../common/event.js';
+import { SecondaryWindowService } from './window/secondary-window-service.js';
+import { KeybindingRegistry } from './keybinding.js';
 
 /** Widget to be contained directly in a secondary window. */
 class SecondaryWindowRootWidget extends Widget {

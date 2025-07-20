@@ -16,7 +16,7 @@
 
 import { inject, injectable } from 'inversify';
 import URI from '@theia/core/lib/common/uri';
-import { AbstractResourcePreferenceProvider } from './abstract-resource-preference-provider';
+import { AbstractResourcePreferenceProvider } from './abstract-resource-preference-provider.js';
 import { WorkspaceService } from '@theia/workspace/lib/browser/workspace-service';
 import { PreferenceConfigurations } from '@theia/core/lib/browser/preferences/preference-configurations';
 
@@ -51,7 +51,7 @@ export abstract class SectionPreferenceProvider extends AbstractResourcePreferen
     protected getUri(): URI {
         return this.uri;
     }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     protected override parse(content: string): any {
         const prefs = super.parse(content);
         if (this.isSection) {

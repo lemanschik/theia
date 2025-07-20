@@ -16,14 +16,14 @@
 
 import { inject, injectable } from 'inversify';
 import { AbstractRemoteRegistryContribution, RemoteRegistry } from '@theia/remote/lib/electron-browser/remote-registry-contribution';
-import { DevContainerFile, LastContainerInfo, RemoteContainerConnectionProvider } from '../electron-common/remote-container-connection-provider';
+import { DevContainerFile, LastContainerInfo, RemoteContainerConnectionProvider } from '../electron-common/remote-container-connection-provider.js';
 import { RemotePreferences } from '@theia/remote/lib/electron-browser/remote-preferences';
 import { WorkspaceStorageService } from '@theia/workspace/lib/browser/workspace-storage-service';
 import { Command, MaybePromise, MessageService, nls, QuickInputService, URI } from '@theia/core';
 import { WorkspaceInput, WorkspaceOpenHandlerContribution, WorkspaceService } from '@theia/workspace/lib/browser/workspace-service';
-import { ContainerOutputProvider } from './container-output-provider';
+import { ContainerOutputProvider } from './container-output-provider.js';
 import { WorkspaceServer } from '@theia/workspace/lib/common';
-import { DEV_CONTAINER_PATH_QUERY, DEV_CONTAINER_WORKSPACE_SCHEME } from '../electron-common/dev-container-workspaces';
+import { DEV_CONTAINER_PATH_QUERY, DEV_CONTAINER_WORKSPACE_SCHEME } from '../electron-common/dev-container-workspaces.js';
 
 export namespace RemoteContainerCommands {
     export const REOPEN_IN_CONTAINER = Command.toLocalizedCommand({
@@ -140,7 +140,7 @@ export class ContainerConnectionContribution extends AbstractRemoteRegistryContr
         if (devcontainerFiles.length === 1) {
             return devcontainerFiles[0];
         } else if (devcontainerFiles.length === 0) {
-            // eslint-disable-next-line max-len
+             
             this.messageService.error(nls.localize('theia/remote/dev-container/noDevcontainerFiles', 'No devcontainer.json files found in the workspace. Please ensure you have a .devcontainer directory with a devcontainer.json file.'));
             return undefined;
         }

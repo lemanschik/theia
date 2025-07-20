@@ -15,9 +15,9 @@
 // *****************************************************************************
 
 export * from '@theia/core/lib/browser/preferences';
-export * from './abstract-resource-preference-provider';
-export * from './user-preference-provider';
-export * from './workspace-preference-provider';
-export * from './folders-preferences-provider';
-export * from './folder-preference-provider';
-export * from './user-configs-preference-provider';
+export * from './abstract-resource-preference-provider.js';
+export * from './user-preference-provider.js';
+export * from './workspace-preference-provider.js';
+export * from './folders-preferences-provider.js';
+export * from './folder-preference-provider.js';
+export * from './user-configs-preference-provider.js';

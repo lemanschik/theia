@@ -24,9 +24,9 @@ import { Container } from 'inversify';
 import { editor, languages, Uri } from '@theia/monaco-editor-core/esm/vs/editor/editor.api';
 import { expect } from 'chai';
 import sinon from 'sinon';
-import { CodeCompletionVariableContext } from './code-completion-variable-context';
-import { CodeCompletionVariableContribution } from './code-completion-variable-contribution';
-import { FILE, LANGUAGE, PREFIX, SUFFIX } from './code-completion-variables';
+import { CodeCompletionVariableContext } from './code-completion-variable-context.js';
+import { CodeCompletionVariableContribution } from './code-completion-variable-contribution.js';
+import { FILE, LANGUAGE, PREFIX, SUFFIX } from './code-completion-variables.js';
 
 disableJSDOM();
 

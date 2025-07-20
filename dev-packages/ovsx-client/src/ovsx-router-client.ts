@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { ExtensionLike, OVSXClient, OVSXClientProvider, VSXExtensionRaw, VSXQueryOptions, VSXQueryResult, VSXSearchEntry, VSXSearchOptions, VSXSearchResult } from './ovsx-types';
-import type { MaybePromise } from './types';
+import { ExtensionLike, OVSXClient, OVSXClientProvider, VSXExtensionRaw, VSXQueryOptions, VSXQueryResult, VSXSearchEntry, VSXSearchOptions, VSXSearchResult } from './ovsx-types.js';
+import type { MaybePromise } from './types.js';
 
 export interface OVSXRouterFilter {
     filterSearchOptions?(searchOptions?: VSXSearchOptions): MaybePromise<unknown>;

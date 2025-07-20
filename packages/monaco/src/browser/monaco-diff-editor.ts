@@ -17,9 +17,9 @@
 import URI from '@theia/core/lib/common/uri';
 import { Disposable } from '@theia/core/lib/common';
 import { Dimension, DiffNavigator, DeltaDecorationParams } from '@theia/editor/lib/browser';
-import { MonacoEditorModel } from './monaco-editor-model';
-import { EditorServiceOverrides, MonacoEditor, MonacoEditorServices } from './monaco-editor';
-import { MonacoDiffNavigatorFactory } from './monaco-diff-navigator-factory';
+import { MonacoEditorModel } from './monaco-editor-model.js';
+import { EditorServiceOverrides, MonacoEditor, MonacoEditorServices } from './monaco-editor.js';
+import { MonacoDiffNavigatorFactory } from './monaco-diff-navigator-factory.js';
 import { DiffUris } from '@theia/core/lib/browser/diff-uris';
 import monaco from '@theia/monaco-editor-core';
 import { ICodeEditor, IDiffEditorConstructionOptions } from '@theia/monaco-editor-core/esm/vs/editor/browser/editorBrowser';

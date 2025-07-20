@@ -15,10 +15,10 @@
 // *****************************************************************************
 
 import { inject, injectable, postConstruct } from 'inversify';
-import { LoggerWatcher } from './logger-watcher';
-import { ILoggerServer, LogLevel, ConsoleLogger, rootLoggerName } from './logger-protocol';
+import { LoggerWatcher } from './logger-watcher.js';
+import { ILoggerServer, LogLevel, ConsoleLogger, rootLoggerName } from './logger-protocol.js';
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
 export {
     LogLevel, rootLoggerName

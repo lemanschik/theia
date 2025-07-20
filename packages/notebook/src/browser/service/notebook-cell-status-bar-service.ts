@@ -19,7 +19,7 @@
  *--------------------------------------------------------------------------------------------*/
 
 import { CancellationToken, Command, Disposable, Emitter, Event, URI } from '@theia/core';
-import { CellStatusbarAlignment } from '../../common';
+import { CellStatusbarAlignment } from '../../common/index.js';
 import { ThemeColor } from '@theia/core/lib/common/theme';
 import { AccessibilityInformation } from '@theia/core/lib/common/accessibility';
 import { injectable } from 'inversify';

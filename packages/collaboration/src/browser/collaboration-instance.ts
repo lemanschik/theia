@@ -24,21 +24,21 @@ import { ApplicationShell } from '@theia/core/lib/browser/shell/application-shel
 import { EditorManager } from '@theia/editor/lib/browser/editor-manager';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
 import { MonacoTextModelService } from '@theia/monaco/lib/browser/monaco-text-model-service';
-import { CollaborationWorkspaceService } from './collaboration-workspace-service';
+import { CollaborationWorkspaceService } from './collaboration-workspace-service.js';
 import { Range as MonacoRange } from '@theia/monaco-editor-core';
 import { MonacoEditorModel } from '@theia/monaco/lib/browser/monaco-editor-model';
 import { MonacoEditor } from '@theia/monaco/lib/browser/monaco-editor';
 import { Deferred } from '@theia/core/lib/common/promise-util';
 import { EditorDecoration, EditorWidget, Selection, TextEditorDocument, TrackedRangeStickiness } from '@theia/editor/lib/browser';
 import { DecorationStyle, OpenerService, SaveReason } from '@theia/core/lib/browser';
-import { CollaborationFileSystemProvider, CollaborationURI } from './collaboration-file-system-provider';
+import { CollaborationFileSystemProvider, CollaborationURI } from './collaboration-file-system-provider.js';
 import { Range } from 'vscode-languageserver-protocol';
-import { CollaborationColorService } from './collaboration-color-service';
+import { CollaborationColorService } from './collaboration-color-service.js';
 import { BinaryBuffer } from '@theia/core/lib/common/buffer';
 import { FileChange, FileChangeType, FileOperation } from '@theia/filesystem/lib/common/files';
 import { OpenCollaborationYjsProvider } from 'open-collaboration-yjs';
 import { createMutex } from 'lib0/mutex';
-import { CollaborationUtils } from './collaboration-utils';
+import { CollaborationUtils } from './collaboration-utils.js';
 import debounce from 'lodash.debounce';
 
 export const CollaborationInstanceFactory = Symbol('CollaborationInstanceFactory');

@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { flatten } from '../../common/arrays';
+import { flatten } from '../../common/arrays.js';
 import { isStringArray, isObject } from '@theia/core/lib/common/types';
 import {
     PluginPackage,
@@ -25,7 +25,7 @@ import {
     PluginPackageLanguageContribution,
     PluginPackageNotebook,
     PluginPackageView
-} from '../../common/plugin-protocol';
+} from '../../common/plugin-protocol.js';
 
 /**
  * Most activation events can be automatically deduced from the package manifest.

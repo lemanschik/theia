@@ -20,7 +20,7 @@ import { TaskService } from '@theia/task/lib/browser/task-service';
 import { TerminalService } from '@theia/terminal/lib/browser/base/terminal-service';
 import { MutableChatRequestModel } from '@theia/ai-chat';
 import { CancellationToken } from '@theia/core';
-import { LIST_TASKS_FUNCTION_ID, RUN_TASK_FUNCTION_ID } from '../common/workspace-functions';
+import { LIST_TASKS_FUNCTION_ID, RUN_TASK_FUNCTION_ID } from '../common/workspace-functions.js';
 
 @injectable()
 export class TaskListProvider implements ToolProvider {

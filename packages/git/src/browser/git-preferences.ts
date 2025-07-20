@@ -18,7 +18,7 @@ import { interfaces } from 'inversify';
 import { createPreferenceProxy, PreferenceProxy, PreferenceService, PreferenceContribution, PreferenceSchema } from '@theia/core/lib/browser';
 import { nls } from '@theia/core/lib/common/nls';
 
-/* eslint-disable max-len */
+ 
 
 export const GitConfigSchema: PreferenceSchema = {
     'type': 'object',

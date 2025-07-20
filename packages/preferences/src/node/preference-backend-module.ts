@@ -16,9 +16,9 @@
 
 import { ContainerModule } from 'inversify';
 import { CliContribution } from '@theia/core/lib/node/cli';
-import { PreferenceCliContribution } from './preference-cli-contribution';
+import { PreferenceCliContribution } from './preference-cli-contribution.js';
 import { ConnectionContainerModule } from '@theia/core/lib/node/messaging/connection-container-module';
-import { CliPreferences, CliPreferencesPath } from '../common/cli-preferences';
+import { CliPreferences, CliPreferencesPath } from '../common/cli-preferences.js';
 
 const preferencesConnectionModule = ConnectionContainerModule.create(({ bind, bindBackendService }) => {
     bindBackendService(CliPreferencesPath, CliPreferences);

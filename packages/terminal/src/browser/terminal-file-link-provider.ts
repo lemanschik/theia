@@ -20,9 +20,9 @@ import URI from '@theia/core/lib/common/uri';
 import { inject, injectable } from 'inversify';
 import { Position } from '@theia/editor/lib/browser';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
-import { TerminalWidget } from './base/terminal-widget';
-import { TerminalLink, TerminalLinkProvider } from './terminal-link-provider';
-import { TerminalWidgetImpl } from './terminal-widget-impl';
+import { TerminalWidget } from './base/terminal-widget.js';
+import { TerminalLink, TerminalLinkProvider } from './terminal-link-provider.js';
+import { TerminalWidgetImpl } from './terminal-widget-impl.js';
 import { FileSearchService } from '@theia/file-search/lib/common/file-search-service';
 import { WorkspaceService } from '@theia/workspace/lib/browser';
 @injectable()

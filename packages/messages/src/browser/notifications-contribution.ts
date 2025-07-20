@@ -19,10 +19,10 @@ import {
     FrontendApplicationContribution, StatusBar, FrontendApplication, StatusBarAlignment,
     KeybindingContribution, KeybindingRegistry, StylingParticipant, ColorTheme, CssStyleCollector
 } from '@theia/core/lib/browser';
-import { NotificationsCommands } from './notifications-commands';
+import { NotificationsCommands } from './notifications-commands.js';
 import { CommandContribution, CommandRegistry } from '@theia/core';
-import { NotificationManager } from './notifications-manager';
-import { NotificationsRenderer } from './notifications-renderer';
+import { NotificationManager } from './notifications-manager.js';
+import { NotificationsRenderer } from './notifications-renderer.js';
 import { ColorContribution } from '@theia/core/lib/browser/color-application-contribution';
 import { ColorRegistry } from '@theia/core/lib/browser/color-registry';
 import { Color } from '@theia/core/lib/common/color';
@@ -158,7 +158,7 @@ export class NotificationsContribution implements FrontendApplicationContributio
                     light: 'notificationCenterHeader.background',
                     hcDark: 'notificationCenterHeader.background',
                     hcLight: 'notificationCenterHeader.background'
-                    // eslint-disable-next-line max-len
+                     
                 }, description: 'Notifications border color separating from other notifications in the notifications center. Notifications slide in from the bottom right of the window.'
             },
             {

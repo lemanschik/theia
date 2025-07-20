@@ -14,6 +14,6 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-export { OVSXClientProvider, OVSXUrlResolver } from './ovsx-client-provider';
-export { VSXEnvironment } from './vsx-environment';
-export { VSXExtensionUri } from './vsx-extension-uri';
+export { OVSXClientProvider, OVSXUrlResolver } from './ovsx-client-provider.js';
+export { VSXEnvironment } from './vsx-environment.js';
+export { VSXExtensionUri } from './vsx-extension-uri.js';

@@ -67,7 +67,7 @@ export class MonacoCommandService implements ICommandService, Disposable {
         return this.onDidExecuteCommandEmitter.event;
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     async executeCommand(commandId: any, ...args: any[]): Promise<any> {
         try {
             await this.commandRegistry.executeCommand(commandId, ...args);
@@ -79,7 +79,7 @@ export class MonacoCommandService implements ICommandService, Disposable {
         }
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     async executeMonacoCommand(commandId: any, ...args: any[]): Promise<any> {
         if (this.delegate) {
             return this.delegate.executeCommand(commandId, ...args);

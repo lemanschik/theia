@@ -15,8 +15,8 @@
 // *****************************************************************************
 
 import { injectable } from 'inversify';
-import { TokenUsage, TokenUsageParams, TokenUsageService } from '../common/token-usage-service';
-import { TokenUsageServiceClient } from '../common/protocol';
+import { TokenUsage, TokenUsageParams, TokenUsageService } from '../common/token-usage-service.js';
+import { TokenUsageServiceClient } from '../common/protocol.js';
 
 @injectable()
 export class TokenUsageServiceImpl implements TokenUsageService {

@@ -17,20 +17,20 @@
 import debounce from 'lodash.debounce';
 import { URI } from 'vscode-uri';
 import { interfaces } from 'inversify';
-import { WebviewsMain, MAIN_RPC_CONTEXT, WebviewsExt, WebviewPanelViewState } from '../../common/plugin-api-rpc';
-import { RPCProtocol } from '../../common/rpc-protocol';
+import { WebviewsMain, MAIN_RPC_CONTEXT, WebviewsExt, WebviewPanelViewState } from '../../common/plugin-api-rpc.js';
+import { RPCProtocol } from '../../common/rpc-protocol.js';
 import { ViewBadge, WebviewOptions, WebviewPanelOptions, WebviewPanelShowOptions } from '@theia/plugin';
 import { ApplicationShell } from '@theia/core/lib/browser/shell/application-shell';
-import { WebviewWidget, WebviewWidgetIdentifier } from './webview/webview';
+import { WebviewWidget, WebviewWidgetIdentifier } from './webview/webview.js';
 import { Disposable, DisposableCollection } from '@theia/core/lib/common/disposable';
 import { ViewColumnService } from '@theia/core/lib/browser/shell/view-column-service';
 import { WidgetManager } from '@theia/core/lib/browser/widget-manager';
 import { JSONExt } from '@lumino/coreutils';
 import { Mutable } from '@theia/core/lib/common/types';
-import { HostedPluginSupport } from '../../hosted/browser/hosted-plugin';
-import { IconUrl } from '../../common/plugin-protocol';
-import { CustomEditorWidget } from './custom-editors/custom-editor-widget';
-import { ViewColumn, WebviewPanelTargetArea } from '../../plugin/types-impl';
+import { HostedPluginSupport } from '../../hosted/browser/hosted-plugin.js';
+import { IconUrl } from '../../common/plugin-protocol.js';
+import { CustomEditorWidget } from './custom-editors/custom-editor-widget.js';
+import { ViewColumn, WebviewPanelTargetArea } from '../../plugin/types-impl.js';
 
 export class WebviewsMainImpl implements WebviewsMain, Disposable {
 
@@ -189,7 +189,7 @@ export class WebviewsMainImpl implements WebviewsMain, Disposable {
         });
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     async $postMessage(handle: string, value: any): Promise<boolean> {
         // Due to async nature of $postMessage, the webview may have been disposed in the meantime.
         // Therefore, don't throw an error if the webview is not found, but return false in this case.
@@ -257,7 +257,7 @@ export class WebviewsMainImpl implements WebviewsMain, Disposable {
             this.viewColumnService.updateViewColumns();
             viewState.position = this.viewColumnService.getViewColumn(widget.id) || 0;
         }
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         if (JSONExt.deepEqual(<any>viewState, <any>widget.viewState)) {
             return;
         }

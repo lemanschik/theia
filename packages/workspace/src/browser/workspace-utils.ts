@@ -19,7 +19,7 @@
 
 import URI from '@theia/core/lib/common/uri';
 import { inject, injectable } from 'inversify';
-import { WorkspaceService } from './workspace-service';
+import { WorkspaceService } from './workspace-service.js';
 
 /**
  * Collection of workspace utility functions

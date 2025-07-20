@@ -20,7 +20,7 @@ import { RequestContext, RequestService, RequestOptions } from '@theia/request';
 import decompress from 'decompress';
 import path from 'path';
 import fs from 'fs/promises';
-import { DependencyDownload, DirectoryDependencyDownload, RemoteNativeDependencyContribution } from './remote-native-dependency-contribution';
+import { DependencyDownload, DirectoryDependencyDownload, RemoteNativeDependencyContribution } from './remote-native-dependency-contribution.js';
 import { RemotePlatform } from '@theia/core/lib/node/remote/remote-cli-contribution';
 
 const decompressTar = require('decompress-tar');

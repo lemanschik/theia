@@ -14,11 +14,11 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { SearchBoxDebounce, SearchBoxDebounceOptions } from '../tree/search-box-debounce';
-import { BaseWidget, Message } from '../widgets/widget';
-import { Emitter, Event } from '../../common/event';
-import { KeyCode, Key } from '../keyboard/keys';
-import { nls } from '../../common/nls';
+import { SearchBoxDebounce, SearchBoxDebounceOptions } from '../tree/search-box-debounce.js';
+import { BaseWidget, Message } from '../widgets/widget.js';
+import { Emitter, Event } from '../../common/event.js';
+import { KeyCode, Key } from '../keyboard/keys.js';
+import { nls } from '../../common/nls.js';
 
 /**
  * Initializer properties for the search box widget.
@@ -307,7 +307,7 @@ export class SearchBox extends BaseWidget {
 
     protected override onAfterAttach(msg: Message): void {
         super.onAfterAttach(msg);
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         this.addEventListener(this.input, 'selectstart' as any, () => false);
     }
 

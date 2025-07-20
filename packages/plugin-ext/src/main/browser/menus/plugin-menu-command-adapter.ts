@@ -25,11 +25,11 @@ import { DirtyDiffWidget } from '@theia/scm/lib/browser/dirty-diff/dirty-diff-wi
 import { Change, LineRange } from '@theia/scm/lib/browser/dirty-diff/diff-computer';
 import { IChange } from '@theia/monaco-editor-core/esm/vs/editor/common/diff/legacyLinesDiffComputer';
 import { TimelineItem } from '@theia/timeline/lib/common/timeline-model';
-import { ScmCommandArg, TimelineCommandArg, TreeViewItemReference } from '../../../common';
-import { TestItemReference, TestMessageArg } from '../../../common/test-types';
-import { PluginScmProvider, PluginScmResource, PluginScmResourceGroup } from '../scm-main';
-import { TreeViewWidget } from '../view/tree-view-widget';
-import { CodeEditorWidgetUtil, ContributionPoint } from './vscode-theia-menu-mappings';
+import { ScmCommandArg, TimelineCommandArg, TreeViewItemReference } from '../../../common/index.js';
+import { TestItemReference, TestMessageArg } from '../../../common/test-types.js';
+import { PluginScmProvider, PluginScmResource, PluginScmResourceGroup } from '../scm-main.js';
+import { TreeViewWidget } from '../view/tree-view-widget.js';
+import { CodeEditorWidgetUtil, ContributionPoint } from './vscode-theia-menu-mappings.js';
 import { TestItem, TestMessage } from '@theia/test/lib/browser/test-service';
 
 export type ArgumentAdapter = (...args: unknown[]) => unknown[];
@@ -88,7 +88,7 @@ export class PluginMenuCommandAdapter {
         return this.argumentAdapters.get(contributionPoint) || identity;
     }
 
-    /* eslint-disable @typescript-eslint/no-explicit-any */
+     
 
     protected toCommentArgs(...args: any[]): any[] {
         const arg = args[0];
@@ -247,5 +247,5 @@ export class PluginMenuCommandAdapter {
             : undefined;
         return [firstMember, secondMember];
     }
-    /* eslint-enable @typescript-eslint/no-explicit-any */
+     
 }

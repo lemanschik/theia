@@ -15,11 +15,11 @@
 // *****************************************************************************
 
 import { injectable, inject, named } from 'inversify';
-import { ContributionProvider } from '../common/contribution-provider';
-import { FrontendApplicationContribution } from './frontend-application-contribution';
-import { Emitter, MaybePromise, URI } from '../common';
-import { timeout, Deferred } from '../common/promise-util';
-import { IJSONSchema } from '../common/json-schema';
+import { ContributionProvider } from '../common/contribution-provider.js';
+import { FrontendApplicationContribution } from './frontend-application-contribution.js';
+import { Emitter, MaybePromise, URI } from '../common/index.js';
+import { timeout, Deferred } from '../common/promise-util.js';
+import { IJSONSchema } from '../common/json-schema.js';
 
 export interface JsonSchemaConfiguration {
     fileMatch: string | string[];
@@ -146,7 +146,7 @@ export namespace DefaultJsonSchemaContribution {
         description: string;
         fileMatch?: string[];
         url: string;
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         schema: any;
     }
 }

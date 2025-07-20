@@ -16,7 +16,7 @@
 
 import { SymbolInformation } from 'vscode-languageserver-protocol';
 import theia from '@theia/plugin';
-import * as Converter from '../type-converters';
+import * as Converter from '../type-converters.js';
 
 export class WorkspaceSymbolAdapter {
 

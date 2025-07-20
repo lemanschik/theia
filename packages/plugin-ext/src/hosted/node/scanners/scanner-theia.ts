@@ -65,13 +65,13 @@ import {
     PluginIconContribution,
     PluginEntryPoint,
     PluginPackageContribution
-} from '../../../common/plugin-protocol';
+} from '../../../common/plugin-protocol.js';
 import { promises as fs } from 'fs';
 import path from 'path';
 import { isObject, isStringArray, RecursivePartial } from '@theia/core/lib/common/types';
-import { GrammarsReader } from './grammars-reader';
-import { CharacterPair } from '../../../common/plugin-api-rpc';
-import { isENOENT } from '../../../common/errors';
+import { GrammarsReader } from './grammars-reader.js';
+import { CharacterPair } from '../../../common/plugin-api-rpc.js';
+import { isENOENT } from '../../../common/errors.js';
 import jsoncparser from 'jsonc-parser';
 import { IJSONSchema } from '@theia/core/lib/common/json-schema';
 import { deepClone } from '@theia/core/lib/common/objects';
@@ -79,7 +79,7 @@ import { PreferenceSchema, PreferenceSchemaProperties } from '@theia/core/lib/co
 import { TaskDefinition } from '@theia/task/lib/common/task-protocol';
 import { ColorDefinition } from '@theia/core/lib/common/color';
 import { CSSIcon } from '@theia/core/lib/common/markdown-rendering/icon-utilities';
-import { PluginUriFactory } from './plugin-uri-factory';
+import { PluginUriFactory } from './plugin-uri-factory.js';
 
 const colorIdPattern = '^\\w+[.\\w+]*$';
 const iconIdPattern = `^${CSSIcon.iconNameSegment}(-${CSSIcon.iconNameSegment})+$`;
@@ -664,7 +664,7 @@ export class TheiaPluginScanner extends AbstractPluginScanner {
         }
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     private readConfiguration(rawConfiguration: RecursivePartial<PreferenceSchema>, pluginPath: string): PreferenceSchema | undefined {
         return PreferenceSchema.is(rawConfiguration) ? rawConfiguration : undefined;
     }

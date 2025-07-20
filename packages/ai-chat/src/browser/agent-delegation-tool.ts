@@ -25,8 +25,8 @@ import {
     MutableChatRequestModel,
     MutableChatModel,
     ChatSession,
-} from '../common';
-import { DelegationResponseContent } from './delegation-response-content';
+} from '../common/index.js';
+import { DelegationResponseContent } from './delegation-response-content.js';
 
 export const AGENT_DELEGATION_FUNCTION_ID = 'delegateToAgent';
 

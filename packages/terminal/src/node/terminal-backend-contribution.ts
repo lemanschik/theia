@@ -17,9 +17,9 @@
 import { injectable, inject, named } from 'inversify';
 import { ILogger } from '@theia/core/lib/common';
 import { TerminalProcess, ProcessManager } from '@theia/process/lib/node';
-import { terminalsPath } from '../common/terminal-protocol';
+import { terminalsPath } from '../common/terminal-protocol.js';
 import { MessagingService } from '@theia/core/lib/node/messaging/messaging-service';
-import { StringBufferingStream } from './buffering-stream';
+import { StringBufferingStream } from './buffering-stream.js';
 
 @injectable()
 export class TerminalBackendContribution implements MessagingService.Contribution {
@@ -38,7 +38,7 @@ export class TerminalBackendContribution implements MessagingService.Contributio
             if (termProcess instanceof TerminalProcess) {
                 const output = termProcess.createOutputStream();
                 // Create a RPC connection to the terminal process
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                 
                 channel.onMessage(e => {
                     termProcess.write(e().readString());
                 });

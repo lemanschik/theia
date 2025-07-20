@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import jsdiff from 'diff';
-import { ContentLinesArrayLike } from './content-lines';
+import { ContentLinesArrayLike } from './content-lines.js';
 import { Position, Range, uinteger } from 'vscode-languageserver-protocol';
 
 export class DiffComputer {
@@ -77,15 +77,15 @@ export class DiffComputer {
 }
 
 class ArrayDiff extends jsdiff.Diff {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     override tokenize(value: any): any {
         return value;
     }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     override join(value: any): any {
         return value;
     }
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     override removeEmpty(value: any): any {
         return value;
     }
@@ -96,9 +96,9 @@ const arrayDiff = new ArrayDiff();
 /**
  * Computes diff without copying data.
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 function diffArrays(oldArr: ContentLinesArrayLike, newArr: ContentLinesArrayLike): DiffResult[] {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     return arrayDiff.diff(oldArr as any, newArr as any) as any;
 }
 

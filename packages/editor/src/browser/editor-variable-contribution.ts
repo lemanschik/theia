@@ -16,8 +16,8 @@
 
 import { injectable, inject } from 'inversify';
 import { VariableRegistry, VariableContribution } from '@theia/variable-resolver/lib/browser';
-import { TextEditor } from './editor';
-import { EditorManager } from './editor-manager';
+import { TextEditor } from './editor.js';
+import { EditorManager } from './editor-manager.js';
 
 @injectable()
 export class EditorVariableContribution implements VariableContribution {

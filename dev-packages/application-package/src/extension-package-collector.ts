@@ -14,9 +14,9 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { readJsonFile } from './json-file';
-import { NodePackage, PublishedNodePackage } from './npm-registry';
-import { ExtensionPackage, ExtensionPackageOptions, RawExtensionPackage } from './extension-package';
+import { readJsonFile } from './json-file.js';
+import { NodePackage, PublishedNodePackage } from './npm-registry.js';
+import { ExtensionPackage, ExtensionPackageOptions, RawExtensionPackage } from './extension-package.js';
 
 export class ExtensionPackageCollector {
 

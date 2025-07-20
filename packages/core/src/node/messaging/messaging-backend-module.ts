@@ -15,17 +15,17 @@
 // *****************************************************************************
 
 import { ContainerModule } from 'inversify';
-import { ConnectionHandler, RpcConnectionHandler, bindContributionProvider } from '../../common';
+import { ConnectionHandler, RpcConnectionHandler, bindContributionProvider } from '../../common/index.js';
 // import { BackendApplicationContribution } from '../backend-application';
-import { DefaultMessagingService, MessagingContainer } from './default-messaging-service';
-import { ConnectionContainerModule } from './connection-container-module';
-import { MessagingService } from './messaging-service';
-import { MessagingListener, MessagingListenerContribution } from './messaging-listeners';
-import { FrontendConnectionService } from './frontend-connection-service';
-import { BackendApplicationContribution } from '../backend-application';
-import { connectionCloseServicePath } from '../../common/messaging/connection-management';
-import { WebsocketFrontendConnectionService } from './websocket-frontend-connection-service';
-import { WebsocketEndpoint } from './websocket-endpoint';
+import { DefaultMessagingService, MessagingContainer } from './default-messaging-service.js';
+import { ConnectionContainerModule } from './connection-container-module.js';
+import { MessagingService } from './messaging-service.js';
+import { MessagingListener, MessagingListenerContribution } from './messaging-listeners.js';
+import { FrontendConnectionService } from './frontend-connection-service.js';
+import { BackendApplicationContribution } from '../backend-application.js';
+import { connectionCloseServicePath } from '../../common/messaging/connection-management.js';
+import { WebsocketFrontendConnectionService } from './websocket-frontend-connection-service.js';
+import { WebsocketEndpoint } from './websocket-endpoint.js';
 
 export const messagingBackendModule = new ContainerModule(bind => {
     bindContributionProvider(bind, ConnectionContainerModule);

@@ -16,7 +16,7 @@
 
 import { injectable, inject, postConstruct } from 'inversify';
 import { TreeSource, TreeElement } from '@theia/core/lib/browser/source-tree';
-import { VSXExtensionsModel } from './vsx-extensions-model';
+import { VSXExtensionsModel } from './vsx-extensions-model.js';
 import debounce from 'lodash.debounce';
 
 @injectable()

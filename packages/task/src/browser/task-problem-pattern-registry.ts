@@ -22,7 +22,7 @@
 import { Disposable, DisposableCollection } from '@theia/core/lib/common/disposable';
 import { Deferred } from '@theia/core/lib/common/promise-util';
 import { injectable, postConstruct } from 'inversify';
-import { NamedProblemPattern, ProblemLocationKind, ProblemPattern, ProblemPatternContribution } from '../common';
+import { NamedProblemPattern, ProblemLocationKind, ProblemPattern, ProblemPatternContribution } from '../common/index.js';
 
 @injectable()
 export class ProblemPatternRegistry {

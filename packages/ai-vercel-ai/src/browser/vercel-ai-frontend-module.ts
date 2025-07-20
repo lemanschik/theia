@@ -15,10 +15,10 @@
 // *****************************************************************************
 
 import { ContainerModule } from 'inversify';
-import { VercelAiPreferencesSchema } from './vercel-ai-preferences';
+import { VercelAiPreferencesSchema } from './vercel-ai-preferences.js';
 import { FrontendApplicationContribution, PreferenceContribution, RemoteConnectionProvider, ServiceConnectionProvider } from '@theia/core/lib/browser';
-import { VercelAiFrontendApplicationContribution } from './vercel-ai-frontend-application-contribution';
-import { VERCEL_AI_LANGUAGE_MODELS_MANAGER_PATH, VercelAiLanguageModelsManager } from '../common';
+import { VercelAiFrontendApplicationContribution } from './vercel-ai-frontend-application-contribution.js';
+import { VERCEL_AI_LANGUAGE_MODELS_MANAGER_PATH, VercelAiLanguageModelsManager } from '../common/index.js';
 
 export default new ContainerModule(bind => {
     bind(PreferenceContribution).toConstantValue({ schema: VercelAiPreferencesSchema });

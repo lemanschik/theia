@@ -25,7 +25,7 @@ import { FrontendApplicationConfigProvider } from '@theia/core/lib/browser/front
 FrontendApplicationConfigProvider.set({});
 
 import { Container } from 'inversify';
-import { BulkEditInfoNode, BulkEditTree } from './bulk-edit-tree';
+import { BulkEditInfoNode, BulkEditTree } from './bulk-edit-tree.js';
 
 const expect = chai.expect;
 let bulkEditTree: BulkEditTree;

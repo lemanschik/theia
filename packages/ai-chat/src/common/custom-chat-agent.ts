@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { LanguageModelRequirement } from '@theia/ai-core';
-import { AbstractStreamParsingChatAgent } from './chat-agents';
+import { AbstractStreamParsingChatAgent } from './chat-agents.js';
 import { injectable } from 'inversify';
 
 @injectable()

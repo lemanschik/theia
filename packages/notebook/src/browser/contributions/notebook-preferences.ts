@@ -41,7 +41,7 @@ export const notebookPreferenceSchema: PreferenceSchema = {
             description: nls.localizeByDefault('Controls the display of line numbers in the cell editor.')
         },
         [NotebookPreferences.OUTPUT_LINE_HEIGHT]: {
-            // eslint-disable-next-line max-len
+             
             markdownDescription: nls.localizeByDefault('Line height of the output text within notebook cells.\n - When set to 0, editor line height is used.\n - Values between 0 and 8 will be used as a multiplier with the font size.\n - Values greater than or equal to 8 will be used as effective values.'),
             type: 'number',
             default: 0,

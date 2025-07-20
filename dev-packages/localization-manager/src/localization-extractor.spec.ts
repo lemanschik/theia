@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import assert from 'assert';
-import { extractFromFile, ExtractionOptions } from './localization-extractor';
+import { extractFromFile, ExtractionOptions } from './localization-extractor.js';
 
 const TEST_FILE = 'test.ts';
 const quiet: ExtractionOptions = { quiet: true };

@@ -15,12 +15,12 @@
 // *****************************************************************************
 
 import { inject, injectable, postConstruct } from 'inversify';
-import { GitFileChange, GitFileStatus, GitStatusChangeEvent } from '../common';
+import { GitFileChange, GitFileStatus, GitStatusChangeEvent } from '../common/index.js';
 import { CancellationToken, Emitter, Event } from '@theia/core/lib/common';
 import { Decoration, DecorationsProvider } from '@theia/core/lib/browser/decorations-service';
-import { GitRepositoryTracker } from './git-repository-tracker';
+import { GitRepositoryTracker } from './git-repository-tracker.js';
 import URI from '@theia/core/lib/common/uri';
-import { GitConfiguration, GitPreferences } from './git-preferences';
+import { GitConfiguration, GitPreferences } from './git-preferences.js';
 import { PreferenceChangeEvent } from '@theia/core/lib/browser';
 
 @injectable()

@@ -16,7 +16,7 @@
 
 import { inject, injectable } from 'inversify';
 import { ApplicationShell, UndoRedoHandler } from '@theia/core/lib/browser';
-import { NotebookEditorWidget } from '../notebook-editor-widget';
+import { NotebookEditorWidget } from '../notebook-editor-widget.js';
 
 @injectable()
 export class NotebookUndoRedoHandler implements UndoRedoHandler<NotebookEditorWidget> {

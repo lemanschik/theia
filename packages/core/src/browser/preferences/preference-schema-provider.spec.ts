@@ -14,15 +14,15 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { enableJSDOM } from '../test/jsdom';
+import { enableJSDOM } from '../test/jsdom.js';
 
 let disableJSDOM = enableJSDOM();
 
 import assert from 'assert';
 import { Container } from 'inversify';
-import { bindPreferenceService } from '../frontend-application-bindings';
-import { PreferenceSchemaProperties, PreferenceSchemaProvider } from './preference-contribution';
-import { FrontendApplicationConfigProvider } from '../frontend-application-config-provider';
+import { bindPreferenceService } from '../frontend-application-bindings.js';
+import { PreferenceSchemaProperties, PreferenceSchemaProvider } from './preference-contribution.js';
+import { FrontendApplicationConfigProvider } from '../frontend-application-config-provider.js';
 
 disableJSDOM();
 

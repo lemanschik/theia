@@ -23,7 +23,7 @@ import { inject, injectable, optional, postConstruct } from 'inversify';
 import { EditorOpenerOptions, EditorWidget, Position, Range } from '@theia/editor/lib/browser';
 import { NavigationLocationService } from '@theia/editor/lib/browser/navigation/navigation-location-service';
 import { WorkspaceService } from '@theia/workspace/lib/browser/workspace-service';
-import { QuickFileSelectService } from './quick-file-select-service';
+import { QuickFileSelectService } from './quick-file-select-service.js';
 
 export const quickFileOpen = Command.toDefaultLocalizedCommand({
     id: 'file-search.openFile',

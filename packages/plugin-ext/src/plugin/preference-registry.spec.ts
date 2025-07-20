@@ -15,15 +15,15 @@
 // *****************************************************************************
 
 import { Container } from 'inversify';
-import { PreferenceRegistryExtImpl, PreferenceScope } from './preference-registry';
+import { PreferenceRegistryExtImpl, PreferenceScope } from './preference-registry.js';
 import chai from 'chai';
-import { WorkspaceExtImpl } from '../plugin/workspace';
-import { ProxyIdentifier, RPCProtocol } from '../common/rpc-protocol';
-import { URI } from './types-impl';
+import { WorkspaceExtImpl } from '../plugin/workspace.js';
+import { ProxyIdentifier, RPCProtocol } from '../common/rpc-protocol.js';
+import { URI } from './types-impl.js';
 
 const expect = chai.expect;
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 describe('PreferenceRegistryExtImpl:', () => {
     const workspaceRoot = URI.parse('/workspace-root');
     let preferenceRegistryExtImpl: PreferenceRegistryExtImpl;

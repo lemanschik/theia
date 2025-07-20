@@ -16,7 +16,7 @@
 
 import { inject, injectable } from 'inversify';
 import { FrontendApplicationContribution } from '@theia/core/lib/browser';
-import { CliPreferences } from '../common/cli-preferences';
+import { CliPreferences } from '../common/cli-preferences.js';
 import { PreferenceService, PreferenceScope } from '@theia/core/lib/browser/preferences/preference-service';
 
 @injectable()

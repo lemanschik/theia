@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { MaybePromise } from './types';
+import { MaybePromise } from './types.js';
 
 export interface ExtensionLike {
     name: string;
@@ -31,7 +31,7 @@ export namespace ExtensionLike {
         }
         return `${id(extension)}@${extension.version}`;
     }
-    // eslint-disable-next-line @typescript-eslint/no-shadow
+     
     export function fromId(id: string): ExtensionLike {
         const [left, version] = id.split('@', 2);
         const [namespace, name] = left.split('.', 2);

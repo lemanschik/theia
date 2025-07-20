@@ -19,9 +19,9 @@ import fs from 'fs-extra';
 import cp from 'child_process';
 import semver from 'semver';
 import { ApplicationPackage, ApplicationPackageOptions } from '@theia/application-package';
-import { WebpackGenerator, FrontendGenerator, BackendGenerator } from './generator';
-import { ApplicationProcess } from './application-process';
-import { GeneratorOptions } from './generator/abstract-generator';
+import { WebpackGenerator, FrontendGenerator, BackendGenerator } from './generator/index.js';
+import { ApplicationProcess } from './application-process.js';
+import { GeneratorOptions } from './generator/abstract-generator.js';
 import yargs from 'yargs';
 
 // Declare missing exports from `@types/semver@7`

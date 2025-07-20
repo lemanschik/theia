@@ -19,7 +19,7 @@ import { Disposable, isObject } from '@theia/core';
 import {
     Repository, WorkingDirectoryStatus, Branch, GitResult, GitError, GitFileStatus,
     GitFileChange, CommitWithChanges, GitFileBlame, Remote as RemoteModel, StashEntry
-} from './git-model';
+} from './git-model.js';
 
 /**
  * The WS endpoint path to the Git service.
@@ -840,7 +840,7 @@ export interface Git extends Disposable {
      * @param uri the URI of the file to check.
      * @param options further options for the command executions.
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     lsFiles(repository: Repository, uri: string, options?: Git.Options.LsFiles): Promise<any>;
 
 }

@@ -14,9 +14,9 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { createFilterFactory, OVSXRouterFilter } from '../ovsx-router-client';
-import { VSXQueryOptions, VSXSearchOptions } from '../ovsx-types';
-import { AbstractRegExpFilter } from './abstract-reg-exp-filter';
+import { createFilterFactory, OVSXRouterFilter } from '../ovsx-router-client.js';
+import { VSXQueryOptions, VSXSearchOptions } from '../ovsx-types.js';
+import { AbstractRegExpFilter } from './abstract-reg-exp-filter.js';
 
 export const RequestContainsFilterFactory = createFilterFactory('ifRequestContains', ifRequestContains => {
     if (typeof ifRequestContains !== 'string') {

@@ -19,29 +19,29 @@ import { find, some, every, map, ArrayExt } from '@lumino/algorithm';
 import {
     Widget, EXPANSION_TOGGLE_CLASS, COLLAPSED_CLASS, CODICON_TREE_ITEM_CLASSES, MessageLoop, Message, SplitPanel,
     BaseWidget, addEventListener, SplitLayout, LayoutItem, PanelLayout, addKeyListener, waitForRevealed, UnsafeWidgetUtilities, DockPanel, PINNED_CLASS
-} from './widgets';
-import { Event as CommonEvent, Emitter } from '../common/event';
-import { Disposable, DisposableCollection } from '../common/disposable';
-import { CommandRegistry } from '../common/command';
-import { MenuModelRegistry, MenuPath, MenuAction, SubmenuImpl, ActionMenuNode, MenuNode, RenderedMenuNode } from '../common/menu';
-import { ApplicationShell, StatefulWidget, SplitPositionHandler, SplitPositionOptions, SIDE_PANEL_TOOLBAR_CONTEXT_MENU } from './shell';
-import { MAIN_AREA_ID, BOTTOM_AREA_ID } from './shell/theia-dock-panel';
-import { FrontendApplicationStateService } from './frontend-application-state';
-import { ContextMenuRenderer, Anchor } from './context-menu-renderer';
-import { parseCssMagnitude } from './browser';
-import { TabBarToolbarRegistry, TabBarToolbarFactory, TabBarToolbar, TabBarDelegator } from './shell/tab-bar-toolbar';
-import { isEmpty, isObject, nls } from '../common';
-import { WidgetManager } from './widget-manager';
-import { Key } from './keys';
-import { ProgressBarFactory } from './progress-bar-factory';
+} from './widgets/index.js';
+import { Event as CommonEvent, Emitter } from '../common/event.js';
+import { Disposable, DisposableCollection } from '../common/disposable.js';
+import { CommandRegistry } from '../common/command.js';
+import { MenuModelRegistry, MenuPath, MenuAction, SubmenuImpl, ActionMenuNode, MenuNode, RenderedMenuNode } from '../common/menu/index.js';
+import { ApplicationShell, StatefulWidget, SplitPositionHandler, SplitPositionOptions, SIDE_PANEL_TOOLBAR_CONTEXT_MENU } from './shell/index.js';
+import { MAIN_AREA_ID, BOTTOM_AREA_ID } from './shell/theia-dock-panel.js';
+import { FrontendApplicationStateService } from './frontend-application-state.js';
+import { ContextMenuRenderer, Anchor } from './context-menu-renderer.js';
+import { parseCssMagnitude } from './browser.js';
+import { TabBarToolbarRegistry, TabBarToolbarFactory, TabBarToolbar, TabBarDelegator } from './shell/tab-bar-toolbar/index.js';
+import { isEmpty, isObject, nls } from '../common/index.js';
+import { WidgetManager } from './widget-manager.js';
+import { Key } from './keys.js';
+import { ProgressBarFactory } from './progress-bar-factory.js';
 import { Drag } from '@lumino/dragdrop';
 import { MimeData } from '@lumino/coreutils';
 import { ElementExt } from '@lumino/domutils';
-import { TabBarDecoratorService } from './shell/tab-bar-decorator';
-import { ContextKeyService } from './context-key-service';
-import { KeybindingRegistry } from './keybinding';
-import { ToolbarMenuNodeWrapper } from './shell/tab-bar-toolbar/tab-bar-toolbar-menu-adapters';
-import { TheiaSplitPanel } from './shell/theia-split-panel';
+import { TabBarDecoratorService } from './shell/tab-bar-decorator.js';
+import { ContextKeyService } from './context-key-service.js';
+import { KeybindingRegistry } from './keybinding.js';
+import { ToolbarMenuNodeWrapper } from './shell/tab-bar-toolbar/tab-bar-toolbar-menu-adapters.js';
+import { TheiaSplitPanel } from './shell/theia-split-panel.js';
 
 export interface ViewContainerTitleOptions {
     label: string;
@@ -373,7 +373,7 @@ export class ViewContainer extends BaseWidget implements StatefulWidget, Applica
     }
 
     protected isCurrentTitle(titleOptions: ViewContainerTitleOptions | undefined): boolean {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         return (!!titleOptions && !!this.titleOptions && Object.keys(titleOptions).every(key => (titleOptions as any)[key] === (this.titleOptions as any)[key]))
             || (!titleOptions && !this.titleOptions);
     }
@@ -1385,7 +1385,7 @@ export class ViewContainerLayout extends SplitLayout {
     }
 
     protected get items(): ReadonlyArray<LayoutItem & ViewContainerLayout.Item> {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         return (this as any)._items as Array<LayoutItem & ViewContainerLayout.Item>;
     }
 
@@ -1645,7 +1645,7 @@ export class ViewContainerLayout extends SplitLayout {
             referenceWidget: this.widgets[index],
             duration: 0
         };
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         return this.splitPositionHandler.setSplitHandlePosition(this.parent as SplitPanel, index, position, options) as Promise<any>;
     }
 

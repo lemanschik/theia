@@ -19,11 +19,11 @@
  *--------------------------------------------------------------------------------------------*/
 // based on https://github.com/microsoft/vscode/blob/04c36be045a94fee58e5f8992d3e3fd980294a84/src/vs/editor/common/modes/linkComputer.ts
 
-/* eslint-disable max-len */
+ 
 
-import { CharacterClassifier } from './character-classifier';
+import { CharacterClassifier } from './character-classifier.js';
 import { CharCode } from '@theia/core/lib/common/char-code';
-import { DocumentLink as ILink } from './plugin-api-rpc-model';
+import { DocumentLink as ILink } from './plugin-api-rpc-model.js';
 
 export interface ILinkComputerTarget {
     getLineCount(): number;

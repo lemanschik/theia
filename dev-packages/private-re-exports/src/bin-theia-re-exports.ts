@@ -91,7 +91,7 @@ yargs
             const reExportsView: ReExportsView = {
                 reExportsDirectories: Object.entries(reExportsDirectories).map(([directory, reExportsPackages]) => ({
                     directory,
-                    // eslint-disable-next-line @typescript-eslint/no-shadow
+                     
                     packages: Object.entries(reExportsPackages).map(([packageName, reExports]) => ({
                         packageName,
                         npmUrl: getNpmUrl(packageName, reExports[0].versionRange),

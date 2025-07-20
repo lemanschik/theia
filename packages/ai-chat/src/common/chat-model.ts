@@ -32,9 +32,9 @@ import {
 import { ArrayUtils, CancellationToken, CancellationTokenSource, Command, Disposable, DisposableCollection, Emitter, Event, generateUuid, URI } from '@theia/core';
 import { MarkdownString, MarkdownStringImpl } from '@theia/core/lib/common/markdown-rendering';
 import { Position } from 'vscode-languageserver-protocol';
-import { ChangeSet, ChangeSetElement, ChangeSetImpl, ChatUpdateChangeSetEvent } from './change-set';
-import { ChatAgentLocation } from './chat-agents';
-import { ParsedChatRequest } from './parsed-chat-request';
+import { ChangeSet, ChangeSetElement, ChangeSetImpl, ChatUpdateChangeSetEvent } from './change-set.js';
+import { ChatAgentLocation } from './chat-agents.js';
+import { ParsedChatRequest } from './parsed-chat-request.js';
 import debounce from 'lodash.debounce';
 export { ChangeSet, ChangeSetElement, ChangeSetImpl };
 

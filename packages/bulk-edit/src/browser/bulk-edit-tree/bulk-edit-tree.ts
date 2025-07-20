@@ -17,7 +17,7 @@
 import { injectable } from 'inversify';
 import { TreeNode, CompositeTreeNode, SelectableTreeNode, ExpandableTreeNode, TreeImpl } from '@theia/core/lib/browser';
 import { UriSelection } from '@theia/core/lib/common/selection';
-import { BulkEditNodeSelection } from './bulk-edit-node-selection';
+import { BulkEditNodeSelection } from './bulk-edit-node-selection.js';
 import URI from '@theia/core/lib/common/uri';
 import { ResourceFileEdit, ResourceTextEdit } from '@theia/monaco/lib/browser/monaco-workspace';
 import {

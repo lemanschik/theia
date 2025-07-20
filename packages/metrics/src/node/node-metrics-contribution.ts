@@ -16,7 +16,7 @@
 
 import prom from 'prom-client';
 import { injectable } from 'inversify';
-import { MetricsContribution } from './metrics-contribution';
+import { MetricsContribution } from './metrics-contribution.js';
 
 @injectable()
 export class NodeMetricsContribution implements MetricsContribution {

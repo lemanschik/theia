@@ -32,9 +32,9 @@ import { IInstantiationService } from '@theia/monaco-editor-core/esm/vs/platform
 import { MonacoTextModelService } from '@theia/monaco/lib/browser/monaco-text-model-service';
 import { insertFinalNewline } from '@theia/monaco/lib/browser/monaco-utilities';
 import { MonacoEditorModel } from '@theia/monaco/lib/browser/monaco-editor-model';
-import { ChangeSetElement } from '../common';
-import { createChangeSetFileUri } from './change-set-file-resource';
-import { ChangeSetFileService } from './change-set-file-service';
+import { ChangeSetElement } from '../common/index.js';
+import { createChangeSetFileUri } from './change-set-file-resource.js';
+import { ChangeSetFileService } from './change-set-file-service.js';
 import { Deferred } from '@theia/core/lib/common/promise-util';
 import { MonacoCodeActionService } from '@theia/monaco/lib/browser';
 

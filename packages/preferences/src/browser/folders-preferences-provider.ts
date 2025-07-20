@@ -14,14 +14,14 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
 import { inject, injectable, postConstruct } from 'inversify';
 import URI from '@theia/core/lib/common/uri';
 import { PreferenceProvider, PreferenceResolveResult, PreferenceScope } from '@theia/core/lib/browser/preferences';
 import { WorkspaceService } from '@theia/workspace/lib/browser/workspace-service';
 import { PreferenceConfigurations } from '@theia/core/lib/browser/preferences/preference-configurations';
-import { FolderPreferenceProvider, FolderPreferenceProviderFactory } from './folder-preference-provider';
+import { FolderPreferenceProvider, FolderPreferenceProviderFactory } from './folder-preference-provider.js';
 import { FileStat } from '@theia/filesystem/lib/common/files';
 
 @injectable()

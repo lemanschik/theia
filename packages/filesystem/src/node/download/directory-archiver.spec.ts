@@ -20,7 +20,7 @@ import temp from 'temp';
 import { extract } from 'tar-fs';
 import { expect } from 'chai';
 import URI from '@theia/core/lib/common/uri';
-import { MockDirectoryArchiver } from './test/mock-directory-archiver';
+import { MockDirectoryArchiver } from './test/mock-directory-archiver.js';
 import { FileUri } from '@theia/core/lib/common/file-uri';
 
 const track = temp.track();
@@ -90,7 +90,7 @@ describe('directory-archiver', () => {
         });
 
         function asString(map: Map<string, string[]>): string {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+             
             const obj: any = {};
             for (const key of Array.from(map.keys()).sort()) {
                 const values = (map.get(key) || []).sort();

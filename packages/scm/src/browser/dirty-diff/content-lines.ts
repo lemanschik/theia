@@ -80,7 +80,7 @@ export namespace ContentLines {
 
     function getProxyHandler(): ProxyHandler<ContentLinesArrayLike> {
         return {
-            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+             
             get(target: ContentLines, p: PropertyKey): any {
                 switch (p) {
                     case 'prototype':
@@ -101,7 +101,7 @@ export namespace ContentLines {
                             }
                         };
                 }
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                 
                 const index = Number.parseInt(p as any);
                 if (Number.isInteger(index)) {
                     if (index >= 0 && index < target.length) {

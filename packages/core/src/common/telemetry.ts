@@ -25,18 +25,18 @@ export class TelemetryTrustedValue<T> {
 export interface TelemetryLogger {
     readonly sender: TelemetrySender;
     readonly options: TelemetryLoggerOptions | undefined;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     logUsage(eventName: string, data?: Record<string, any | TelemetryTrustedValue<any>>): void;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     logError(eventNameOrException: string | Error, data?: Record<string, any | TelemetryTrustedValue<any>>): void;
 
     dispose(): void;
 }
 
 interface TelemetrySender {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     sendEventData(eventName: string, data?: Record<string, any>): void;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     sendErrorData(error: Error, data?: Record<string, any>): void;
     flush?(): void | Thenable<void>;
 }

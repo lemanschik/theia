@@ -26,7 +26,7 @@ export namespace ObjectIdentifier {
         return <T & ObjectIdentifier>obj;
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     export function of(obj: any): number {
         return obj[name];
     }

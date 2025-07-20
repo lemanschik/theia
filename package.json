@@ -126,5 +126,11 @@
     "vscode.microsoft-authentication",
     "ms-vscode.references-view",
     "ms-python.vscode-pylance"
-  ]
+  ],
+  "dependencies": {
+    "@eslint/compat": "^1.3.1",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-require-extensions": "^0.1.3",
+    "typescript-eslint": "^8.37.0"
+  }
 }

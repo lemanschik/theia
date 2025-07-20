@@ -15,11 +15,11 @@
 // *****************************************************************************
 
 import { ContainerModule } from 'inversify';
-import { FileSystemProvider } from '../common/files';
-import { OPFSFileSystemProvider } from './opfs-filesystem-provider';
-import { RemoteFileSystemProvider, RemoteFileSystemServer } from '../common/remote-file-system-provider';
-import { OPFSInitialization, DefaultOPFSInitialization } from './opfs-filesystem-initialization';
-import { BrowserOnlyFileSystemProviderServer } from './browser-only-filesystem-provider-server';
+import { FileSystemProvider } from '../common/files.js';
+import { OPFSFileSystemProvider } from './opfs-filesystem-provider.js';
+import { RemoteFileSystemProvider, RemoteFileSystemServer } from '../common/remote-file-system-provider.js';
+import { OPFSInitialization, DefaultOPFSInitialization } from './opfs-filesystem-initialization.js';
+import { BrowserOnlyFileSystemProviderServer } from './browser-only-filesystem-provider-server.js';
 
 export default new ContainerModule((bind, _unbind, isBound, rebind) => {
     bind(DefaultOPFSInitialization).toSelf();

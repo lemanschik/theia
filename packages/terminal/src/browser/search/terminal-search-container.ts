@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { interfaces } from 'inversify';
-import { TerminalSearchWidget, TerminalSearchWidgetFactory } from './terminal-search-widget';
+import { TerminalSearchWidget, TerminalSearchWidgetFactory } from './terminal-search-widget.js';
 import { Terminal } from 'xterm';
 
 export function createTerminalSearchFactory(container: interfaces.Container): TerminalSearchWidgetFactory {

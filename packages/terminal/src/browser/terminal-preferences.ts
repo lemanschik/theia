@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable max-len */
+ 
 
 import { interfaces } from 'inversify';
 import { IJSONSchema } from '@theia/core/lib/common/json-schema';
@@ -22,7 +22,7 @@ import { createPreferenceProxy, PreferenceProxy, PreferenceService, PreferenceCo
 import { nls } from '@theia/core/lib/common/nls';
 import { editorGeneratedPreferenceProperties } from '@theia/editor/lib/browser/editor-generated-preference-schema';
 import { OS } from '@theia/core';
-import { terminalAnsiColorMap } from './terminal-theme-service';
+import { terminalAnsiColorMap } from './terminal-theme-service.js';
 
 const commonProfileProperties: PreferenceSchemaProperties = {
     env: {

@@ -17,22 +17,22 @@
 import '../../src/browser/styles/index.css';
 
 import { ContainerModule, interfaces } from 'inversify';
-import { SearchInWorkspaceService, SearchInWorkspaceClientImpl } from './search-in-workspace-service';
-import { SearchInWorkspaceServer, SIW_WS_PATH } from '../common/search-in-workspace-interface';
+import { SearchInWorkspaceService, SearchInWorkspaceClientImpl } from './search-in-workspace-service.js';
+import { SearchInWorkspaceServer, SIW_WS_PATH } from '../common/search-in-workspace-interface.js';
 import {
     WebSocketConnectionProvider, WidgetFactory, createTreeContainer, bindViewContribution, FrontendApplicationContribution, LabelProviderContribution,
     ApplicationShellLayoutMigration,
     StylingParticipant
 } from '@theia/core/lib/browser';
-import { SearchInWorkspaceWidget } from './search-in-workspace-widget';
-import { SearchInWorkspaceResultTreeWidget } from './search-in-workspace-result-tree-widget';
-import { SearchInWorkspaceFrontendContribution } from './search-in-workspace-frontend-contribution';
-import { SearchInWorkspaceContextKeyService } from './search-in-workspace-context-key-service';
+import { SearchInWorkspaceWidget } from './search-in-workspace-widget.js';
+import { SearchInWorkspaceResultTreeWidget } from './search-in-workspace-result-tree-widget.js';
+import { SearchInWorkspaceFrontendContribution } from './search-in-workspace-frontend-contribution.js';
+import { SearchInWorkspaceContextKeyService } from './search-in-workspace-context-key-service.js';
 import { TabBarToolbarContribution } from '@theia/core/lib/browser/shell/tab-bar-toolbar';
-import { bindSearchInWorkspacePreferences } from './search-in-workspace-preferences';
-import { SearchInWorkspaceLabelProvider } from './search-in-workspace-label-provider';
-import { SearchInWorkspaceFactory } from './search-in-workspace-factory';
-import { SearchLayoutVersion3Migration } from './search-layout-migrations';
+import { bindSearchInWorkspacePreferences } from './search-in-workspace-preferences.js';
+import { SearchInWorkspaceLabelProvider } from './search-in-workspace-label-provider.js';
+import { SearchInWorkspaceFactory } from './search-in-workspace-factory.js';
+import { SearchLayoutVersion3Migration } from './search-layout-migrations.js';
 
 export default new ContainerModule(bind => {
     bind(SearchInWorkspaceContextKeyService).toSelf().inSingletonScope();

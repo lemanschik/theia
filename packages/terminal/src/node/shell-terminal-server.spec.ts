@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 import chai from 'chai';
-import { createTerminalTestContainer } from './test/terminal-test-container';
-import { IShellTerminalServer } from '../common/shell-terminal-protocol';
+import { createTerminalTestContainer } from './test/terminal-test-container.js';
+import { IShellTerminalServer } from '../common/shell-terminal-protocol.js';
 
 /**
  * Globals

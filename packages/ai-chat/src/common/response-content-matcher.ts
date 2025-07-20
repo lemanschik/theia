@@ -18,7 +18,7 @@ import {
     ChatResponseContent,
     CodeChatResponseContentImpl,
     MarkdownChatResponseContentImpl
-} from './chat-model';
+} from './chat-model.js';
 import { injectable } from 'inversify';
 
 export type ResponseContentFactory = (content: string, request: MutableChatRequestModel) => ChatResponseContent;

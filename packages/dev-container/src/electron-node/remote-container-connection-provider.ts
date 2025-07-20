@@ -18,7 +18,7 @@ import net from 'net';
 import {
     ContainerConnectionOptions, ContainerConnectionResult,
     DevContainerFile, RemoteContainerConnectionProvider
-} from '../electron-common/remote-container-connection-provider';
+} from '../electron-common/remote-container-connection-provider.js';
 import { RemoteConnection, RemoteExecOptions, RemoteExecResult, RemoteExecTester, RemoteStatusReport } from '@theia/remote/lib/electron-node/remote-types';
 import { RemoteSetupResult, RemoteSetupService } from '@theia/remote/lib/electron-node/setup/remote-setup-service';
 import { RemoteConnectionService } from '@theia/remote/lib/electron-node/remote-connection-service';
@@ -27,13 +27,13 @@ import { Emitter, Event, generateUuid, MessageService, RpcServer, ILogger } from
 import { Socket } from 'net';
 import { inject, injectable } from 'inversify';
 import Docker from 'dockerode';
-import { DockerContainerService } from './docker-container-service';
+import { DockerContainerService } from './docker-container-service.js';
 import { Deferred } from '@theia/core/lib/common/promise-util';
 import { WriteStream } from 'tty';
 import { PassThrough } from 'stream';
 import { exec, execSync } from 'child_process';
-import { DevContainerFileService } from './dev-container-file-service';
-import { ContainerOutputProvider } from '../electron-common/container-output-provider';
+import { DevContainerFileService } from './dev-container-file-service.js';
+import { ContainerOutputProvider } from '../electron-common/container-output-provider.js';
 
 @injectable()
 export class DevContainerConnectionProvider implements RemoteContainerConnectionProvider, RpcServer<ContainerOutputProvider> {

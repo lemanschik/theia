@@ -15,8 +15,8 @@
 // *****************************************************************************
 import { interfaces } from 'inversify';
 import { Disposable, DisposableCollection } from '@theia/core/lib/common/disposable';
-import * as types from '../../plugin/types-impl';
-import { StatusBarMessageRegistryMain } from '../../common/plugin-api-rpc';
+import * as types from '../../plugin/types-impl.js';
+import { StatusBarMessageRegistryMain } from '../../common/plugin-api-rpc.js';
 import { StatusBar, StatusBarAlignment, StatusBarEntry } from '@theia/core/lib/browser/status-bar/status-bar';
 import { ColorRegistry } from '@theia/core/lib/browser/color-registry';
 import { MarkdownString } from '@theia/core/lib/common/markdown-rendering';
@@ -49,7 +49,7 @@ export class StatusBarMessageRegistryMainImpl implements StatusBarMessageRegistr
         tooltip: string | MarkdownString | undefined,
         command: string | undefined,
         accessibilityInformation: types.AccessibilityInformation,
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         args: any[] | undefined): Promise<void> {
         const ariaLabel = accessibilityInformation?.label;
         const role = accessibilityInformation?.role;

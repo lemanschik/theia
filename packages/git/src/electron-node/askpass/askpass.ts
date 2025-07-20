@@ -12,8 +12,8 @@ import { ILogger } from '@theia/core/lib/common/logger';
 import { Disposable } from '@theia/core/lib/common/disposable';
 import { MaybePromise } from '@theia/core/lib/common/types';
 import { Deferred } from '@theia/core/lib/common/promise-util';
-import { GitPrompt } from '../../common/git-prompt';
-import { DugiteGitPromptServer } from '../../node/dugite-git-prompt';
+import { GitPrompt } from '../../common/git-prompt.js';
+import { DugiteGitPromptServer } from '../../node/dugite-git-prompt.js';
 import { AddressInfo } from 'net';
 
 /**

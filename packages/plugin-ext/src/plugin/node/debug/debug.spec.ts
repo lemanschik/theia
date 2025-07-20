@@ -16,9 +16,9 @@
 import { Container } from 'inversify';
 import { DebugSession } from '@theia/plugin';
 import chai from 'chai';
-import { ProxyIdentifier, RPCProtocol } from '../../../common/rpc-protocol';
+import { ProxyIdentifier, RPCProtocol } from '../../../common/rpc-protocol.js';
 
-import { DebugExtImpl } from '../../debug/debug-ext';
+import { DebugExtImpl } from '../../debug/debug-ext.js';
 
 const expect = chai.expect;
 

@@ -15,9 +15,9 @@
 // *****************************************************************************
 
 import { ContainerModule } from 'inversify';
-import { ScanOSSPreferencesSchema } from './scanoss-preferences';
+import { ScanOSSPreferencesSchema } from './scanoss-preferences.js';
 import { PreferenceContribution, RemoteConnectionProvider, ServiceConnectionProvider } from '@theia/core/lib/browser';
-import { SCANOSS_SERVICE_PATH, ScanOSSService } from '../common';
+import { SCANOSS_SERVICE_PATH, ScanOSSService } from '../common/index.js';
 
 export default new ContainerModule(bind => {
     bind(PreferenceContribution).toConstantValue({ schema: ScanOSSPreferencesSchema });

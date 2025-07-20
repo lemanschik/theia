@@ -30,8 +30,8 @@ import { ITextModel } from '@theia/monaco-editor-core/esm/vs/editor/common/model
 import { ITextModelService } from '@theia/monaco-editor-core/esm/vs/editor/common/services/resolverService';
 import { IThemeService } from '@theia/monaco-editor-core/esm/vs/platform/theme/common/themeService';
 import { DebugProtocol } from '@vscode/debugprotocol';
-import { DebugSource } from '../model/debug-source';
-import { DisassembledInstructionEntry, DisassemblyViewRendererReference, InstructionColumnTemplateData } from './disassembly-view-utilities';
+import { DebugSource } from '../model/debug-source.js';
+import { DisassembledInstructionEntry, DisassemblyViewRendererReference, InstructionColumnTemplateData } from './disassembly-view-utilities.js';
 
 // This file is adapted from https://github.com/microsoft/vscode/blob/c061ce5c24fc480342fbc5f23244289d633c56eb/src/vs/workbench/contrib/debug/browser/disassemblyView.ts
 

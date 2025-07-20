@@ -13,14 +13,14 @@
 //
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
 import { Emitter } from 'vscode-languageserver-protocol';
 import theia from '@theia/plugin';
 
-import { OutputChannelRegistryMain, PluginInfo } from '../../common/plugin-api-rpc';
-import { OutputChannelImpl } from './output-channel-item';
-import { LogLevel } from '../types-impl';
+import { OutputChannelRegistryMain, PluginInfo } from '../../common/plugin-api-rpc.js';
+import { OutputChannelImpl } from './output-channel-item.js';
+import { LogLevel } from '../types-impl.js';
 import { isArray, isObject } from '@theia/core';
 
 export class LogOutputChannelImpl extends OutputChannelImpl implements theia.LogOutputChannel {

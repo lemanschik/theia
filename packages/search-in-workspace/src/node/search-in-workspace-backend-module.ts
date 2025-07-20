@@ -16,8 +16,8 @@
 
 import { ContainerModule } from 'inversify';
 import { ConnectionHandler, RpcConnectionHandler } from '@theia/core/lib/common';
-import { SearchInWorkspaceServer, SearchInWorkspaceClient, SIW_WS_PATH } from '../common/search-in-workspace-interface';
-import { RipgrepSearchInWorkspaceServer, RgPath } from './ripgrep-search-in-workspace-server';
+import { SearchInWorkspaceServer, SearchInWorkspaceClient, SIW_WS_PATH } from '../common/search-in-workspace-interface.js';
+import { RipgrepSearchInWorkspaceServer, RgPath } from './ripgrep-search-in-workspace-server.js';
 import { rgPath } from '@vscode/ripgrep';
 
 export default new ContainerModule(bind => {

@@ -20,8 +20,8 @@
 // based on https://github.com/microsoft/vscode/blob/04c36be045a94fee58e5f8992d3e3fd980294a84/src/vs/workbench/api/browser/mainThreadFileSystemEventService.ts
 
 import { interfaces } from 'inversify';
-import { RPCProtocol } from '../../common/rpc-protocol';
-import { MAIN_RPC_CONTEXT, FileSystemEvents } from '../../common/plugin-api-rpc';
+import { RPCProtocol } from '../../common/rpc-protocol.js';
+import { MAIN_RPC_CONTEXT, FileSystemEvents } from '../../common/plugin-api-rpc.js';
 import { DisposableCollection } from '@theia/core/lib/common/disposable';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
 import { FileChangeType } from '@theia/filesystem/lib/common/files';

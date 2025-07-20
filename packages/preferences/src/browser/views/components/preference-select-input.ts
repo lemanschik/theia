@@ -14,13 +14,13 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { PreferenceLeafNodeRenderer, PreferenceNodeRenderer } from './preference-node-renderer';
+import { PreferenceLeafNodeRenderer, PreferenceNodeRenderer } from './preference-node-renderer.js';
 import { injectable, interfaces } from 'inversify';
 import { JSONValue } from '@lumino/coreutils';
 import { PreferenceProvider } from '@theia/core/lib/browser/preferences/preference-provider';
 import { SelectComponent, SelectOption } from '@theia/core/lib/browser/widgets/select-component';
-import { Preference } from '../../util/preference-types';
-import { PreferenceLeafNodeRendererContribution } from './preference-node-renderer-creator';
+import { Preference } from '../../util/preference-types.js';
+import { PreferenceLeafNodeRendererContribution } from './preference-node-renderer-creator.js';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { escapeInvisibleChars } from '@theia/core/lib/common/strings';

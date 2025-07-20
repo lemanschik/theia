@@ -15,8 +15,8 @@
 // *****************************************************************************
 
 import { interfaces } from 'inversify';
-import { ILogger, Logger, LoggerName, rootLoggerName } from './logger';
-import { LoggerWatcher } from './logger-watcher';
+import { ILogger, Logger, LoggerName, rootLoggerName } from './logger.js';
+import { LoggerWatcher } from './logger-watcher.js';
 
 export function bindCommonLogger(bind: interfaces.Bind): void {
     bind(LoggerName).toConstantValue(rootLoggerName);

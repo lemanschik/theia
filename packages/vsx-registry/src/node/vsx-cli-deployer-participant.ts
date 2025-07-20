@@ -16,8 +16,8 @@
 
 import { inject, injectable } from 'inversify';
 import { PluginDeployerParticipant, PluginDeployerStartContext } from '@theia/plugin-ext';
-import { VsxCli } from './vsx-cli';
-import { VSXExtensionUri } from '../common';
+import { VsxCli } from './vsx-cli.js';
+import { VSXExtensionUri } from '../common/index.js';
 import fs from 'fs';
 import { FileUri } from '@theia/core/lib/node';
 import path from 'path';

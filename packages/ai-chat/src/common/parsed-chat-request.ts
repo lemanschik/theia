@@ -21,7 +21,7 @@
 // Partially copied from https://github.com/microsoft/vscode/blob/a2cab7255c0df424027be05d58e1b7b941f4ea60/src/vs/editor/common/core/offsetRange.ts
 
 import { ResolvedAIVariable, ToolRequest, toolRequestToPromptText } from '@theia/ai-core';
-import { ChatRequest } from './chat-model';
+import { ChatRequest } from './chat-model.js';
 
 export const chatVariableLeader = '#';
 export const chatAgentLeader = '@';

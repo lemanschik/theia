@@ -25,13 +25,13 @@ import {
     TaskOutputProcessedEvent,
     RunTaskOption,
     BackgroundTaskEndedEvent
-} from '../common';
-import { TaskManager } from './task-manager';
-import { TaskRunnerRegistry } from './task-runner';
-import { Task } from './task';
-import { ProcessTask } from './process/process-task';
-import { ProblemCollector } from './task-problem-collector';
-import { CustomTask } from './custom/custom-task';
+} from '../common/index.js';
+import { TaskManager } from './task-manager.js';
+import { TaskRunnerRegistry } from './task-runner.js';
+import { Task } from './task.js';
+import { ProcessTask } from './process/process-task.js';
+import { ProblemCollector } from './task-problem-collector.js';
+import { CustomTask } from './custom/custom-task.js';
 
 @injectable()
 export class TaskServerImpl implements TaskServer, Disposable {

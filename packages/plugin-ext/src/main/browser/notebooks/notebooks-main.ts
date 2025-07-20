@@ -19,10 +19,10 @@ import { BinaryBuffer } from '@theia/core/lib/common/buffer';
 import { CellEditType, NotebookCellModelResource, NotebookData, NotebookModelResource, TransientOptions } from '@theia/notebook/lib/common';
 import { NotebookService, NotebookWorkspaceEdit } from '@theia/notebook/lib/browser';
 import { Disposable } from '@theia/plugin';
-import { CommandRegistryMain, MAIN_RPC_CONTEXT, NotebooksExt, NotebooksMain, WorkspaceEditDto, WorkspaceNotebookCellEditDto } from '../../../common';
-import { RPCProtocol } from '../../../common/rpc-protocol';
-import { NotebookDto } from './notebook-dto';
-import { HostedPluginSupport } from '../../../hosted/browser/hosted-plugin';
+import { CommandRegistryMain, MAIN_RPC_CONTEXT, NotebooksExt, NotebooksMain, WorkspaceEditDto, WorkspaceNotebookCellEditDto } from '../../../common/index.js';
+import { RPCProtocol } from '../../../common/rpc-protocol.js';
+import { NotebookDto } from './notebook-dto.js';
+import { HostedPluginSupport } from '../../../hosted/browser/hosted-plugin.js';
 import { NotebookModel } from '@theia/notebook/lib/browser/view-model/notebook-model';
 import { NotebookCellModel } from '@theia/notebook/lib/browser/view-model/notebook-cell-model';
 import { interfaces } from 'inversify';
@@ -131,7 +131,7 @@ export class NotebooksMainImpl implements NotebooksMain {
     }
 
     async $unregisterNotebookCellStatusBarItemProvider(handle: number, eventHandle: number | undefined): Promise<void> {
-        // eslint-disable-next-line @typescript-eslint/no-shadow
+         
         const unregisterThing = (statusBarHandle: number) => {
             const entry = this.notebookCellStatusBarRegistrations.get(statusBarHandle);
             if (entry) {

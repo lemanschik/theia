@@ -14,14 +14,14 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { Emitter, Event } from '../common/event';
-import { Disposable } from '../common/disposable';
-import { FrontendApplicationConfigProvider } from './frontend-application-config-provider';
+import { Emitter, Event } from '../common/event.js';
+import { Disposable } from '../common/disposable.js';
+import { FrontendApplicationConfigProvider } from './frontend-application-config-provider.js';
 import { ApplicationProps, DefaultTheme } from '@theia/application-package/lib/application-props';
-import { Theme, ThemeChangeEvent } from '../common/theme';
+import { Theme, ThemeChangeEvent } from '../common/theme.js';
 import { inject, injectable, postConstruct } from 'inversify';
-import { Deferred } from '../common/promise-util';
-import { PreferenceSchemaProvider, PreferenceService } from './preferences';
+import { Deferred } from '../common/promise-util.js';
+import { PreferenceSchemaProvider, PreferenceService } from './preferences/index.js';
 import debounce from 'lodash.debounce';
 
 const COLOR_THEME_PREFERENCE_KEY = 'workbench.colorTheme';

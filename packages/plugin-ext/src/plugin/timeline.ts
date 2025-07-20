@@ -13,11 +13,11 @@
 //
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
-import { Plugin, PLUGIN_RPC_CONTEXT, TimelineCommandArg, TimelineExt, TimelineMain } from '../common';
-import { RPCProtocol } from '../common/rpc-protocol';
-import { Disposable, URI } from './types-impl';
+import { Plugin, PLUGIN_RPC_CONTEXT, TimelineCommandArg, TimelineExt, TimelineMain } from '../common/index.js';
+import { RPCProtocol } from '../common/rpc-protocol.js';
+import { Disposable, URI } from './types-impl.js';
 import { DisposableCollection } from '@theia/core/lib/common/disposable';
-import { CommandRegistryImpl } from './command-registry';
+import { CommandRegistryImpl } from './command-registry.js';
 import type {
     InternalTimelineOptions,
     Timeline,
@@ -27,7 +27,7 @@ import type {
 } from '@theia/timeline/lib/common/timeline-model';
 import theia from '@theia/plugin';
 import { CancellationToken } from '@theia/core/lib/common/cancellation';
-import { UriComponents } from '../common/uri-components';
+import { UriComponents } from '../common/uri-components.js';
 
 /*---------------------------------------------------------------------------------------------
  *  Copyright (c) Microsoft Corporation. All rights reserved.

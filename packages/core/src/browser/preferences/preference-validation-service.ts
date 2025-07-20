@@ -14,14 +14,14 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import { PreferenceItem } from '../../common/preferences/preference-schema';
-import { JSONObject, JSONValue } from '../../../shared/@lumino/coreutils';
-import { PreferenceSchemaProvider } from './preference-contribution';
-import { PreferenceLanguageOverrideService } from './preference-language-override-service';
-import { inject, injectable } from '../../../shared/inversify';
-import { IJSONSchema, JsonType } from '../../common/json-schema';
-import { deepClone, unreachable } from '../../common';
-import { PreferenceProvider } from './preference-provider';
+import { PreferenceItem } from '../../common/preferences/preference-schema.js';
+import { JSONObject, JSONValue } from '../../../shared/@lumino/coreutils/index.js';
+import { PreferenceSchemaProvider } from './preference-contribution.js';
+import { PreferenceLanguageOverrideService } from './preference-language-override-service.js';
+import { inject, injectable } from '../../../shared/inversify/index.js';
+import { IJSONSchema, JsonType } from '../../common/json-schema.js';
+import { deepClone, unreachable } from '../../common/index.js';
+import { PreferenceProvider } from './preference-provider.js';
 
 export interface PreferenceValidator<T> {
     name: string;

@@ -16,18 +16,18 @@
 
 import { injectable, inject, named } from 'inversify';
 import { Widget } from '@lumino/widgets';
-import { FrontendApplication } from '../frontend-application';
-import { WidgetManager, WidgetConstructionOptions } from '../widget-manager';
-import { StorageService } from '../storage-service';
-import { ILogger } from '../../common/logger';
-import { CommandContribution, CommandRegistry, Command } from '../../common/command';
-import { ThemeService } from '../theming';
-import { ContributionProvider } from '../../common/contribution-provider';
-import { ApplicationShell, applicationShellLayoutVersion, ApplicationShellLayoutVersion } from './application-shell';
-import { CommonCommands } from '../common-frontend-contribution';
-import { WindowService } from '../window/window-service';
-import { StopReason } from '../../common/frontend-application-state';
-import { isFunction, isObject, MaybePromise } from '../../common';
+import { FrontendApplication } from '../frontend-application.js';
+import { WidgetManager, WidgetConstructionOptions } from '../widget-manager.js';
+import { StorageService } from '../storage-service.js';
+import { ILogger } from '../../common/logger.js';
+import { CommandContribution, CommandRegistry, Command } from '../../common/command.js';
+import { ThemeService } from '../theming.js';
+import { ContributionProvider } from '../../common/contribution-provider.js';
+import { ApplicationShell, applicationShellLayoutVersion, ApplicationShellLayoutVersion } from './application-shell.js';
+import { CommonCommands } from '../common-frontend-contribution.js';
+import { WindowService } from '../window/window-service.js';
+import { StopReason } from '../../common/frontend-application-state.js';
+import { isFunction, isObject, MaybePromise } from '../../common/index.js';
 
 /**
  * A contract for widgets that want to store and restore their inner state, between sessions.

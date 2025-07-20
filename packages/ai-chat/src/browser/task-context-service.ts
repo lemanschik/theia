@@ -16,13 +16,13 @@
 
 import { inject, injectable } from 'inversify';
 import { MaybePromise, ProgressService, URI, generateUuid, Event, EOL } from '@theia/core';
-import { ChatAgent, ChatAgentLocation, ChatService, ChatSession, MutableChatModel, MutableChatRequestModel, ParsedChatRequestTextPart } from '../common';
+import { ChatAgent, ChatAgentLocation, ChatService, ChatSession, MutableChatModel, MutableChatRequestModel, ParsedChatRequestTextPart } from '../common/index.js';
 import { PreferenceService } from '@theia/core/lib/browser';
-import { ChatSessionSummaryAgent } from '../common/chat-session-summary-agent';
+import { ChatSessionSummaryAgent } from '../common/chat-session-summary-agent.js';
 import { Deferred } from '@theia/core/lib/common/promise-util';
 import { AgentService, PromptService, ResolvedPromptFragment } from '@theia/ai-core';
-import { CHAT_SESSION_SUMMARY_PROMPT } from '../common/chat-session-summary-agent-prompt';
-import { ChangeSetFileElementFactory } from './change-set-file-element';
+import { CHAT_SESSION_SUMMARY_PROMPT } from '../common/chat-session-summary-agent-prompt.js';
+import { ChangeSetFileElementFactory } from './change-set-file-element.js';
 import yaml from 'js-yaml';
 
 export interface SummaryMetadata {

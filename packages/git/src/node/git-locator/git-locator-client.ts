@@ -18,7 +18,7 @@ import paths from 'path';
 import { inject, injectable } from 'inversify';
 import { RpcProxyFactory, DisposableCollection } from '@theia/core';
 import { IPCConnectionProvider } from '@theia/core/lib/node';
-import { GitLocator, GitLocateOptions } from './git-locator-protocol';
+import { GitLocator, GitLocateOptions } from './git-locator-protocol.js';
 
 @injectable()
 export class GitLocatorClient implements GitLocator {

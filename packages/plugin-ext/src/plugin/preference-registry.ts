@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
 import { inject, injectable, postConstruct } from 'inversify';
 import { Emitter, Event } from '@theia/core/lib/common/event';
@@ -29,10 +29,10 @@ import { generateUuid } from '@theia/core/lib/common/uuid';
 import {
     PLUGIN_RPC_CONTEXT, PreferenceChangeExt, PreferenceData, PreferenceRegistryExt,
     PreferenceRegistryMain
-} from '../common/plugin-api-rpc';
-import { RPCProtocol } from '../common/rpc-protocol';
-import { isObject, mixin } from '../common/types';
-import { WorkspaceExtImpl } from './workspace';
+} from '../common/plugin-api-rpc.js';
+import { RPCProtocol } from '../common/rpc-protocol.js';
+import { isObject, mixin } from '../common/types.js';
+import { WorkspaceExtImpl } from './workspace.js';
 import cloneDeep from 'lodash.clonedeep';
 import { ILogService, LogLevel } from '@theia/monaco-editor-core/esm/vs/platform/log/common/log';
 
@@ -40,14 +40,14 @@ const injectionRe = /\b__proto__\b|\bconstructor\.prototype\b/;
 
 enum ConfigurationTarget {
     Global = 1,
-    Workspace = 2, // eslint-disable-line @typescript-eslint/no-shadow
-    WorkspaceFolder = 3 // eslint-disable-line @typescript-eslint/no-shadow
+    Workspace = 2,  
+    WorkspaceFolder = 3  
 }
 
 export enum PreferenceScope {
     Default,
     User,
-    Workspace, // eslint-disable-line @typescript-eslint/no-shadow
+    Workspace,  
     Folder,
 }
 
@@ -59,7 +59,7 @@ interface ConfigurationInspect<T> {
     workspaceFolderValue?: T;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 function lookUp(tree: any, key: string): any {
     if (!key) {
         return;

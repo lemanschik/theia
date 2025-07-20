@@ -13,10 +13,10 @@
 //
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
 import { injectable } from 'inversify';
-import { Emitter, Event } from '../common/event';
+import { Emitter, Event } from '../common/event.js';
 
 /**
  * `SelectionProvider` is implemented by services to notify listeners about selection changes.

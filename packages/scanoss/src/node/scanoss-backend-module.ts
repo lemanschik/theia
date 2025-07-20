@@ -16,8 +16,8 @@
 
 import { ContainerModule } from 'inversify';
 import { ConnectionHandler, RpcConnectionHandler } from '@theia/core';
-import { ScanOSSService, SCANOSS_SERVICE_PATH } from '../common';
-import { ScanOSSServiceImpl } from './scanoss-service-impl';
+import { ScanOSSService, SCANOSS_SERVICE_PATH } from '../common/index.js';
+import { ScanOSSServiceImpl } from './scanoss-service-impl.js';
 
 export default new ContainerModule(bind => {
     bind(ScanOSSServiceImpl).toSelf().inSingletonScope();

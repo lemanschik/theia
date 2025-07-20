@@ -22,7 +22,7 @@ import chai from 'chai';
 import URI from '@theia/core/lib/common/uri';
 
 import { Container } from 'inversify';
-import { ProblemManager } from './problem-manager';
+import { ProblemManager } from './problem-manager.js';
 import { Event } from '@theia/core/lib/common/event';
 import { ILogger } from '@theia/core/lib/common/logger';
 import { DiagnosticSeverity, Range } from 'vscode-languageserver-protocol';

@@ -15,8 +15,8 @@
 // *****************************************************************************
 
 import { inject, injectable } from 'inversify';
-import { OS, OSBackendProvider } from '../../common';
-import { PreloadContribution } from './preloader';
+import { OS, OSBackendProvider } from '../../common/index.js';
+import { PreloadContribution } from './preloader.js';
 
 @injectable()
 export class OSPreloadContribution implements PreloadContribution {

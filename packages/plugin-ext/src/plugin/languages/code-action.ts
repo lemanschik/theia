@@ -16,13 +16,13 @@
 
 import theia from '@theia/plugin';
 import { URI } from 'vscode-uri';
-import { Selection, WorkspaceEditDto } from '../../common/plugin-api-rpc';
-import { Range, CodeActionContext, CodeAction } from '../../common/plugin-api-rpc-model';
-import * as Converter from '../type-converters';
-import { DocumentsExtImpl } from '../documents';
-import { Diagnostics } from './diagnostics';
-import { CodeActionKind } from '../types-impl';
-import { CommandRegistryImpl } from '../command-registry';
+import { Selection, WorkspaceEditDto } from '../../common/plugin-api-rpc.js';
+import { Range, CodeActionContext, CodeAction } from '../../common/plugin-api-rpc-model.js';
+import * as Converter from '../type-converters.js';
+import { DocumentsExtImpl } from '../documents.js';
+import { Diagnostics } from './diagnostics.js';
+import { CodeActionKind } from '../types-impl.js';
+import { CommandRegistryImpl } from '../command-registry.js';
 import { DisposableCollection } from '@theia/core/lib/common/disposable';
 import { isObject } from '@theia/core/lib/common';
 
@@ -92,10 +92,10 @@ export class CodeActionAdapter {
             } else {
                 if (codeActionContext.only) {
                     if (!candidate.kind) {
-                        /* eslint-disable-next-line max-len */
+                         
                         console.warn(`${this.pluginId} - Code actions of kind '${codeActionContext.only.value}' requested but returned code action does not have a 'kind'. Code action will be dropped. Please set 'CodeAction.kind'.`);
                     } else if (!codeActionContext.only.contains(candidate.kind)) {
-                        /* eslint-disable-next-line max-len */
+                         
                         console.warn(`${this.pluginId} - Code actions of kind '${codeActionContext.only.value}' requested but returned code action is of kind '${candidate.kind.value}'. Code action will be dropped. Please check 'CodeActionContext.only' to only return requested code action.`);
                     }
                 }

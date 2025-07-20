@@ -15,8 +15,8 @@
 // *****************************************************************************
 
 import theia from '@theia/plugin';
-import { BackendInitializationFn } from '../../../common/plugin-protocol';
-import { PluginAPIFactory, Plugin, emptyPlugin } from '../../../common/plugin-api-rpc';
+import { BackendInitializationFn } from '../../../common/plugin-protocol.js';
+import { PluginAPIFactory, Plugin, emptyPlugin } from '../../../common/plugin-api-rpc.js';
 
 const pluginsApiImpl = new Map<string, typeof theia>();
 const plugins = new Array<Plugin>();
@@ -45,7 +45,7 @@ function overrideInternalLoad(): void {
     const internalLoad = module._load;
 
     // if we try to resolve theia module, return the filename entry to use cache.
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     module._load = function (request: string, parent: any, isMain: {}): any {
         if (request !== '@theia/plugin') {
             return internalLoad.apply(this, arguments);

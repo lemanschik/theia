@@ -15,9 +15,9 @@
 // *****************************************************************************
 
 import { expect } from 'chai';
-import { NavigationLocation, Range } from './navigation-location';
-import { TextDocumentContentChangeDelta } from '../editor';
-import { MockNavigationLocationUpdater } from './test/mock-navigation-location-updater';
+import { NavigationLocation, Range } from './navigation-location.js';
+import { TextDocumentContentChangeDelta } from '../editor.js';
+import { MockNavigationLocationUpdater } from './test/mock-navigation-location-updater.js';
 
 describe('navigation-location-updater', () => {
 
@@ -135,7 +135,7 @@ describe('navigation-location-updater', () => {
                 } else if (expected === undefined) {
                     expect(actual).to.be.undefined;
                 } else {
-                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                     
                     expect((actual as any).context).to.be.deep.equal(expected);
                 }
             });

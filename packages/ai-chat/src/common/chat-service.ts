@@ -24,8 +24,8 @@ import { Emitter, ILogger, URI, generateUuid } from '@theia/core';
 import { Deferred } from '@theia/core/lib/common/promise-util';
 import { inject, injectable, optional } from 'inversify';
 import { Event } from 'vscode-languageserver-protocol';
-import { ChatAgentService } from './chat-agent-service';
-import { ChatAgent, ChatAgentLocation, ChatSessionContext } from './chat-agents';
+import { ChatAgentService } from './chat-agent-service.js';
+import { ChatAgent, ChatAgentLocation, ChatSessionContext } from './chat-agents.js';
 import {
     ChatContext,
     ChatModel,
@@ -35,10 +35,10 @@ import {
     ErrorChatResponseModel,
     MutableChatModel,
     MutableChatRequestModel,
-} from './chat-model';
-import { ChatRequestParser } from './chat-request-parser';
-import { ChatSessionNamingService } from './chat-session-naming-service';
-import { ParsedChatRequest, ParsedChatRequestAgentPart } from './parsed-chat-request';
+} from './chat-model.js';
+import { ChatRequestParser } from './chat-request-parser.js';
+import { ChatSessionNamingService } from './chat-session-naming-service.js';
+import { ParsedChatRequest, ParsedChatRequestAgentPart } from './parsed-chat-request.js';
 
 export interface ChatRequestInvocation {
     /**

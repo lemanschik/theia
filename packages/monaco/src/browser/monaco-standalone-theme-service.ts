@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 // *****************************************************************************
 // Copyright (C) 2024 STMicroelectronics and others.
 //

@@ -16,12 +16,12 @@
 
 import { injectable, inject, postConstruct } from 'inversify';
 import { ColorTheme, CssStyleCollector, FrontendApplicationContribution, PreferenceSchemaProvider, QuickAccessRegistry, StylingParticipant } from '@theia/core/lib/browser';
-import { MonacoSnippetSuggestProvider } from './monaco-snippet-suggest-provider';
+import { MonacoSnippetSuggestProvider } from './monaco-snippet-suggest-provider.js';
 import monaco from '@theia/monaco-editor-core';
 import { setSnippetSuggestSupport } from '@theia/monaco-editor-core/esm/vs/editor/contrib/suggest/browser/suggest';
 import { CompletionItemProvider } from '@theia/monaco-editor-core/esm/vs/editor/common/languages';
-import { MonacoTextModelService } from './monaco-text-model-service';
-import { MonacoThemingService } from './monaco-theming-service';
+import { MonacoTextModelService } from './monaco-text-model-service.js';
+import { MonacoThemingService } from './monaco-theming-service.js';
 import { isHighContrast } from '@theia/core/lib/common/theme';
 import { editorOptionsRegistry, IEditorOption } from '@theia/monaco-editor-core/esm/vs/editor/common/config/editorOptions';
 import { MAX_SAFE_INTEGER } from '@theia/core';
@@ -29,7 +29,7 @@ import { editorGeneratedPreferenceProperties } from '@theia/editor/lib/browser/e
 import { WorkspaceFileService } from '@theia/workspace/lib/common/workspace-file-service';
 import { SecondaryWindowHandler } from '@theia/core/lib/browser/secondary-window-handler';
 import { EditorWidget } from '@theia/editor/lib/browser';
-import { MonacoEditor } from './monaco-editor';
+import { MonacoEditor } from './monaco-editor.js';
 import { StandaloneServices } from '@theia/monaco-editor-core/esm/vs/editor/standalone/browser/standaloneServices';
 import { StandaloneThemeService } from '@theia/monaco-editor-core/esm/vs/editor/standalone/browser/standaloneThemeService';
 import { IStandaloneThemeService } from '@theia/monaco-editor-core/esm/vs/editor/standalone/common/standaloneTheme';
@@ -175,7 +175,7 @@ export class MonacoFrontendApplicationContribution implements FrontendApplicatio
         let editorBoolConstructor: undefined | (new (...args: unknown[]) => IEditorOption<number, boolean>);
         let editorStringEnumConstructor: undefined | (new (...args: unknown[]) => IEditorOption<number, string>);
         for (const validator of editorOptionsRegistry) {
-            /* eslint-disable @typescript-eslint/no-explicit-any,max-len */
+             
             if (editorIntConstructor && editorBoolConstructor && editorStringEnumConstructor) { break; }
             if (validator.name === 'acceptSuggestionOnCommitCharacter') {
                 editorBoolConstructor = validator.constructor as any;
@@ -184,7 +184,7 @@ export class MonacoFrontendApplicationContribution implements FrontendApplicatio
             } else if (validator.name === 'accessibilityPageSize') {
                 editorIntConstructor = validator.constructor as any;
             }
-            /* eslint-enable @typescript-eslint/no-explicit-any */
+             
         }
         if (editorIntConstructor && editorBoolConstructor && editorStringEnumConstructor) {
             let id = 200; // Needs to be bigger than the biggest index in the EditorOption enum.

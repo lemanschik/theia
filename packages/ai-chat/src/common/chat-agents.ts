@@ -51,7 +51,7 @@ import {
 } from '@theia/ai-core/lib/common';
 import { ContributionProvider, ILogger, isArray } from '@theia/core';
 import { inject, injectable, named, postConstruct } from 'inversify';
-import { ChatAgentService } from './chat-agent-service';
+import { ChatAgentService } from './chat-agent-service.js';
 import {
     ChatModel,
     ChatRequestModel,
@@ -62,11 +62,11 @@ import {
     ThinkingChatResponseContentImpl,
     ToolCallChatResponseContentImpl,
     ErrorChatResponseContent,
-} from './chat-model';
-import { ChatToolRequest, ChatToolRequestService } from './chat-tool-request-service';
-import { parseContents } from './parse-contents';
-import { DefaultResponseContentFactory, ResponseContentMatcher, ResponseContentMatcherProvider } from './response-content-matcher';
-import { ImageContextVariable } from './image-context-variable';
+} from './chat-model.js';
+import { ChatToolRequest, ChatToolRequestService } from './chat-tool-request-service.js';
+import { parseContents } from './parse-contents.js';
+import { DefaultResponseContentFactory, ResponseContentMatcher, ResponseContentMatcherProvider } from './response-content-matcher.js';
+import { ImageContextVariable } from './image-context-variable.js';
 
 /**
  * System message content, enriched with function descriptions.

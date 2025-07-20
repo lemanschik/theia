@@ -22,7 +22,7 @@ import {
     UserPreferenceProviderFactory
 } from '@theia/preferences/lib/browser';
 import { Container, injectable, interfaces } from 'inversify';
-import { extensionsConfigurationSchema } from './recommended-extensions-json-schema';
+import { extensionsConfigurationSchema } from './recommended-extensions-json-schema.js';
 import {
     WorkspaceFilePreferenceProvider,
     WorkspaceFilePreferenceProviderFactory,

@@ -19,8 +19,8 @@ import { default as yargs } from 'yargs';
 import temp from 'temp';
 import fs from 'fs';
 import { ContainerModule, Container } from 'inversify';
-import { LogLevel } from '../common/logger';
-import { LogLevelCliContribution } from './logger-cli-contribution';
+import { LogLevel } from '../common/logger.js';
+import { LogLevelCliContribution } from './logger-cli-contribution.js';
 import sinon from 'sinon';
 
 // Allow creating temporary files, but remove them when we are done.

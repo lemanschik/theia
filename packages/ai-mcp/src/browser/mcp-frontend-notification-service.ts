@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { injectable } from 'inversify';
-import { MCPFrontendNotificationService } from '../common';
+import { MCPFrontendNotificationService } from '../common/index.js';
 import { Emitter, Event } from '@theia/core/lib/common/event';
 
 @injectable()

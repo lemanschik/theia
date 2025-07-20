@@ -18,7 +18,7 @@
 import { inject, injectable, postConstruct } from 'inversify';
 import { PreferenceService } from '@theia/core/lib/browser';
 import { Emitter } from '@theia/core';
-import { NotebookPreferences, notebookPreferenceSchema } from '../contributions/notebook-preferences';
+import { NotebookPreferences, notebookPreferenceSchema } from '../contributions/notebook-preferences.js';
 import { EditorPreferences } from '@theia/editor/lib/browser';
 import { BareFontInfo } from '@theia/monaco-editor-core/esm/vs/editor/common/config/fontInfo';
 import { PixelRatio } from '@theia/monaco-editor-core/esm/vs/base/browser/pixelRatio';

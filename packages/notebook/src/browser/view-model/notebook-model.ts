@@ -21,21 +21,21 @@ import {
     NotebookCellMetadata,
     NotebookCellsChangeType, NotebookCellTextModelSplice, NotebookData,
     NotebookDocumentMetadata,
-} from '../../common';
+} from '../../common/index.js';
 import {
     NotebookContentChangedEvent, NotebookModelWillAddRemoveEvent,
     CellEditOperation, NullablePartialNotebookCellInternalMetadata,
     NullablePartialNotebookCellMetadata
-} from '../notebook-types';
-import { NotebookSerializer } from '../service/notebook-service';
+} from '../notebook-types.js';
+import { NotebookSerializer } from '../service/notebook-service.js';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
-import { NotebookCellModel, NotebookCellModelFactory, NotebookCodeEditorFindMatch } from './notebook-cell-model';
+import { NotebookCellModel, NotebookCellModelFactory, NotebookCodeEditorFindMatch } from './notebook-cell-model.js';
 import { inject, injectable, interfaces, postConstruct } from 'inversify';
 import { UndoRedoService } from '@theia/editor/lib/browser/undo-redo-service';
 import { MarkdownString } from '@theia/core/lib/common/markdown-rendering';
-import type { NotebookModelResolverService } from '../service/notebook-model-resolver-service';
+import type { NotebookModelResolverService } from '../service/notebook-model-resolver-service.js';
 import { BinaryBuffer } from '@theia/core/lib/common/buffer';
-import { NotebookEditorFindMatch, NotebookEditorFindMatchOptions } from '../view/notebook-find-widget';
+import { NotebookEditorFindMatch, NotebookEditorFindMatchOptions } from '../view/notebook-find-widget.js';
 
 export const NotebookModelFactory = Symbol('NotebookModelFactory');
 
@@ -433,7 +433,7 @@ export class NotebookModel implements Saveable, Disposable {
             ...cell.internalMetadata
         };
         let k: keyof NotebookCellInternalMetadata;
-        // eslint-disable-next-line guard-for-in
+         
         for (k in internalMetadata) {
             newInternalMetadata[k] = (internalMetadata[k] ?? undefined) as never;
         }
@@ -460,7 +460,7 @@ export class NotebookModel implements Saveable, Disposable {
             ...cell.metadata
         };
         let k: keyof NullablePartialNotebookCellMetadata;
-        // eslint-disable-next-line guard-for-in
+         
         for (k in metadata) {
             const value = metadata[k] ?? undefined;
             newMetadata[k] = value as unknown;

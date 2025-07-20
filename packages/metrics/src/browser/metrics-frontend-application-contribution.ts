@@ -17,7 +17,7 @@ import { inject, injectable } from 'inversify';
 import { FrontendApplicationContribution } from '@theia/core/lib/browser';
 import { ILogger, LogLevel, MeasurementResult, Stopwatch } from '@theia/core';
 import { UUID } from '@lumino/coreutils';
-import { MeasurementNotificationService } from '../common';
+import { MeasurementNotificationService } from '../common/index.js';
 
 @injectable()
 export class MetricsFrontendApplicationContribution implements FrontendApplicationContribution {

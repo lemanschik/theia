@@ -31,10 +31,10 @@ import { InlineValueContext } from '@theia/monaco-editor-core/esm/vs/editor/comm
 import { ITextModel } from '@theia/monaco-editor-core/esm/vs/editor/common/model';
 import { ILanguageFeaturesService } from '@theia/monaco-editor-core/esm/vs/editor/common/services/languageFeatures';
 import { StandaloneServices } from '@theia/monaco-editor-core/esm/vs/editor/standalone/browser/standaloneServices';
-import { DebugVariable, ExpressionContainer, ExpressionItem } from '../console/debug-console-items';
-import { DebugPreferences } from '../debug-preferences';
-import { DebugStackFrame } from '../model/debug-stack-frame';
-import { DebugEditorModel } from './debug-editor-model';
+import { DebugVariable, ExpressionContainer, ExpressionItem } from '../console/debug-console-items.js';
+import { DebugPreferences } from '../debug-preferences.js';
+import { DebugStackFrame } from '../model/debug-stack-frame.js';
+import { DebugEditorModel } from './debug-editor-model.js';
 import { ICodeEditorService } from '@theia/monaco-editor-core/esm/vs/editor/browser/services/codeEditorService';
 
 // https://github.com/theia-ide/vscode/blob/standalone/0.19.x/src/vs/workbench/contrib/debug/browser/debugEditorContribution.ts#L40-L43

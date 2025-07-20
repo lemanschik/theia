@@ -18,7 +18,7 @@ import { nls } from '@theia/core';
 import { PreferenceSchema } from '@theia/core/lib/browser/preferences/preference-contribution';
 import {
   NOTIFICATION_TYPES
-} from '../common/notification-types';
+} from '../common/notification-types.js';
 
 export const AGENT_SETTINGS_PREF = 'ai-features.agentSettings';
 

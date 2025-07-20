@@ -15,7 +15,7 @@
 // *****************************************************************************
 import { isObject } from '@theia/core/lib/common';
 import { TaskIdentifier } from '@theia/task/lib/common';
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 
 /**
  * Configuration for a debug adapter session.

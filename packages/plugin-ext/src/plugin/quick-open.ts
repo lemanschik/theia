@@ -13,31 +13,31 @@
 //
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
-/* eslint-disable @typescript-eslint/no-explicit-any */
+ 
 import {
     QuickOpenExt, PLUGIN_RPC_CONTEXT as Ext, QuickOpenMain, TransferInputBox, Plugin,
     TransferQuickInputButton, TransferQuickInput, TransferQuickPickItem
-} from '../common/plugin-api-rpc';
+} from '../common/plugin-api-rpc.js';
 import theia from '@theia/plugin';
 import { CancellationToken } from '@theia/core/lib/common/cancellation';
-import { RPCProtocol } from '../common/rpc-protocol';
+import { RPCProtocol } from '../common/rpc-protocol.js';
 import { Emitter, Event } from '@theia/core/lib/common/event';
 import { DisposableCollection } from '@theia/core/lib/common/disposable';
-import { InputBoxValidationSeverity, QuickInputButtons, QuickPickItemKind, ThemeIcon } from './types-impl';
+import { InputBoxValidationSeverity, QuickInputButtons, QuickPickItemKind, ThemeIcon } from './types-impl.js';
 import { URI } from 'vscode-uri';
 import path from 'path';
-import { convertToTransferQuickPickItems } from './type-converters';
-import { PluginPackage } from '../common/plugin-protocol';
+import { convertToTransferQuickPickItems } from './type-converters.js';
+import { PluginPackage } from '../common/plugin-protocol.js';
 import { QuickInputButtonHandle } from '@theia/core/lib/browser';
 import { MaybePromise } from '@theia/core/lib/common/types';
 import { Severity } from '@theia/core/lib/common/severity';
-import { PluginIconPath } from './plugin-icon-path';
+import { PluginIconPath } from './plugin-icon-path.js';
 
 const canceledName = 'Canceled';
 /**
  * Checks if the given error is a promise in canceled state
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 export function isPromiseCanceledError(error: any): boolean {
     return error instanceof Error && error.name === canceledName && error.message === canceledName;
 }
@@ -55,7 +55,7 @@ export class QuickOpenExtImpl implements QuickOpenExt {
         this.proxy = rpc.getProxy(Ext.QUICK_OPEN_MAIN);
     }
 
-    /* eslint-disable max-len */
+     
     showQuickPick(plugin: Plugin, itemsOrItemsPromise: theia.QuickPickItem[] | Promise<theia.QuickPickItem[]>, options: theia.QuickPickOptions & { canPickMany: true; }, token?: theia.CancellationToken): Promise<Array<theia.QuickPickItem> | undefined>;
     showQuickPick(plugin: Plugin, itemsOrItemsPromise: string[] | Promise<string[]>, options?: theia.QuickPickOptions, token?: theia.CancellationToken): Promise<string | undefined>;
     showQuickPick(plugin: Plugin, itemsOrItemsPromise: theia.QuickPickItem[] | Promise<theia.QuickPickItem[]>, options?: theia.QuickPickOptions, token?: theia.CancellationToken): Promise<theia.QuickPickItem | undefined>;
@@ -401,7 +401,7 @@ export class QuickInputExt implements theia.QuickInput {
         this.quickOpenMain.$dispose(this._id);
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     protected update(properties: Record<string, any>): void {
         if (this._disposed) {
             return;

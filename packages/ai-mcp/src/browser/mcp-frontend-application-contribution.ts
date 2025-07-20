@@ -16,10 +16,10 @@
 
 import { FrontendApplicationContribution, PreferenceProvider, PreferenceService } from '@theia/core/lib/browser';
 import { inject, injectable } from 'inversify';
-import { MCPServerDescription, MCPServerManager } from '../common';
-import { MCP_SERVERS_PREF } from './mcp-preferences';
+import { MCPServerDescription, MCPServerManager } from '../common/index.js';
+import { MCP_SERVERS_PREF } from './mcp-preferences.js';
 import { JSONObject } from '@lumino/coreutils';
-import { MCPFrontendService } from '../common/mcp-server-manager';
+import { MCPFrontendService } from '../common/mcp-server-manager.js';
 
 interface BaseMCPServerPreferenceValue {
     autostart?: boolean;

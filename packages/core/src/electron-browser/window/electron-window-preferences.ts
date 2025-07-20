@@ -15,9 +15,9 @@
 // *****************************************************************************
 
 import { interfaces } from 'inversify';
-import { nls } from '../../common/nls';
-import { createPreferenceProxy, PreferenceContribution, PreferenceProxy, PreferenceSchema, PreferenceService } from '../../browser/preferences';
-import { isOSX, isWindows } from '../../common';
+import { nls } from '../../common/nls.js';
+import { createPreferenceProxy, PreferenceContribution, PreferenceProxy, PreferenceSchema, PreferenceService } from '../../browser/preferences/index.js';
+import { isOSX, isWindows } from '../../common/index.js';
 
 export namespace ZoomLevel {
     export const DEFAULT = 0;
@@ -37,7 +37,7 @@ export const electronWindowPreferencesSchema: PreferenceSchema = {
             'minimum': ZoomLevel.MIN,
             'maximum': ZoomLevel.MAX,
             'scope': 'application',
-            // eslint-disable-next-line max-len
+             
             'description': nls.localizeByDefault("Adjust the default zoom level for all windows. Each increment above `0` (e.g. `1`) or below (e.g. `-1`) represents zooming `20%` larger or smaller. You can also enter decimals to adjust the zoom level with a finer granularity. See {0} for configuring if the 'Zoom In' and 'Zoom Out' commands apply the zoom level to all windows or only the active window.")
         },
         'window.titleBarStyle': {
@@ -45,7 +45,7 @@ export const electronWindowPreferencesSchema: PreferenceSchema = {
             enum: ['native', 'custom'],
             default: isWindows ? 'custom' : 'native',
             scope: 'application',
-            // eslint-disable-next-line max-len
+             
             description: nls.localizeByDefault('Adjust the appearance of the window title bar to be native by the OS or custom. On Linux and Windows, this setting also affects the application and context menu appearances. Changes require a full restart to apply.'),
             included: !isOSX
         },

@@ -35,7 +35,7 @@ export const FileNavigatorConfigSchema: PreferenceSchema = {
         },
         [EXPLORER_COMPACT_FOLDERS]: {
             type: 'boolean',
-            // eslint-disable-next-line max-len
+             
             description: nls.localizeByDefault('Controls whether the Explorer should render folders in a compact form. In such a form, single child folders will be compressed in a combined tree element. Useful for Java package structures, for example.'),
             default: true,
         }

@@ -37,14 +37,14 @@ import {
     LanguageStatus as LanguageStatusDTO,
     InlayHintDto,
     IdentifiableInlineCompletions
-} from '../../common/plugin-api-rpc';
+} from '../../common/plugin-api-rpc.js';
 import { injectable, inject } from 'inversify';
 import {
     SerializedDocumentFilter, MarkerData, Range, RelatedInformation,
     MarkerSeverity, DocumentLink, WorkspaceSymbolParams, CodeAction, CompletionDto,
     CodeActionProviderDocumentation, InlayHint, InlayHintLabelPart, CodeActionContext, DocumentDropEditProviderMetadata, SignatureHelpContext
-} from '../../common/plugin-api-rpc-model';
-import { RPCProtocol } from '../../common/rpc-protocol';
+} from '../../common/plugin-api-rpc-model.js';
+import { RPCProtocol } from '../../common/rpc-protocol.js';
 import { MonacoLanguages, WorkspaceSymbolProvider } from '@theia/monaco/lib/browser/monaco-languages';
 import { URI } from '@theia/core/lib/common/uri';
 import { Disposable, DisposableCollection } from '@theia/core/lib/common/disposable';
@@ -52,16 +52,16 @@ import { Emitter, Event } from '@theia/core/lib/common/event';
 import { ProblemManager } from '@theia/markers/lib/browser';
 import vst from 'vscode-languageserver-protocol';
 import theia from '@theia/plugin';
-import { UriComponents } from '../../common/uri-components';
+import { UriComponents } from '../../common/uri-components.js';
 import { CancellationToken } from '@theia/core/lib/common';
 import { CallHierarchyService, CallHierarchyServiceProvider, CallHierarchyItem } from '@theia/callhierarchy/lib/browser';
-import { toItemHierarchyDefinition, toUriComponents, fromItemHierarchyDefinition, fromPosition, toCaller, toCallee } from './hierarchy/hierarchy-types-converters';
+import { toItemHierarchyDefinition, toUriComponents, fromItemHierarchyDefinition, fromPosition, toCaller, toCallee } from './hierarchy/hierarchy-types-converters.js';
 import { TypeHierarchyService, TypeHierarchyServiceProvider } from '@theia/typehierarchy/lib/browser';
 import { Position, DocumentUri, DiagnosticTag } from 'vscode-languageserver-protocol';
-import { ObjectIdentifier } from '../../common/object-identifier';
-import { mixin } from '../../common/types';
-import { relative } from '../../common/paths-util';
-import { decodeSemanticTokensDto } from '../../common/semantic-tokens-dto';
+import { ObjectIdentifier } from '../../common/object-identifier.js';
+import { mixin } from '../../common/types.js';
+import { relative } from '../../common/paths-util.js';
+import { decodeSemanticTokensDto } from '../../common/semantic-tokens-dto.js';
 import monaco from '@theia/monaco-editor-core';
 import { ExtensionIdentifier } from '@theia/monaco-editor-core/esm/vs/platform/extensions/common/extensions';
 import { StandaloneServices } from '@theia/monaco-editor-core/esm/vs/editor/standalone/browser/standaloneServices';
@@ -82,7 +82,7 @@ import {
     InlineValuesProvider
 } from '@theia/monaco-editor-core/esm/vs/editor/common/languages';
 import { ITextModel } from '@theia/monaco-editor-core/esm/vs/editor/common/model';
-import { CodeActionTriggerKind } from '../../plugin/types-impl';
+import { CodeActionTriggerKind } from '../../plugin/types-impl.js';
 import { IReadonlyVSDataTransfer } from '@theia/monaco-editor-core/esm/vs/base/common/dataTransfer';
 import { FileUploadService } from '@theia/filesystem/lib/browser/file-upload-service';
 
@@ -402,7 +402,7 @@ export class LanguagesMainImpl implements LanguagesMain, Disposable {
         return this.proxy.$provideInlineValues(handle, model.uri, range, context, token);
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     $emitInlineValuesEvent(eventHandle: number, event?: any): void {
         const obj = this.services.get(eventHandle);
         if (obj instanceof Emitter) {
@@ -549,7 +549,7 @@ export class LanguagesMainImpl implements LanguagesMain, Disposable {
         return this.proxy.$resolveCodeLens(handle, model.uri, codeLens, token);
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     $emitCodeLensEvent(eventHandle: number, event?: any): void {
         const obj = this.services.get(eventHandle);
         if (obj instanceof Emitter) {
@@ -899,7 +899,7 @@ export class LanguagesMainImpl implements LanguagesMain, Disposable {
         };
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     $emitInlayHintsEvent(eventHandle: number, event?: any): void {
         const obj = this.services.get(eventHandle);
         if (obj instanceof Emitter) {

@@ -16,8 +16,8 @@
 
 import { inject, injectable } from 'inversify';
 import { OpenerService, open } from '@theia/core/lib/browser';
-import { TerminalWidget } from './base/terminal-widget';
-import { TerminalLink, TerminalLinkProvider } from './terminal-link-provider';
+import { TerminalWidget } from './base/terminal-widget.js';
+import { TerminalLink, TerminalLinkProvider } from './terminal-link-provider.js';
 import URI from '@theia/core/lib/common/uri';
 
 @injectable()

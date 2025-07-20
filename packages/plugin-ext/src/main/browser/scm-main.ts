@@ -27,21 +27,21 @@ import {
     ScmMain,
     SourceControlProviderFeatures,
     ScmRawResourceSplices, ScmRawResourceGroup
-} from '../../common/plugin-api-rpc';
+} from '../../common/plugin-api-rpc.js';
 import { ScmProvider, ScmResource, ScmResourceDecorations, ScmResourceGroup, ScmCommand } from '@theia/scm/lib/browser/scm-provider';
 import { ScmRepository } from '@theia/scm/lib/browser/scm-repository';
 import { ScmService } from '@theia/scm/lib/browser/scm-service';
-import { RPCProtocol } from '../../common/rpc-protocol';
+import { RPCProtocol } from '../../common/rpc-protocol.js';
 import { interfaces } from 'inversify';
 import { Emitter, Event } from '@theia/core/lib/common/event';
 import { DisposableCollection } from '@theia/core/lib/common/disposable';
 import URI from '@theia/core/lib/common/uri';
 import { URI as vscodeURI } from 'vscode-uri';
-import { Splice } from '../../common/arrays';
-import { UriComponents } from '../../common/uri-components';
+import { Splice } from '../../common/arrays.js';
+import { UriComponents } from '../../common/uri-components.js';
 import { ColorRegistry } from '@theia/core/lib/browser/color-registry';
-import { PluginSharedStyle } from './plugin-shared-style';
-import { IconUrl } from '../../common';
+import { PluginSharedStyle } from './plugin-shared-style.js';
+import { IconUrl } from '../../common/index.js';
 import { ThemeIcon } from '@theia/monaco-editor-core/esm/vs/base/common/themables';
 
 export class PluginScmResourceGroup implements ScmResourceGroup {
@@ -231,7 +231,7 @@ export class PluginScmProvider implements ScmProvider {
                     const { handle, sourceUri, icons, tooltip, strikeThrough, faded, contextValue, command } = rawResource;
                     const icon = this.toIconClass(icons[0]);
                     const iconDark = this.toIconClass(icons[1]) || icon;
-                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                     
                     const colorVariable = (rawResource as any).colorId && this.colors.toCssVariableName((rawResource as any).colorId);
                     const decorations = {
                         icon,
@@ -239,7 +239,7 @@ export class PluginScmProvider implements ScmProvider {
                         tooltip,
                         strikeThrough,
                         // TODO remove the letter and colorId fields when the FileDecorationProvider is applied, see https://github.com/eclipse-theia/theia/pull/8911
-                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                         
                         letter: (rawResource as any).letter || '',
                         color: colorVariable && `var(${colorVariable})`,
                         faded

@@ -30,7 +30,7 @@ import {
 import { CancellationToken } from '@theia/core';
 import { GoogleGenAI, FunctionCallingConfigMode, FunctionDeclaration, Content, Schema, Part, Modality, FunctionResponse } from '@google/genai';
 import { wait } from '@theia/core/lib/common/promise-util';
-import { GoogleLanguageModelRetrySettings } from './google-language-models-manager-impl';
+import { GoogleLanguageModelRetrySettings } from './google-language-models-manager-impl.js';
 
 interface ToolCallback {
     readonly name: string;

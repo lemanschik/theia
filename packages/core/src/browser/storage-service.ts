@@ -15,9 +15,9 @@
 // *****************************************************************************
 
 import { inject, injectable, postConstruct } from 'inversify';
-import { ILogger } from '../common/logger';
-import { MessageService } from '../common/message-service';
-import { WindowService } from './window/window-service';
+import { ILogger } from '../common/logger.js';
+import { MessageService } from '../common/message-service.js';
+import { WindowService } from './window/window-service.js';
 import { environment } from '@theia/application-package/lib/environment';
 
 export const StorageService = Symbol('IStorageService');
@@ -39,7 +39,7 @@ export interface StorageService {
 }
 
 interface LocalStorage {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     [key: string]: any;
 }
 

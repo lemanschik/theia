@@ -24,7 +24,7 @@ import MonacoPlatform from '@theia/monaco-editor-core/esm/vs/base/common/platfor
 import { KeybindingRegistry } from '@theia/core/lib/browser/keybinding';
 import { KeyCode, KeySequence, Keystroke, Key, KeyModifier } from '@theia/core/lib/browser/keys';
 import { isOSX } from '@theia/core/lib/common/os';
-import { KEY_CODE_MAP } from './monaco-keycode-map';
+import { KEY_CODE_MAP } from './monaco-keycode-map.js';
 
 export class MonacoResolvedKeybinding extends ResolvedKeybinding {
 

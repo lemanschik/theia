@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { injectable } from 'inversify';
-import { ScanOSSResult, ScanOSSService } from '../common';
+import { ScanOSSResult, ScanOSSService } from '../common/index.js';
 
 import { Scanner, ScannerCfg, ScannerComponent } from 'scanoss';
 

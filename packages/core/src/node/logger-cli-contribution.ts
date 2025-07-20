@@ -16,11 +16,11 @@
 
 import { default as yargs } from 'yargs';
 import { injectable } from 'inversify';
-import { LogLevel } from '../common/logger';
-import { CliContribution } from './cli';
+import { LogLevel } from '../common/logger.js';
+import { CliContribution } from './cli.js';
 import fs from 'fs-extra';
 import { subscribe } from '@parcel/watcher';
-import { Event, Emitter } from '../common/event';
+import { Event, Emitter } from '../common/event.js';
 import path from 'path';
 
 /** Maps logger names to log levels.  */

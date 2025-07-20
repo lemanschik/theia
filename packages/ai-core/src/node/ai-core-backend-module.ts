@@ -17,7 +17,7 @@ import { ContainerModule } from 'inversify';
 import {
     LanguageModelFrontendDelegateImpl,
     LanguageModelRegistryFrontendDelegateImpl,
-} from './language-model-frontend-delegate';
+} from './language-model-frontend-delegate.js';
 import {
     ConnectionHandler,
     RpcConnectionHandler,
@@ -40,9 +40,9 @@ import {
     TokenUsageService,
     TokenUsageServiceClient,
     TOKEN_USAGE_SERVICE_PATH
-} from '../common';
-import { BackendLanguageModelRegistry } from './backend-language-model-registry';
-import { TokenUsageServiceImpl } from './token-usage-service-impl';
+} from '../common/index.js';
+import { BackendLanguageModelRegistry } from './backend-language-model-registry.js';
+import { TokenUsageServiceImpl } from './token-usage-service-impl.js';
 
 // We use a connection module to handle AI services separately for each frontend.
 const aiCoreConnectionModule = ConnectionContainerModule.create(({ bind, bindBackendService, bindFrontendService }) => {

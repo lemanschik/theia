@@ -36,24 +36,24 @@ import {
     codicon, CommonCommands, FrontendApplicationContribution, OnWillStopAction, Dialog, ConfirmDialog, FrontendApplication, PreferenceScope, Widget, SHELL_TABBAR_CONTEXT_MENU
 } from '@theia/core/lib/browser';
 import { TabBarToolbarContribution, TabBarToolbarRegistry } from '@theia/core/lib/browser/shell/tab-bar-toolbar';
-import { TERMINAL_WIDGET_FACTORY_ID, TerminalWidgetFactoryOptions, TerminalWidgetImpl } from './terminal-widget-impl';
-import { TerminalService } from './base/terminal-service';
-import { TerminalWidgetOptions, TerminalWidget, TerminalLocation } from './base/terminal-widget';
-import { ContributedTerminalProfileStore, NULL_PROFILE, TerminalProfile, TerminalProfileService, TerminalProfileStore, UserTerminalProfileStore } from './terminal-profile-service';
+import { TERMINAL_WIDGET_FACTORY_ID, TerminalWidgetFactoryOptions, TerminalWidgetImpl } from './terminal-widget-impl.js';
+import { TerminalService } from './base/terminal-service.js';
+import { TerminalWidgetOptions, TerminalWidget, TerminalLocation } from './base/terminal-widget.js';
+import { ContributedTerminalProfileStore, NULL_PROFILE, TerminalProfile, TerminalProfileService, TerminalProfileStore, UserTerminalProfileStore } from './terminal-profile-service.js';
 import { UriAwareCommandHandler } from '@theia/core/lib/common/uri-command-handler';
-import { ShellTerminalServerProxy } from '../common/shell-terminal-protocol';
+import { ShellTerminalServerProxy } from '../common/shell-terminal-protocol.js';
 import URI from '@theia/core/lib/common/uri';
 import { WorkspaceService } from '@theia/workspace/lib/browser';
 import { ContextKeyService } from '@theia/core/lib/browser/context-key-service';
 import { ColorContribution } from '@theia/core/lib/browser/color-application-contribution';
 import { ColorRegistry } from '@theia/core/lib/browser/color-registry';
-import { terminalAnsiColorMap } from './terminal-theme-service';
+import { terminalAnsiColorMap } from './terminal-theme-service.js';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
 import { FileStat } from '@theia/filesystem/lib/common/files';
-import { TerminalWatcher } from '../common/terminal-watcher';
+import { TerminalWatcher } from '../common/terminal-watcher.js';
 import { nls } from '@theia/core/lib/common/nls';
-import { Profiles, TerminalPreferences } from './terminal-preferences';
-import { ShellTerminalProfile } from './shell-terminal-profile';
+import { Profiles, TerminalPreferences } from './terminal-preferences.js';
+import { ShellTerminalProfile } from './shell-terminal-profile.js';
 import { VariableResolverService } from '@theia/variable-resolver/lib/browser';
 import { Color } from '@theia/core/lib/common/color';
 
@@ -1108,7 +1108,7 @@ export class TerminalFrontendContribution implements FrontendApplicationContribu
                 hcDark: '#000000',
                 hcLight: '#ffffff'
             },
-            // eslint-disable-next-line max-len
+             
             description: 'The selection foreground color of the terminal. When this is null the selection foreground will be retained and have the minimum contrast ratio feature applied.'
         });
         colors.register({
@@ -1121,7 +1121,7 @@ export class TerminalFrontendContribution implements FrontendApplicationContribu
             },
             description: 'The color of the border that separates split panes within the terminal. This defaults to panel.border.'
         });
-        // eslint-disable-next-line guard-for-in
+         
         for (const id in terminalAnsiColorMap) {
             const entry = terminalAnsiColorMap[id];
             const colorName = id.substring(13);

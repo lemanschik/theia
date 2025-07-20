@@ -22,9 +22,9 @@
 import { Emitter } from '@theia/core';
 import { inject, injectable, postConstruct } from 'inversify';
 import { ApplicationShell } from '@theia/core/lib/browser';
-import { NotebookEditorWidget } from '../notebook-editor-widget';
+import { NotebookEditorWidget } from '../notebook-editor-widget.js';
 import { ContextKeyService } from '@theia/core/lib/browser/context-key-service';
-import { NOTEBOOK_EDITOR_FOCUSED } from '../contributions/notebook-context-keys';
+import { NOTEBOOK_EDITOR_FOCUSED } from '../contributions/notebook-context-keys.js';
 
 @injectable()
 export class NotebookEditorWidgetService {

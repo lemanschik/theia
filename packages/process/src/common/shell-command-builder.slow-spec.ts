@@ -21,7 +21,7 @@
 import { spawn, execSync, SpawnOptions, ChildProcess, spawnSync } from 'child_process';
 import { Readable } from 'stream';
 import { join } from 'path';
-import { ShellCommandBuilder, CommandLineOptions, ProcessInfo } from './shell-command-builder';
+import { ShellCommandBuilder, CommandLineOptions, ProcessInfo } from './shell-command-builder.js';
 import chalk from 'chalk'; // tslint:disable-line:no-implicit-dependencies
 
 export interface TestProcessInfo extends ProcessInfo {
@@ -45,7 +45,7 @@ const _onlyTestShell: string | undefined = process.env['THEIA_PROCESS_TEST_ONLY'
 /**
  * Only log if environment variable is set.
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+ 
 function debug(...parts: any[]): void {
     if (_debug) {
         console.debug(...parts);
@@ -111,7 +111,7 @@ const shellConfigs = [{
         : 'command -v pwsh'),
 }];
 
-/* eslint-disable max-len */
+ 
 
 // 18d/12m/19y - Ubuntu 16.04:
 // Powershell sometimes fails when running as part of an npm lifecycle script.
@@ -142,7 +142,7 @@ const shellConfigs = [{
 //     at Microsoft.PowerShell.ConsoleShell.Start(String bannerText, String helpText, String[] args)
 //     at Microsoft.PowerShell.UnmanagedPSEntry.Start(String consoleFilePath, String[] args, Int32 argc)
 
-/* eslint-enable max-len */
+ 
 
 let id = 0;
 for (const shellConfig of shellConfigs) {
@@ -341,9 +341,9 @@ async function testCommandLine(
     context: TestCaseContext,
     processInfo: TestProcessInfo,
     options: CommandLineOptions,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
     firstOf: Array<Promise<any>>,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+     
 ): Promise<any> {
     const commandLine = shellCommandBuilder.buildCommand(processInfo, options);
     debug(`${chalk.bold(chalk.white(`${context.name} STDIN:`))} ${chalk.bgWhite(chalk.black(displayWhitespaces(commandLine)))}`);
