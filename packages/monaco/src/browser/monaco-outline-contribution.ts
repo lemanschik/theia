@@ -22,7 +22,7 @@ import { OutlineViewService } from '@theia/outline-view/lib/browser/outline-view
 import { OutlineSymbolInformationNode } from '@theia/outline-view/lib/browser/outline-view-widget';
 import URI from '@theia/core/lib/common/uri';
 import { MonacoEditor } from './monaco-editor';
-import debounce = require('@theia/core/shared/lodash.debounce');
+import debounce from '@theia/core/shared/lodash.debounce';
 import * as monaco from '@theia/monaco-editor-core';
 import { ILanguageFeaturesService } from '@theia/monaco-editor-core/esm/vs/editor/common/services/languageFeatures';
 import { StandaloneServices } from '@theia/monaco-editor-core/esm/vs/editor/standalone/browser/standaloneServices';

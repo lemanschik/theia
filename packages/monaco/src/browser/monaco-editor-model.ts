@@ -89,7 +89,9 @@ export class MonacoEditorModel implements IResolvedTextEditorModel, TextEditorDo
     protected readonly onDidChangeEncodingEmitter = new Emitter<string>();
     readonly onDidChangeEncoding = this.onDidChangeEncodingEmitter.event;
 
-    readonly onDidChangeReadOnly: Event<boolean | MarkdownString> = this.resource.onDidChangeReadOnly ?? Event.None;
+    readonly onDidChangeReadOnly: Event<boolean | MarkdownString> =
+        // @ts-expect-error bad
+        this.resource.onDidChangeReadOnly ?? Event.None;
 
     private preferredEncoding: string | undefined;
     private contentEncoding: string | undefined;

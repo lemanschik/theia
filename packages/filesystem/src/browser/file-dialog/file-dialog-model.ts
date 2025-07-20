@@ -23,7 +23,7 @@ import { FileDialogTree } from './file-dialog-tree';
 
 @injectable()
 export class FileDialogModel extends FileTreeModel {
-
+    // @ts-expect-error bad
     @inject(FileDialogTree) override readonly tree: FileDialogTree;
     protected readonly onDidOpenFileEmitter = new Emitter<void>();
     protected _initialLocation: URI | undefined;

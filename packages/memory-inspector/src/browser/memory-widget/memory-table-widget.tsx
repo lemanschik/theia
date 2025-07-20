@@ -29,7 +29,7 @@ import {
 } from '../utils/memory-widget-utils';
 import { VariableDecoration, VariableFinder } from '../utils/memory-widget-variable-utils';
 import { MemoryOptionsWidget } from './memory-options-widget';
-import debounce = require('@theia/core/shared/lodash.debounce');
+import debounce from '@theia/core/shared/lodash.debounce';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export namespace MemoryTable {

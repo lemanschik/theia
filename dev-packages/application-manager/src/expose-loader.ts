@@ -50,7 +50,7 @@ function exposeModule(modulePackage: { dir: string, name?: string }, resourcePat
  */
 // TODO: webpack@5.36.2 is missing a `LoaderContext` interface so we'll use any in the meantime
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export = function (this: any, source: string, sourceMap?: RawSourceMap): string | undefined {
+export default function (this: any, source: string, sourceMap?: RawSourceMap): string | undefined {
     if (this.cacheable) {
         this.cacheable();
     }

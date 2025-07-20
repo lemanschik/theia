@@ -15,4 +15,4 @@
 // *****************************************************************************
 
 import { NativeWebpackPlugin } from './native-webpack-plugin';
-export = NativeWebpackPlugin;
+export default NativeWebpackPlugin;

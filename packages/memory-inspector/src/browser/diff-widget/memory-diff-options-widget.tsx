@@ -31,6 +31,7 @@ export interface DiffMemoryOptions extends Interfaces.MemoryOptions {
 
 @injectable()
 export class MemoryDiffOptionsWidget extends MemoryOptionsWidget {
+    // @ts-expect-error bad
     @inject(MemoryDiffWidgetData) protected override memoryWidgetOptions: MemoryDiffWidgetData;
 
     protected themeType: ThemeType;

@@ -19,7 +19,7 @@
 import { OVSXRouterClient } from './ovsx-router-client';
 import { testClientProvider, registries, filterFactories } from './ovsx-router-client.spec-data';
 import { ExtensionLike } from './ovsx-types';
-import assert = require('assert');
+import * as assert from 'assert';
 
 describe('OVSXRouterClient', async () => {
 

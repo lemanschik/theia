@@ -22,7 +22,7 @@ import { Theme, ThemeChangeEvent } from '../common/theme';
 import { inject, injectable, postConstruct } from 'inversify';
 import { Deferred } from '../common/promise-util';
 import { PreferenceSchemaProvider, PreferenceService } from './preferences';
-import debounce = require('lodash.debounce');
+import debounce from 'lodash.debounce';
 
 const COLOR_THEME_PREFERENCE_KEY = 'workbench.colorTheme';
 const NO_THEME = { id: 'no-theme', label: 'Not a real theme.', type: 'dark' } as const;

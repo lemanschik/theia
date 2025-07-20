@@ -24,7 +24,7 @@ import { Constants, Interfaces, RegisterWidgetOptions } from '../utils/memory-wi
 import { getRegisters, RegisterReadResult } from '../utils/memory-widget-variable-utils';
 import { MWMultiSelect } from '../utils/multi-select-bar';
 import { RegisterFilterService } from './register-filter-service';
-import debounce = require('@theia/core/shared/lodash.debounce');
+import debounce from '@theia/core/shared/lodash.debounce';
 
 export const EMPTY_REGISTERS: RegisterReadResult = {
     threadId: undefined,
@@ -83,6 +83,7 @@ export class RegisterOptionsWidget extends MemoryOptionsWidget {
         },
     };
 
+    // @ts-expect-error bad
     @inject(RegisterWidgetOptions) protected override readonly memoryWidgetOptions: RegisterWidgetOptions;
     @inject(RegisterFilterService) protected readonly filterService: RegisterFilterService;
 

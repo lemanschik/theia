@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import path = require('path');
-import { promises as fsp } from 'fs';
+import path from 'path';
+import fsp from 'fs/promises';
 import { IMinimatch, Minimatch } from 'minimatch';
 import { FileUri } from '@theia/core/lib/common/file-uri';
 import {

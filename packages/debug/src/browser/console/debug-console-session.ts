@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import throttle = require('@theia/core/shared/lodash.throttle');
+import throttle from '@theia/core/shared/lodash.throttle';
 import { DebugProtocol } from '@vscode/debugprotocol/lib/debugProtocol';
 import { ConsoleSession, ConsoleItem } from '@theia/console/lib/browser/console-session';
 import { AnsiConsoleItem } from '@theia/console/lib/browser/ansi-console-item';

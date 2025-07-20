@@ -18,7 +18,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as temp from 'temp';
 import * as yargs from 'yargs';
-import yargsFactory = require('yargs/yargs');
+import yargsFactory from 'yargs/yargs';
 import { ApplicationPackageManager, rebuild } from '@theia/application-manager';
 import { ApplicationProps, DEFAULT_SUPPORTED_API_VERSION } from '@theia/application-package';
 import checkDependencies from './check-dependencies';

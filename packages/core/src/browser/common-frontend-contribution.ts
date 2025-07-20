@@ -16,7 +16,7 @@
 
 /* eslint-disable max-len, @typescript-eslint/indent */
 
-import debounce = require('lodash.debounce');
+import debounce from 'lodash.debounce';
 import { injectable, inject, optional } from 'inversify';
 import { MAIN_MENU_BAR, MANAGE_MENU, MenuContribution, MenuModelRegistry, ACCOUNTS_MENU, CompoundMenuNode, CommandMenu, Group, Submenu } from '../common/menu';
 import { KeybindingContribution, KeybindingRegistry } from './keybinding';

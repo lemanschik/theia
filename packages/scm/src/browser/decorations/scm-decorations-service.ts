@@ -22,7 +22,7 @@ import { ContentLines } from '../dirty-diff/content-lines';
 import { EditorManager, EditorWidget, TextEditor } from '@theia/editor/lib/browser';
 import { ScmService } from '../scm-service';
 
-import throttle = require('@theia/core/shared/lodash.throttle');
+import throttle from '@theia/core/shared/lodash.throttle';
 
 @injectable()
 export class ScmDecorationsService {

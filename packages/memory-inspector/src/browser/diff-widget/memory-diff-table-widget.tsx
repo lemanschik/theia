@@ -44,12 +44,14 @@ interface OffsetData {
 @injectable()
 export class MemoryDiffTableWidget extends MemoryTableWidget {
     @inject(MemoryDiffWidgetData) protected diffData: MemoryDiffWidgetData;
+    // @ts-expect-error bad
     @inject(MemoryDiffOptionsWidget) override readonly optionsWidget: MemoryDiffOptionsWidget;
 
     protected diffedSpanCounter = 0;
     protected beforeVariableFinder: VariableFinder;
     protected afterVariableFinder: VariableFinder;
     protected isHighContrast = false;
+    // @ts-expect-error bad
     protected override options: DiffMemoryOptions;
     protected offsetData: OffsetData;
 

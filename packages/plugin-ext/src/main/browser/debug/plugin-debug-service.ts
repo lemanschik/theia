@@ -15,7 +15,7 @@
 // *****************************************************************************
 
 import { DebuggerDescription, DebugPath, DebugService } from '@theia/debug/lib/common/debug-service';
-import debounce = require('@theia/core/shared/lodash.debounce');
+import debounce from '@theia/core/shared/lodash.debounce';
 import { deepClone, Emitter, Event, nls } from '@theia/core';
 import { Disposable, DisposableCollection } from '@theia/core/lib/common/disposable';
 import { DebugConfiguration } from '@theia/debug/lib/common/debug-configuration';

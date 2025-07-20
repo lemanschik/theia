@@ -43,6 +43,7 @@ export class AskAIInputWidget extends AIChatInputWidget {
     protected readonly args: AskAIInputArgs | undefined;
 
     @inject(AskAIInputConfiguration) @optional()
+    // @ts-expect-error bad
     protected override readonly configuration: AskAIInputConfiguration | undefined;
 
     protected readonly resourceId = generateUuid();

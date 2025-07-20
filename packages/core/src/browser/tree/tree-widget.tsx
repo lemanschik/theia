@@ -543,6 +543,7 @@ export class TreeWidget extends ReactWidget implements StatefulWidget {
             if (this.props.virtualized === false) {
                 return <this.ScrollingRowRenderer rows={rows} />;
             }
+            // @ts-expect-error bad
             return <TreeWidget.View
                 ref={view => this.view = (view || undefined)}
                 width={this.node.offsetWidth}
@@ -1634,6 +1635,7 @@ export namespace TreeWidget {
     /**
      * Representation of the tree view properties.
      */
+    // @ts-expect-error bad
     export interface ViewProps extends VirtuosoProps<unknown, unknown> {
         /**
          * The width property.

@@ -17,7 +17,7 @@
 import { Event, Emitter } from '../../common/event';
 import { Disposable, DisposableCollection } from '../../common/disposable';
 
-import debounce = require('lodash.debounce');
+import debounce from 'lodash.debounce';
 
 /**
  * Options for the search term debounce.

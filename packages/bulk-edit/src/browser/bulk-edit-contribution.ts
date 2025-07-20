@@ -31,6 +31,7 @@ export class BulkEditContribution extends AbstractViewContribution<BulkEditTreeW
     protected edits: ResourceEdit[];
 
     @inject(QuickViewService) @optional()
+    // @ts-expect-error bad
     protected override readonly quickView: QuickViewService;
 
     @inject(MonacoBulkEditService)

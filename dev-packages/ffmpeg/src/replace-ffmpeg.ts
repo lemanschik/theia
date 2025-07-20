@@ -14,11 +14,11 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import electronGet = require('@electron/get');
-import fs = require('fs-extra');
-import os = require('os');
-import path = require('path');
-import unzipper = require('unzipper');
+import * as electronGet from '@electron/get';
+import * as fs from 'fs-extra';
+import * as os from 'os';
+import * as path from 'path';
+import * as unzipper from 'unzipper';
 import * as ffmpeg from './ffmpeg';
 import { hashFile } from './hash';
 

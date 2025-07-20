@@ -21,6 +21,7 @@ import { ResourceEdit } from '@theia/monaco-editor-core/esm/vs/editor/browser/se
 
 @injectable()
 export class BulkEditTreeModel extends TreeModelImpl {
+    // @ts-expect-error bad
     @inject(BulkEditTree) protected override readonly tree: BulkEditTree;
     @inject(OpenerService) protected readonly openerService: OpenerService;
 

@@ -103,16 +103,17 @@ export class PromptTemplateContribution implements LanguageGrammarDefinitionCont
             provideCompletionItems: (model, position, _context, _token): ProviderResult<monaco.languages.CompletionList> => this.provideVariableWithArgCompletions(model, position),
         });
 
-        const textmateGrammar = require('../../data/prompttemplate.tmLanguage.json');
-        const grammarDefinitionProvider: GrammarDefinitionProvider = {
-            getGrammarDefinition: function (): Promise<GrammarDefinition> {
-                return Promise.resolve({
-                    format: 'json',
-                    content: textmateGrammar
-                });
-            }
-        };
-        registry.registerTextmateGrammarScope(PROMPT_TEMPLATE_TEXTMATE_SCOPE, grammarDefinitionProvider);
+        import('../../data/prompttemplate.tmLanguage.json', { with: { type: 'json' } }).then(textmateGrammar => {
+            const grammarDefinitionProvider: GrammarDefinitionProvider = {
+                getGrammarDefinition: function (): Promise<GrammarDefinition> {
+                    return Promise.resolve({
+                        format: 'json',
+                        content: textmateGrammar
+                    });
+                }
+            };
+            registry.registerTextmateGrammarScope(PROMPT_TEMPLATE_TEXTMATE_SCOPE, grammarDefinitionProvider);
+        });
 
         registry.mapLanguageIdToTextmateGrammar(PROMPT_TEMPLATE_LANGUAGE_ID, PROMPT_TEMPLATE_TEXTMATE_SCOPE);
     }

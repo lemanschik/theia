@@ -26,7 +26,7 @@ import { NotebookEditorWidget } from '../notebook-editor-widget';
 import { codicon, OpenerService } from '@theia/core/lib/browser';
 import { NotebookKernelHistoryService } from './notebook-kernel-history-service';
 import { NotebookCommand, NotebookModelResource } from '../../common';
-import debounce = require('@theia/core/shared/lodash.debounce');
+import debounce from '@theia/core/shared/lodash.debounce';
 
 export const JUPYTER_EXTENSION_ID = 'ms-toolsai.jupyter';
 

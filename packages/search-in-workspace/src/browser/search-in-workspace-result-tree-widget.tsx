@@ -50,7 +50,7 @@ import { SearchInWorkspacePreferences } from './search-in-workspace-preferences'
 import { ColorRegistry } from '@theia/core/lib/browser/color-registry';
 import * as minimatch from 'minimatch';
 import { DisposableCollection } from '@theia/core/lib/common/disposable';
-import debounce = require('@theia/core/shared/lodash.debounce');
+import debounce from '@theia/core/shared/lodash.debounce';
 import { nls } from '@theia/core/lib/common/nls';
 
 const ROOT_ID = 'ResultTree';

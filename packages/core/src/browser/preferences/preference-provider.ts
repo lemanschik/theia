@@ -16,7 +16,7 @@
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import debounce = require('p-debounce');
+import debounce from 'p-debounce';
 import { injectable, inject } from 'inversify';
 import { JSONExt, JSONValue } from '@lumino/coreutils';
 import URI from '../../common/uri';

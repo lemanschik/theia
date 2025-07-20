@@ -44,7 +44,7 @@ import { CommandLineOptions, ShellCommandBuilder } from '@theia/process/lib/comm
 import { Key } from '@theia/core/lib/browser/keys';
 import { nls } from '@theia/core/lib/common/nls';
 import { TerminalMenus } from './terminal-frontend-contribution';
-import debounce = require('p-debounce');
+import debounce from 'p-debounce';
 import { MarkdownString, MarkdownStringImpl } from '@theia/core/lib/common/markdown-rendering/markdown-string';
 import { EnhancedPreviewWidget } from '@theia/core/lib/browser/widgets/enhanced-preview-widget';
 import { MarkdownRenderer, MarkdownRendererFactory } from '@theia/core/lib/browser/markdown-rendering/markdown-renderer';

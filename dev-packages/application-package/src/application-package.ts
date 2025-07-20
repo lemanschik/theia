@@ -20,8 +20,8 @@ import { NpmRegistry, NodePackage, PublishedNodePackage, sortByKey } from './npm
 import { Extension, ExtensionPackage, ExtensionPackageOptions, RawExtensionPackage } from './extension-package';
 import { ExtensionPackageCollector } from './extension-package-collector';
 import { ApplicationProps } from './application-props';
-import deepmerge = require('deepmerge');
-import resolvePackagePath = require('resolve-package-path');
+import * as deepmerge from 'deepmerge';
+import * as resolvePackagePath from 'resolve-package-path';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type ApplicationLog = (message?: any, ...optionalParams: any[]) => void;

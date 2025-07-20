@@ -18,7 +18,7 @@ import { inject, injectable, postConstruct } from '@theia/core/shared/inversify'
 import { CompositeTreeNode, PreferenceSchemaProvider, OVERRIDE_PROPERTY_PATTERN, PreferenceDataProperty } from '@theia/core/lib/browser';
 import { PreferenceConfigurations } from '@theia/core/lib/browser/preferences/preference-configurations';
 import { Emitter } from '@theia/core';
-import debounce = require('@theia/core/shared/lodash.debounce');
+import debounce from '@theia/core/shared/lodash.debounce';
 import { Preference } from './preference-types';
 import { COMMONLY_USED_SECTION_PREFIX, PreferenceLayoutProvider } from './preference-layout';
 import { PreferenceTreeLabelProvider } from './preference-tree-label-provider';

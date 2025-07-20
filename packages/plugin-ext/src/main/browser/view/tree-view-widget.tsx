@@ -393,6 +393,7 @@ export class PluginTree extends TreeImpl {
 export class PluginTreeModel extends TreeModelImpl {
 
     @inject(PluginTree)
+    // @ts-expect-error bad
     protected override readonly tree: PluginTree;
 
     set proxy(proxy: TreeViewsExt | undefined) {
@@ -459,6 +460,7 @@ export class TreeViewWidget extends TreeViewWelcomeWidget {
     readonly options: TreeViewWidgetOptions;
 
     @inject(PluginTreeModel)
+    // @ts-expect-error bad
     override readonly model: PluginTreeModel;
 
     @inject(ContextKeyService)

@@ -14,12 +14,12 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import fs = require('fs');
-import mustache = require('mustache');
-import os = require('os');
-import path = require('path');
-import semver = require('semver');
-import yargs = require('yargs');
+import * as fs from 'fs';
+import * as mustache from 'mustache';
+import * as os from 'os';
+import * as path from 'path';
+import * as semver from 'semver';
+import * as yargs from 'yargs';
 import { parseModule } from './utility';
 import { ReExport, PackageReExports } from './package-re-exports';
 type EOL = '\r\n' | '\n' | '\r';

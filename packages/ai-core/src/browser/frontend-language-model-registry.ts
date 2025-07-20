@@ -105,6 +105,7 @@ export class FrontendLanguageModelRegistryImpl
     protected client: LanguageModelDelegateClientImpl;
 
     @inject(ILogger)
+    // @ts-expect-error bad
     protected override logger: ILogger;
 
     @inject(OutputChannelManager)

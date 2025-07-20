@@ -57,7 +57,7 @@ import {
     FileUpdateOptions, FileUpdateResult, FileReadStreamOptions, FilePermission
 } from '../common/files';
 import { FileSystemWatcherServer } from '../common/filesystem-watcher-protocol';
-import trash = require('trash');
+import trash from 'trash';
 import { TextDocumentContentChangeEvent } from '@theia/core/shared/vscode-languageserver-protocol';
 import { TextDocument } from 'vscode-languageserver-textdocument';
 import { EncodingService } from '@theia/core/lib/common/encoding-service';

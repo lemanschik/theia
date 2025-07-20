@@ -646,21 +646,26 @@ class MonacoQuickPick<T extends QuickPickItem> extends MonacoQuickInput implemen
     get selectedItems(): readonly (T)[] {
         return this.wrapped.selectedItems.map(item => item.item);
     }
-
+    // @ts-expect-error bad
     readonly onDidAccept: Event<{ inBackground: boolean }> = this.wrapped.onDidAccept;
+    // @ts-expect-error bad
     readonly onDidChangeValue: Event<string> = this.wrapped.onDidChangeValue;
 
     // need to cast because of vscode issue https://github.com/microsoft/vscode/issues/190584
+    // @ts-expect-error bad
     readonly onDidTriggerButton: Event<QuickInputButton> = this.wrapped.onDidTriggerButton as Event<QuickInputButton>;
     readonly onDidTriggerItemButton: Event<QuickPickItemButtonEvent<T>> =
+        // @ts-expect-error bad
         Event.map(this.wrapped.onDidTriggerItemButton, (evt: IQuickPickItemButtonEvent<MonacoQuickPickItem<T>>) => ({
             item: evt.item.item,
             button: evt.button
         })) as Event<QuickPickItemButtonEvent<T>>;
     readonly onDidChangeActive: Event<T[]> = Event.map(
+        // @ts-expect-error bad
         this.wrapped.onDidChangeActive,
         (items: MonacoQuickPickItem<T>[]) => items.map(item => item.item));
     readonly onDidChangeSelection: Event<T[]> = Event.map(
+        // @ts-expect-error bad
         this.wrapped.onDidChangeSelection, (items: MonacoQuickPickItem<T>[]) => items.map(item => item.item));
 
     /**

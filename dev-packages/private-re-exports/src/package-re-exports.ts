@@ -14,9 +14,9 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import cp = require('child_process');
-import fs = require('fs');
-import path = require('path');
+import * as cp from 'child_process';
+import * as fs from 'fs';
+import * as path from 'path';
 import { PackageJson, parseModule, ReExportJson } from './utility';
 
 export async function readJson<T = unknown>(jsonPath: string): Promise<T> {

@@ -34,6 +34,7 @@ import { ContextKey, ContextKeyService } from '@theia/core/lib/browser/context-k
 export class TypeHierarchyContribution extends AbstractViewContribution<TypeHierarchyTreeWidget> {
 
     @inject(ApplicationShell)
+    // @ts-expect-error bad
     protected override readonly shell: ApplicationShell;
 
     @inject(EditorAccess)

@@ -24,7 +24,7 @@ import { PreferenceTreeLabelProvider } from '../../util/preference-tree-label-pr
 import { PreferencesScopeTabBar } from '../preference-scope-tabbar-widget';
 import { Disposable, nls } from '@theia/core/lib/common';
 import { JSONValue } from '@theia/core/shared/@lumino/coreutils';
-import debounce = require('@theia/core/shared/lodash.debounce');
+import debounce from '@theia/core/shared/lodash.debounce';
 import { PreferenceTreeModel } from '../../preference-tree-model';
 import { PreferencesSearchbarWidget } from '../preference-searchbar-widget';
 import * as DOMPurify from '@theia/core/shared/dompurify';
@@ -156,6 +156,7 @@ export class PreferenceHeaderRenderer extends PreferenceNodeRenderer {
 export abstract class PreferenceLeafNodeRenderer<ValueType extends JSONValue, InteractableType extends HTMLElement>
     extends PreferenceNodeRenderer
     implements Required<GeneralPreferenceNodeRenderer> {
+    // @ts-expect-error bad
     @inject(Preference.Node) protected override readonly preferenceNode: Preference.LeafNode;
     @inject(PreferenceService) protected readonly preferenceService: PreferenceService;
     @inject(ContextMenuRenderer) protected readonly menuRenderer: ContextMenuRenderer;

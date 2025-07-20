@@ -24,7 +24,7 @@ import URI from '@theia/core/lib/common/uri';
 import { EDITOR_CONTEXT_MENU_SCM } from '@theia/scm-extra/lib/browser/scm-extra-contribution';
 import { ContextKey, ContextKeyService } from '@theia/core/lib/browser/context-key-service';
 
-import debounce = require('@theia/core/shared/lodash.debounce');
+import debounce from '@theia/core/shared/lodash.debounce';
 
 export namespace BlameCommands {
     export const TOGGLE_GIT_ANNOTATIONS = Command.toLocalizedCommand({

@@ -25,7 +25,7 @@ import { HostedPluginClient, PLUGIN_HOST_BACKEND, PluginHostEnvironmentVariable,
 import { HostedPluginCliContribution } from './hosted-plugin-cli-contribution';
 import { HostedPluginLocalizationService } from './hosted-plugin-localization-service';
 import { ProcessTerminateMessage, ProcessTerminatedMessage } from './hosted-plugin-protocol';
-import psTree = require('ps-tree');
+import psTree from 'ps-tree';
 
 export interface IPCConnectionOptions {
     readonly serverName: string;

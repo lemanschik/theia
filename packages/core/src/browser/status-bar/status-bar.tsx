@@ -16,7 +16,7 @@
 
 import * as React from 'react';
 import { injectable, inject } from 'inversify';
-import debounce = require('lodash.debounce');
+import debounce from 'lodash.debounce';
 import { CommandService } from '../../common';
 import { ReactWidget } from '../widgets/react-widget';
 import { FrontendApplicationStateService } from '../frontend-application-state';

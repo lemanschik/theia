@@ -40,7 +40,7 @@ import { VSXExtensionsModel } from './vsx-extensions-model';
 import { BUILTIN_QUERY, INSTALLED_QUERY, RECOMMENDED_QUERY } from './vsx-extensions-search-model';
 import { VSXExtensionsViewContainer } from './vsx-extensions-view-container';
 import { ApplicationServer } from '@theia/core/lib/common/application-protocol';
-import debounce = require('@theia/core/shared/lodash.debounce');
+import debounce from '@theia/core/shared/lodash.debounce';
 
 export namespace VSXCommands {
     export const TOGGLE_EXTENSIONS: Command = {

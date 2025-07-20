@@ -17,7 +17,7 @@
 import { inject, named, injectable } from 'inversify';
 import { Widget } from '@lumino/widgets';
 import { ILogger, Emitter, Event, ContributionProvider, MaybePromise, WaitUntilEvent } from '../common';
-import stableJsonStringify = require('fast-json-stable-stringify');
+import stableJsonStringify from 'fast-json-stable-stringify';
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export const WidgetFactory = Symbol('WidgetFactory');

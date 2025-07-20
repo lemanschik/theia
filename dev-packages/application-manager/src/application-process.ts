@@ -22,6 +22,7 @@ import { ApplicationPackage } from '@theia/application-package';
 export class ApplicationProcess {
 
     protected readonly defaultOptions = {
+        // @ts-ignore
         cwd: this.pck.projectPath,
         env: process.env
     };

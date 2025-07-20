@@ -29,7 +29,7 @@ import { PreviewUri } from './preview-uri';
 import { PreviewPreferences } from './preview-preferences';
 import { nls } from '@theia/core/lib/common/nls';
 
-import debounce = require('@theia/core/shared/lodash.debounce');
+import debounce from '@theia/core/shared/lodash.debounce';
 
 export namespace PreviewCommands {
     /**

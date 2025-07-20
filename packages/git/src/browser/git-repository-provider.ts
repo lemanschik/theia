@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import debounce = require('@theia/core/shared/lodash.debounce');
+import debounce from '@theia/core/shared/lodash.debounce';
 
 import { injectable, inject, postConstruct } from '@theia/core/shared/inversify';
 import { WorkspaceService } from '@theia/workspace/lib/browser/workspace-service';

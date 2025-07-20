@@ -39,7 +39,7 @@ import { FileChange, FileChangeType, FileOperation } from '@theia/filesystem/lib
 import { OpenCollaborationYjsProvider } from 'open-collaboration-yjs';
 import { createMutex } from 'lib0/mutex';
 import { CollaborationUtils } from './collaboration-utils';
-import debounce = require('@theia/core/shared/lodash.debounce');
+import debounce from '@theia/core/shared/lodash.debounce';
 
 export const CollaborationInstanceFactory = Symbol('CollaborationInstanceFactory');
 export type CollaborationInstanceFactory = (connection: CollaborationInstanceOptions) => CollaborationInstance;
@@ -632,8 +632,8 @@ export class CollaborationInstance implements Disposable {
                 content: "${peer.name}";
                 background: ${colorString};
                 color: ${this.collaborationColorService.requiresDarkFont(color)
-            ? this.collaborationColorService.dark
-            : this.collaborationColorService.light};
+                ? this.collaborationColorService.dark
+                : this.collaborationColorService.light};
                 z-index: ${(100 + this.colorIndex).toFixed()}
             }`
         );

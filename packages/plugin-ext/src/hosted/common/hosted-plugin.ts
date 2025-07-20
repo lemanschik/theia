@@ -21,7 +21,7 @@
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import debounce = require('@theia/core/shared/lodash.debounce');
+import debounce from '@theia/core/shared/lodash.debounce';
 import { injectable, inject, interfaces, named, postConstruct, unmanaged } from '@theia/core/shared/inversify';
 import { PluginMetadata, HostedPluginServer, DeployedPlugin, PluginServer, PluginIdentifiers } from '../../common/plugin-protocol';
 import { AbstractPluginManagerExt, ConfigStorage } from '../../common/plugin-api-rpc';

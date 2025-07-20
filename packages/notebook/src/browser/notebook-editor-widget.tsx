@@ -34,10 +34,10 @@ import { NotebookContextManager } from './service/notebook-context-manager';
 import { NotebookViewportService } from './view/notebook-viewport-service';
 import { NotebookCellCommands } from './contributions/notebook-cell-actions-contribution';
 import { NotebookFindWidget } from './view/notebook-find-widget';
-import debounce = require('lodash/debounce');
+import debounce from 'lodash/debounce';
 import { CellOutputWebview, CellOutputWebviewFactory } from './renderers/cell-output-webview';
 import { NotebookCellOutputModel } from './view-model/notebook-cell-output-model';
-const PerfectScrollbar = require('react-perfect-scrollbar');
+import PerfectScrollbar from 'react-perfect-scrollbar';
 
 export const NotebookEditorWidgetContainerFactory = Symbol('NotebookEditorWidgetContainerFactory');
 
@@ -280,6 +280,7 @@ export class NotebookEditorWidget extends ReactWidget implements Navigatable, Sa
                     ref={(ref: HTMLDivElement) => this.viewportService.viewportElement = ref}
                 >
                     <PerfectScrollbar className='theia-notebook-scroll-container'
+                        // @ts-expect-error bad
                         ref={this.scrollBarRef}
                         onScrollY={(e: HTMLDivElement) => this.viewportService.onScroll(e)}>
                         <div className='theia-notebook-scroll-area'>

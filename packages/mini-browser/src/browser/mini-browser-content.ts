@@ -28,7 +28,7 @@ import { BaseWidget, addEventListener, codiconArray } from '@theia/core/lib/brow
 import { LocationMapperService } from './location-mapper-service';
 import { ApplicationShellMouseTracker } from '@theia/core/lib/browser/shell/application-shell-mouse-tracker';
 
-import debounce = require('@theia/core/shared/lodash.debounce');
+import debounce from '@theia/core/shared/lodash.debounce';
 import { MiniBrowserContentStyle } from './mini-browser-content-style';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
 import { FileChangesEvent, FileChangeType } from '@theia/filesystem/lib/common/files';

@@ -29,7 +29,7 @@ import { AlertMessage } from '@theia/core/lib/browser/widgets/alert-message';
 import { FileService } from '@theia/filesystem/lib/browser/file-service';
 import { nls } from '@theia/core/lib/common/nls';
 import { ScmHistoryProvider } from './scm-history-provider';
-import throttle = require('@theia/core/shared/lodash.throttle');
+import throttle from '@theia/core/shared/lodash.throttle';
 import { HistoryWidgetOptions, ScmCommitNode, ScmHistoryListNode, ScmHistorySupport, SCM_HISTORY_ID, SCM_HISTORY_LABEL, SCM_HISTORY_MAX_COUNT } from './scm-history-constants';
 export { HistoryWidgetOptions, ScmCommitNode, ScmHistoryListNode, ScmHistorySupport };
 

@@ -20,7 +20,7 @@ import { Disposable, DisposableCollection } from '../common/disposable';
 import { LabelProviderContribution, DidChangeLabelEvent } from './label-provider';
 import { FrontendApplicationConfigProvider } from './frontend-application-config-provider';
 import { PreferenceService, PreferenceSchemaProvider } from './preferences';
-import debounce = require('lodash.debounce');
+import debounce from 'lodash.debounce';
 
 const ICON_THEME_PREFERENCE_KEY = 'workbench.iconTheme';
 

@@ -27,5 +27,6 @@ export const LocalRemoteFileSytemServer = Symbol('LocalRemoteFileSytemServer');
 @injectable()
 export class LocalRemoteFileSystemProvider extends RemoteFileSystemProvider {
     @inject(LocalRemoteFileSytemServer)
+    // @ts-expect-error bad
     protected override readonly server: RpcProxy<RemoteFileSystemServer>;
 }

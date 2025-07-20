@@ -23,7 +23,7 @@ import { Deferred } from '@theia/core/lib/common/promise-util';
 import { MessageService } from '@theia/core/lib/common/message-service';
 import { Progress } from '@theia/core/lib/common/message-service-protocol';
 import { Endpoint } from '@theia/core/lib/browser/endpoint';
-import throttle = require('@theia/core/shared/lodash.throttle');
+import throttle from '@theia/core/shared/lodash.throttle';
 import { HTTP_FILE_UPLOAD_PATH } from '../common/file-upload';
 import { Semaphore } from 'async-mutex';
 import { FileSystemPreferences } from './filesystem-preferences';

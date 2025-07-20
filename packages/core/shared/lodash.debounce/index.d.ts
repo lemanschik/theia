@@ -1,2 +1,2 @@
-import debounce = require('lodash.debounce');
+import debounce from 'lodash.debounce';
 export = debounce;

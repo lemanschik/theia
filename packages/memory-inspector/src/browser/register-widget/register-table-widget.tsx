@@ -60,12 +60,13 @@ export namespace RegisterTable {
 export class RegisterTableWidget extends MemoryTableWidget {
     static override CONTEXT_MENU = ['register.view.context.menu'];
     static override ID = 'register-table-widget';
-
+    // @ts-expect-error bad
     @inject(RegisterOptionsWidget) override readonly optionsWidget: RegisterOptionsWidget;
 
     protected readonly registerNotSaved = '<not saved>';
     protected registers: RegisterReadResult;
     protected previousRegisters: RegisterReadResult | undefined;
+    // @ts-expect-error bad
     protected override options: RegisterOptions;
     protected override memory: Interfaces.WidgetMemoryState = { ...EMPTY_MEMORY, variables: [] };
 

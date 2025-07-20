@@ -17,7 +17,7 @@
 import * as ssh2 from 'ssh2';
 import * as net from 'net';
 import * as fs from '@theia/core/shared/fs-extra';
-import SftpClient = require('ssh2-sftp-client');
+import SftpClient from 'ssh2-sftp-client';
 import * as SshConfig from 'ssh-config';
 import { Emitter, Event, MessageService, QuickInputService } from '@theia/core';
 import { inject, injectable } from '@theia/core/shared/inversify';

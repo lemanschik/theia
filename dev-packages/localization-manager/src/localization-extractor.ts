@@ -20,7 +20,7 @@ import * as os from 'os';
 import * as path from 'path';
 import { glob } from 'glob';
 import { promisify } from 'util';
-import deepmerge = require('deepmerge');
+import * as deepmerge from 'deepmerge';
 import { Localization, sortLocalization } from './common';
 
 const globPromise = promisify(glob);

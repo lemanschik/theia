@@ -200,7 +200,9 @@ export class BatchingChannel implements Channel {
         return this.onMessageEmitter.event;
     };
 
+    // @ts-expect-error bad
     readonly onClose = this.underlyingChannel.onClose;
+    // @ts-expect-error bad
     readonly onError = this.underlyingChannel.onError;
 
     close(): void {

@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import debounce = require('@theia/core/shared/lodash.debounce');
+import debounce from '@theia/core/shared/lodash.debounce';
 import { URI } from '@theia/core/shared/vscode-uri';
 import { interfaces } from '@theia/core/shared/inversify';
 import { WebviewsMain, MAIN_RPC_CONTEXT, WebviewsExt, WebviewPanelViewState } from '../../common/plugin-api-rpc';

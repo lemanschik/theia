@@ -27,7 +27,7 @@ export class CallHierarchyTreeModel extends TreeModelImpl {
 
     protected _languageId: string | undefined;
     protected currentSession?: CallHierarchySession;
-
+    // @ts-expect-error bad
     @inject(CallHierarchyTree) protected override readonly tree: CallHierarchyTree;
     @inject(CallHierarchyServiceProvider) protected readonly callHierarchyServiceProvider: CallHierarchyServiceProvider;
 

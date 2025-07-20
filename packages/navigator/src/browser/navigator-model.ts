@@ -29,6 +29,7 @@ import { Disposable } from '@theia/core/lib/common/disposable';
 export class FileNavigatorModel extends FileTreeModel {
 
     @inject(OpenerService) protected readonly openerService: OpenerService;
+    // @ts-expect-error bad
     @inject(FileNavigatorTree) protected override readonly tree: FileNavigatorTree;
     @inject(WorkspaceService) protected readonly workspaceService: WorkspaceService;
     @inject(FrontendApplicationStateService) protected readonly applicationState: FrontendApplicationStateService;

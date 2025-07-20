@@ -35,7 +35,7 @@ import { Position } from '@theia/core/shared/vscode-languageserver-protocol';
 import { ChangeSet, ChangeSetElement, ChangeSetImpl, ChatUpdateChangeSetEvent } from './change-set';
 import { ChatAgentLocation } from './chat-agents';
 import { ParsedChatRequest } from './parsed-chat-request';
-import debounce = require('@theia/core/shared/lodash.debounce');
+import debounce from '@theia/core/shared/lodash.debounce';
 export { ChangeSet, ChangeSetElement, ChangeSetImpl };
 
 /**********************

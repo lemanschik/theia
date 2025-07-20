@@ -19,7 +19,7 @@ import { Event, Emitter, WaitUntilEvent } from './event';
 import { Disposable, DisposableCollection } from './disposable';
 import { ContributionProvider } from './contribution-provider';
 import { nls } from './nls';
-import debounce = require('p-debounce');
+import debounce from 'p-debounce';
 import { isObject } from './types';
 
 /**

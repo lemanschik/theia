@@ -18,7 +18,7 @@ import * as React from '@theia/core/shared/react';
 import * as DOMPurify from '@theia/core/shared/dompurify';
 import { ConsoleItem } from './console-session';
 import { Severity } from '@theia/core/lib/common/severity';
-import Anser = require('anser');
+import Anser from 'anser';
 
 export class AnsiConsoleItem implements ConsoleItem {
 

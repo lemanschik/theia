@@ -14,8 +14,8 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import React = require('@theia/core/shared/react');
-import debounce = require('@theia/core/shared/lodash.debounce');
+import * as React from '@theia/core/shared/react';
+import debounce from '@theia/core/shared/lodash.debounce';
 import * as fuzzy from '@theia/core/shared/fuzzy';
 import { injectable, inject, postConstruct, unmanaged } from '@theia/core/shared/inversify';
 import { Emitter, Event } from '@theia/core/lib/common/event';

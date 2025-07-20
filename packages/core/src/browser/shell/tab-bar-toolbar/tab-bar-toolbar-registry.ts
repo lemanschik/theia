@@ -14,7 +14,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
-import debounce = require('lodash.debounce');
+import debounce from 'lodash.debounce';
 import { inject, injectable, named } from 'inversify';
 // eslint-disable-next-line max-len
 import { CommandRegistry, ContributionProvider, Disposable, DisposableCollection, Emitter, Event, MenuModelRegistry, MenuPath } from '../../../common';

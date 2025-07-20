@@ -38,10 +38,12 @@ export class SimpleMonacoEditor extends MonacoEditorServices implements Disposab
     protected readonly onDocumentContentChangedEmitter = new Emitter<TextDocumentChangeEvent>();
     readonly onDocumentContentChanged = this.onDocumentContentChangedEmitter.event;
     protected readonly onMouseDownEmitter = new Emitter<EditorMouseEvent>();
+    // @ts-expect-error bad
     readonly onDidChangeReadOnly = this.document.onDidChangeReadOnly;
     protected readonly onLanguageChangedEmitter = new Emitter<string>();
     readonly onLanguageChanged = this.onLanguageChangedEmitter.event;
     protected readonly onScrollChangedEmitter = new Emitter<void>();
+    // @ts-expect-error bad
     readonly onEncodingChanged = this.document.onDidChangeEncoding;
     protected readonly onResizeEmitter = new Emitter<Dimension | null>();
     readonly onDidResize = this.onResizeEmitter.event;

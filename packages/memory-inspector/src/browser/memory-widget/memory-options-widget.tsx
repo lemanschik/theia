@@ -28,7 +28,7 @@ import { MWInput, MWInputWithSelect, MWSelect } from '../utils/memory-widget-com
 import { Constants, Interfaces, MemoryWidgetOptions, Utils } from '../utils/memory-widget-utils';
 import { VariableRange } from '../utils/memory-widget-variable-utils';
 import { MWMultiSelect, SingleSelectItemProps } from '../utils/multi-select-bar';
-import debounce = require('@theia/core/shared/lodash.debounce');
+import debounce from '@theia/core/shared/lodash.debounce';
 
 export const EMPTY_MEMORY: Interfaces.MemoryReadResult = deepFreeze({
     bytes: new Uint8Array(),

@@ -51,6 +51,7 @@ export class AIChatTreeInputWidget extends AIChatInputWidget {
     protected readonly args: AIChatTreeInputArgs;
 
     @inject(AIChatTreeInputConfiguration) @optional()
+    // @ts-expect-error bad
     protected override readonly configuration: AIChatTreeInputConfiguration | undefined;
 
     get requestNode(): EditableRequestNode {

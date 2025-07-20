@@ -71,6 +71,7 @@ export class ScmInput implements Disposable {
         this.toDispose.dispose();
     }
 
+    // @ts-expect-error bad
     protected _placeholder = this.options.placeholder;
     get placeholder(): string | undefined {
         return this._placeholder;
@@ -95,7 +96,7 @@ export class ScmInput implements Disposable {
         this.fireDidChange();
         this.validate();
     }
-
+    // @ts-expect-error bad
     protected _visible = this.options.visible;
     get visible(): boolean {
         return this._visible ?? true;
@@ -108,7 +109,7 @@ export class ScmInput implements Disposable {
         this.fireDidChange();
         this.validate();
     }
-
+    // @ts-expect-error bad
     protected _enabled = this.options.enabled ?? true;
     get enabled(): boolean {
         return this._enabled;

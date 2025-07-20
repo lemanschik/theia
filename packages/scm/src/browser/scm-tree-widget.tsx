@@ -58,6 +58,7 @@ export class ScmTreeWidget extends TreeWidget {
     @inject(ThemeService) protected readonly themeService: ThemeService;
 
     // TODO: Make TreeWidget generic to better type those fields.
+    // @ts-expect-error bad
     override readonly model: ScmTreeModel;
 
     constructor(

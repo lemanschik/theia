@@ -31,7 +31,7 @@ import { CancellationToken, isObject } from '@theia/core';
 import { HostedPluginSupport } from '../../hosted/browser/hosted-plugin';
 import { PluginSharedStyle } from './plugin-shared-style';
 import { ThemeIcon } from '@theia/core/lib/common/theme';
-import debounce = require('@theia/core/shared/lodash.debounce');
+import debounce from '@theia/core/shared/lodash.debounce';
 
 interface TerminalObserverData {
     nrOfLinesToMatch: number;
