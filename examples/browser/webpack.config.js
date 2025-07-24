@@ -13,7 +13,8 @@ const nodeConfig = require('./gen-webpack.node.config.js');
  */
 configs[0].module.rules.push({
     test: /\.js$/,
-    loader: require.resolve('@theia/application-manager/lib/expose-loader')
+    // @ts-ignore
+    loader: require.resolve('@theia/application-manager/lib/expose-loader.js')
 });
 
 

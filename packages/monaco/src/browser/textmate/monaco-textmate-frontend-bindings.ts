@@ -84,7 +84,7 @@ export async function createOnigasmLib(): Promise<IOnigLib> {
 
 export async function fetchOnigasm(): Promise<ArrayBuffer> {
     // Using Webpack's wasm loader should give us a URL to fetch the resource from:
-    const onigasmPath: string = require('vscode-oniguruma/release/onig.wasm');
-    const response = await fetch(onigasmPath, { method: 'GET' });
+    // TODO: const onigasmPath: string = ('vscode-oniguruma/release/onig.wasm');
+    const response = await fetch("vscode-oniguruma/release/onig.wasm", { method: 'GET' });
     return response.arrayBuffer();
 }

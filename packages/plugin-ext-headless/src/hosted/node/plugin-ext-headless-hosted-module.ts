@@ -43,7 +43,7 @@ export function bindCommonHostedBackend(bind: interfaces.Bind): void {
     bind(BackendPluginHostableFilter).toConstantValue(isHeadlessPlugin);
 
     bind(HostedPluginProcessConfiguration).toConstantValue({
-        path: path.join(__dirname, 'plugin-host-headless'),
+        path: path.join(import.meta.dirname, 'plugin-host-headless'),
     });
 }
 

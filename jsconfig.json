@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "disableSizeLimit": false,
+    "maxNodeModuleJsDepth": 1,
+    "skipLibCheck": true,
+    "checkJs": true,
+    "noEmit": true,
+    "declaration": false,
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "target": "ES2022",
+    "jsx": "react-jsx",
+    "allowImportingTsExtensions": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true
+  },
+  "include": [
+    "**/*.js",
+    "**/*.mjs",
+    "**/*.cjs",
+    "**/.*.js",
+    "**/.*.mjs",
+    "**/.*.cjs"
+  ],
+  "exclude": [
+    "node_modules",
+    "node_modules/*",
+    "**/node_modules/*",
+    "**/examples/*",
+    "**/src/**",
+    "old.tsconfig.json"
+  ]
+}

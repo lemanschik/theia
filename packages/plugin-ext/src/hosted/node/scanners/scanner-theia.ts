@@ -141,7 +141,7 @@ export abstract class AbstractPluginScanner implements PluginScanner {
         };
 
         if (this._backendInitPath) {
-            result.backendInitPath = path.join(__dirname, this._backendInitPath);
+            result.backendInitPath = path.join(import.meta.dirname, this._backendInitPath);
         }
 
         return result;

@@ -1,5 +1,5 @@
 {
-  "extends": "../../configs/base.tsconfig",
+  "extends": "@theia/dev-configs/base.tsconfig",
   "compilerOptions": {
     "composite": true,
     "rootDir": "src",

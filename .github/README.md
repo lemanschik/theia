@@ -1,3 +1,14 @@
+node node_modules\node\installArchSpecificPackage.js
+
+
+That means the following constructs are not supported:
+
+enum declarations
+namespaces and modules with runtime code
+parameter properties in classes
+Non-ECMAScript import = and export = assignments
+
+
 TODO:
 
 npm run compile
@@ -8,6 +19,8 @@ npm run compile
 
 fix.
 
+
+TODO: Theia reexports plugin only handels electron and core reexports lets hardcode that!
 
 =========================
 

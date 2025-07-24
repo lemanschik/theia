@@ -12,7 +12,7 @@
     "@theia/re-exports": "1.63.0"
   },
   "peerDependencies": {
-    "electron": "37.2.1"
+    "electron": "^37.2.3"
   },
   "theiaReExports": {
     "shared": {
@@ -32,7 +32,7 @@
   "keywords": [
     "theia-extension"
   ],
-  "license": "EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0",
+  "license": "Apache-2.0 OR EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/eclipse-theia/theia.git"

@@ -142,7 +142,7 @@ export class Askpass implements Disposable {
         const ok = await this.ready.promise;
         if (!ok) {
             return {
-                GIT_ASKPASS: path.join(__dirname, '..', '..', '..', 'src', 'electron-node', 'askpass', 'askpass-empty.sh')
+                GIT_ASKPASS: path.join(import.meta.dirname, '..', '..', '..', 'src', 'electron-node', 'askpass', 'askpass-empty.sh')
             };
         }
 
@@ -178,7 +178,7 @@ export class Askpass implements Disposable {
     }
 
     protected GIT_ASKPASS(): MaybePromise<string> {
-        return path.join(__dirname, '..', '..', '..', 'src', 'electron-node', 'askpass', 'askpass.sh');
+        return path.join(import.meta.dirname, '..', '..', '..', 'src', 'electron-node', 'askpass', 'askpass.sh');
     }
 
     protected ELECTRON_RUN_AS_NODE(): MaybePromise<string | undefined> {
@@ -190,7 +190,7 @@ export class Askpass implements Disposable {
     }
 
     protected THEIA_GIT_ASKPASS_MAIN(): MaybePromise<string | undefined> {
-        return path.join(__dirname, 'askpass-main.js');
+        return path.join(import.meta.dirname, 'askpass-main.js');
     }
 
     protected THEIA_GIT_ASKPASS_HANDLE(): MaybePromise<string | undefined> {

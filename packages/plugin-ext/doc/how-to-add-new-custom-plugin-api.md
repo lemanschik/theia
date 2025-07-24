@@ -38,9 +38,9 @@ export class FooExtPluginApiProvider implements ExtPluginApiProvider {
                 initFunction: 'fooInitializationFunction',
                 initVariable: 'foo_global_variable'
             },
-            backendInitPath: path.join(__dirname, 'foo-init'),
+            backendInitPath: path.join(import.meta.dirname, 'foo-init'),
             // Provide the same API to headless plugins, too (or a different/subset API)
-            headlessInitPath: path.join(__dirname, 'foo-init')
+            headlessInitPath: path.join(import.meta.dirname, 'foo-init')
         };
     }
 }

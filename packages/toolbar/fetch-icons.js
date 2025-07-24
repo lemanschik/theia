@@ -18,11 +18,11 @@ const fs = require('fs');
 const path = require('path');
 
 // This script generates an JSON array of font-awesome classnames from the font-awesome.css files
-const fontAwesomeCSSPath = path.resolve(__dirname, '../../node_modules/font-awesome/css/font-awesome.css');
-const fontAwesomeDestination = path.resolve(__dirname, './src/browser/font-awesome.json');
+const fontAwesomeCSSPath = path.resolve(import.meta.dirname, '../../node_modules/font-awesome/css/font-awesome.css');
+const fontAwesomeDestination = path.resolve(import.meta.dirname, './src/browser/font-awesome.json');
 
-const codiconCSSPath = path.resolve(__dirname, '../../node_modules/@vscode/codicons/dist/codicon.css')
-const codiconDestination = path.resolve(__dirname, './src/browser/codicon.json')
+const codiconCSSPath = path.resolve(import.meta.dirname, '../../node_modules/@vscode/codicons/dist/codicon.css')
+const codiconDestination = path.resolve(import.meta.dirname, './src/browser/codicon.json')
 
 const faContent = fs.readFileSync(fontAwesomeCSSPath, 'utf-8');
 const regexp = /([\w,-]*):before/gm;

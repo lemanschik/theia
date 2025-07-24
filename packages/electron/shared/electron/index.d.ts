@@ -1,1 +1,1 @@
-export * as Electron from 'electron';
+export { default } from 'electron';

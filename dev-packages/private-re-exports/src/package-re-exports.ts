@@ -20,12 +20,36 @@ import path from 'path';
 import { PackageJson, parseModule, ReExportJson } from './utility.js';
 import { createRequire } from 'module';
 
-export async function readJson<T = unknown>(jsonPath: string): Promise<T> {
+const require = createRequire(import.meta.url);
+export async function readJsonAsync<T = unknown>(jsonPath: string): Promise<T> {
     return JSON.parse(await fs.promises.readFile(jsonPath, 'utf8')) as T;
 }
+
+export function readJson<T = unknown>(jsonPath: string): T {
+    return JSON.parse(fs.readFileSync(jsonPath, 'utf8')) as T;
+}
+
+// export async function readJsonAsync(jsonPath) {
+//     return JSON.parse(await fs.promises.readFile(jsonPath, 'utf8'));
+// }
+
+// export function readJson(jsonPath) {
+//     return JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+// }
+
 // TODO Find better method
+const tryResolve = (packageName = "", parent = "") => {
+    try {
+        return import.meta?.resolve(packageName, parent);
+    } catch (e) {
+        console.warn({ packageName, parent, err: e })
+    }
+}
+const requireResolveCompat = (packageName = "", { paths } = { paths: [import.meta.url] }) =>
+    paths.map(parent => tryResolve(packageName, parent)).find(x => x) || "";
+
 export async function readPackageJson(packageName: string, options?: { paths?: string[] }): Promise<[string, PackageJson]> {
-    const packageJsonPath = createRequire(import.meta.url).resolve(`${packageName}/package.json`, options);
+    const packageJsonPath = require.resolve(`${packageName}/package.json`, options);
     const packageJson = await readJson<PackageJson>(packageJsonPath);
     return [packageJsonPath, packageJson];
 }
@@ -167,20 +191,21 @@ export class PackageReExports {
         const [packageRoot, reExports] = await parsePackageReExports(packageJsonPath, packageJson);
         return new PackageReExports(packageName, packageRoot, reExports);
     }
-
+    // TODO: Does not work as expected stdout always empty
     static FromPackageSync(packageName: string): PackageReExports {
         // Some tools (e.g. eslint) don't support async operations.
         // To get around this, we can spawn a sub NodeJS process that will run the asynchronous
         // logic and then synchronously wait for the serialized result on the standard output.
-        const scriptPath = require.resolve('./bin-package-re-exports-from-package.js');
-        const { stdout } = cp.spawnSync(process.platform === 'win32' ? `"${process.argv[0]}"` : process.argv[0], [...process.execArgv, scriptPath, packageName], {
-            env: {
-                ELECTRON_RUN_AS_NODE: '1'
-            },
-            encoding: 'utf8',
-            stdio: ['ignore', 'pipe', 'inherit'],
-            shell: true
-        });
+        // const scriptPath = require.resolve('./bin-package-re-exports-from-package.js');
+        // const spawnArgs = process.platform === 'win32' ? `"${process.argv[0]}"` : process.argv[0], [...process.execArgv, scriptPath, packageName];
+        // const { stdout } = cp.spawnSync(process.platform === 'win32' ? `"${process.argv[0]}"` : process.argv[0], [...process.execArgv, scriptPath, packageName], {
+        //     env: {
+        //         ELECTRON_RUN_AS_NODE: '1'
+        //     },
+        //     encoding: 'utf8',
+        //     stdio: ['ignore', 'pipe', 'inherit'],
+        //     shell: true
+        // });
         const [packageRoot, reExports] = JSON.parse(stdout) as [string, ReExport[]];
         return new PackageReExports(packageName, packageRoot, reExports);
     }

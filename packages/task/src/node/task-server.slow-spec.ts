@@ -53,7 +53,7 @@ const script2 = './test-arguments-2.js';
 
 // we use test-resources subfolder ('<theia>/packages/task/test-resources/'),
 // as workspace root, for these tests
-const wsRootUri: URI = FileUri.create(__dirname).resolve('../../test-resources');
+const wsRootUri: URI = FileUri.create(import.meta.dirname).resolve('../../test-resources');
 const wsRoot: string = FileUri.fsPath(wsRootUri);
 
 describe('Task server / back-end', function (): void {

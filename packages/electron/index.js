@@ -13,15 +13,7 @@
 //
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
-
-Object.defineProperty(exports, '__esModule', { value: true });
-exports.electronRange = require('./package.json').peerDependencies.electron;
-try {
-    exports.electronVersion = require('electron/package.json').version;
-} catch (error) {
-    if (error.code === 'MODULE_NOT_FOUND') {
-        exports.electronVersion = undefined;
-    } else {
-        throw error;
-    }
-}
+import electronPkgJson from 'electron/package.json'  with { type: 'json' };
+import pkgJson from './package.json' with { type: 'json' };
+export const electronRange = pkgJson.peerDependencies.electron;
+export const electronVersion = electronPkgJson.version;

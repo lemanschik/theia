@@ -1,0 +1,3036 @@
+From 1e581b1c1736a6ed2b0c606f32bf5e6917912c8b Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Filip=20Tron=C3=AD=C4=8Dek?= <filip@gitpod.io>
+Date: Tue, 26 Oct 2021 16:48:41 +0000
+Subject: [PATCH 01/16] code web server initial commit
+
+Tool: gitpod/catfood.gitpod.cloud
+---
+ .gitpod.Dockerfile                            |  23 +
+ .gitpod.yml                                   |  28 +
+ README.md                                     | 133 ++--
+ build/gulpfile.js                             |   2 +
+ build/lib/compilation.js                      | 112 ++--
+ build/lib/compilation.ts                      |  16 +
+ package.json                                  |   4 +-
+ product.json                                  | 630 +++++++++++++++++-
+ scripts/sync-helper.js                        | 221 ++++++
+ scripts/sync-with-upstream.sh                 |  89 +++
+ src/server-main.ts                            |   2 +-
+ src/vs/code/browser/workbench/workbench.ts    |  11 +-
+ src/vs/server/node/webClientServer.ts         |  20 +-
+ .../common/extensionsProposedApi.ts           |   2 +-
+ 14 files changed, 1160 insertions(+), 133 deletions(-)
+ create mode 100644 .gitpod.Dockerfile
+ create mode 100644 .gitpod.yml
+ create mode 100644 scripts/sync-helper.js
+ create mode 100755 scripts/sync-with-upstream.sh
+
+diff --git a/.gitpod.Dockerfile b/.gitpod.Dockerfile
+new file mode 100644
+index 0000000000000..4daab9941441a
+--- /dev/null
++++ b/.gitpod.Dockerfile
+@@ -0,0 +1,23 @@
++FROM gitpod/workspace-full:latest
++
++USER gitpod
++
++# We use latest major version of Node.js distributed VS Code. (see about dialog in your local VS Code)
++RUN bash -c ". .nvm/nvm.sh \
++    && nvm install 20 \
++    && nvm use 20 \
++    && nvm alias default 20"
++
++RUN echo "nvm use default &>/dev/null" >> ~/.bashrc.d/51-nvm-fix
++
++# Install dependencies
++RUN sudo apt-get update \
++    && sudo apt-get install -y --no-install-recommends \
++        xvfb x11vnc fluxbox dbus-x11 x11-utils x11-xserver-utils xdg-utils \
++        fbautostart xterm eterm gnome-terminal gnome-keyring seahorse nautilus \
++        libx11-dev libxkbfile-dev libsecret-1-dev libnotify4 libnss3 libxss1 \
++        libasound2 libgbm1 xfonts-base xfonts-terminus fonts-noto fonts-wqy-microhei \
++        fonts-droid-fallback vim-tiny nano libgconf2-dev libgtk-3-dev twm \
++    && sudo apt-get clean && sudo rm -rf /var/cache/apt/* && sudo rm -rf /var/lib/apt/lists/* && sudo rm -rf /tmp/*
++
++ENV DISABLE_V8_COMPILE_CACHE=1
+diff --git a/.gitpod.yml b/.gitpod.yml
+new file mode 100644
+index 0000000000000..2013d9fa74b70
+--- /dev/null
++++ b/.gitpod.yml
+@@ -0,0 +1,28 @@
++image:
++  file: .gitpod.Dockerfile
++ports:
++  - port: 9888
++    onOpen: open-browser
++tasks:
++  - init: |
++      yarn
++      yarn server:init
++    command: |
++      gp sync-done init
++      export NODE_ENV=development
++      export VSCODE_DEV=1
++      yarn gulp watch-init
++    name: watch app
++  - command: |
++      export NODE_ENV=development
++      export VSCODE_DEV=1
++      gp sync-await init
++      ./scripts/code-server.sh  --without-connection-token
++    name: run app
++    openMode: split-right
++github:
++  prebuilds:
++    pullRequestsFromForks: true
++vscode:
++  extensions:
++    - dbaeumer.vscode-eslint
+diff --git a/README.md b/README.md
+index 61df8fc6bb44e..23ff729999b1c 100644
+--- a/README.md
++++ b/README.md
+@@ -1,79 +1,114 @@
+-# Visual Studio Code - Open Source ("Code - OSS")
++# OpenVSCode Server
+ 
+-[![Feature Requests](https://img.shields.io/github/issues/microsoft/vscode/feature-request.svg)](https://github.com/microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3Afeature-request+sort%3Areactions-%2B1-desc)
+-[![Bugs](https://img.shields.io/github/issues/microsoft/vscode/bug.svg)](https://github.com/microsoft/vscode/issues?utf8=✓&q=is%3Aissue+is%3Aopen+label%3Abug)
+-[![Gitter](https://img.shields.io/badge/chat-on%20gitter-yellow.svg)](https://gitter.im/Microsoft/vscode)
++[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-908a85?logo=gitpod)](https://gitpod.io/from-referrer)
++[![GitHub](https://img.shields.io/github/license/gitpod-io/openvscode-server)](https://github.com/gitpod-io/openvscode-server/blob/main/LICENSE.txt)
++[![Discord](https://img.shields.io/discord/816244985187008514)](https://www.gitpod.io/chat)
+ 
+-## The Repository
++## What is this?
+ 
+-This repository ("`Code - OSS`") is where we (Microsoft) develop the [Visual Studio Code](https://code.visualstudio.com) product together with the community. Not only do we work on code and issues here, we also publish our [roadmap](https://github.com/microsoft/vscode/wiki/Roadmap), [monthly iteration plans](https://github.com/microsoft/vscode/wiki/Iteration-Plans), and our [endgame plans](https://github.com/microsoft/vscode/wiki/Running-the-Endgame). This source code is available to everyone under the standard [MIT license](https://github.com/microsoft/vscode/blob/main/LICENSE.txt).
++This project provides a version of VS Code that runs a server on a remote machine and allows access through a modern web browser. It's based on the very same architecture used by [Gitpod](https://www.gitpod.io) or [GitHub Codespaces](https://github.com/features/codespaces) at scale.
+ 
+-## Visual Studio Code
++<img width="1624" alt="Screenshot 2021-09-02 at 08 39 26" src="https://user-images.githubusercontent.com/372735/131794918-d6602646-4d67-435b-88fe-620a3cc0a3aa.png">
+ 
+-<p align="center">
+-  <img alt="VS Code in action" src="https://user-images.githubusercontent.com/35271042/118224532-3842c400-b438-11eb-923d-a5f66fa6785a.png">
+-</p>
++## Why?
+ 
+-[Visual Studio Code](https://code.visualstudio.com) is a distribution of the `Code - OSS` repository with Microsoft-specific customizations released under a traditional [Microsoft product license](https://code.visualstudio.com/License/).
++VS Code has traditionally been a desktop IDE built with web technologies. A few years back, people started patching it in order to run it in a remote context and to make it accessible through web browsers. These efforts have been complex and error prone, because many changes had to be made across the large code base of VS Code.
+ 
+-[Visual Studio Code](https://code.visualstudio.com) combines the simplicity of a code editor with what developers need for their core edit-build-debug cycle. It provides comprehensive code editing, navigation, and understanding support along with lightweight debugging, a rich extensibility model, and lightweight integration with existing tools.
++Luckily, in 2019 the VS Code team started to refactor its architecture to support a browser-based working mode. While this architecture has been adopted by Gitpod and GitHub, the important bits have not been open-sourced, until now. As a result, many people in the community still use the old, hard to maintain and error-prone approach.
+ 
+-Visual Studio Code is updated monthly with new features and bug fixes. You can download it for Windows, macOS, and Linux on [Visual Studio Code's website](https://code.visualstudio.com/Download). To get the latest releases every day, install the [Insiders build](https://code.visualstudio.com/insiders).
++At Gitpod, we've been asked a lot about how we do it. So we thought we might as well share the minimal set of changes needed so people can rely on the latest version of VS Code, have a straightforward upgrade path and low maintenance effort.
+ 
+-## Contributing
++## Getting started
+ 
+-There are many ways in which you can participate in this project, for example:
++### Docker
+ 
+-* [Submit bugs and feature requests](https://github.com/microsoft/vscode/issues), and help us verify as they are checked in
+-* Review [source code changes](https://github.com/microsoft/vscode/pulls)
+-* Review the [documentation](https://github.com/microsoft/vscode-docs) and make pull requests for anything from typos to additional and new content
++- Start the server:
++```bash
++docker run -it --init -p 3000:3000 -v "$(pwd):/home/workspace:cached" gitpod/openvscode-server
++```
++- Visit the URL printed in your terminal.
+ 
+-If you are interested in fixing issues and contributing directly to the code base,
+-please see the document [How to Contribute](https://github.com/microsoft/vscode/wiki/How-to-Contribute), which covers the following:
+ 
+-* [How to build and run from source](https://github.com/microsoft/vscode/wiki/How-to-Contribute)
+-* [The development workflow, including debugging and running tests](https://github.com/microsoft/vscode/wiki/How-to-Contribute#debugging)
+-* [Coding guidelines](https://github.com/microsoft/vscode/wiki/Coding-Guidelines)
+-* [Submitting pull requests](https://github.com/microsoft/vscode/wiki/How-to-Contribute#pull-requests)
+-* [Finding an issue to work on](https://github.com/microsoft/vscode/wiki/How-to-Contribute#where-to-contribute)
+-* [Contributing to translations](https://aka.ms/vscodeloc)
++_Note_: Feel free to use the `nightly` tag to test the latest version, i.e. `gitpod/openvscode-server:nightly`.
+ 
+-## Feedback
++#### Custom Environment
++- If you want to add dependencies to this Docker image, here is a template to help:
++	```Dockerfile
+ 
+-* Ask a question on [Stack Overflow](https://stackoverflow.com/questions/tagged/vscode)
+-* [Request a new feature](CONTRIBUTING.md)
+-* Upvote [popular feature requests](https://github.com/microsoft/vscode/issues?q=is%3Aopen+is%3Aissue+label%3Afeature-request+sort%3Areactions-%2B1-desc)
+-* [File an issue](https://github.com/microsoft/vscode/issues)
+-* Connect with the extension author community on [GitHub Discussions](https://github.com/microsoft/vscode-discussions/discussions) or [Slack](https://aka.ms/vscode-dev-community)
+-* Follow [@code](https://twitter.com/code) and let us know what you think!
++	FROM gitpod/openvscode-server:latest
+ 
+-See our [wiki](https://github.com/microsoft/vscode/wiki/Feedback-Channels) for a description of each of these channels and information on some other available community-driven channels.
++	USER root # to get permissions to install packages and such
++	RUN # the installation process for software needed
++	USER openvscode-server # to restore permissions for the web interface
+ 
+-## Related Projects
++	```
++- For additional possibilities, please consult the `Dockerfile` for OpenVSCode Server at https://github.com/gitpod-io/openvscode-releases/
+ 
+-Many of the core components and extensions to VS Code live in their own repositories on GitHub. For example, the [node debug adapter](https://github.com/microsoft/vscode-node-debug) and the [mono debug adapter](https://github.com/microsoft/vscode-mono-debug) repositories are separate from each other. For a complete list, please visit the [Related Projects](https://github.com/microsoft/vscode/wiki/Related-Projects) page on our [wiki](https://github.com/microsoft/vscode/wiki).
++### Linux
+ 
+-## Bundled Extensions
++- [Download the latest release](https://github.com/gitpod-io/openvscode-server/releases/latest)
++- Untar and run the server
++	```bash
++	tar -xzf openvscode-server-v${OPENVSCODE_SERVER_VERSION}.tar.gz
++	cd openvscode-server-v${OPENVSCODE_SERVER_VERSION}
++	./bin/openvscode-server # you can add arguments here, use --help to list all of the possible options
++	```
+ 
+-VS Code includes a set of built-in extensions located in the [extensions](extensions) folder, including grammars and snippets for many languages. Extensions that provide rich language support (code completion, Go to Definition) for a language have the suffix `language-features`. For example, the `json` extension provides coloring for `JSON` and the `json-language-features` extension provides rich language support for `JSON`.
++  From the possible entrypoint arguments, the most notable ones are
++	- `--port` - the port number to start the server on, this is 3000 by default
++	- `--without-connection-token` - used by default in the docker image
++	- `--connection-token` & `--connection-secret` for securing access to the IDE, you can read more about it in [Securing access to your IDE](#securing-access-to-your-ide).
++	-  `--host` - determines the host the server is listening on. It defaults to `localhost`, so for accessing remotely it's a good idea to add `--host 0.0.0.0` to your launch arguments.
+ 
+-## Development Container
++- Visit the URL printed in your terminal.
+ 
+-This repository includes a Visual Studio Code Dev Containers / GitHub Codespaces development container.
++_Note_: You can use [pre-releases](https://github.com/gitpod-io/openvscode-server/releases) to test nightly changes.
+ 
+-* For [Dev Containers](https://aka.ms/vscode-remote/download/containers), use the **Dev Containers: Clone Repository in Container Volume...** command which creates a Docker volume for better disk I/O on macOS and Windows.
+-  * If you already have VS Code and Docker installed, you can also click [here](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/microsoft/vscode) to get started. This will cause VS Code to automatically install the Dev Containers extension if needed, clone the source code into a container volume, and spin up a dev container for use.
++### Securing access to your IDE
+ 
+-* For Codespaces, install the [GitHub Codespaces](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) extension in VS Code, and use the **Codespaces: Create New Codespace** command.
++Since OpenVSCode Server v1.64, you can access the Web UI without authentication (anyone can access the IDE using just the hostname and port), if you need some kind of basic authentication then you can start the server with `--connection-token YOUR_TOKEN`, the provided `YOUR_TOKEN` will be used and the authenticated URL will be displayed in your terminal once you start the server. You can also create a plaintext file with the desired token as its contents and provide it to the server with `--connection-secret YOUR_SECRET_FILE`.
+ 
+-Docker / the Codespace should have at least **4 Cores and 6 GB of RAM (8 GB recommended)** to run full build. See the [development container README](.devcontainer/README.md) for more information.
++If you want to use a connection token and are working with OpenVSCode Server via [the Docker image](https://hub.docker.com/r/gitpod/openvscode-server), you will have to edit the `ENTRYPOINT` in [the Dockerfile](https://github.com/gitpod-io/openvscode-releases/blob/eb59ab37e23f8d17532b4af4de37eafaf48037a5/Dockerfile#L64) or modify it with the [`entrypoint` option](https://docs.docker.com/compose/compose-file/compose-file-v3/#entrypoint) when working with `docker-compose`.
++
++### Deployment guides
+ 
+-## Code of Conduct
++Please refer to [Guides](https://github.com/gitpod-io/openvscode-server/tree/docs/guides) to learn how to deploy OpenVSCode Server to your cloud provider of choice.
+ 
+-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
++## The scope of this project
+ 
+-## License
++This project only adds minimal bits required to run VS Code in a server scenario. We have no intention of changing VS Code in any way or to add additional features to VS Code itself. Please report feature requests, bug fixes, etc. in the upstream repository.
++
++> **For any feature requests, bug reports, or contributions that are not specific to running VS Code in a server context, please go to [Visual Studio Code - Open Source "OSS"](https://github.com/microsoft/vscode)**
++
++## Documentation
++
++All documentation is available in [the `docs` branch](https://github.com/gitpod-io/openvscode-server/tree/docs) of this project.
++
++## Supporters
++
++The project is supported by companies such as [GitLab](https://gitlab.com/), [VMware](https://www.vmware.com/), [Uber](https://www.uber.com/), [SAP](https://www.sap.com/), [Sourcegraph](https://sourcegraph.com/), [RStudio](https://www.rstudio.com/), [SUSE](https://rancher.com/), [Tabnine](https://www.tabnine.com/), [Render](https://render.com/) and [TypeFox](https://www.typefox.io/).
++
++## Contributing
+ 
+-Copyright (c) Microsoft Corporation. All rights reserved.
++Thanks for your interest in contributing to the project 🙏. You can start a development environment with the following button:
++
++[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/from-referrer)
++
++To learn about the code structure and other topics related to contributing, please refer to the [development docs](https://github.com/gitpod-io/openvscode-server/blob/docs/development.md).
++
++## Bundled Extensions
++
++VS Code includes a set of built-in extensions located in the [extensions](extensions) folder, including grammars and snippets for many languages. Extensions that provide rich language support (code completion, Go to Definition) for a language have the suffix `language-features`. For example, the `json` extension provides coloring for `JSON` and the `json-language-features` extension provides rich language support for `JSON`.
++
++## Development Container
++
++This repository includes a Visual Studio Code Dev Containers / GitHub Codespaces development container.
++
++- For [Dev Containers](https://aka.ms/vscode-remote/download/containers), use the **Dev Containers: Clone Repository in Container Volume...** command which creates a Docker volume for better disk I/O on macOS and Windows.
++     - If you already have VS Code and Docker installed, you can also click [here](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/microsoft/vscode) to get started. This will cause VS Code to automatically install the Dev Containers extension if needed, clone the source code into a container volume, and spin up a dev container for use.
++- For Codespaces, install the [GitHub Codespaces](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) extension in VS Code, and use the **Codespaces: Create New Codespace** command.
++
++Docker / the Codespace should have at least **4 Cores and 6 GB of RAM (8 GB recommended)** to run full build. See the [development container README](.devcontainer/README.md) for more information.
+ 
+-Licensed under the [MIT](LICENSE.txt) license.
++## Legal
++This project is not affiliated with Microsoft Corporation.
+diff --git a/build/gulpfile.js b/build/gulpfile.js
+index 7894398c2ea94..95a47e51b642f 100644
+--- a/build/gulpfile.js
++++ b/build/gulpfile.js
+@@ -34,6 +34,8 @@ gulp.task(compileClientTask);
+ const watchClientTask = task.define('watch-client', task.series(util.rimraf('out'), task.parallel(watchTask('out', false), watchApiProposalNamesTask)));
+ gulp.task(watchClientTask);
+ 
++gulp.task(task.define('watch-init', require('./lib/compilation').watchTask('out', false)));
++
+ // All
+ const _compileTask = task.define('compile', task.parallel(monacoTypecheckTask, compileClientTask, compileExtensionsTask, compileExtensionMediaTask));
+ gulp.task(_compileTask);
+diff --git a/build/lib/compilation.js b/build/lib/compilation.js
+index 61a6d28b29fb4..5ba006c87658e 100644
+--- a/build/lib/compilation.js
++++ b/build/lib/compilation.js
+@@ -3,24 +3,24 @@
+  *  Copyright (c) Microsoft Corporation. All rights reserved.
+  *  Licensed under the MIT License. See License.txt in the project root for license information.
+  *--------------------------------------------------------------------------------------------*/
+-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
++var __createBinding = (this && this.__createBinding) || (Object.create ? (function (o, m, k, k2) {
+     if (k2 === undefined) k2 = k;
+     var desc = Object.getOwnPropertyDescriptor(m, k);
+     if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+-      desc = { enumerable: true, get: function() { return m[k]; } };
++        desc = { enumerable: true, get: function () { return m[k]; } };
+     }
+     Object.defineProperty(o, k2, desc);
+-}) : (function(o, m, k, k2) {
++}) : (function (o, m, k, k2) {
+     if (k2 === undefined) k2 = k;
+     o[k2] = m[k];
+ }));
+-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
++var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function (o, v) {
+     Object.defineProperty(o, "default", { enumerable: true, value: v });
+-}) : function(o, v) {
++}) : function (o, v) {
+     o["default"] = v;
+ });
+ var __importStar = (this && this.__importStar) || (function () {
+-    var ownKeys = function(o) {
++    var ownKeys = function (o) {
+         ownKeys = Object.getOwnPropertyNames || function (o) {
+             var ar = [];
+             for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+@@ -61,6 +61,9 @@ const task = __importStar(require("./task"));
+ const index_1 = require("./mangle/index");
+ const ts = require("typescript");
+ const watch = require('./watch');
++const packageJson = require('../../package.json');
++const productJson = require('../../product.json');
++const replace = require('gulp-replace');
+ // --- gulp-tsb: compile and transpile --------------------------------
+ const reporter = (0, reporter_1.createReporter)();
+ function getTypeScriptCompilerOptions(src) {
+@@ -96,8 +99,19 @@ function createCompile(src, { build, emitError, transpileOnly, preserveEnglish }
+         const isUtf8Test = (f) => /(\/|\\)test(\/|\\).*utf8/.test(f.path);
+         const isRuntimeJs = (f) => f.path.endsWith('.js') && !f.path.includes('fixtures');
+         const noDeclarationsFilter = util.filter(data => !(/\.d\.ts$/.test(data.path)));
++        const productJsFilter = util.filter(data => !build && data.path.endsWith('vs/platform/product/common/product.ts'));
++        const productConfiguration = JSON.stringify({
++            ...productJson,
++            version: `${packageJson.version}-dev`,
++            nameShort: `${productJson.nameShort} Dev`,
++            nameLong: `${productJson.nameLong} Dev`,
++            dataFolderName: `${productJson.dataFolderName}-dev`
++        });
+         const input = event_stream_1.default.through();
+         const output = input
++            .pipe(productJsFilter)
++            .pipe(replace(/{\s*\/\*BUILD->INSERT_PRODUCT_CONFIGURATION\*\/\s*}/, productConfiguration, { skipBinary: true }))
++            .pipe(productJsFilter.restore)
+             .pipe(util.$if(isUtf8Test, bom())) // this is required to preserve BOM in test files that loose it otherwise
+             .pipe(util.$if(!build && isRuntimeJs, util.appendOwnPathSourceURL()))
+             .pipe(tsFilter)
+@@ -107,10 +121,10 @@ function createCompile(src, { build, emitError, transpileOnly, preserveEnglish }
+             .pipe(util.$if(build, nls.nls({ preserveEnglish })))
+             .pipe(noDeclarationsFilter.restore)
+             .pipe(util.$if(!transpileOnly, sourcemaps.write('.', {
+-            addComment: false,
+-            includeContent: !!build,
+-            sourceRoot: overrideOptions.sourceRoot
+-        })))
++                addComment: false,
++                includeContent: !!build,
++                sourceRoot: overrideOptions.sourceRoot
++            })))
+             .pipe(tsFilter.restore)
+             .pipe(reporter.end(!!emitError));
+         return event_stream_1.default.duplex(input, output);
+@@ -281,45 +295,45 @@ function generateApiProposalNames() {
+     const output = input
+         .pipe(util.filter((f) => pattern.test(f.path)))
+         .pipe(event_stream_1.default.through((f) => {
+-        const name = path_1.default.basename(f.path);
+-        const match = pattern.exec(name);
+-        if (!match) {
+-            return;
+-        }
+-        const proposalName = match[1];
+-        const contents = f.contents.toString('utf8');
+-        const versionMatch = versionPattern.exec(contents);
+-        const version = versionMatch ? versionMatch[1] : undefined;
+-        proposals.set(proposalName, {
+-            proposal: `https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.${proposalName}.d.ts`,
+-            version: version ? parseInt(version) : undefined
+-        });
+-    }, function () {
+-        const names = [...proposals.keys()].sort();
+-        const contents = [
+-            '/*---------------------------------------------------------------------------------------------',
+-            ' *  Copyright (c) Microsoft Corporation. All rights reserved.',
+-            ' *  Licensed under the MIT License. See License.txt in the project root for license information.',
+-            ' *--------------------------------------------------------------------------------------------*/',
+-            '',
+-            '// THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY.',
+-            '',
+-            'const _allApiProposals = {',
+-            `${names.map(proposalName => {
+-                const proposal = proposals.get(proposalName);
+-                return `\t${proposalName}: {${eol}\t\tproposal: '${proposal.proposal}',${eol}${proposal.version ? `\t\tversion: ${proposal.version}${eol}` : ''}\t}`;
+-            }).join(`,${eol}`)}`,
+-            '};',
+-            'export const allApiProposals = Object.freeze<{ [proposalName: string]: Readonly<{ proposal: string; version?: number }> }>(_allApiProposals);',
+-            'export type ApiProposalName = keyof typeof _allApiProposals;',
+-            '',
+-        ].join(eol);
+-        this.emit('data', new vinyl_1.default({
+-            path: 'vs/platform/extensions/common/extensionsApiProposals.ts',
+-            contents: Buffer.from(contents)
++            const name = path_1.default.basename(f.path);
++            const match = pattern.exec(name);
++            if (!match) {
++                return;
++            }
++            const proposalName = match[1];
++            const contents = f.contents.toString('utf8');
++            const versionMatch = versionPattern.exec(contents);
++            const version = versionMatch ? versionMatch[1] : undefined;
++            proposals.set(proposalName, {
++                proposal: `https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.${proposalName}.d.ts`,
++                version: version ? parseInt(version) : undefined
++            });
++        }, function () {
++            const names = [...proposals.keys()].sort();
++            const contents = [
++                '/*---------------------------------------------------------------------------------------------',
++                ' *  Copyright (c) Microsoft Corporation. All rights reserved.',
++                ' *  Licensed under the MIT License. See License.txt in the project root for license information.',
++                ' *--------------------------------------------------------------------------------------------*/',
++                '',
++                '// THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY.',
++                '',
++                'const _allApiProposals = {',
++                `${names.map(proposalName => {
++                    const proposal = proposals.get(proposalName);
++                    return `\t${proposalName}: {${eol}\t\tproposal: '${proposal.proposal}',${eol}${proposal.version ? `\t\tversion: ${proposal.version}${eol}` : ''}\t}`;
++                }).join(`,${eol}`)}`,
++                '};',
++                'export const allApiProposals = Object.freeze<{ [proposalName: string]: Readonly<{ proposal: string; version?: number }> }>(_allApiProposals);',
++                'export type ApiProposalName = keyof typeof _allApiProposals;',
++                '',
++            ].join(eol);
++            this.emit('data', new vinyl_1.default({
++                path: 'vs/platform/extensions/common/extensionsApiProposals.ts',
++                contents: Buffer.from(contents)
++            }));
++            this.emit('end');
+         }));
+-        this.emit('end');
+-    }));
+     return event_stream_1.default.duplex(input, output);
+ }
+ const apiProposalNamesReporter = (0, reporter_1.createReporter)('api-proposal-names');
+@@ -337,4 +351,4 @@ exports.watchApiProposalNamesTask = task.define('watch-api-proposal-names', () =
+         .pipe(util.debounce(task))
+         .pipe(gulp_1.default.dest('src'));
+ });
+-//# sourceMappingURL=compilation.js.map
+\ No newline at end of file
++//# sourceMappingURL=compilation.js.map
+diff --git a/build/lib/compilation.ts b/build/lib/compilation.ts
+index a1de9f12dfdf9..a51accacc68c6 100644
+--- a/build/lib/compilation.ts
++++ b/build/lib/compilation.ts
+@@ -20,6 +20,9 @@ import { Mangler } from './mangle/index';
+ import { RawSourceMap } from 'source-map';
+ import ts = require('typescript');
+ const watch = require('./watch');
++const packageJson = require('../../package.json');
++const productJson = require('../../product.json');
++const replace = require('gulp-replace');
+ 
+ 
+ // --- gulp-tsb: compile and transpile --------------------------------
+@@ -73,8 +76,21 @@ export function createCompile(src: string, { build, emitError, transpileOnly, pr
+ 		const isRuntimeJs = (f: File) => f.path.endsWith('.js') && !f.path.includes('fixtures');
+ 		const noDeclarationsFilter = util.filter(data => !(/\.d\.ts$/.test(data.path)));
+ 
++
++		const productJsFilter = util.filter(data => !build && data.path.endsWith('vs/platform/product/common/product.ts'));
++		const productConfiguration = JSON.stringify({
++			...productJson,
++			version: `${packageJson.version}-dev`,
++			nameShort: `${productJson.nameShort} Dev`,
++			nameLong: `${productJson.nameLong} Dev`,
++			dataFolderName: `${productJson.dataFolderName}-dev`
++		});
++
+ 		const input = es.through();
+ 		const output = input
++			.pipe(productJsFilter)
++			.pipe(replace(/{\s*\/\*BUILD->INSERT_PRODUCT_CONFIGURATION\*\/\s*}/, productConfiguration, { skipBinary: true }))
++			.pipe(productJsFilter.restore)
+ 			.pipe(util.$if(isUtf8Test, bom())) // this is required to preserve BOM in test files that loose it otherwise
+ 			.pipe(util.$if(!build && isRuntimeJs, util.appendOwnPathSourceURL()))
+ 			.pipe(tsFilter)
+diff --git a/package.json b/package.json
+index f5568abf8f42f..1a313ea85ca01 100644
+--- a/package.json
++++ b/package.json
+@@ -66,7 +66,9 @@
+     "extensions-ci": "node ./node_modules/gulp/bin/gulp.js extensions-ci",
+     "extensions-ci-pr": "node ./node_modules/gulp/bin/gulp.js extensions-ci-pr",
+     "perf": "node scripts/code-perf.js",
+-    "update-build-ts-version": "npm install typescript@next && tsc -p ./build/tsconfig.build.json"
++    "update-build-ts-version": "npm install typescript@next && tsc -p ./build/tsconfig.build.json",
++    "server:init": "yarn --cwd ./build compile && yarn compile && yarn download-builtin-extensions",
++    "server:smoketest": "yarn --cwd ./test/smoke compile && yarn smoketest-no-compile --web --verbose --headless --electronArgs=\"--disable-dev-shm-usage --use-gl=swiftshader\""
+   },
+   "dependencies": {
+     "@microsoft/1ds-core-js": "^3.2.13",
+diff --git a/product.json b/product.json
+index a071935313597..47b43189b441f 100644
+--- a/product.json
++++ b/product.json
+@@ -1,38 +1,614 @@
+ {
+-	"nameShort": "Code - OSS",
+-	"nameLong": "Code - OSS",
+-	"applicationName": "code-oss",
+-	"dataFolderName": ".vscode-oss",
+-	"win32MutexName": "vscodeoss",
++	"nameShort": "OpenVSCode Server",
++	"nameLong": "OpenVSCode Server",
++	"applicationName": "openvscode-server",
++	"dataFolderName": ".openvscode-server",
++	"win32MutexName": "openvscodeserver",
+ 	"licenseName": "MIT",
+-	"licenseUrl": "https://github.com/microsoft/vscode/blob/main/LICENSE.txt",
+-	"serverLicenseUrl": "https://github.com/microsoft/vscode/blob/main/LICENSE.txt",
++	"licenseUrl": "https://github.com/gitpod-io/openvscode-server/blob/main/LICENSE.txt",
++	"serverLicenseUrl": "https://github.com/gitpod-io/openvscode-server/blob/main/LICENSE.txt",
+ 	"serverGreeting": [],
+ 	"serverLicense": [],
+ 	"serverLicensePrompt": "",
+-	"serverApplicationName": "code-server-oss",
+-	"serverDataFolderName": ".vscode-server-oss",
+-	"tunnelApplicationName": "code-tunnel-oss",
+-	"win32DirName": "Microsoft Code OSS",
+-	"win32NameVersion": "Microsoft Code OSS",
+-	"win32RegValueName": "CodeOSS",
++	"serverApplicationName": "openvscode-server",
++	"serverDataFolderName": ".openvscode-server",
++	"tunnelApplicationName": "openvscode-server-tunnel",
++	"win32DirName": "OpenVSCode Server",
++	"win32NameVersion": "OpenVSCode Server",
++	"win32RegValueName": "OpenVSCodeServer",
+ 	"win32x64AppId": "{{D77B7E06-80BA-4137-BCF4-654B95CCEBC5}",
+ 	"win32arm64AppId": "{{D1ACE434-89C5-48D1-88D3-E2991DF85475}",
+ 	"win32x64UserAppId": "{{CC6B787D-37A0-49E8-AE24-8559A032BE0C}",
+ 	"win32arm64UserAppId": "{{3AEBF0C8-F733-4AD4-BADE-FDB816D53D7B}",
+-	"win32AppUserModelId": "Microsoft.CodeOSS",
+-	"win32ShellNameShort": "C&ode - OSS",
+-	"win32TunnelServiceMutex": "vscodeoss-tunnelservice",
+-	"win32TunnelMutex": "vscodeoss-tunnel",
+-	"darwinBundleIdentifier": "com.visualstudio.code.oss",
++	"win32AppUserModelId": "OpenVSCode Server",
++	"win32ShellNameShort": "OpenVSC&ode Server",
++	"win32TunnelServiceMutex": "openvscode.server-tunnelservice",
++	"win32TunnelMutex": "openvscode.server-tunnel",
++	"darwinBundleIdentifier": "openvscode.server",
+ 	"darwinProfileUUID": "47827DD9-4734-49A0-AF80-7E19B11495CC",
+ 	"darwinProfilePayloadUUID": "CF808BE7-53F3-46C6-A7E2-7EDB98A5E959",
+-	"linuxIconName": "code-oss",
++	"linuxIconName": "openvscode.server",
+ 	"licenseFileName": "LICENSE.txt",
+-	"reportIssueUrl": "https://github.com/microsoft/vscode/issues/new",
++	"twitterUrl": "https://twitter.com/gitpod",
++	"reportIssueUrl": "https://github.com/gitpod-io/openvscode-server/issues/new",
++	"requestFeatureUrl": "https://github.com/gitpod-io/openvscode-server/issues",
++	"reportMarketplaceIssueUrl": "https://github.com/eclipse/openvsx/issues",
++	"sendASmile": {
++		"reportIssueUrl": "https://github.com/gitpod-io/openvscode-server/issues/new",
++		"requestFeatureUrl": "https://github.com/gitpod-io/openvscode-server/issues"
++	},
+ 	"nodejsRepository": "https://nodejs.org",
+-	"urlProtocol": "code-oss",
++	"urlProtocol": "openvscode-server",
++	"embedderIdentifier": "openvscode-server",
+ 	"webviewContentExternalBaseUrlTemplate": "https://{{uuid}}.vscode-cdn.net/insider/ef65ac1ba57f57f2a3961bfe94aa20481caca4c6/out/vs/workbench/contrib/webview/browser/pre/",
++	"extensionTips": {
++		"muhammad-sammy.csharp": "{**/*.cs,**/project.json,**/global.json,**/*.csproj,**/*.cshtml,**/*.sln,**/appsettings.json}",
++		"firefox-devtools.vscode-firefox-debug": "{**/*.ts,**/*.tsx,**/*.js,**/*.jsx,**/*.es6,**/.babelrc}",
++		"ms-edgedevtools.vscode-edge-devtools": "{**/*.ts,**/*.tsx,**/*.js,**/*.css,**/*.html}",
++		"golang.Go": "**/*.go",
++		"ms-vscode.PowerShell": "{**/*.ps1,**/*.psd1,**/*.psm1,**/*.ps.config,**/*.ps1.config}",
++		"Ionide.Ionide-fsharp": "{**/*.fsx,**/*.fsi,**/*.fs,**/*.ml,**/*.mli}",
++		"dbaeumer.vscode-eslint": "{**/*.js,**/*.jsx,**/*.es6,**/.eslintrc.*,**/.eslintrc,**/.babelrc,**/jsconfig.json}",
++		"ms-vscode.vscode-typescript-tslint-plugin": "{**/tslint.json}",
++		"bmewburn.vscode-intelephense-client": "{**/*.php,**/php.ini}",
++		"xdebug.php-debug": "{**/*.php,**/php.ini}",
++		"rust-lang.rust-analyzer": "{**/*.rs,**/*.rslib}",
++		"DavidAnson.vscode-markdownlint": "{**/*.md}",
++		"ms-azuretools.vscode-docker": "{**/dockerfile,**/Dockerfile,**/docker-compose.yml,**/docker-compose.*.yml,**/*.cs,**/project.json,**/global.json,**/*.csproj,**/*.cshtml,**/*.sln,**/appsettings.json,**/*.py,**/*.ipynb,**/*.js,**/*.ts,**/package.json}",
++		"EditorConfig.EditorConfig": "{**/.editorconfig}",
++		"HookyQR.beautify": "{**/.jsbeautifyrc}",
++		"donjayamanne.githistory": "{**/.gitignore,**/.git}",
++		"felipecaputo.git-project-manager": "{**/.gitignore,**/.git}",
++		"eamodio.gitlens": "{**/.gitignore,**/.git}",
++		"rebornix.Ruby": "{**/*.rb,**/*.erb,**/*.reek,**/.fasterer.yml,**/ruby-lint.yml,**/.rubocop.yml}",
++		"DotJoshJohnson.xml": "{**/*.xml}",
++		"stylelint.vscode-stylelint": "{**/.stylelintrc,**/stylelint.config.js}",
++		"ms-mssql.mssql": "{**/*.sql}",
++		"mtxr.sqltools": "{**/*.sql}",
++		"ms-vscode.sublime-keybindings": "{**/.sublime-project,**/.sublime-workspace}",
++		"k--kato.intellij-idea-keybindings": "{**/.idea}",
++		"christian-kohler.npm-intellisense": "{**/package.json}",
++		"vue.volar": "{**/*.vue}",
++		"ms-python.python": "{**/*.py,**/*.ipynb}",
++		"ms-toolsai.jupyter": "{**/*.ipynb}",
++		"cake-build.cake-vscode": "{**/build.cake}",
++		"Angular.ng-template": "{**/.angular-cli.json,**/angular.json,**/*.ng.html,**/*.ng,**/*.ngml}",
++		"vscjava.vscode-maven": "**/pom.xml",
++		"HashiCorp.terraform": "**/*.tf",
++		"vsciot-vscode.vscode-arduino": "**/*.ino",
++		"ms-kubernetes-tools.vscode-kubernetes-tools": "{**/Chart.yaml}",
++		"GoogleCloudTools.cloudcode": "{**/skaffold.yaml}",
++		"Oracle.oracledevtools": "{**/*.sql}",
++		"ms-vscode.vscode-github-issue-notebooks": "{**/*.github-issues}",
++		"REditorSupport.r": "**/*.r"
++	},
++	"extensionImportantTips": {
++		"muhammad-sammy.csharp": {
++			"name": "C#",
++			"languages": [
++				"csharp"
++			],
++			"pattern": "{**/*.cs,**/global.json,**/*.csproj,**/*.cshtml,**/*.sln}"
++		},
++		"ms-python.python": {
++			"name": "Python",
++			"languages": [
++				"python"
++			],
++			"pattern": "{**/*.py}"
++		},
++		"golang.Go": {
++			"name": "Go",
++			"languages": [
++				"go"
++			],
++			"pattern": "**/*.go"
++		},
++		"vscjava.vscode-java-pack": {
++			"name": "Java",
++			"languages": [
++				"java"
++			],
++			"pattern": "{**/*.java}",
++			"isExtensionPack": true,
++			"whenNotInstalled": [
++				"ASF.apache-netbeans-java"
++			]
++		},
++		"ms-vscode.PowerShell": {
++			"name": "PowerShell",
++			"languages": [
++				"powershell"
++			],
++			"pattern": "{**/*.ps1,**/*.psd1,**/*.psm1}"
++		},
++		"ms-azuretools.vscode-docker": {
++			"name": "Docker",
++			"languages": [
++				"dockerfile"
++			],
++			"pattern": "{**/dockerfile,**/Dockerfile,**/docker-compose.yml,**/docker-compose.*.yml}"
++		},
++		"vue.volar": {
++			"name": "Vetur",
++			"languages": [
++				"vue"
++			],
++			"pattern": "{**/*.vue}"
++		},
++		"ms-vscode.makefile-tools": {
++			"name": "Makefile Tools",
++			"languages": [
++				"makefile"
++			],
++			"pattern": "{**/makefile,**/Makefile}"
++		},
++		"ms-vscode.cmake-tools": {
++			"name": "CMake Tools",
++			"pattern": "{**/CMakeLists.txt}"
++		},
++		"svelte.svelte-vscode": {
++			"name": "Svelte",
++			"pattern": "{**/*.svelte}"
++		},
++		"ms-vscode.vscode-github-issue-notebooks": {
++			"name": "GitHub Issue Notebooks",
++			"pattern": "{**/*.github-issues}"
++		},
++		"ms-playwright.playwright": {
++			"name": "Playwright",
++			"pattern": "{**/*playwright*.config.ts,**/*playwright*.config.js,**/*playwright*.config.mjs}"
++		},
++		"REditorSupport.r": {
++			"name": "R",
++			"languages": [
++				"r"
++			],
++			"pattern": "{**/*.r}"
++		}
++	},
++	"keymapExtensionTips": [
++		"vscodevim.vim",
++		"ms-vscode.sublime-keybindings",
++		"ms-vscode.atom-keybindings",
++		"ms-vscode.brackets-keybindings",
++		"ms-vscode.vs-keybindings",
++		"ms-vscode.notepadplusplus-keybindings",
++		"k--kato.intellij-idea-keybindings",
++		"lfs.vscode-emacs-friendly",
++		"alphabotsec.vscode-eclipse-keybindings",
++		"alefragnani.delphi-keybindings"
++	],
++	"languageExtensionTips": [
++		"ms-python.python",
++		"muhammad-sammy.csharp",
++		"ms-toolsai.jupyter",
++		"vscjava.vscode-java-pack",
++		"ecmel.vscode-html-css",
++		"vue.volar",
++		"bmewburn.vscode-intelephense-client",
++		"dsznajder.es7-react-js-snippets",
++		"golang.go",
++		"ms-vscode.powershell",
++		"dart-code.dart-code",
++		"rust-lang.rust-analyzer",
++		"rebornix.ruby"
++	],
++	"configBasedExtensionTips": {
++		"git": {
++			"configPath": ".git/config",
++			"configName": "Git",
++			"recommendations": {
++				"github.vscode-pull-request-github": {
++					"name": "GitHub Pull Request",
++					"remotes": [
++						"github.com"
++					]
++				},
++				"eamodio.gitlens": {
++					"name": "GitLens"
++				}
++			}
++		},
++		"maven": {
++			"configPath": "pom.xml",
++			"configName": "Maven",
++			"recommendations": {
++				"vscjava.vscode-java-pack": {
++					"name": "Java",
++					"important": true,
++					"isExtensionPack": true,
++					"whenNotInstalled": [
++						"ASF.apache-netbeans-java"
++					]
++				},
++				"Pivotal.vscode-boot-dev-pack": {
++					"name": "Spring Boot Extension Pack",
++					"isExtensionPack": true
++				}
++			}
++		},
++		"gradle": {
++			"configPath": "build.gradle",
++			"configName": "Gradle",
++			"recommendations": {
++				"vscjava.vscode-java-pack": {
++					"name": "Java",
++					"important": true,
++					"isExtensionPack": true,
++					"whenNotInstalled": [
++						"ASF.apache-netbeans-java"
++					]
++				}
++			}
++		},
++		"github-pull-request": {
++			"configPath": ".vscode/.github-pull-request.rec",
++			"configName": "GitHub",
++			"configScheme": "vscode-vfs",
++			"recommendations": {
++				"github.vscode-pull-request-github": {
++					"name": "GitHub Pull Request",
++					"important": true
++				}
++			}
++		}
++	},
++	"extensionKeywords": {
++		"md": [
++			"Markdown"
++		],
++		"js": [
++			"JavaScript"
++		],
++		"jsx": [
++			"JavaScript"
++		],
++		"es6": [
++			"JavaScript"
++		],
++		"html": [
++			"Html"
++		],
++		"ts": [
++			"TypeScript"
++		],
++		"tsx": [
++			"TypeScript"
++		],
++		"css": [
++			"CSS"
++		],
++		"scss": [
++			"SASS"
++		],
++		"txt": [
++			"Text"
++		],
++		"php": [
++			"PHP"
++		],
++		"php3": [
++			"PHP"
++		],
++		"php4": [
++			"PHP"
++		],
++		"ph3": [
++			"PHP"
++		],
++		"ph4": [
++			"PHP"
++		],
++		"xml": [
++			"XML"
++		],
++		"py": [
++			"Python"
++		],
++		"pyc": [
++			"Python"
++		],
++		"pyd": [
++			"Python"
++		],
++		"pyo": [
++			"Python"
++		],
++		"pyw": [
++			"Python"
++		],
++		"pyz": [
++			"Python"
++		],
++		"java": [
++			"Java"
++		],
++		"class": [
++			"Java"
++		],
++		"jar": [
++			"Java"
++		],
++		"c": [
++			"c",
++			"objective c",
++			"objective-c"
++		],
++		"m": [
++			"objective c",
++			"objective-c"
++		],
++		"mm": [
++			"objective c",
++			"objective-c"
++		],
++		"cpp": [
++			"cpp",
++			"c plus plus",
++			"c",
++			"c++"
++		],
++		"cc": [
++			"cpp",
++			"c plus plus",
++			"c",
++			"c++"
++		],
++		"cxx": [
++			"cpp",
++			"c plus plus",
++			"c++"
++		],
++		"hh": [
++			"cpp",
++			"c plus plus",
++			"c++"
++		],
++		"hpp": [
++			"cpp",
++			"c++"
++		],
++		"h": [
++			"cpp",
++			"c plus plus",
++			"c++",
++			"c",
++			"objective c",
++			"objective-c"
++		],
++		"sql": [
++			"sql"
++		],
++		"sh": [
++			"bash"
++		],
++		"bash": [
++			"bash"
++		],
++		"zsh": [
++			"bash",
++			"zshell"
++		],
++		"cs": [
++			"c#",
++			"csharp"
++		],
++		"csproj": [
++			"c#",
++			"csharp"
++		],
++		"sln": [
++			"c#",
++			"csharp"
++		],
++		"go": [
++			"go"
++		],
++		"sty": [
++			"latex"
++		],
++		"tex": [
++			"latex"
++		],
++		"ps": [
++			"powershell"
++		],
++		"ps1": [
++			"powershell"
++		],
++		"rs": [
++			"rust"
++		],
++		"rslib": [
++			"rust"
++		],
++		"hs": [
++			"haskell"
++		],
++		"lhs": [
++			"haskell"
++		],
++		"scm": [
++			"scheme"
++		],
++		"ss": [
++			"scheme"
++		],
++		"clj": [
++			"clojure"
++		],
++		"cljs": [
++			"clojure"
++		],
++		"cljc": [
++			"clojure"
++		],
++		"edn": [
++			"clojure"
++		],
++		"erl": [
++			"erlang"
++		],
++		"hrl": [
++			"erlang"
++		],
++		"scala": [
++			"scala"
++		],
++		"sc": [
++			"scala"
++		],
++		"pl": [
++			"perl"
++		],
++		"pm": [
++			"perl"
++		],
++		"t": [
++			"perl"
++		],
++		"pod": [
++			"perl"
++		],
++		"groovy": [
++			"groovy"
++		],
++		"swift": [
++			"swift"
++		],
++		"rb": [
++			"ruby"
++		],
++		"rbw": [
++			"ruby"
++		],
++		"jl": [
++			"julia"
++		],
++		"f": [
++			"fortran"
++		],
++		"for": [
++			"fortran"
++		],
++		"f90": [
++			"fortran"
++		],
++		"f95": [
++			"fortran"
++		],
++		"coffee": [
++			"CoffeeScript"
++		],
++		"litcoffee": [
++			"CoffeeScript"
++		],
++		"yaml": [
++			"yaml"
++		],
++		"yml": [
++			"yaml"
++		],
++		"dart": [
++			"dart"
++		],
++		"json": [
++			"json"
++		]
++	},
++	"extensionAllowedBadgeProviders": [
++		"api.bintray.com",
++		"api.travis-ci.com",
++		"api.travis-ci.org",
++		"app.fossa.io",
++		"badge.buildkite.com",
++		"badge.fury.io",
++		"badge.waffle.io",
++		"badgen.net",
++		"badges.frapsoft.com",
++		"badges.gitter.im",
++		"badges.greenkeeper.io",
++		"cdn.travis-ci.com",
++		"cdn.travis-ci.org",
++		"ci.appveyor.com",
++		"circleci.com",
++		"cla.opensource.microsoft.com",
++		"codacy.com",
++		"codeclimate.com",
++		"codecov.io",
++		"coveralls.io",
++		"david-dm.org",
++		"deepscan.io",
++		"dev.azure.com",
++		"docs.rs",
++		"flat.badgen.net",
++		"gemnasium.com",
++		"githost.io",
++		"gitlab.com",
++		"godoc.org",
++		"goreportcard.com",
++		"img.shields.io",
++		"isitmaintained.com",
++		"marketplace.visualstudio.com",
++		"nodesecurity.io",
++		"opencollective.com",
++		"snyk.io",
++		"travis-ci.com",
++		"travis-ci.org",
++		"visualstudio.com",
++		"vsmarketplacebadge.apphb.com",
++		"www.bithound.io",
++		"www.versioneye.com"
++	],
++	"extensionAllowedBadgeProvidersRegex": [
++		"^https:\\/\\/github\\.com\\/[^/]+\\/[^/]+\\/(actions\\/)?workflows\\/.*badge\\.svg"
++	],
++	"extensionKind": {
++		"Shan.code-settings-sync": [
++			"ui"
++		],
++		"shalldie.background": [
++			"ui"
++		],
++		"techer.open-in-browser": [
++			"ui"
++		],
++		"CoenraadS.bracket-pair-colorizer-2": [
++			"ui"
++		],
++		"CoenraadS.bracket-pair-colorizer": [
++			"ui",
++			"workspace"
++		],
++		"hiro-sun.vscode-emacs": [
++			"ui",
++			"workspace"
++		],
++		"hnw.vscode-auto-open-markdown-preview": [
++			"ui",
++			"workspace"
++		],
++		"wayou.vscode-todo-highlight": [
++			"ui",
++			"workspace"
++		],
++		"aaron-bond.better-comments": [
++			"ui",
++			"workspace"
++		],
++		"vscodevim.vim": [
++			"ui"
++		],
++		"ollyhayes.colmak-vim": [
++			"ui"
++		]
++	},
++	"extensionPointExtensionKind": {
++		"typescriptServerPlugins": [
++			"workspace"
++		]
++	},
+ 	"builtInExtensions": [
+ 		{
+ 			"name": "ms-vscode.js-debug-companion",
+@@ -82,5 +658,17 @@
+ 				"publisherDisplayName": "Microsoft"
+ 			}
+ 		}
++	],
++	"extensionsGallery": {
++		"serviceUrl": "https://open-vsx.org/vscode/gallery",
++		"itemUrl": "https://open-vsx.org/vscode/item",
++		"resourceUrlTemplate": "https://open-vsx.org/vscode/unpkg/{publisher}/{name}/{version}/{path}",
++		"controlUrl": "",
++		"recommendationsUrl": "",
++		"nlsBaseUrl": "",
++		"publisherUrl": ""
++	},
++	"linkProtectionTrustedDomains": [
++		"https://open-vsx.org"
+ 	]
+ }
+diff --git a/scripts/sync-helper.js b/scripts/sync-helper.js
+new file mode 100644
+index 0000000000000..9f49f8dfa1575
+--- /dev/null
++++ b/scripts/sync-helper.js
+@@ -0,0 +1,221 @@
++/* eslint-disable header/header */
++
++const path = require('path');
++const fs = require('fs');
++const https = require('https');
++
++const pickKeys = [
++	'extensionTips',
++	'extensionImportantTips',
++	'keymapExtensionTips',
++	'configBasedExtensionTips',
++	'extensionKeywords',
++	'extensionAllowedBadgeProviders',
++	'extensionAllowedBadgeProvidersRegex',
++	'extensionAllowedProposedApi',
++	'extensionEnabledApiProposals',
++	'extensionKind',
++	'languageExtensionTips'
++];
++
++const AllowMissKeys = [
++	'win32SetupExeBasename',
++	'darwinCredits',
++	'darwinExecutable',
++	'downloadUrl',
++	'updateUrl',
++	'webEndpointUrl',
++	'webEndpointUrlTemplate',
++	'quality',
++	'exeBasedExtensionTips',
++	'webExtensionTips',
++	'remoteExtensionTips',
++	'crashReporter',
++	'appCenter',
++	'enableTelemetry',
++	'aiConfig',
++	'msftInternalDomains',
++	'sendASmile',
++	'documentationUrl',
++	'releaseNotesUrl',
++	'keyboardShortcutsUrlMac',
++	'keyboardShortcutsUrlLinux',
++	'keyboardShortcutsUrlWin',
++	'introductoryVideosUrl',
++	'tipsAndTricksUrl',
++	'newsletterSignupUrl',
++	'twitterUrl',
++	'requestFeatureUrl',
++	'reportMarketplaceIssueUrl',
++	'privacyStatementUrl',
++	'showTelemetryOptOut',
++	'npsSurveyUrl',
++	'cesSurveyUrl',
++	'checksumFailMoreInfoUrl',
++	'electronRepository',
++	'settingsSearchUrl',
++	'surveys',
++	'tasConfig',
++	'experimentsUrl',
++	'extensionSyncedKeys',
++	'extensionVirtualWorkspacesSupport',
++	'auth',
++	'configurationSync.store',
++	'commit',
++	'date',
++	'checksums',
++	'settingsSearchBuildId',
++	'darwinUniversalAssetId',
++];
++
++const propiertaryExtension = [
++	'ms-vscode-remote.remote-containers',
++	'ms-dotnettools.csharp',
++	'ms-vscode.cpptools-extension-pack',
++	'ms-azure-devops.azure-pipelines',
++	'msazurermtools.azurerm-vscode-tools',
++	'ms-azuretools.vscode-bicep',
++	'usqlextpublisher.usql-vscode-ext',
++	'ms-azuretools.vscode-azureterraform',
++	'VisualStudioExptTeam.vscodeintellicode-completions',
++	'ms-vsliveshare.vsliveshare',
++	'ms-toolsai.vscode-ai-remote',
++	'GitHub.codespaces',
++	'ms-vscode.azure-repos',
++	'ms-vscode.remote-repositories',
++	'ms-vscode-remote.remote-wsl',
++	'ms-vscode-remote.remote-ssh',
++	'ms-vscode.remote-server',
++	'GitHub.copilot',
++	'GitHub.copilot-nightly',
++	'GitHub.remotehub',
++	'GitHub.remotehub-insiders',
++	'ms-python.vscode-pylance',
++	'ms-vscode.azure-sphere-tools-ui',
++	'ms-azuretools.vscode-azureappservice',
++];
++
++const openvsxExtensionMap = {
++	'ms-dotnettools.csharp': 'muhammad-sammy.csharp'
++};
++
++function filterObj(obj, predicate) {
++	const result = Object.create(null);
++	for (const [key, value] of Object.entries(obj)) {
++		if (predicate(key, value)) {
++			result[key] = value;
++		}
++	}
++	return result;
++}
++
++function renameObjKey(obj, predicate) {
++	const result = Object.create(null);
++	for (const [key, value] of Object.entries(obj)) {
++		const newKey = predicate(key, value) ?? key;
++		result[newKey] = value;
++	}
++	return result;
++}
++
++async function start() {
++	const localPath = path.join(import.meta.dirname, '../product.json');
++	const releasePath = path.join(import.meta.dirname, '../product-release.json');
++	if (!fs.existsSync(releasePath)) {
++		console.error('product-release.json is not exists, please copy product.json from VSCode Desktop Stable');
++		return;
++	}
++
++	const branchProduct = JSON.parse(await fs.promises.readFile(localPath, { encoding: 'utf8' }));
++	const releaseProduct = JSON.parse(await fs.promises.readFile(releasePath, { encoding: 'utf8' }));
++	const tmpProductPath = path.join(import.meta.dirname, '../product-tmp.json');
++	for (let key of pickKeys) {
++		let newValue = releaseProduct[key];
++		if (Array.isArray(newValue) && newValue.length && typeof newValue[0] === 'string') {
++			newValue = newValue.map(v => openvsxExtensionMap[v] ?? v).filter(v => !propiertaryExtension.includes(v));
++		} else if (typeof newValue === 'object' && newValue !== null) {
++			newValue = renameObjKey(newValue, k => openvsxExtensionMap[k] ?? k);
++			newValue = filterObj(newValue, k => !propiertaryExtension.includes(k));
++		}
++		branchProduct[key] = newValue;
++	}
++
++	await fs.promises.writeFile(tmpProductPath, JSON.stringify(branchProduct, null, '\t'));
++
++	if (keysDiff(branchProduct, releaseProduct)) {
++		// allow-any-unicode-next-line
++		console.log('📦 check if you need these keys or not');
++	}
++	await checkProductExtensions(branchProduct);
++	// allow-any-unicode-next-line
++	console.log('📦 you can copy product-tmp.json file to product.json file and resolve logs above by yourself');
++	// allow-any-unicode-next-line
++	console.log('✅ done');
++}
++
++function keysDiff(branch, release) {
++	const toMap = (ret, e) => {
++		ret[e] = true;
++		return ret;
++	};
++	const map1 = Object.keys(branch).reduce(toMap, {});
++	const map2 = Object.keys(release).reduce(toMap, {});
++	let changed = false;
++	for (let key in branch) {
++		if (!!!map2[key]) {
++			changed = true;
++			// allow-any-unicode-next-line
++			console.log(`🟠 Remove key: ${key}`);
++		}
++	}
++	for (let key in release) {
++		if (!!!map1[key] && !AllowMissKeys.includes(key)) {
++			changed = true;
++			// allow-any-unicode-next-line
++			console.log(`🟠 Add key: ${key}`);
++		}
++	}
++	return changed;
++}
++
++async function checkProductExtensions(product) {
++	const uniqueExtIds = new Set();
++	// Allow extension that downloaded from ms marketplace by users to use proposed api
++	// uniqueExtIds.push(...product.extensionAllowedProposedApi);
++
++	// Check recommand extension tips
++	for (let key in product.configBasedExtensionTips) {
++		Object.keys(product.configBasedExtensionTips[key].recommendations ?? {}).forEach(id => uniqueExtIds.add(id));
++	}
++	Object.keys(product.extensionImportantTips).forEach(id => uniqueExtIds.add(id));
++	Object.keys(product.extensionTips).forEach(id => uniqueExtIds.add(id));
++	Object.keys(product.extensionEnabledApiProposals).forEach(id => uniqueExtIds.add(id));
++	product.keymapExtensionTips.forEach(id => uniqueExtIds.add(id));
++	product.languageExtensionTips.forEach(id => uniqueExtIds.add(id));
++
++	// Check if extensions exists in openvsx
++	for (let id of uniqueExtIds) {
++		if (propiertaryExtension.includes(id)) {
++			continue;
++		}
++
++		const openvsxUrl = `https://open-vsx.org/api/${id.replace(/\./g, '/')}`;
++		const ok = await urlExists(openvsxUrl);
++		if (!ok) {
++			// allow-any-unicode-next-line
++			console.error(`🔴 Extension not exists: ${id}`);
++		}
++	}
++}
++
++async function urlExists(url) {
++	return new Promise((resolve, reject) => {
++		https.get(url, res => {
++			resolve(res.statusCode === 200);
++		}).on('error', error => {
++			reject(error);
++		});
++	});
++}
++
++start().catch(console.error);
+diff --git a/scripts/sync-with-upstream.sh b/scripts/sync-with-upstream.sh
+new file mode 100755
+index 0000000000000..4f0fe912064c0
+--- /dev/null
++++ b/scripts/sync-with-upstream.sh
+@@ -0,0 +1,89 @@
++#!/usr/bin/env bash
++
++echo "Syncing openvscode-server with upstream"
++
++upstream_url="https://github.com/microsoft/vscode.git"
++upstream_branch=${1:-"upstream/main"}
++local_branch=${2:-"main"}
++base_commit_msg=${3:-"code web server initial commit"}
++only_sync=${4:-"true"}
++
++exit_script() {
++	reason=$1
++	echo "Update script ended unsucessfully"
++	echo "Reason: $reason"
++	exit 1
++}
++
++if [[ "$OSTYPE" == "darwin"* ]]; then
++	realpath() { [[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}"; }
++	ROOT=$(dirname $(dirname $(realpath "$0")))
++else
++	ROOT=$(dirname $(dirname $(readlink -f $0)))
++	# --disable-dev-shm-usage --use-gl=swiftshader: when run on docker containers where size of /dev/shm
++	# partition < 64MB which causes OOM failure for chromium compositor that uses the partition for shared memory
++	LINUX_EXTRA_ARGS="--disable-dev-shm-usage --use-gl=swiftshader"
++fi
++
++# Checks is there's an upstream remote repository and if not
++# set it to $upstream_url
++check_upstream() {
++	git remote -v | grep --quiet upstream
++	if [[ $? -ne 0 ]]; then
++		echo "Upstream repository not configured"
++		echo "Setting upstream URL to ${upstream_url}"
++		git remote add upstream $upstream_url
++	fi
++}
++
++# Gets the base commit
++get_base_commit() {
++	local base_commit=$(git log --pretty="%H" --max-count=1 --grep "$base_commit_msg")
++	if [[ -z $base_commit ]]; then
++		exit_script "Could not find base commit"
++	fi
++	echo $base_commit
++}
++
++# Fetch updates from upstream and rebase
++sync() {
++	echo "Shallow fetching upstream..."
++	git fetch upstream
++	git checkout $local_branch
++	echo "Rebasing $local_branch branch onto $upstream_branch from upstream"
++	git rebase --onto=$upstream_branch $(get_base_commit)~ $local_branch
++	if [[ $? -ne 0 ]]; then
++		echo "There are merge conflicts doing the rebase."
++		echo "Please resolve them or abort the rebase."
++		exit_script "Could not rebase succesfully"
++	fi
++	echo "$local_branch sucessfully updated"
++}
++
++cd $ROOT
++
++# Sync
++check_upstream
++sync
++
++if [[ "$only_sync" == "true" ]]; then
++	exit 0
++fi
++
++# Clean and build
++# git clean -dfx
++yarn && yarn server:init
++if [[ $? -ne 0 ]]; then
++	exit_script "There are some errors during compilation"
++fi
++
++# Configuration
++export NODE_ENV=development
++export VSCODE_DEV=1
++export VSCODE_CLI=1
++
++# Run smoke tests
++yarn smoketest --web --headless --verbose --electronArgs=$LINUX_EXTRA_ARGS
++if [[ $? -ne 0 ]]; then
++	exit_script "Some smoke test are failing"
++fi
+diff --git a/src/server-main.ts b/src/server-main.ts
+index 4ffe8fcde1203..4aa0621d2155e 100644
+--- a/src/server-main.ts
++++ b/src/server-main.ts
+@@ -189,7 +189,7 @@ async function parsePort(host: string | undefined, strPort: string | undefined):
+ 			process.exit(1);
+ 		}
+ 	}
+-	return 8000;
++	return 3000;
+ }
+ 
+ function parseRange(strRange: string): { start: number; end: number } | undefined {
+diff --git a/src/vs/code/browser/workbench/workbench.ts b/src/vs/code/browser/workbench/workbench.ts
+index f2abf379f08ca..83deb97cead34 100644
+--- a/src/vs/code/browser/workbench/workbench.ts
++++ b/src/vs/code/browser/workbench/workbench.ts
+@@ -602,16 +602,25 @@ function readCookie(name: string): string | undefined {
+ 	if (!configElement || !configElementAttribute) {
+ 		throw new Error('Missing web configuration element');
+ 	}
+-	const config: IWorkbenchConstructionOptions & { folderUri?: UriComponents; workspaceUri?: UriComponents; callbackRoute: string } = JSON.parse(configElementAttribute);
++	const originalConfig: IWorkbenchConstructionOptions & { folderUri?: UriComponents; workspaceUri?: UriComponents; callbackRoute: string } = JSON.parse(configElementAttribute);
+ 	const secretStorageKeyPath = readCookie('vscode-secret-key-path');
+ 	const secretStorageCrypto = secretStorageKeyPath && ServerKeyedAESCrypto.supported()
+ 		? new ServerKeyedAESCrypto(secretStorageKeyPath) : new TransparentCrypto();
++	const config: IWorkbenchConstructionOptions & { folderUri?: UriComponents; workspaceUri?: UriComponents; callbackRoute: string } = {
++		remoteAuthority: window.location.host,
++		developmentOptions: originalConfig.developmentOptions,
++		settingsSyncOptions: originalConfig.settingsSyncOptions,
++		folderUri: originalConfig.folderUri,
++		workspaceUri: originalConfig.workspaceUri,
++		callbackRoute: originalConfig.callbackRoute
++	};
+ 
+ 	// Create workbench
+ 	create(mainWindow.document.body, {
+ 		...config,
+ 		windowIndicator: config.windowIndicator ?? { label: '$(remote)', tooltip: `${product.nameShort} Web` },
+ 		settingsSyncOptions: config.settingsSyncOptions ? { enabled: config.settingsSyncOptions.enabled, } : undefined,
++		developmentOptions: { ...config.developmentOptions },
+ 		workspaceProvider: WorkspaceProvider.create(config),
+ 		urlCallbackProvider: new LocalStorageURLCallbackProvider(config.callbackRoute),
+ 		secretStorageProvider: config.remoteAuthority && !secretStorageKeyPath
+diff --git a/src/vs/server/node/webClientServer.ts b/src/vs/server/node/webClientServer.ts
+index 13882a9b44b0c..2b033da0f1c06 100644
+--- a/src/vs/server/node/webClientServer.ts
++++ b/src/vs/server/node/webClientServer.ts
+@@ -320,7 +320,7 @@ export class WebClientServer {
+ 
+ 		const staticRoute = posix.join(basePath, this._productPath, STATIC_PATH);
+ 		const callbackRoute = posix.join(basePath, this._productPath, CALLBACK_PATH);
+-		const webExtensionRoute = posix.join(basePath, this._productPath, WEB_EXTENSION_PATH);
++		// const webExtensionRoute = posix.join(basePath, this._productPath, WEB_EXTENSION_PATH);
+ 
+ 		const resolveWorkspaceURI = (defaultLocation?: string) => defaultLocation && URI.file(resolve(defaultLocation)).with({ scheme: Schemas.vscodeRemote, authority: remoteAuthority });
+ 
+@@ -333,15 +333,15 @@ export class WebClientServer {
+ 		} : undefined;
+ 
+ 		const productConfiguration: Partial<Mutable<IProductConfiguration>> = {
+-			embedderIdentifier: 'server-distro',
+-			extensionsGallery: this._webExtensionResourceUrlTemplate && this._productService.extensionsGallery ? {
+-				...this._productService.extensionsGallery,
+-				resourceUrlTemplate: this._webExtensionResourceUrlTemplate.with({
+-					scheme: 'http',
+-					authority: remoteAuthority,
+-					path: `${webExtensionRoute}/${this._webExtensionResourceUrlTemplate.authority}${this._webExtensionResourceUrlTemplate.path}`
+-				}).toString(true)
+-			} : undefined
++			// embedderIdentifier: 'server-distro',
++			// extensionsGallery: this._webExtensionResourceUrlTemplate && this._productService.extensionsGallery ? {
++			// 	...this._productService.extensionsGallery,
++			// 	resourceUrlTemplate: this._webExtensionResourceUrlTemplate.with({
++			// 		scheme: 'http',
++			// 		authority: remoteAuthority,
++			// 		path: `${webExtensionRoute}/${this._webExtensionResourceUrlTemplate.authority}${this._webExtensionResourceUrlTemplate.path}`
++			// 	}).toString(true)
++			// } : undefined
+ 		};
+ 
+ 		const proposedApi = this._environmentService.args['enable-proposed-api'];
+diff --git a/src/vs/workbench/services/extensions/common/extensionsProposedApi.ts b/src/vs/workbench/services/extensions/common/extensionsProposedApi.ts
+index 6de2983bda44a..b71bcf48f3e46 100644
+--- a/src/vs/workbench/services/extensions/common/extensionsProposedApi.ts
++++ b/src/vs/workbench/services/extensions/common/extensionsProposedApi.ts
+@@ -31,7 +31,7 @@ export class ExtensionsProposedApi {
+ 
+ 		this._envEnabledExtensions = new Set((_environmentService.extensionEnabledProposedApi ?? []).map(id => ExtensionIdentifier.toKey(id)));
+ 
+-		this._envEnablesProposedApiForAll =
++		this._envEnablesProposedApiForAll = true || // always enable proposed API
+ 			!_environmentService.isBuilt || // always allow proposed API when running out of sources
+ 			(_environmentService.isExtensionDevelopment && productService.quality !== 'stable') || // do not allow proposed API against stable builds when developing an extension
+ 			(this._envEnabledExtensions.size === 0 && Array.isArray(_environmentService.extensionEnabledProposedApi)); // always allow proposed API if --enable-proposed-api is provided without extension ID
+
+From 3772198faaa108189f0e00576fb77efc375f7b13 Mon Sep 17 00:00:00 2001
+From: Anton Kosyakov <anton@gitpod.io>
+Date: Tue, 30 Aug 2022 14:37:52 +0200
+Subject: [PATCH 02/16] enable prebuilds for all branches
+
+Tool: gitpod/catfood.gitpod.cloud
+---
+ .gitpod.yml | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/.gitpod.yml b/.gitpod.yml
+index 2013d9fa74b70..90932a95d2597 100644
+--- a/.gitpod.yml
++++ b/.gitpod.yml
+@@ -22,6 +22,7 @@ tasks:
+     openMode: split-right
+ github:
+   prebuilds:
++    branches: true
+     pullRequestsFromForks: true
+ vscode:
+   extensions:
+
+From 6e96506df23d604b6de43aebf6fb7579e69aea40 Mon Sep 17 00:00:00 2001
+From: AXON <axonasif@gmail.com>
+Date: Tue, 17 Jan 2023 16:58:24 +0000
+Subject: [PATCH 03/16] Add example guide for pre-installing vscode extensions
+ with docker installation
+
+Tool: gitpod/catfood.gitpod.cloud
+---
+ README.md | 33 +++++++++++++++++++++++++++++++++
+ 1 file changed, 33 insertions(+)
+
+diff --git a/README.md b/README.md
+index 23ff729999b1c..df49709804d8b 100644
+--- a/README.md
++++ b/README.md
+@@ -44,6 +44,39 @@ _Note_: Feel free to use the `nightly` tag to test the latest version, i.e. `git
+ 	```
+ - For additional possibilities, please consult the `Dockerfile` for OpenVSCode Server at https://github.com/gitpod-io/openvscode-releases/
+ 
++#### Pre-installing VSCode extensions
++
++You can pre-install vscode extensions in such a way:
++
++```dockerfile
++FROM gitpod/openvscode-server:latest
++
++ENV OPENVSCODE_SERVER_ROOT="/home/.openvscode-server"
++ENV OPENVSCODE="${OPENVSCODE_SERVER_ROOT}/bin/openvscode-server"
++
++SHELL ["/bin/bash", "-c"]
++RUN \
++    # Direct download links to external .vsix not available on https://open-vsx.org/
++    # The two links here are just used as example, they are actually available on https://open-vsx.org/
++    urls=(\
++        https://github.com/rust-lang/rust-analyzer/releases/download/2022-12-26/rust-analyzer-linux-x64.vsix \
++        https://github.com/VSCodeVim/Vim/releases/download/v1.24.3/vim-1.24.3.vsix \
++    )\
++    # Create a tmp dir for downloading
++    && tdir=/tmp/exts && mkdir -p "${tdir}" && cd "${tdir}" \
++    # Download via wget from $urls array.
++    && wget "${urls[@]}" && \
++    # List the extensions in this array
++    exts=(\
++        # From https://open-vsx.org/ registry directly
++        gitpod.gitpod-theme \
++        # From filesystem, .vsix that we downloaded (using bash wildcard '*')
++        "${tdir}"/* \
++    )\
++    # Install the $exts
++    && for ext in "${exts[@]}"; do ${OPENVSCODE} --install-extension "${ext}"; done
++```
++
+ ### Linux
+ 
+ - [Download the latest release](https://github.com/gitpod-io/openvscode-server/releases/latest)
+
+From 7fdd723596d8445ba7850db518344274a7b2a5a3 Mon Sep 17 00:00:00 2001
+From: Jean Pierre <jeanp413@hotmail.com>
+Date: Tue, 31 Jan 2023 14:23:58 -0500
+Subject: [PATCH 04/16] :lipstick:
+
+Tool: gitpod/catfood.gitpod.cloud
+---
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/README.md b/README.md
+index df49709804d8b..e85e6b0de347d 100644
+--- a/README.md
++++ b/README.md
+@@ -101,7 +101,7 @@ _Note_: You can use [pre-releases](https://github.com/gitpod-io/openvscode-serve
+ 
+ Since OpenVSCode Server v1.64, you can access the Web UI without authentication (anyone can access the IDE using just the hostname and port), if you need some kind of basic authentication then you can start the server with `--connection-token YOUR_TOKEN`, the provided `YOUR_TOKEN` will be used and the authenticated URL will be displayed in your terminal once you start the server. You can also create a plaintext file with the desired token as its contents and provide it to the server with `--connection-secret YOUR_SECRET_FILE`.
+ 
+-If you want to use a connection token and are working with OpenVSCode Server via [the Docker image](https://hub.docker.com/r/gitpod/openvscode-server), you will have to edit the `ENTRYPOINT` in [the Dockerfile](https://github.com/gitpod-io/openvscode-releases/blob/eb59ab37e23f8d17532b4af4de37eafaf48037a5/Dockerfile#L64) or modify it with the [`entrypoint` option](https://docs.docker.com/compose/compose-file/compose-file-v3/#entrypoint) when working with `docker-compose`.
++If you want to use a connection token and are working with OpenVSCode Server via [the Docker image](https://hub.docker.com/r/gitpod/openvscode-server), you will have to edit the `ENTRYPOINT` in [the Dockerfile](https://github.com/gitpod-io/openvscode-releases/blob/main/Dockerfile) or modify it with the [`entrypoint` option](https://docs.docker.com/compose/compose-file/compose-file-v3/#entrypoint) when working with `docker-compose`.
+ 
+ ### Deployment guides
+ 
+
+From 5426c7aa9faf3650ef793edd32a5df83adf85724 Mon Sep 17 00:00:00 2001
+From: Bjarne Sievers <jellyfishcoding@live.de>
+Date: Tue, 18 Apr 2023 13:39:29 +0200
+Subject: [PATCH 05/16] Update deprecated example in README
+
+Option 'connection-secret' is deprecated: Use connection-token-file instead.
+
+Tool: gitpod/catfood.gitpod.cloud
+---
+ README.md | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/README.md b/README.md
+index e85e6b0de347d..bdc961064cd72 100644
+--- a/README.md
++++ b/README.md
+@@ -90,7 +90,7 @@ RUN \
+   From the possible entrypoint arguments, the most notable ones are
+ 	- `--port` - the port number to start the server on, this is 3000 by default
+ 	- `--without-connection-token` - used by default in the docker image
+-	- `--connection-token` & `--connection-secret` for securing access to the IDE, you can read more about it in [Securing access to your IDE](#securing-access-to-your-ide).
++	- `--connection-token` & `--connection-token-file` for securing access to the IDE, you can read more about it in [Securing access to your IDE](#securing-access-to-your-ide).
+ 	-  `--host` - determines the host the server is listening on. It defaults to `localhost`, so for accessing remotely it's a good idea to add `--host 0.0.0.0` to your launch arguments.
+ 
+ - Visit the URL printed in your terminal.
+@@ -99,7 +99,7 @@ _Note_: You can use [pre-releases](https://github.com/gitpod-io/openvscode-serve
+ 
+ ### Securing access to your IDE
+ 
+-Since OpenVSCode Server v1.64, you can access the Web UI without authentication (anyone can access the IDE using just the hostname and port), if you need some kind of basic authentication then you can start the server with `--connection-token YOUR_TOKEN`, the provided `YOUR_TOKEN` will be used and the authenticated URL will be displayed in your terminal once you start the server. You can also create a plaintext file with the desired token as its contents and provide it to the server with `--connection-secret YOUR_SECRET_FILE`.
++Since OpenVSCode Server v1.64, you can access the Web UI without authentication (anyone can access the IDE using just the hostname and port), if you need some kind of basic authentication then you can start the server with `--connection-token YOUR_TOKEN`, the provided `YOUR_TOKEN` will be used and the authenticated URL will be displayed in your terminal once you start the server. You can also create a plaintext file with the desired token as its contents and provide it to the server with `--connection-token-file YOUR_SECRET_TOKEN_FILE`.
+ 
+ If you want to use a connection token and are working with OpenVSCode Server via [the Docker image](https://hub.docker.com/r/gitpod/openvscode-server), you will have to edit the `ENTRYPOINT` in [the Dockerfile](https://github.com/gitpod-io/openvscode-releases/blob/main/Dockerfile) or modify it with the [`entrypoint` option](https://docs.docker.com/compose/compose-file/compose-file-v3/#entrypoint) when working with `docker-compose`.
+ 
+
+From 98f6b53b0eeb80d6af8ceddbf17782a98385b71e Mon Sep 17 00:00:00 2001
+From: Jean Pierre <jeanp413@hotmail.com>
+Date: Thu, 4 May 2023 17:22:42 -0500
+Subject: [PATCH 06/16] Patch yarnInstall for openvscode-release
+
+Tool: gitpod/catfood.gitpod.cloud
+---
+ build/checksums/vscode-sysroot.txt    | 13 ++++++-------
+ build/linux/debian/install-sysroot.js |  4 ++--
+ build/linux/debian/install-sysroot.ts |  4 ++--
+ build/npm/postinstall.js              |  2 +-
+ 4 files changed, 11 insertions(+), 12 deletions(-)
+
+diff --git a/build/checksums/vscode-sysroot.txt b/build/checksums/vscode-sysroot.txt
+index 5744a5f77d422..1748c7a37259c 100644
+--- a/build/checksums/vscode-sysroot.txt
++++ b/build/checksums/vscode-sysroot.txt
+@@ -1,7 +1,6 @@
+-3baac81a39b69e0929e4700f4f78f022adefc515010054ec393565657c4fff32  aarch64-linux-gnu-glibc-2.28-gcc-10.5.0.tar.gz
+-b4fb7a62ee7a474cfb11d5fb2b73accd6a8c875a559db81d6dfccd0b4a3da442  aarch64-linux-gnu-glibc-2.28-gcc-8.5.0.tar.gz
+-633e88658561ab4643bc5998c88e565a26553b0e97fd07672cb452afb4d9b276  aarch64-linux-musl-gcc-10.3.0.tar.gz
+-6e251200607ac4c4709ebd08b2dc0d9a353ddcfdb47f43a10c2b4cc4b49920c0  arm-rpi-linux-gnueabihf-glibc-2.28-gcc-10.5.0.tar.gz
+-f82c8dacbb9dd85819e4801909eb4e842ac12c899632aa75b4839383a18c7501  arm-rpi-linux-gnueabihf-glibc-2.28-gcc-8.5.0.tar.gz
+-3122af49c493c5c767c2b0772a41119cbdc9803125a705683445b4066dc88b82  x86_64-linux-gnu-glibc-2.28-gcc-10.5.0.tar.gz
+-84acc5a15566c98ddf80631731d672e0ce9febcf3f2e969101e0dfd7ef2405e3  x86_64-linux-gnu-glibc-2.28-gcc-8.5.0.tar.gz
++4aa30f61adde7839ca5616e23cb44625a16b4dd77e5ce38df214d8dfbf4d3596  aarch64-linux-gnu-glibc-2.17.tar.gz
++4a00f87f0d109f66698244cf2bca4c237ff5bb84be4953bd2e624df7d46a4ccb  aarch64-linux-gnu-glibc-2.28.tar.gz
++76226b2a2be87c1d6cbd60371df30b2794d7c9595794786e1be34318be201948  arm-rpi-linux-gnueabihf-glibc-2.17.tar.gz
++3625f8b5e36a42615f904fa3c222dcf35e37d4a46c2ea52f81cad36af5d1c07a  arm-rpi-linux-gnueabihf-glibc-2.28.tar.gz
++2ab8ad5a09270df7562ff79662f07c23d857ca19fa34dbe63999feabf4375bbb  x86_64-linux-gnu-glibc-2.17.tar.gz
++e655175b6143145f5d5f7d84a894f405e0df597b811a507dced6ead03f773bcb  x86_64-linux-gnu-glibc-2.28.tar.gz
+\ No newline at end of file
+diff --git a/build/linux/debian/install-sysroot.js b/build/linux/debian/install-sysroot.js
+index a94ca427a967b..f2e5ce4300e6d 100644
+--- a/build/linux/debian/install-sysroot.js
++++ b/build/linux/debian/install-sysroot.js
+@@ -71,7 +71,7 @@ async function fetchUrl(options, retries = 10, retryDelay = 1000) {
+         const timeout = setTimeout(() => controller.abort(), 30 * 1000);
+         const version = '20250407-330404';
+         try {
+-            const response = await fetch(`https://api.github.com/repos/Microsoft/vscode-linux-build-agent/releases/tags/v${version}`, {
++            const response = await fetch(`https://api.github.com/repos/gitpod-io/vscode-linux-build-agent/releases/tags/v${version}`, {
+                 headers: ghApiHeaders,
+                 signal: controller.signal /* Typings issue with lib.dom.d.ts */
+             });
+@@ -80,7 +80,7 @@ async function fetchUrl(options, retries = 10, retryDelay = 1000) {
+                 const contents = Buffer.from(await response.arrayBuffer());
+                 const asset = JSON.parse(contents.toString()).assets.find((a) => a.name === options.assetName);
+                 if (!asset) {
+-                    throw new Error(`Could not find asset in release of Microsoft/vscode-linux-build-agent @ ${version}`);
++                    throw new Error(`Could not find asset in release of gitpod-io/vscode-linux-build-agent @ ${version}`);
+                 }
+                 console.log(`Found asset ${options.assetName} @ ${asset.url}.`);
+                 const assetResponse = await fetch(asset.url, {
+diff --git a/build/linux/debian/install-sysroot.ts b/build/linux/debian/install-sysroot.ts
+index 670fb68adcf97..9946dee6e6a4f 100644
+--- a/build/linux/debian/install-sysroot.ts
++++ b/build/linux/debian/install-sysroot.ts
+@@ -80,7 +80,7 @@ async function fetchUrl(options: IFetchOptions, retries = 10, retryDelay = 1000)
+ 		const timeout = setTimeout(() => controller.abort(), 30 * 1000);
+ 		const version = '20250407-330404';
+ 		try {
+-			const response = await fetch(`https://api.github.com/repos/Microsoft/vscode-linux-build-agent/releases/tags/v${version}`, {
++			const response = await fetch(`https://api.github.com/repos/gitpod-io/vscode-linux-build-agent/releases/tags/v${version}`, {
+ 				headers: ghApiHeaders,
+ 				signal: controller.signal as any /* Typings issue with lib.dom.d.ts */
+ 			});
+@@ -89,7 +89,7 @@ async function fetchUrl(options: IFetchOptions, retries = 10, retryDelay = 1000)
+ 				const contents = Buffer.from(await response.arrayBuffer());
+ 				const asset = JSON.parse(contents.toString()).assets.find((a: { name: string }) => a.name === options.assetName);
+ 				if (!asset) {
+-					throw new Error(`Could not find asset in release of Microsoft/vscode-linux-build-agent @ ${version}`);
++					throw new Error(`Could not find asset in release of gitpod-io/vscode-linux-build-agent @ ${version}`);
+ 				}
+ 				console.log(`Found asset ${options.assetName} @ ${asset.url}.`);
+ 				const assetResponse = await fetch(asset.url, {
+diff --git a/build/npm/postinstall.js b/build/npm/postinstall.js
+index 1033e4ecf68a6..ab7b22d3b8578 100644
+--- a/build/npm/postinstall.js
++++ b/build/npm/postinstall.js
+@@ -56,7 +56,7 @@ function npmInstall(dir, opts) {
+ 		if (process.env['npm_config_arch'] === 'arm64') {
+ 			run('sudo', ['docker', 'run', '--rm', '--privileged', 'multiarch/qemu-user-static', '--reset', '-p', 'yes'], opts);
+ 		}
+-		run('sudo', ['docker', 'run', '-e', 'GITHUB_TOKEN', '-v', `${process.env['VSCODE_HOST_MOUNT']}:/root/vscode`, '-v', `${process.env['VSCODE_HOST_MOUNT']}/.build/.netrc:/root/.netrc`, '-w', path.resolve('/root/vscode', dir), process.env['VSCODE_REMOTE_DEPENDENCIES_CONTAINER_NAME'], 'sh', '-c', `\"chown -R root:root ${path.resolve('/root/vscode', dir)} && npm i -g node-gyp-build && npm ci\"`], opts);
++		run('sudo', ['docker', 'run', '-e', 'GITHUB_TOKEN', '-v', `${process.env['VSCODE_HOST_MOUNT']}:/root/vscode`, /* '-v', `${process.env['VSCODE_HOST_MOUNT']}/.build/.netrc:/root/.netrc`, */'-w', path.resolve('/root/vscode', dir), process.env['VSCODE_REMOTE_DEPENDENCIES_CONTAINER_NAME'], 'sh', '-c', `\"chown -R root:root ${path.resolve('/root/vscode', dir)} && npm i -g node-gyp-build && npm ci\"`], opts);
+ 		run('sudo', ['chown', '-R', `${userinfo.uid}:${userinfo.gid}`, `${path.resolve(root, dir)}`], opts);
+ 	} else {
+ 		log(dir, 'Installing dependencies...');
+
+From acece45d339a0b4f86d0b6934b5aa92218bcd838 Mon Sep 17 00:00:00 2001
+From: Pol Dellaiera <pol.dellaiera@protonmail.com>
+Date: Wed, 17 May 2023 07:06:49 +0200
+Subject: [PATCH 07/16] fix: make sure `user-data-dir` command line parameter
+ is customizable
+
+The `--user-data-dir` command-line parameter is currently unusable. Its functionality is hampered due to an automatically appended `/data` directory, rendering the parameter completely ineffective.
+
+The proposed minor modification allows users to accurately customize this variable, enhancing its utility.
+
+Tool: gitpod/catfood.gitpod.cloud
+---
+ src/vs/server/node/server.main.ts | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/vs/server/node/server.main.ts b/src/vs/server/node/server.main.ts
+index f53f9eefcf6fd..dc296b17eb4cf 100644
+--- a/src/vs/server/node/server.main.ts
++++ b/src/vs/server/node/server.main.ts
+@@ -37,14 +37,14 @@ const errorReporter: ErrorReporter = {
+ const args = parseArgs(process.argv.slice(2), serverOptions, errorReporter);
+ 
+ const REMOTE_DATA_FOLDER = args['server-data-dir'] || process.env['VSCODE_AGENT_FOLDER'] || join(os.homedir(), product.serverDataFolderName || '.vscode-remote');
+-const USER_DATA_PATH = join(REMOTE_DATA_FOLDER, 'data');
++const USER_DATA_PATH = args['user-data-dir'] || join(REMOTE_DATA_FOLDER, 'data');
+ const APP_SETTINGS_HOME = join(USER_DATA_PATH, 'User');
+ const GLOBAL_STORAGE_HOME = join(APP_SETTINGS_HOME, 'globalStorage');
+ const LOCAL_HISTORY_HOME = join(APP_SETTINGS_HOME, 'History');
+ const MACHINE_SETTINGS_HOME = join(USER_DATA_PATH, 'Machine');
+-args['user-data-dir'] = USER_DATA_PATH;
+ const APP_ROOT = dirname(FileAccess.asFileUri('').fsPath);
+ const BUILTIN_EXTENSIONS_FOLDER_PATH = join(APP_ROOT, 'extensions');
++args['user-data-dir'] = USER_DATA_PATH;
+ args['builtin-extensions-dir'] = BUILTIN_EXTENSIONS_FOLDER_PATH;
+ args['extensions-dir'] = args['extensions-dir'] || join(REMOTE_DATA_FOLDER, 'extensions');
+ 
+
+From 01905a02ab60754f891a0ac0babd8edeb4123336 Mon Sep 17 00:00:00 2001
+From: filiptronicek <filip@gitpod.io>
+Date: Sun, 18 Jun 2023 17:15:59 +0000
+Subject: [PATCH 08/16] Disable `Git: Continue Working in New Local Clone`
+
+Tool: gitpod/catfood.gitpod.cloud
+---
+ extensions/git/package.json | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/extensions/git/package.json b/extensions/git/package.json
+index 66fcb3fa05dc1..640b72a04f2c4 100644
+--- a/extensions/git/package.json
++++ b/extensions/git/package.json
+@@ -71,7 +71,7 @@
+         "title": "%command.continueInLocalClone%",
+         "category": "Git",
+         "icon": "$(repo-clone)",
+-        "enablement": "config.git.enabled && !git.missing && gitOpenRepositoryCount != 0 && remoteName"
++        "enablement": "false && config.git.enabled && !git.missing && gitOpenRepositoryCount != 0 && remoteName"
+       },
+       {
+         "command": "git.clone",
+@@ -993,7 +993,7 @@
+       {
+         "command": "git.continueInLocalClone",
+         "qualifiedName": "%command.continueInLocalClone.qualifiedName%",
+-        "when": "config.git.enabled && !git.missing && gitOpenRepositoryCount != 0 && remoteName",
++        "when": "false && config.git.enabled && !git.missing && gitOpenRepositoryCount != 0 && remoteName",
+         "remoteGroup": "remote_42_git_0_local@0"
+       }
+     ],
+
+From ed6da31c8dff5cec1b5b2d6346ee69006f17289f Mon Sep 17 00:00:00 2001
+From: Jeremie Laval <jeremie@stripe.com>
+Date: Tue, 15 Aug 2023 12:26:13 -0400
+Subject: [PATCH 09/16] spread originalConfig rather than reconstructing it
+
+Tool: gitpod/catfood.gitpod.cloud
+---
+ src/vs/code/browser/workbench/workbench.ts | 7 +------
+ 1 file changed, 1 insertion(+), 6 deletions(-)
+
+diff --git a/src/vs/code/browser/workbench/workbench.ts b/src/vs/code/browser/workbench/workbench.ts
+index 83deb97cead34..940dffdc52ed6 100644
+--- a/src/vs/code/browser/workbench/workbench.ts
++++ b/src/vs/code/browser/workbench/workbench.ts
+@@ -607,12 +607,8 @@ function readCookie(name: string): string | undefined {
+ 	const secretStorageCrypto = secretStorageKeyPath && ServerKeyedAESCrypto.supported()
+ 		? new ServerKeyedAESCrypto(secretStorageKeyPath) : new TransparentCrypto();
+ 	const config: IWorkbenchConstructionOptions & { folderUri?: UriComponents; workspaceUri?: UriComponents; callbackRoute: string } = {
++		...originalConfig,
+ 		remoteAuthority: window.location.host,
+-		developmentOptions: originalConfig.developmentOptions,
+-		settingsSyncOptions: originalConfig.settingsSyncOptions,
+-		folderUri: originalConfig.folderUri,
+-		workspaceUri: originalConfig.workspaceUri,
+-		callbackRoute: originalConfig.callbackRoute
+ 	};
+ 
+ 	// Create workbench
+@@ -620,7 +616,6 @@ function readCookie(name: string): string | undefined {
+ 		...config,
+ 		windowIndicator: config.windowIndicator ?? { label: '$(remote)', tooltip: `${product.nameShort} Web` },
+ 		settingsSyncOptions: config.settingsSyncOptions ? { enabled: config.settingsSyncOptions.enabled, } : undefined,
+-		developmentOptions: { ...config.developmentOptions },
+ 		workspaceProvider: WorkspaceProvider.create(config),
+ 		urlCallbackProvider: new LocalStorageURLCallbackProvider(config.callbackRoute),
+ 		secretStorageProvider: config.remoteAuthority && !secretStorageKeyPath
+
+From f54631d4409787ba093702688232f8ac4d9e15df Mon Sep 17 00:00:00 2001
+From: Huiwen <mhqnwt@gmail.com>
+Date: Thu, 9 May 2024 14:59:51 +0000
+Subject: [PATCH 10/16] Sync upstream product.json
+
+Tool: gitpod/catfood.gitpod.cloud
+---
+ product.json | 698 +++++++++++++++++++++++++++++++++++++++++++--------
+ 1 file changed, 596 insertions(+), 102 deletions(-)
+
+diff --git a/product.json b/product.json
+index 47b43189b441f..9ac988c98a059 100644
+--- a/product.json
++++ b/product.json
+@@ -41,132 +41,494 @@
+ 	"urlProtocol": "openvscode-server",
+ 	"embedderIdentifier": "openvscode-server",
+ 	"webviewContentExternalBaseUrlTemplate": "https://{{uuid}}.vscode-cdn.net/insider/ef65ac1ba57f57f2a3961bfe94aa20481caca4c6/out/vs/workbench/contrib/webview/browser/pre/",
+-	"extensionTips": {
+-		"muhammad-sammy.csharp": "{**/*.cs,**/project.json,**/global.json,**/*.csproj,**/*.cshtml,**/*.sln,**/appsettings.json}",
+-		"firefox-devtools.vscode-firefox-debug": "{**/*.ts,**/*.tsx,**/*.js,**/*.jsx,**/*.es6,**/.babelrc}",
+-		"ms-edgedevtools.vscode-edge-devtools": "{**/*.ts,**/*.tsx,**/*.js,**/*.css,**/*.html}",
+-		"golang.Go": "**/*.go",
+-		"ms-vscode.PowerShell": "{**/*.ps1,**/*.psd1,**/*.psm1,**/*.ps.config,**/*.ps1.config}",
+-		"Ionide.Ionide-fsharp": "{**/*.fsx,**/*.fsi,**/*.fs,**/*.ml,**/*.mli}",
+-		"dbaeumer.vscode-eslint": "{**/*.js,**/*.jsx,**/*.es6,**/.eslintrc.*,**/.eslintrc,**/.babelrc,**/jsconfig.json}",
+-		"ms-vscode.vscode-typescript-tslint-plugin": "{**/tslint.json}",
+-		"bmewburn.vscode-intelephense-client": "{**/*.php,**/php.ini}",
+-		"xdebug.php-debug": "{**/*.php,**/php.ini}",
+-		"rust-lang.rust-analyzer": "{**/*.rs,**/*.rslib}",
+-		"DavidAnson.vscode-markdownlint": "{**/*.md}",
+-		"ms-azuretools.vscode-docker": "{**/dockerfile,**/Dockerfile,**/docker-compose.yml,**/docker-compose.*.yml,**/*.cs,**/project.json,**/global.json,**/*.csproj,**/*.cshtml,**/*.sln,**/appsettings.json,**/*.py,**/*.ipynb,**/*.js,**/*.ts,**/package.json}",
+-		"EditorConfig.EditorConfig": "{**/.editorconfig}",
+-		"HookyQR.beautify": "{**/.jsbeautifyrc}",
+-		"donjayamanne.githistory": "{**/.gitignore,**/.git}",
+-		"felipecaputo.git-project-manager": "{**/.gitignore,**/.git}",
+-		"eamodio.gitlens": "{**/.gitignore,**/.git}",
+-		"rebornix.Ruby": "{**/*.rb,**/*.erb,**/*.reek,**/.fasterer.yml,**/ruby-lint.yml,**/.rubocop.yml}",
+-		"DotJoshJohnson.xml": "{**/*.xml}",
+-		"stylelint.vscode-stylelint": "{**/.stylelintrc,**/stylelint.config.js}",
+-		"ms-mssql.mssql": "{**/*.sql}",
+-		"mtxr.sqltools": "{**/*.sql}",
+-		"ms-vscode.sublime-keybindings": "{**/.sublime-project,**/.sublime-workspace}",
+-		"k--kato.intellij-idea-keybindings": "{**/.idea}",
+-		"christian-kohler.npm-intellisense": "{**/package.json}",
+-		"vue.volar": "{**/*.vue}",
+-		"ms-python.python": "{**/*.py,**/*.ipynb}",
+-		"ms-toolsai.jupyter": "{**/*.ipynb}",
+-		"cake-build.cake-vscode": "{**/build.cake}",
+-		"Angular.ng-template": "{**/.angular-cli.json,**/angular.json,**/*.ng.html,**/*.ng,**/*.ngml}",
+-		"vscjava.vscode-maven": "**/pom.xml",
+-		"HashiCorp.terraform": "**/*.tf",
+-		"vsciot-vscode.vscode-arduino": "**/*.ino",
+-		"ms-kubernetes-tools.vscode-kubernetes-tools": "{**/Chart.yaml}",
+-		"GoogleCloudTools.cloudcode": "{**/skaffold.yaml}",
+-		"Oracle.oracledevtools": "{**/*.sql}",
+-		"ms-vscode.vscode-github-issue-notebooks": "{**/*.github-issues}",
+-		"REditorSupport.r": "**/*.r"
+-	},
+-	"extensionImportantTips": {
++	"extensionRecommendations": {
+ 		"muhammad-sammy.csharp": {
+-			"name": "C#",
+-			"languages": [
+-				"csharp"
+-			],
+-			"pattern": "{**/*.cs,**/global.json,**/*.csproj,**/*.cshtml,**/*.sln}"
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/*.cs,**/global.json,**/*.csproj,**/*.cshtml,**/*.sln}",
++					"important": true
++				},
++				{
++					"languages": [
++						"csharp"
++					],
++					"important": true
++				},
++				{
++					"pathGlob": "{**/project.json,**/appsettings.json}"
++				}
++			]
+ 		},
+ 		"ms-python.python": {
+-			"name": "Python",
+-			"languages": [
+-				"python"
+-			],
+-			"pattern": "{**/*.py}"
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/*.py}",
++					"important": true
++				},
++				{
++					"languages": [
++						"python"
++					],
++					"important": true
++				},
++				{
++					"pathGlob": "{**/*.ipynb}"
++				}
++			]
++		},
++		"ms-toolsai.jupyter": {
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/*.py}",
++					"contentPattern": "^#\\s*%%$",
++					"important": true,
++					"whenInstalled": [
++						"ms-python.python"
++					]
++				},
++				{
++					"pathGlob": "{**/*.ipynb}"
++				}
++			]
+ 		},
+ 		"golang.Go": {
+-			"name": "Go",
+-			"languages": [
+-				"go"
+-			],
+-			"pattern": "**/*.go"
++			"onFileOpen": [
++				{
++					"pathGlob": "**/*.go",
++					"important": true
++				},
++				{
++					"languages": [
++						"go"
++					],
++					"important": true
++				}
++			]
+ 		},
+ 		"vscjava.vscode-java-pack": {
+-			"name": "Java",
+-			"languages": [
+-				"java"
+-			],
+-			"pattern": "{**/*.java}",
+-			"isExtensionPack": true,
+-			"whenNotInstalled": [
+-				"ASF.apache-netbeans-java"
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/*.java}",
++					"important": true,
++					"whenNotInstalled": [
++						"ASF.apache-netbeans-java",
++						"Oracle.oracle-java"
++					]
++				},
++				{
++					"languages": [
++						"java"
++					],
++					"important": true,
++					"whenNotInstalled": [
++						"ASF.apache-netbeans-java",
++						"Oracle.oracle-java"
++					]
++				}
+ 			]
+ 		},
+ 		"ms-vscode.PowerShell": {
+-			"name": "PowerShell",
+-			"languages": [
+-				"powershell"
+-			],
+-			"pattern": "{**/*.ps1,**/*.psd1,**/*.psm1}"
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/*.ps1,**/*.psd1,**/*.psm1}",
++					"important": true
++				},
++				{
++					"languages": [
++						"powershell"
++					],
++					"important": true
++				},
++				{
++					"pathGlob": "{**/*.ps.config,**/*.ps1.config}"
++				}
++			]
+ 		},
+ 		"ms-azuretools.vscode-docker": {
+-			"name": "Docker",
+-			"languages": [
+-				"dockerfile"
+-			],
+-			"pattern": "{**/dockerfile,**/Dockerfile,**/docker-compose.yml,**/docker-compose.*.yml}"
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/dockerfile,**/Dockerfile,**/docker-compose.yml,**/docker-compose.*.yml}",
++					"important": true
++				},
++				{
++					"languages": [
++						"dockerfile"
++					],
++					"important": true
++				},
++				{
++					"pathGlob": "{**/*.cs,**/project.json,**/global.json,**/*.csproj,**/*.cshtml,**/*.sln,**/appsettings.json,**/*.py,**/*.ipynb,**/*.js,**/*.ts,**/package.json}"
++				}
++			]
+ 		},
+ 		"vue.volar": {
+-			"name": "Vetur",
+-			"languages": [
+-				"vue"
+-			],
+-			"pattern": "{**/*.vue}"
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/*.vue}",
++					"important": true
++				},
++				{
++					"languages": [
++						"vue"
++					],
++					"important": true
++				}
++			]
+ 		},
+ 		"ms-vscode.makefile-tools": {
+-			"name": "Makefile Tools",
+-			"languages": [
+-				"makefile"
+-			],
+-			"pattern": "{**/makefile,**/Makefile}"
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/makefile,**/Makefile}",
++					"important": true
++				},
++				{
++					"languages": [
++						"makefile"
++					],
++					"important": true
++				}
++			]
+ 		},
+ 		"ms-vscode.cmake-tools": {
+-			"name": "CMake Tools",
+-			"pattern": "{**/CMakeLists.txt}"
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/CMakeLists.txt}",
++					"important": true
++				}
++			]
++		},
++		"ms-azure-devops.azure-pipelines": {
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/azure-pipelines.yaml}",
++					"important": true
++				}
++			]
++		},
++		"msazurermtools.azurerm-vscode-tools": {
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/azuredeploy.json}",
++					"important": true
++				}
++			]
++		},
++		"ms-vscode-remote.remote-containers": {
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/devcontainer.json}",
++					"important": true
++				}
++			]
++		},
++		"ms-azuretools.vscode-bicep": {
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/*.bicep}",
++					"important": true,
++					"whenNotInstalled": [
++						"ms-azuretools.rad-vscode-bicep"
++					]
++				}
++			]
+ 		},
+ 		"svelte.svelte-vscode": {
+-			"name": "Svelte",
+-			"pattern": "{**/*.svelte}"
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/*.svelte}",
++					"important": true
++				}
++			]
+ 		},
+ 		"ms-vscode.vscode-github-issue-notebooks": {
+-			"name": "GitHub Issue Notebooks",
+-			"pattern": "{**/*.github-issues}"
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/*.github-issues}",
++					"important": true
++				}
++			]
+ 		},
+ 		"ms-playwright.playwright": {
+-			"name": "Playwright",
+-			"pattern": "{**/*playwright*.config.ts,**/*playwright*.config.js,**/*playwright*.config.mjs}"
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/*playwright*.config.ts,**/*playwright*.config.js,**/*playwright*.config.mjs}",
++					"important": true
++				}
++			]
++		},
++		"vscjava.vscode-gradle": {
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/gradlew,**/gradlew.bat,**/build.gradle,**/build.gradle.kts,**/settings.gradle,**/settings.gradle.kts}",
++					"important": true
++				}
++			]
+ 		},
+ 		"REditorSupport.r": {
+-			"name": "R",
+-			"languages": [
+-				"r"
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/*.r}",
++					"important": true
++				},
++				{
++					"languages": [
++						"r"
++					],
++					"important": true
++				}
++			]
++		},
++		"firefox-devtools.vscode-firefox-debug": {
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/*.ts,**/*.tsx,**/*.js,**/*.jsx,**/*.es6,**/.babelrc}"
++				}
++			]
++		},
++		"ms-edgedevtools.vscode-edge-devtools": {
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/*.ts,**/*.tsx,**/*.js,**/*.css,**/*.html}"
++				}
++			]
++		},
++		"Ionide.Ionide-fsharp": {
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/*.fsx,**/*.fsi,**/*.fs,**/*.ml,**/*.mli}"
++				}
++			]
++		},
++		"dbaeumer.vscode-eslint": {
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/*.js,**/*.jsx,**/*.es6,**/.eslintrc.*,**/.eslintrc,**/.babelrc,**/jsconfig.json}"
++				}
++			]
++		},
++		"bmewburn.vscode-intelephense-client": {
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/*.php,**/php.ini}"
++				}
++			]
++		},
++		"xdebug.php-debug": {
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/*.php,**/php.ini}"
++				}
++			]
++		},
++		"rust-lang.rust-analyzer": {
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/*.rs,**/*.rslib}"
++				}
++			]
++		},
++		"DavidAnson.vscode-markdownlint": {
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/*.md}"
++				}
++			]
++		},
++		"EditorConfig.EditorConfig": {
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/.editorconfig}"
++				}
++			]
++		},
++		"HookyQR.beautify": {
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/.jsbeautifyrc}"
++				}
++			]
++		},
++		"donjayamanne.githistory": {
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/.gitignore,**/.git}"
++				}
++			]
++		},
++		"eamodio.gitlens": {
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/.gitignore,**/.git}"
++				}
++			]
++		},
++		"Shopify.ruby-lsp": {
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/*.rb,**/*.erb,**/*.reek,**/.fasterer.yml,**/ruby-lint.yml,**/.rubocop.yml}"
++				}
++			]
++		},
++		"DotJoshJohnson.xml": {
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/*.xml}"
++				}
++			]
++		},
++		"stylelint.vscode-stylelint": {
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/.stylelintrc,**/stylelint.config.js}"
++				}
++			]
++		},
++		"ms-mssql.mssql": {
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/*.sql}"
++				}
++			]
++		},
++		"mtxr.sqltools": {
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/*.sql}"
++				}
++			]
++		},
++		"usqlextpublisher.usql-vscode-ext": {
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/*.usql}"
++				}
++			]
++		},
++		"ms-vscode.sublime-keybindings": {
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/.sublime-project,**/.sublime-workspace}"
++				}
++			]
++		},
++		"k--kato.intellij-idea-keybindings": {
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/.idea}"
++				}
++			]
++		},
++		"christian-kohler.npm-intellisense": {
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/package.json}"
++				}
++			]
++		},
++		"Angular.ng-template": {
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/.angular-cli.json,**/angular.json,**/*.ng.html,**/*.ng,**/*.ngml}"
++				}
++			]
++		},
++		"vscjava.vscode-maven": {
++			"onFileOpen": [
++				{
++					"pathGlob": "**/pom.xml"
++				}
++			]
++		},
++		"ms-azuretools.vscode-azureterraform": {
++			"onFileOpen": [
++				{
++					"pathGlob": "**/*.tf"
++				}
++			]
++		},
++		"HashiCorp.terraform": {
++			"onFileOpen": [
++				{
++					"pathGlob": "**/*.tf"
++				}
++			]
++		},
++		"ms-kubernetes-tools.vscode-kubernetes-tools": {
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/Chart.yaml}"
++				}
++			]
++		},
++		"Oracle.oracledevtools": {
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/*.sql}"
++				}
++			]
++		},
++		"betterthantomorrow.calva": {
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/*.clj,**/*.cljs}"
++				}
++			]
++		},
++		"vmware.vscode-boot-dev-pack": {
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/application.properties}"
++				}
++			]
++		},
++		"GitHub.copilot": {
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/*.ts,**/*.tsx,**/*.js,**/*.py,**/*.go,**/*.rb}"
++				}
+ 			],
+-			"pattern": "{**/*.r}"
++			"onSettingsEditorOpen": {}
++		},
++		"GitHub.vscode-github-actions": {
++			"onFileOpen": [
++				{
++					"pathGlob": "{**/.github/workflows/*.yml}",
++					"important": true
++				}
++			]
++		},
++		"mechatroner.rainbow-csv": {
++			"onFileOpen": [
++				{
++					"pathGlob": "**/*.csv",
++					"important": true
++				}
++			]
++		},
++		"tomoki1207.pdf": {
++			"onFileOpen": [
++				{
++					"pathGlob": "**/*.pdf",
++					"important": true
++				}
++			]
+ 		}
+ 	},
++	"commonlyUsedSettings": [
++		"files.autoSave",
++		"editor.fontSize",
++		"editor.fontFamily",
++		"GitHub.copilot.manageExtension",
++		"editor.tabSize",
++		"editor.renderWhitespace",
++		"editor.cursorStyle",
++		"editor.multiCursorModifier",
++		"editor.insertSpaces",
++		"editor.wordWrap",
++		"files.exclude",
++		"files.associations",
++		"workbench.editor.enablePreview"
++	],
+ 	"keymapExtensionTips": [
+ 		"vscodevim.vim",
+ 		"ms-vscode.sublime-keybindings",
+@@ -192,7 +554,7 @@
+ 		"ms-vscode.powershell",
+ 		"dart-code.dart-code",
+ 		"rust-lang.rust-analyzer",
+-		"rebornix.ruby"
++		"Shopify.ruby-lsp"
+ 	],
+ 	"configBasedExtensionTips": {
+ 		"git": {
+@@ -201,9 +563,7 @@
+ 			"recommendations": {
+ 				"github.vscode-pull-request-github": {
+ 					"name": "GitHub Pull Request",
+-					"remotes": [
+-						"github.com"
+-					]
++					"contentPattern": "^\\s*url\\s*=\\s*https:\\/\\/github\\.com.*$"
+ 				},
+ 				"eamodio.gitlens": {
+ 					"name": "GitLens"
+@@ -222,7 +582,7 @@
+ 						"ASF.apache-netbeans-java"
+ 					]
+ 				},
+-				"Pivotal.vscode-boot-dev-pack": {
++				"vmware.vscode-boot-dev-pack": {
+ 					"name": "Spring Boot Extension Pack",
+ 					"isExtensionPack": true
+ 				}
+@@ -252,8 +612,142 @@
+ 					"important": true
+ 				}
+ 			}
++		},
++		"pyproject-formatter": {
++			"configPath": "pyproject.toml",
++			"configName": "Python Formatter",
++			"recommendations": {
++				"ms-python.black-formatter": {
++					"name": "Black Formatter",
++					"contentPattern": "(^\\s*\\[\\[?\\s*\"?tool\"?\\s*\\.\\s*\"?black\"?\\s*[\\].])|(\"black\\s*[\"[(<=>!~;@])"
++				},
++				"ms-python.autopep8": {
++					"name": "Autopep8",
++					"contentPattern": "(^\\s*\\[\\[?\\s*\"?tool\"?\\s*\\.\\s*\"?autopep8\"?\\s*[\\].])|(\"autopep8\\s*[\"[(<=>!~;@])"
++				}
++			}
++		},
++		"pep8-formatter": {
++			"configPath": ".pep8",
++			"configName": "Python Formatter",
++			"recommendations": {
++				"ms-python.autopep8": {
++					"name": "Autopep8"
++				}
++			}
++		},
++		"python-setup-cgf-formatter": {
++			"configPath": "setup.cfg",
++			"configName": "Python Formatter",
++			"recommendations": {
++				"ms-python.autopep8": {
++					"name": "Autopep8",
++					"contentPattern": "^\\[pep8\\]"
++				}
++			}
++		},
++		"tox-ini-formatter": {
++			"configPath": "tox.ini",
++			"configName": "Python Formatter",
++			"recommendations": {
++				"ms-python.autopep8": {
++					"name": "Autopep8",
++					"contentPattern": "^\\[pep8\\]"
++				}
++			}
++		},
++		"pyproject-linter": {
++			"configPath": "pyproject.toml",
++			"configName": "Python Linter",
++			"recommendations": {
++				"ms-python.pylint": {
++					"name": "Pylint",
++					"contentPattern": "(^\\s*\\[\\[?\\s*\"?tool\"?\\s*\\.\\s*\"?pylint\"?\\s*[\\].])|(\"pylint\\s*[\"[(<=>!~;@])"
++				},
++				"charliermarsh.ruff": {
++					"name": "Ruff",
++					"contentPattern": "(^\\s*\\[\\[?\\s*\"?tool\"?\\s*\\.\\s*\"?ruff\"?\\s*[\\].])|(\"ruff\\s*[\"[(<=>!~;@])"
++				},
++				"ms-python.mypy-type-checker": {
++					"name": "Mypy Type Checker",
++					"contentPattern": "(^\\s*\\[\\[?\\s*\"?tool\"?\\s*\\.\\s*\"?mypy\"?\\s*[\\].])|(\"mypy\\s*[\"[(<=>!~;@])"
++				},
++				"ms-python.flake8": {
++					"name": "Flake8",
++					"contentPattern": "(^\\s*\\[\\[?\\s*\"?tool\"?\\s*\\.\\s*\"?flake8\"?\\s*[\\].])|(\"flake8\\s*[\"[(<=>!~;@])"
++				}
++			}
++		},
++		".pylintrc-linter": {
++			"configPath": ".pylintrc",
++			"configName": "Python Linter",
++			"recommendations": {
++				"ms-python.pylint": {
++					"name": "Pylint"
++				}
++			}
++		},
++		"pylintrc-linter": {
++			"configPath": "pylintrc",
++			"configName": "Python Linter",
++			"recommendations": {
++				"ms-python.pylint": {
++					"name": "Pylint"
++				}
++			}
++		},
++		"mypy-ini-linter": {
++			"configPath": ".mypy.ini",
++			"configName": "Python Linter",
++			"recommendations": {
++				"ms-python.mypy-type-checker": {
++					"name": "Mypy Type Checker"
++				}
++			}
++		},
++		"tox-ini-linter": {
++			"configPath": "tox.ini",
++			"configName": "Python Linter",
++			"recommendations": {
++				"ms-python.flake8": {
++					"name": "Flake8",
++					"contentPattern": "^\\[flake8\\]"
++				}
++			}
++		},
++		".flake8-linter": {
++			"configPath": ".flake8",
++			"configName": "Python Linter",
++			"recommendations": {
++				"ms-python.flake8": {
++					"name": "Flake8"
++				}
++			}
++		},
++		"python-setup-cgf-linter": {
++			"configPath": "setup.cfg",
++			"configName": "Python Linter",
++			"recommendations": {
++				"ms-python.flake8": {
++					"name": "Flake8",
++					"contentPattern": "^\\[flake8\\]"
++				}
++			}
+ 		}
+ 	},
++	"commandPaletteSuggestedCommandIds": [
++		"workbench.action.files.openFile",
++		"workbench.action.files.openFileFolder",
++		"workbench.action.files.openFolder",
++		"workbench.action.remote.showMenu",
++		"editor.action.formatDocument",
++		"editor.action.commentLine",
++		"workbench.action.tasks.runTask",
++		"workbench.action.openSettings2",
++		"workbench.action.selectTheme",
++		"workbench.action.openWalkthrough",
++		"workbench.action.openIssueReporter"
++	],
+ 	"extensionKeywords": {
+ 		"md": [
+ 			"Markdown"
+
+From 43dfb3c35859973fa3e4cf1567a5306c880bea4d Mon Sep 17 00:00:00 2001
+From: Huiwen <mhqnwt@gmail.com>
+Date: Wed, 9 Oct 2024 18:48:10 +0000
+Subject: [PATCH 11/16] Use npm
+
+Tool: gitpod/catfood.gitpod.cloud
+---
+ .gitpod.yml  | 6 +++---
+ package.json | 4 ++--
+ 2 files changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/.gitpod.yml b/.gitpod.yml
+index 90932a95d2597..08d31ae90b897 100644
+--- a/.gitpod.yml
++++ b/.gitpod.yml
+@@ -5,13 +5,13 @@ ports:
+     onOpen: open-browser
+ tasks:
+   - init: |
+-      yarn
+-      yarn server:init
++      npm ci
++      npm run server:init
+     command: |
+       gp sync-done init
+       export NODE_ENV=development
+       export VSCODE_DEV=1
+-      yarn gulp watch-init
++      npm run watch
+     name: watch app
+   - command: |
+       export NODE_ENV=development
+diff --git a/package.json b/package.json
+index 1a313ea85ca01..cdb6861b3be8f 100644
+--- a/package.json
++++ b/package.json
+@@ -67,8 +67,8 @@
+     "extensions-ci-pr": "node ./node_modules/gulp/bin/gulp.js extensions-ci-pr",
+     "perf": "node scripts/code-perf.js",
+     "update-build-ts-version": "npm install typescript@next && tsc -p ./build/tsconfig.build.json",
+-    "server:init": "yarn --cwd ./build compile && yarn compile && yarn download-builtin-extensions",
+-    "server:smoketest": "yarn --cwd ./test/smoke compile && yarn smoketest-no-compile --web --verbose --headless --electronArgs=\"--disable-dev-shm-usage --use-gl=swiftshader\""
++    "server:init": "npm run compile && npm run download-builtin-extensions",
++    "server:smoketest": "npm run smoketest -- --web --verbose --headless --electronArgs=\"--disable-dev-shm-usage --use-gl=swiftshader\""
+   },
+   "dependencies": {
+     "@microsoft/1ds-core-js": "^3.2.13",
+
+From 6d750cf8645944768155b20ea2fad713509f2ecb Mon Sep 17 00:00:00 2001
+From: Jean Pierre Huaroto <jeanp413@hotmail.com>
+Date: Sat, 19 Oct 2024 21:20:07 +0000
+Subject: [PATCH 12/16] update docker file
+
+Tool: gitpod/catfood.gitpod.cloud
+---
+ .gitpod.Dockerfile | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/.gitpod.Dockerfile b/.gitpod.Dockerfile
+index 4daab9941441a..c0c05193531ac 100644
+--- a/.gitpod.Dockerfile
++++ b/.gitpod.Dockerfile
+@@ -19,5 +19,3 @@ RUN sudo apt-get update \
+         libasound2 libgbm1 xfonts-base xfonts-terminus fonts-noto fonts-wqy-microhei \
+         fonts-droid-fallback vim-tiny nano libgconf2-dev libgtk-3-dev twm \
+     && sudo apt-get clean && sudo rm -rf /var/cache/apt/* && sudo rm -rf /var/lib/apt/lists/* && sudo rm -rf /tmp/*
+-
+-ENV DISABLE_V8_COMPILE_CACHE=1
+
+From 58cd6152dc169f062b3a5760a6fd8e4553da8525 Mon Sep 17 00:00:00 2001
+From: Jean Pierre <jeanpierre@gitpod.io>
+Date: Thu, 27 Feb 2025 05:18:57 +0000
+Subject: [PATCH 13/16] fix compiled file
+
+Tool: gitpod/catfood.gitpod.cloud
+---
+ build/lib/compilation.js | 98 ++++++++++++++++++++--------------------
+ 1 file changed, 49 insertions(+), 49 deletions(-)
+
+diff --git a/build/lib/compilation.js b/build/lib/compilation.js
+index 5ba006c87658e..738172e0e5d36 100644
+--- a/build/lib/compilation.js
++++ b/build/lib/compilation.js
+@@ -3,24 +3,24 @@
+  *  Copyright (c) Microsoft Corporation. All rights reserved.
+  *  Licensed under the MIT License. See License.txt in the project root for license information.
+  *--------------------------------------------------------------------------------------------*/
+-var __createBinding = (this && this.__createBinding) || (Object.create ? (function (o, m, k, k2) {
++var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+     if (k2 === undefined) k2 = k;
+     var desc = Object.getOwnPropertyDescriptor(m, k);
+     if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+-        desc = { enumerable: true, get: function () { return m[k]; } };
++      desc = { enumerable: true, get: function() { return m[k]; } };
+     }
+     Object.defineProperty(o, k2, desc);
+-}) : (function (o, m, k, k2) {
++}) : (function(o, m, k, k2) {
+     if (k2 === undefined) k2 = k;
+     o[k2] = m[k];
+ }));
+-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function (o, v) {
++var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+     Object.defineProperty(o, "default", { enumerable: true, value: v });
+-}) : function (o, v) {
++}) : function(o, v) {
+     o["default"] = v;
+ });
+ var __importStar = (this && this.__importStar) || (function () {
+-    var ownKeys = function (o) {
++    var ownKeys = function(o) {
+         ownKeys = Object.getOwnPropertyNames || function (o) {
+             var ar = [];
+             for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+@@ -121,10 +121,10 @@ function createCompile(src, { build, emitError, transpileOnly, preserveEnglish }
+             .pipe(util.$if(build, nls.nls({ preserveEnglish })))
+             .pipe(noDeclarationsFilter.restore)
+             .pipe(util.$if(!transpileOnly, sourcemaps.write('.', {
+-                addComment: false,
+-                includeContent: !!build,
+-                sourceRoot: overrideOptions.sourceRoot
+-            })))
++            addComment: false,
++            includeContent: !!build,
++            sourceRoot: overrideOptions.sourceRoot
++        })))
+             .pipe(tsFilter.restore)
+             .pipe(reporter.end(!!emitError));
+         return event_stream_1.default.duplex(input, output);
+@@ -295,45 +295,45 @@ function generateApiProposalNames() {
+     const output = input
+         .pipe(util.filter((f) => pattern.test(f.path)))
+         .pipe(event_stream_1.default.through((f) => {
+-            const name = path_1.default.basename(f.path);
+-            const match = pattern.exec(name);
+-            if (!match) {
+-                return;
+-            }
+-            const proposalName = match[1];
+-            const contents = f.contents.toString('utf8');
+-            const versionMatch = versionPattern.exec(contents);
+-            const version = versionMatch ? versionMatch[1] : undefined;
+-            proposals.set(proposalName, {
+-                proposal: `https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.${proposalName}.d.ts`,
+-                version: version ? parseInt(version) : undefined
+-            });
+-        }, function () {
+-            const names = [...proposals.keys()].sort();
+-            const contents = [
+-                '/*---------------------------------------------------------------------------------------------',
+-                ' *  Copyright (c) Microsoft Corporation. All rights reserved.',
+-                ' *  Licensed under the MIT License. See License.txt in the project root for license information.',
+-                ' *--------------------------------------------------------------------------------------------*/',
+-                '',
+-                '// THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY.',
+-                '',
+-                'const _allApiProposals = {',
+-                `${names.map(proposalName => {
+-                    const proposal = proposals.get(proposalName);
+-                    return `\t${proposalName}: {${eol}\t\tproposal: '${proposal.proposal}',${eol}${proposal.version ? `\t\tversion: ${proposal.version}${eol}` : ''}\t}`;
+-                }).join(`,${eol}`)}`,
+-                '};',
+-                'export const allApiProposals = Object.freeze<{ [proposalName: string]: Readonly<{ proposal: string; version?: number }> }>(_allApiProposals);',
+-                'export type ApiProposalName = keyof typeof _allApiProposals;',
+-                '',
+-            ].join(eol);
+-            this.emit('data', new vinyl_1.default({
+-                path: 'vs/platform/extensions/common/extensionsApiProposals.ts',
+-                contents: Buffer.from(contents)
+-            }));
+-            this.emit('end');
++        const name = path_1.default.basename(f.path);
++        const match = pattern.exec(name);
++        if (!match) {
++            return;
++        }
++        const proposalName = match[1];
++        const contents = f.contents.toString('utf8');
++        const versionMatch = versionPattern.exec(contents);
++        const version = versionMatch ? versionMatch[1] : undefined;
++        proposals.set(proposalName, {
++            proposal: `https://raw.githubusercontent.com/microsoft/vscode/main/src/vscode-dts/vscode.proposed.${proposalName}.d.ts`,
++            version: version ? parseInt(version) : undefined
++        });
++    }, function () {
++        const names = [...proposals.keys()].sort();
++        const contents = [
++            '/*---------------------------------------------------------------------------------------------',
++            ' *  Copyright (c) Microsoft Corporation. All rights reserved.',
++            ' *  Licensed under the MIT License. See License.txt in the project root for license information.',
++            ' *--------------------------------------------------------------------------------------------*/',
++            '',
++            '// THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY.',
++            '',
++            'const _allApiProposals = {',
++            `${names.map(proposalName => {
++                const proposal = proposals.get(proposalName);
++                return `\t${proposalName}: {${eol}\t\tproposal: '${proposal.proposal}',${eol}${proposal.version ? `\t\tversion: ${proposal.version}${eol}` : ''}\t}`;
++            }).join(`,${eol}`)}`,
++            '};',
++            'export const allApiProposals = Object.freeze<{ [proposalName: string]: Readonly<{ proposal: string; version?: number }> }>(_allApiProposals);',
++            'export type ApiProposalName = keyof typeof _allApiProposals;',
++            '',
++        ].join(eol);
++        this.emit('data', new vinyl_1.default({
++            path: 'vs/platform/extensions/common/extensionsApiProposals.ts',
++            contents: Buffer.from(contents)
+         }));
++        this.emit('end');
++    }));
+     return event_stream_1.default.duplex(input, output);
+ }
+ const apiProposalNamesReporter = (0, reporter_1.createReporter)('api-proposal-names');
+@@ -351,4 +351,4 @@ exports.watchApiProposalNamesTask = task.define('watch-api-proposal-names', () =
+         .pipe(util.debounce(task))
+         .pipe(gulp_1.default.dest('src'));
+ });
+-//# sourceMappingURL=compilation.js.map
++//# sourceMappingURL=compilation.js.map
+\ No newline at end of file
+
+From 175721f853ba3f5e3f80be4d8be74cd701455f25 Mon Sep 17 00:00:00 2001
+From: Jean Pierre <jeanpierre@gitpod.io>
+Date: Sat, 8 Mar 2025 00:47:04 +0000
+Subject: [PATCH 14/16] Update product.json
+
+Tool: gitpod/catfood.gitpod.cloud
+---
+ product.json | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/product.json b/product.json
+index 9ac988c98a059..0839de62d09c5 100644
+--- a/product.json
++++ b/product.json
+@@ -1157,6 +1157,7 @@
+ 		"serviceUrl": "https://open-vsx.org/vscode/gallery",
+ 		"itemUrl": "https://open-vsx.org/vscode/item",
+ 		"resourceUrlTemplate": "https://open-vsx.org/vscode/unpkg/{publisher}/{name}/{version}/{path}",
++		"extensionUrlTemplate": "https://open-vsx.org/vscode/gallery/{publisher}/{name}/latest",
+ 		"controlUrl": "",
+ 		"recommendationsUrl": "",
+ 		"nlsBaseUrl": "",
+
+From 126f4c0e5669d669f9a3b4941f6850aaf34fce63 Mon Sep 17 00:00:00 2001
+From: mustard <huiwen@gitpod.io>
+Date: Thu, 19 Jun 2025 18:03:42 +0000
+Subject: [PATCH 15/16] Use upstream build agent
+
+---
+ build/checksums/vscode-sysroot.txt    | 13 +++++++------
+ build/linux/debian/install-sysroot.js |  4 ++--
+ build/linux/debian/install-sysroot.ts |  4 ++--
+ 3 files changed, 11 insertions(+), 10 deletions(-)
+
+diff --git a/build/checksums/vscode-sysroot.txt b/build/checksums/vscode-sysroot.txt
+index 1748c7a37259c..8aba426294021 100644
+--- a/build/checksums/vscode-sysroot.txt
++++ b/build/checksums/vscode-sysroot.txt
+@@ -1,6 +1,7 @@
+-4aa30f61adde7839ca5616e23cb44625a16b4dd77e5ce38df214d8dfbf4d3596  aarch64-linux-gnu-glibc-2.17.tar.gz
+-4a00f87f0d109f66698244cf2bca4c237ff5bb84be4953bd2e624df7d46a4ccb  aarch64-linux-gnu-glibc-2.28.tar.gz
+-76226b2a2be87c1d6cbd60371df30b2794d7c9595794786e1be34318be201948  arm-rpi-linux-gnueabihf-glibc-2.17.tar.gz
+-3625f8b5e36a42615f904fa3c222dcf35e37d4a46c2ea52f81cad36af5d1c07a  arm-rpi-linux-gnueabihf-glibc-2.28.tar.gz
+-2ab8ad5a09270df7562ff79662f07c23d857ca19fa34dbe63999feabf4375bbb  x86_64-linux-gnu-glibc-2.17.tar.gz
+-e655175b6143145f5d5f7d84a894f405e0df597b811a507dced6ead03f773bcb  x86_64-linux-gnu-glibc-2.28.tar.gz
+\ No newline at end of file
++3baac81a39b69e0929e4700f4f78f022adefc515010054ec393565657c4fff32  aarch64-linux-gnu-glibc-2.28-gcc-10.5.0.tar.gz
++b4fb7a62ee7a474cfb11d5fb2b73accd6a8c875a559db81d6dfccd0b4a3da442  aarch64-linux-gnu-glibc-2.28-gcc-8.5.0.tar.gz
++633e88658561ab4643bc5998c88e565a26553b0e97fd07672cb452afb4d9b276  aarch64-linux-musl-gcc-10.3.0.tar.gz
++6e251200607ac4c4709ebd08b2dc0d9a353ddcfdb47f43a10c2b4cc4b49920c0  arm-rpi-linux-gnueabihf-glibc-2.28-gcc-10.5.0.tar.gz
++f82c8dacbb9dd85819e4801909eb4e842ac12c899632aa75b4839383a18c7501  arm-rpi-linux-gnueabihf-glibc-2.28-gcc-8.5.0.tar.gz
++3122af49c493c5c767c2b0772a41119cbdc9803125a705683445b4066dc88b82  x86_64-linux-gnu-glibc-2.28-gcc-10.5.0.tar.gz
++84acc5a15566c98ddf80631731d672e0ce9febcf3f2e969101e0dfd7ef2405e3  x86_64-linux-gnu-glibc-2.28-gcc-8.5.0.tar.gz
+\ No newline at end of file
+diff --git a/build/linux/debian/install-sysroot.js b/build/linux/debian/install-sysroot.js
+index f2e5ce4300e6d..8eddcd966c188 100644
+--- a/build/linux/debian/install-sysroot.js
++++ b/build/linux/debian/install-sysroot.js
+@@ -71,7 +71,7 @@ async function fetchUrl(options, retries = 10, retryDelay = 1000) {
+         const timeout = setTimeout(() => controller.abort(), 30 * 1000);
+         const version = '20250407-330404';
+         try {
+-            const response = await fetch(`https://api.github.com/repos/gitpod-io/vscode-linux-build-agent/releases/tags/v${version}`, {
++            const response = await fetch(`https://api.github.com/repos/microsoft/vscode-linux-build-agent/releases/tags/v${version}`, {
+                 headers: ghApiHeaders,
+                 signal: controller.signal /* Typings issue with lib.dom.d.ts */
+             });
+@@ -80,7 +80,7 @@ async function fetchUrl(options, retries = 10, retryDelay = 1000) {
+                 const contents = Buffer.from(await response.arrayBuffer());
+                 const asset = JSON.parse(contents.toString()).assets.find((a) => a.name === options.assetName);
+                 if (!asset) {
+-                    throw new Error(`Could not find asset in release of gitpod-io/vscode-linux-build-agent @ ${version}`);
++                    throw new Error(`Could not find asset in release of microsoft/vscode-linux-build-agent @ ${version}`);
+                 }
+                 console.log(`Found asset ${options.assetName} @ ${asset.url}.`);
+                 const assetResponse = await fetch(asset.url, {
+diff --git a/build/linux/debian/install-sysroot.ts b/build/linux/debian/install-sysroot.ts
+index 9946dee6e6a4f..d49175adf6e6b 100644
+--- a/build/linux/debian/install-sysroot.ts
++++ b/build/linux/debian/install-sysroot.ts
+@@ -80,7 +80,7 @@ async function fetchUrl(options: IFetchOptions, retries = 10, retryDelay = 1000)
+ 		const timeout = setTimeout(() => controller.abort(), 30 * 1000);
+ 		const version = '20250407-330404';
+ 		try {
+-			const response = await fetch(`https://api.github.com/repos/gitpod-io/vscode-linux-build-agent/releases/tags/v${version}`, {
++			const response = await fetch(`https://api.github.com/repos/microsoft/vscode-linux-build-agent/releases/tags/v${version}`, {
+ 				headers: ghApiHeaders,
+ 				signal: controller.signal as any /* Typings issue with lib.dom.d.ts */
+ 			});
+@@ -89,7 +89,7 @@ async function fetchUrl(options: IFetchOptions, retries = 10, retryDelay = 1000)
+ 				const contents = Buffer.from(await response.arrayBuffer());
+ 				const asset = JSON.parse(contents.toString()).assets.find((a: { name: string }) => a.name === options.assetName);
+ 				if (!asset) {
+-					throw new Error(`Could not find asset in release of gitpod-io/vscode-linux-build-agent @ ${version}`);
++					throw new Error(`Could not find asset in release of microsoft/vscode-linux-build-agent @ ${version}`);
+ 				}
+ 				console.log(`Found asset ${options.assetName} @ ${asset.url}.`);
+ 				const assetResponse = await fetch(asset.url, {
+
+From 190e657e8e0693de860ca1a411c8b4bc2335e101 Mon Sep 17 00:00:00 2001
+From: Huiwen <mhqnwt@gmail.com>
+Date: Mon, 26 May 2025 06:53:25 +0000
+Subject: [PATCH 16/16] Disable extension sign verification
+
+---
+ .../node/extensionManagementService.ts                   | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/src/vs/platform/extensionManagement/node/extensionManagementService.ts b/src/vs/platform/extensionManagement/node/extensionManagementService.ts
+index 0b2e32095b205..a5c459f7fd792 100644
+--- a/src/vs/platform/extensionManagement/node/extensionManagementService.ts
++++ b/src/vs/platform/extensionManagement/node/extensionManagementService.ts
+@@ -337,10 +337,19 @@ export class ExtensionManagementService extends AbstractExtensionManagementServi
+ 		}
+ 	}
+ 
++	private disableSignatureVerification() {
++		return true;
++	}
++
+ 	private async downloadExtension(extension: IGalleryExtension, operation: InstallOperation, verifySignature: boolean, clientTargetPlatform?: TargetPlatform): Promise<{ readonly location: URI; readonly verificationStatus: ExtensionSignatureVerificationCode | undefined }> {
+ 		if (verifySignature) {
+ 			const value = this.configurationService.getValue(VerifyExtensionSignatureConfigKey);
+ 			verifySignature = isBoolean(value) ? value : true;
++
++			if (this.disableSignatureVerification()) {
++				// Note: disable extension signature verification
++				verifySignature = false;
++			}
+ 		}
+ 		const { location, verificationStatus } = await this.extensionsDownloader.download(extension, operation, verifySignature, clientTargetPlatform);
+ 		const shouldRequireSignature = shouldRequireRepositorySignatureFor(extension.private, await this.extensionGalleryManifestService.getExtensionGalleryManifest());

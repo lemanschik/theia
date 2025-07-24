@@ -93,7 +93,7 @@ export class IPCConnectionProvider {
             forkOptions.execArgv = ['--nolazy', `--inspect${inspectArg.substring(inspectArgPrefix.length)}`];
         }
 
-        const childProcess = cp.fork(path.join(__dirname, 'ipc-bootstrap'), options.args, forkOptions);
+        const childProcess = cp.fork(path.join(import.meta.dirname, 'ipc-bootstrap'), options.args, forkOptions);
 
         createInterface(childProcess.stdout!).on('line', line => this.logger.info(`[${options.serverName}: ${childProcess.pid}] ${line}`));
         createInterface(childProcess.stderr!).on('line', line => this.logger.error(`[${options.serverName}: ${childProcess.pid}] ${line}`));

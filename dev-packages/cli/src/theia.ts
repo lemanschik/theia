@@ -106,7 +106,7 @@ function defineCommonOptions<T>(cli: yargs.Argv<T>): yargs.Argv<T & {
 }
 
 async function theiaCli(): Promise<void> {
-    const { version } = await fs.promises.readFile(path.join(__dirname, '../package.json'), 'utf8').then(JSON.parse);
+    const { version } = await fs.promises.readFile(path.join(import.meta.dirname, '../package.json'), 'utf8').then(JSON.parse);
     yargs.scriptName('theia').version(version);
     const projectPath = process.cwd();
     // Create a sub `yargs` parser to read `app-target` without

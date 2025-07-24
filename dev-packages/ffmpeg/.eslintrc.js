@@ -1,10 +1,10 @@
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
     extends: [
-        '../../configs/build.eslintrc.json'
+        '@theia/dev-configs/build.eslintrc.json'
     ],
     parserOptions: {
-        tsconfigRootDir: __dirname,
+        tsconfigRootDir: import.meta.dirname,
         project: 'tsconfig.json'
     }
 };

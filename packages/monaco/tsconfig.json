@@ -1,7 +1,10 @@
 {
-  "extends": "../../configs/base.tsconfig",
+  "extends": "@theia/dev-configs/base.tsconfig",
   "compilerOptions": {
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "composite": true,
+    "module": "esnext",
     "rootDir": "src",
     "outDir": "lib"
   },

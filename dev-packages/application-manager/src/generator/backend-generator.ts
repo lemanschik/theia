@@ -54,7 +54,7 @@ process.env.LC_NUMERIC = 'C';
     (await require('@theia/core/electron-shared/fix-path')).default();
 
     const { resolve } = require('path');
-    const theiaAppProjectPath = resolve(__dirname, '..', '..');
+    const theiaAppProjectPath = resolve(import.meta.dirname, '..', '..');
     process.env.THEIA_APP_PROJECT_PATH = theiaAppProjectPath;
     const { default: electronMainApplicationModule } = require('@theia/core/lib/electron-main/electron-main-application-module');
     const { ElectronMainApplication, ElectronMainApplicationGlobals } = require('@theia/core/lib/electron-main/electron-main-application');
@@ -74,9 +74,9 @@ process.env.LC_NUMERIC = 'C';
     container.load(electronMainApplicationModule);
     container.bind(ElectronMainApplicationGlobals).toConstantValue({
         THEIA_APP_PROJECT_PATH: theiaAppProjectPath,
-        THEIA_BACKEND_MAIN_PATH: resolve(__dirname, 'main.js'),
-        THEIA_FRONTEND_HTML_PATH: resolve(__dirname, '..', '..', 'lib', 'frontend', 'index.html'),
-        THEIA_SECONDARY_WINDOW_HTML_PATH: resolve(__dirname, '..', '..', 'lib', 'frontend', 'secondary-window.html')
+        THEIA_BACKEND_MAIN_PATH: resolve(import.meta.dirname, 'main.js'),
+        THEIA_FRONTEND_HTML_PATH: resolve(import.meta.dirname, '..', '..', 'lib', 'frontend', 'index.html'),
+        THEIA_SECONDARY_WINDOW_HTML_PATH: resolve(import.meta.dirname, '..', '..', 'lib', 'frontend', 'secondary-window.html')
     });
     
     function load(raw) {
@@ -122,7 +122,7 @@ if ('ELECTRON_RUN_AS_NODE' in process.env) {
 }
 
 const path = require('path');
-process.env.THEIA_APP_PROJECT_PATH = path.resolve(__dirname, '..', '..')
+process.env.THEIA_APP_PROJECT_PATH = path.resolve(import.meta.dirname, '..', '..')
 const express = require('@theia/core/shared/express');
 const { Container } = require('@theia/core/shared/inversify');
 const { BackendApplication, BackendApplicationServer, CliManager } = require('@theia/core/lib/node');
@@ -136,7 +136,7 @@ container.load(messagingBackendModule);
 container.load(loggerBackendModule);
 
 function defaultServeStatic(app) {
-    app.use(express.static(path.resolve(__dirname, '../../lib/frontend')))
+    app.use(express.static(path.resolve(import.meta.dirname, '../../lib/frontend')))
 }
 
 function load(raw) {

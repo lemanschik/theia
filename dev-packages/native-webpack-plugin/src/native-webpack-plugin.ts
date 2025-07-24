@@ -193,7 +193,7 @@ async function buildFile(root: string, name: string, content: string): Promise<s
 const ripgrepReplacement = (nativePath: string = '.'): string => `
 const path = require('path');
 
-exports.rgPath = path.join(__dirname, \`./${nativePath}/rg\${process.platform === 'win32' ? '.exe' : ''}\`);
+exports.rgPath = path.join(import.meta.dirname, \`./${nativePath}/rg\${process.platform === 'win32' ? '.exe' : ''}\`);
 `;
 
 const bindingsReplacement = (issuer: string, entries: [string, string][]): string => {

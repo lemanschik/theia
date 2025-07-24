@@ -1,5 +1,6 @@
 {
   "private": true,
+  "type": "module",
   "name": "@theia/re-exports",
   "version": "1.63.0",
   "description": "Theia re-export helper functions and scripts.",

@@ -66,7 +66,7 @@ export class ApplicationPackageManager {
     constructor(options: ApplicationPackageOptions) {
         this.pck = new ApplicationPackage(options);
         this.process = new ApplicationProcess(this.pck, options.projectPath);
-        this.__process = new ApplicationProcess(this.pck, path.join(__dirname, '..'));
+        this.__process = new ApplicationProcess(this.pck, path.join(import.meta.dirname, '..'));
     }
 
     protected async remove(fsPath: string): Promise<void> {

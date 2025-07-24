@@ -202,7 +202,7 @@ export abstract class AbstractPluginHostRPC<PM extends AbstractPluginManagerExtI
                             let backendInitPath = pluginLifecycle.backendInitPath;
                             // if no init path, try to init as regular Theia plugin
                             if (!backendInitPath && self.backendInitPath) {
-                                backendInitPath = __dirname + self.backendInitPath;
+                                backendInitPath = import.meta.dirname + self.backendInitPath;
                             }
 
                             const pluginPath = self.getBackendPluginPath(pluginModel);

@@ -65,7 +65,7 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { MonacoWebpackPlugin } = require('@theia/native-webpack-plugin/lib/monaco-webpack-plugins.js');
 
-const outputPath = path.resolve(__dirname, 'lib', 'frontend');
+const outputPath = path.resolve(import.meta.dirname, 'lib', 'frontend');
 const { mode, staticCompression }  = yargs.option('mode', {
     description: "Mode to use",
     choices: ["development", "production"],
@@ -82,18 +82,18 @@ const plugins = [
         patterns: [
             {
                 // copy secondary window html file to lib folder
-                from: path.resolve(__dirname, 'src-gen/frontend/secondary-window.html')
+                from: path.resolve(import.meta.dirname, 'src-gen/frontend/secondary-window.html')
             }${this.ifPackage('@theia/plugin-ext', `,
             {
                 // copy webview files to lib folder
-                from: path.join(resolvePackagePath('@theia/plugin-ext', __dirname), '..', 'src', 'main', 'browser', 'webview', 'pre'),
-                to: path.resolve(__dirname, 'lib', 'webview', 'pre')
+                from: path.join(resolvePackagePath('@theia/plugin-ext', import.meta.dirname), '..', 'src', 'main', 'browser', 'webview', 'pre'),
+                to: path.resolve(import.meta.dirname, 'lib', 'webview', 'pre')
             }`)}
             ${this.ifPackage('@theia/plugin-ext-vscode', `,
             {
                 // copy frontend plugin host files
-                from: path.join(resolvePackagePath('@theia/plugin-ext-vscode', __dirname), '..', 'lib', 'node', 'context', 'plugin-vscode-init-fe.js'),
-                to: path.resolve(__dirname, 'lib', 'frontend', 'context', 'plugin-vscode-init-fe.js')
+                from: path.join(resolvePackagePath('@theia/plugin-ext-vscode', import.meta.dirname), '..', 'lib', 'node', 'context', 'plugin-vscode-init-fe.js'),
+                to: path.resolve(import.meta.dirname, 'lib', 'frontend', 'context', 'plugin-vscode-init-fe.js')
             }`)}
         ]
     }),
@@ -113,7 +113,7 @@ module.exports = [{
     plugins,
     devtool: 'source-map',
     entry: {
-        bundle: path.resolve(__dirname, 'src-gen/frontend/index.js'),
+        bundle: path.resolve(import.meta.dirname, 'src-gen/frontend/index.js'),
         ${this.ifMonaco(() => "'editor.worker': '@theia/monaco-editor-core/esm/vs/editor/editor.worker.js'")}
     },
     output: {
@@ -250,7 +250,7 @@ module.exports = [{
     ],
     devtool: 'source-map',
     entry: {
-        "secondary-window": path.resolve(__dirname, 'src-gen/frontend/secondary-index.js'),
+        "secondary-window": path.resolve(import.meta.dirname, 'src-gen/frontend/secondary-index.js'),
     },
     output: {
         filename: '[name].js',
@@ -299,7 +299,7 @@ module.exports = [{
     mode,
     devtool: 'source-map',
     entry: {
-        "preload": path.resolve(__dirname, 'src-gen/frontend/preload.js'),
+        "preload": path.resolve(import.meta.dirname, 'src-gen/frontend/preload.js'),
     },
     output: {
         filename: '[name].js',
@@ -351,14 +351,19 @@ const path = require('path');
 const yargs = require('yargs');
 const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
-const NativeWebpackPlugin = require('@theia/native-webpack-plugin');
+const { NativeWebpackPlugin } = require('@theia/native-webpack-plugin/lib/native-webpack-plugin.js');
 const { MonacoWebpackPlugin } = require('@theia/native-webpack-plugin/lib/monaco-webpack-plugins.js');
 
-const { mode } = yargs.option('mode', {
+// Define the possible modes as a constant tuple
+// always export types
+export const modes = /** @type {const} */ (["development", "production", "none", undefined]);
+
+// Derive a type from the modes tuple
+const mode = /** @type {(typeof modes)[number]} */ (yargs.option('mode', {
     description: "Mode to use",
     choices: ["development", "production"],
     default: "production"
-}).argv;
+}.argv.mode);
 
 const production = mode === 'production';
 
@@ -417,7 +422,7 @@ const config = {
     },
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, 'lib', 'backend'),
+        path: path.resolve(import.meta.dirname, 'lib', 'backend'),
         devtoolModuleFilenameTemplate: 'webpack:///[absolute-resource-path]?[loaders]',
     },${this.ifElectron(`
     externals: {

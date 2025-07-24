@@ -31,10 +31,10 @@ describe.skip('basic-example-spec', () => {
                 await new Promise(resolve => app.on('ready', resolve));
             }
 
-            require('../src-gen/backend/main'); // start the express server
+            import('../src-gen/backend/main.js'); // start the express server
 
             mainWindow.webContents.openDevTools();
-            mainWindow.loadURL(`file://${path.join(__dirname, 'index.html')}`);
+            mainWindow.loadURL(`file://${path.join(import.meta.dirname, 'index.html')}`);
 
             expect(mainWindow.isVisible()).to.be.true;
         });

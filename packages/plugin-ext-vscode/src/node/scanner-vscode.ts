@@ -106,7 +106,7 @@ export class VsCodePluginScanner extends TheiaPluginScanner implements PluginSca
             frontendModuleName: buildFrontendModuleName(plugin),
 
             frontendInitPath: 'plugin-vscode-init-fe.js',
-            backendInitPath: path.join(__dirname, 'plugin-vscode-init'),
+            backendInitPath: path.join(import.meta.dirname, 'plugin-vscode-init'),
         };
     }
 

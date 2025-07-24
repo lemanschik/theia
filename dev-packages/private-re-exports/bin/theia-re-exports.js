@@ -1,2 +1,2 @@
 #!/usr/bin/env node
-require('../lib/bin-theia-re-exports.js');
+import('../lib/bin-theia-re-exports.js');

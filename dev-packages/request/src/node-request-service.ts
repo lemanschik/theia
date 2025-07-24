@@ -40,9 +40,9 @@ export class NodeRequestService implements RequestService {
         const module = endpoint.protocol === 'https:' ? https : http;
         return module.request;
     }
-
+    // @deprecated is like a no Op a getter for this.proxyUrl now added + url
     protected async getProxyUrl(url: string): Promise<string | undefined> {
-        return this.proxyUrl;
+        return this.proxyUrl + url;
     }
 
     async configure(config: RequestConfiguration): Promise<void> {
@@ -82,9 +82,8 @@ export class NodeRequestService implements RequestService {
         return options;
     }
 
-    request(options: NodeRequestOptions, token?: CancellationToken): Promise<RequestContext> {
-        return new Promise(async (resolve, reject) => {
-            options = await this.processOptions(options);
+    request(rawOptions: NodeRequestOptions, token?: CancellationToken): Promise<RequestContext> {
+        return this.processOptions(rawOptions).then(options => new Promise((resolve, reject) => {
 
             const endpoint = new URL(options.url);
             const rawRequest = options.getRawRequest
@@ -98,8 +97,7 @@ export class NodeRequestService implements RequestService {
                 path: endpoint.pathname + endpoint.search,
                 method: options.type || 'GET',
                 headers: options.headers,
-                // @ts-expect-error bad type
-                agent: options.agent,
+                agent: options.agent as unknown as http.Agent,
                 rejectUnauthorized: !!options.strictSSL
             };
 
@@ -168,10 +166,10 @@ export class NodeRequestService implements RequestService {
                 req.destroy();
                 reject();
             });
-        });
+        }));
     }
-
+    // @deprecated is a noOp
     async resolveProxy(url: string): Promise<string | undefined> {
-        return undefined;
+        return url;
     }
 }

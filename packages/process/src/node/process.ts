@@ -92,7 +92,7 @@ export abstract class Process implements ManagedProcess {
         @unmanaged() protected readonly options: ProcessOptions | ForkOptions
     ) {
         this.id = this.processManager.register(this);
-        this.initialCwd = options && options.options && 'cwd' in options.options && options.options['cwd'].toString() || __dirname;
+        this.initialCwd = options && options.options && 'cwd' in options.options && options.options['cwd'].toString() || import.meta.dirname;
     }
 
     abstract kill(signal?: string): void;

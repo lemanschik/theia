@@ -19,8 +19,6 @@ import fs from 'fs-extra';
 import cp from 'child_process';
 import { ApplicationPackage } from '@theia/application-package';
 
-
-
 export class ApplicationProcess {
 
     protected readonly defaultOptions = {

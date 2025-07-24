@@ -80,7 +80,7 @@ export function bindCommonHostedBackend(bind: interfaces.Bind): void {
 
     bind(GrammarsReader).toSelf().inSingletonScope();
     bind(HostedPluginProcessConfiguration).toConstantValue({
-        path: path.join(__dirname, 'plugin-host'),
+        path: path.join(import.meta.dirname, 'plugin-host'),
     });
 
     bind(ConnectionContainerModule).toConstantValue(commonHostedConnectionModule);

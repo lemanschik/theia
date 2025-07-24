@@ -32,4 +32,4 @@ const args = process.argv.slice(index + 1);
 const scopedArgs = args.length > 1 ? [args[0], '--scope', ...args.slice(1)] : args;
 process.argv = [...process.argv.slice(0, index + 1), 'run', ...scopedArgs];
 
-require(path.resolve(__dirname, '..', '..', 'scripts', 'lerna'));
+require(path.resolve(import.meta.dirname, '..', '..', 'scripts', 'lerna'));

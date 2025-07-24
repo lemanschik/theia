@@ -15,7 +15,7 @@
 // SPDX-License-Identifier: EPL-2.0 OR GPL-2.0-only WITH Classpath-exception-2.0
 // *****************************************************************************
 
- 
+
 
 import { inject, injectable } from 'inversify';
 import { IRawTheme } from 'vscode-textmate';
@@ -28,23 +28,26 @@ import { MixStandaloneTheme, TextmateRegistryFactory, ThemeMix } from './monaco-
 
 @injectable()
 export class MonacoThemeRegistry {
-
+    static readonly DARK_DEFAULT_THEME = 'dark-theia';
+    static readonly LIGHT_DEFAULT_THEME = 'light-theia';
+    static readonly HC_DEFAULT_THEME = 'hc-theia';
+    static readonly HC_LIGHT_THEME = 'hc-theia-light';
     @inject(TextmateRegistryFactory) protected readonly registryFactory: TextmateRegistryFactory;
 
-    initializeDefaultThemes(): void {
-        this.register(require('../../../data/monaco-themes/vscode/dark_theia.json'), {
-            './dark_vs.json': require('../../../data/monaco-themes/vscode/dark_vs.json'),
-            './dark_plus.json': require('../../../data/monaco-themes/vscode/dark_plus.json')
+    async initializeDefaultThemes(): Promise<void> {
+        this.register(await import('../../../data/monaco-themes/vscode/dark_theia.json', { with: { type: "json" } }), {
+            './dark_vs.json': await import('../../../data/monaco-themes/vscode/dark_vs.json', { with: { type: "json" } }),
+            './dark_plus.json': await import('../../../data/monaco-themes/vscode/dark_plus.json', { with: { type: "json" } })
         }, 'dark-theia', 'vs-dark');
-        this.register(require('../../../data/monaco-themes/vscode/light_theia.json'), {
-            './light_vs.json': require('../../../data/monaco-themes/vscode/light_vs.json'),
-            './light_plus.json': require('../../../data/monaco-themes/vscode/light_plus.json'),
+        this.register(await import('../../../data/monaco-themes/vscode/light_theia.json', { with: { type: "json" } }), {
+            './light_vs.json': await import('../../../data/monaco-themes/vscode/light_vs.json', { with: { type: "json" } }),
+            './light_plus.json': await import('../../../data/monaco-themes/vscode/light_plus.json', { with: { type: "json" } }),
         }, 'light-theia', 'vs');
-        this.register(require('../../../data/monaco-themes/vscode/hc_theia.json'), {
-            './hc_black.json': require('../../../data/monaco-themes/vscode/hc_black.json')
+        this.register(await import('../../../data/monaco-themes/vscode/hc_theia.json', { with: { type: "json" } }), {
+            './hc_black.json': await import('../../../data/monaco-themes/vscode/hc_black.json', { with: { type: "json" } })
         }, 'hc-theia', 'hc-black');
-        this.register(require('../../../data/monaco-themes/vscode/hc_theia_light.json'), {
-            './hc_light.json': require('../../../data/monaco-themes/vscode/hc_light.json')
+        this.register(await import('../../../data/monaco-themes/vscode/hc_theia_light.json', { with: { type: "json" } }), {
+            './hc_light.json': await import('../../../data/monaco-themes/vscode/hc_light.json', { with: { type: "json" } })
         }, 'hc-theia-light', 'hc-light');
     }
 
@@ -158,7 +161,7 @@ export class MonacoThemeRegistry {
         if (!color) {
             return undefined;
         }
-        const normalized = String(color).replace(/^\#/, '').slice(0, 6);
+        const normalized = String(color).replace(/^#/, '').slice(0, 6);
         if (normalized.length < 6 || !(normalized).match(/^[0-9A-Fa-f]{6}$/)) {
             // ignoring not normalized colors to avoid breaking token color indexes between monaco and vscode-textmate
             console.error(`Color '${normalized}' is NOT normalized, it must have 6 positions.`);
@@ -166,11 +169,4 @@ export class MonacoThemeRegistry {
         }
         return '#' + normalized;
     }
-}
-
-export namespace MonacoThemeRegistry {
-    export const DARK_DEFAULT_THEME = 'dark-theia';
-    export const LIGHT_DEFAULT_THEME = 'light-theia';
-    export const HC_DEFAULT_THEME = 'hc-theia';
-    export const HC_LIGHT_THEME = 'hc-theia-light';
 }
